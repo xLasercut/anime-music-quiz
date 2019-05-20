@@ -8,25 +8,23 @@
       </ul>
     </div>
     <div>
-      <input v-model="message" @keydown.enter="sendMSg()">
-      <button @click="sendMSg()">Send</button>
+      <el-input v-model="message" @keydown.enter.native="sendMsg()"></el-input>
+      <button @click="sendMsg()">Send</button>
     </div>
   </div>
 </template>
 
 <script>
-  import io from 'socket.io-client'
-
   export default {
     data() {
       return {
         message: '',
         messages: [],
-        socket: io('localhost:3001')
+        socket: this.$store.state.socket
       }
     },
     methods: {
-      sendMSg() {
+      sendMsg() {
         if (this.message) {
           this.socket.emit('SEND_MESSAGE', {
             user: this.$store.state.username,

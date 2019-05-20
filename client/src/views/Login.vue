@@ -1,19 +1,28 @@
 <template>
   <el-main>
     <el-row>
-      <h1>Choose Username</h1>
+      <h1>Login</h1>
     </el-row>
     <el-row type="flex" justify="center">
       <el-col :span="10">
-        <el-input
-          v-model="username" :minlength="1" :maxlength="20"
-          :clearable="true"
-        ></el-input>
-      </el-col>
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <el-button type="primary" @click="setName()">Set Username</el-button>
+        <el-form ref="loginForm" :model="form" :rules="validationRules">
+          <el-form-item label="Username" prop="username">
+            <el-input
+              v-model.trim="form.username"
+              minlength="1" maxlength="20"
+              :clearable="true"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="Server URL" prop="server">
+            <el-input
+              v-model.trim="form.server"
+              :clearable="true"
+            ></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="login()">Login</el-button>
+          </el-form-item>
+        </el-form>
       </el-col>
     </el-row>
   </el-main>
@@ -23,25 +32,45 @@
   export default {
     data() {
       return {
-        username: ''
+        form: {
+          username: '',
+          server: ''
+        },
+        validationRules: {
+          username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],
+          server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ]
+        }
       }
     },
     methods: {
-      setName() {
-        if (this.validateName()) {
-          this.$store.commit('setName', this.username)
-          this.$router.push({name: 'home'})
+      login() {
+        this.$refs['loginForm'].validate((valid) => {
+          if (valid) {
+            this.$store.commit('login', this.form)
+            this.$router.push({name: 'home'})
+          }
+        })
+      },
+      validateName(rule, val, callback) {
+        if (!val) {
+          callback(new Error('Username cannot be blank'))
+        }
+        else {
+          callback()
         }
       },
-      validateName() {
-        if (!this.username) {
-          this.$message({
-            message: 'Username cannot be blank',
-            type: 'error'
-          })
-          return false
+      validateServer(rule, val, callback) {
+        var regex = new RegExp('^(http|https):\/\/', 'i')
+
+        if (!val) {
+          callback(new Error('Server URL cannot be blank'))
         }
-        return true
+        else if (!regex.exec(val)) {
+          callback(new Error('Please input full server url'))
+        }
+        else {
+          callback()
+        }
       }
     }
   }
@@ -49,7 +78,5 @@
 </script>
 
 <style scoped>
-  .el-row {
-    margin: 20px;
-  }
+
 </style>

@@ -14,7 +14,7 @@
       }
     },
     mounted() {
-      if (!this.$store.state.username) {
+      if (!this.$store.getters.validState) {
         this.$router.push('/')
       }
     }
