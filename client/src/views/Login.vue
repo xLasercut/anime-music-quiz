@@ -34,7 +34,7 @@
       return {
         form: {
           username: '',
-          server: 'http://localhost:3001'
+          server: ''
         },
         validationRules: {
           username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],

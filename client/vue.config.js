@@ -1,6 +1,9 @@
 var publicPath = '/'
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'ghpages') {
+  publicPath = '/anime-music-quiz/'
+}
+else if (process.env.NODE_ENV === 'production') {
   publicPath = './'
 }
 
