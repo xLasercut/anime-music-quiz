@@ -10,10 +10,6 @@ class PlayerManager {
   removePlayer(id) {
     delete this.players[id]
   }
-
-  getPlayersList() {
-    return this.players
-  }
 }
 
 module.exports = new PlayerManager()
