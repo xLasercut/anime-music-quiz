@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     username: '',
-    socket: ''
+    socket: '',
+    animeList: []
   },
   getters: {
     validState(state) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
       state.username = data.username
       state.socket = io(data.server)
       state.socket.emit('LOGIN', state.username)
+    },
+    updateAnimeList(state, data) {
+      state.animeList = data
     }
   },
   actions: {

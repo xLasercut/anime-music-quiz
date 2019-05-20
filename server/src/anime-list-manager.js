@@ -20,9 +20,14 @@ class AnimeListManager {
   }
 
   initialiseTitleList() {
+    var addedTitles = []
+
     for (var anime of this.completeList) {
-      if (!this.titleList.includes(anime.source)) {
-        this.titleList.push(anime.source)
+      if (!addedTitles.includes(anime.source)) {
+        addedTitles.push(anime.source)
+        this.titleList.push({
+          value: anime.source
+        })
       }
     }
     console.log(this.titleList)
