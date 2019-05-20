@@ -14,12 +14,13 @@ io.on('connection', function(socket) {
     var playersList = playerManager.getPlayersList()
     io.emit('MESSAGE', { message: `${playersList[socket.id]} has left the room` })
     playerManager.removePlayer(socket.id)
+    io.emit('UPDATE_PLAYERS_LIST', playerManager.getPlayersList())
   })
 
   socket.on('LOGIN', function(user) {
     playerManager.addPlayer(user, socket.id)
     io.emit('MESSAGE', { message: `${user} has joined the room` })
-    socket.emit('PLAYER_ID', socket.id)
+    io.emit('UPDATE_PLAYERS_LIST', playerManager.getPlayersList())
   })
 
   socket.on('SEND_MESSAGE', function(data) {

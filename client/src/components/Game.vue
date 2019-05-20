@@ -1,6 +1,6 @@
 <template>
   <div class="game-container">
-    google
+    {{players}}
   </div>
 </template>
 
@@ -9,11 +9,13 @@
     data() {
       return {
         socket: this.$store.state.socket,
-        players: []
+        players: {}
       }
     },
     mounted() {
-
+      this.socket.on('UPDATE_PLAYERS_LIST', (data) => {
+        this.players = data
+      })
     }
   }
 </script>

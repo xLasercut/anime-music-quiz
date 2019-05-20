@@ -2,6 +2,7 @@
   "name": "anime-music-quiz-server",
   "version": "0.0.1",
   "description": "Server for anime music quiz game",
+  "repository": "https://github.com/xLasercut/anime-music-quiz",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,6 +10,7 @@
   "author": "xLasercut",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.17.0",
     "socket.io": "^2.2.0"
   }
