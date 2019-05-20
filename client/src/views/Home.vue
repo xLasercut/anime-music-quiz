@@ -1,7 +1,10 @@
 <template>
-  <el-main>
+  <div class="main-container">
+    <div class="game-container">
+
+    </div>
     <chat></chat>
-  </el-main>
+  </div>
 </template>
 
 <script>
@@ -20,3 +23,17 @@
     }
   }
 </script>
+
+<style scoped>
+  .main-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .game-container {
+    background: green;
+    height: 100%;
+    width: calc(100% - 420px);
+    float: left;
+  }
+</style>
