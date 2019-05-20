@@ -10,14 +10,24 @@
   import Game from '../components/Game.vue'
 
   export default {
-    components: { Chat, Game },
+    components: {
+      Chat,
+      Game
+    },
     data() {
       return {
+        socket: this.$store.state.socket
       }
     },
     mounted() {
       if (!this.$store.getters.validState) {
         this.$router.push('/')
+      }
+
+      if (this.socket) {
+        this.socket.on('PLAYER_DETAILS', () => {
+          this.socket.emit('LOGIN', this.$store.state.username)
+        })
       }
     }
   }

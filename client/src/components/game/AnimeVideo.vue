@@ -1,14 +1,21 @@
 <template>
   <div class="video-container">
-    <div class="name-container" v-if="answer">{{anime.source}}</div>
+    <div class="name-container" v-if="answer || answerToggle">{{anime.source}}</div>
     <div class="player-container">
-      <audio ref="player" controls autoplay>
+      <audio
+        ref="player"
+        @loadeddata="sendLoadedSignal()"
+        controls autoplay
+      >
         <source :src="`https://openings.moe/video/${anime.file}.mp4`">
         Your browser does not support audio element
       </audio>
     </div>
     <div v-if="showTimer">
       {{time}}
+    </div>
+    <div>
+      <el-button @click="toggle()">Toggle Answer</el-button>
     </div>
   </div>
 </template>
@@ -26,20 +33,21 @@ import { setInterval, clearInterval } from 'timers';
     },
     data() {
       return {
-        time: 10,
+        time: 30,
         countdown: null,
-        showTimer: false
+        showTimer: false,
+        answerToggle: false,
+        socket: this.$store.state.socket
       }
     },
     watch: {
       anime(val) {
         this.$refs.player.load()
-        this.startCountdown()
       }
     },
     methods: {
       startCountdown() {
-        this.time = 10
+        this.time = 30
         this.showTimer = true
         this.countdown = setInterval(() => {
           this.time -= 1
@@ -48,6 +56,19 @@ import { setInterval, clearInterval } from 'timers';
             this.showTimer = false
           }
         }, 1000)
+      },
+      toggle() {
+        this.answerToggle = !this.answerToggle
+      },
+      sendLoadedSignal() {
+        this.socket.emit('AUDIO_LOADED')
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.socket.on('START_COUNTDOWN', () => {
+          this.startCountdown()
+        })
       }
     }
   }

@@ -29,12 +29,17 @@
 </template>
 
 <script>
+  var default_server = ''
+  if (process.env.NODE_ENV === 'development') {
+    default_server = 'http://localhost:3001'
+  }
+
   export default {
     data() {
       return {
         form: {
           username: '',
-          server: ''
+          server: default_server
         },
         validationRules: {
           username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],

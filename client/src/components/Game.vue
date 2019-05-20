@@ -32,24 +32,26 @@
       }
     },
     mounted() {
-      this.socket.on('UPDATE_PLAYERS_LIST', (data) => {
-        this.players = data
-      })
+      if (this.socket) {
+        this.socket.on('UPDATE_PLAYERS_LIST', (data) => {
+          this.players = data
+        })
 
-      this.socket.on('UPDATE_ANIME_LIST', (data) => {
-        this.$store.commit('updateAnimeList', data)
-      })
+        this.socket.on('UPDATE_ANIME_LIST', (data) => {
+          this.$store.commit('updateAnimeList', data)
+        })
 
-      this.socket.on('PLAY_SONG', (data) => {
-        this.answer = false
-        this.guess = ''
-        this.anime = data
-      })
+        this.socket.on('PLAY_SONG', (data) => {
+          this.answer = false
+          this.guess = ''
+          this.anime = data
+        })
 
-      this.socket.on('COLLECT_RESULT', () => {
-        this.socket.emit('GUESS', this.guess)
-        this.answer = true
-      })
+        this.socket.on('COLLECT_RESULT', () => {
+          this.socket.emit('GUESS', this.guess)
+          this.answer = true
+        })
+      }
     }
   }
 </script>

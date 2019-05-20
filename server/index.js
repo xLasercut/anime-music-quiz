@@ -10,7 +10,9 @@ var playerManager = require('./src/player-manager.js')
 var animeListManager = require('./src/anime-list-manager.js')
 
 io.on('connection', function(socket) {
-  console.log(socket.id)
+  console.log(`new connection made: ${socket.id}`)
+  socket.emit('PLAYER_DETAILS')
+
   socket.on('disconnect', function () {
     var playersList = playerManager.players
     io.emit('MESSAGE', { message: `${playersList[socket.id]} has left the room` })
@@ -33,7 +35,7 @@ io.on('connection', function(socket) {
     io.emit('PLAY_SONG', animeListManager.getAnime())
     setTimeout(() => {
       io.emit('COLLECT_RESULT')
-    }, 10000)
+    }, 30000)
   })
 
   socket.on('GUESS', function(guess) {
@@ -41,5 +43,13 @@ io.on('connection', function(socket) {
       playerManager.addPoint(socket.id)
     }
     io.emit('UPDATE_PLAYERS_LIST', playerManager.players)
+  })
+
+  socket.on('AUDIO_LOADED', () => {
+    playerManager.setPlayerLoadStatus(socket.id, true)
+    if (playerManager.allPlayerReady()) {
+      io.emit('START_COUNTDOWN')
+      playerManager.setPlayerLoadStatus(socket.id, false)
+    }
   })
 })
