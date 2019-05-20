@@ -1,6 +1,6 @@
 <template>
   <div class="game-container">
-    <anime-video v-model="anime"></anime-video>
+    <anime-video :anime="anime" :answer="answer"></anime-video>
     <guess-input v-model="guess"></guess-input>
     <players v-model="players" @start="start()"></players>
   </div>
@@ -22,7 +22,8 @@
         socket: this.$store.state.socket,
         players: {},
         anime: {},
-        guess: ''
+        guess: '',
+        answer: false
       }
     },
     methods: {
@@ -40,12 +41,14 @@
       })
 
       this.socket.on('PLAY_SONG', (data) => {
+        this.answer = false
         this.guess = ''
         this.anime = data
       })
 
       this.socket.on('COLLECT_RESULT', () => {
         this.socket.emit('GUESS', this.guess)
+        this.answer = true
       })
     }
   }
