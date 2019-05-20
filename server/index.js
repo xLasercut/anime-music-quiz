@@ -28,4 +28,18 @@ io.on('connection', function(socket) {
   socket.on('SEND_MESSAGE', function(data) {
     io.emit('MESSAGE', data)
   })
+
+  socket.on('START_GAME', function(settings) {
+    io.emit('PLAY_SONG', animeListManager.getAnime())
+    setTimeout(() => {
+      io.emit('COLLECT_RESULT')
+    }, 10000)
+  })
+
+  socket.on('GUESS', function(guess) {
+    if (animeListManager.guessResult(guess)) {
+      playerManager.addPoint(socket.id)
+    }
+    io.emit('UPDATE_PLAYERS_LIST', playerManager.players)
+  })
 })

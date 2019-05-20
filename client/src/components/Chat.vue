@@ -65,6 +65,7 @@
     height: calc(100% - 20px);
     float: left;
     padding: 10px;
+    background: #E4E7ED;
   }
 
   .message-container {

@@ -5,6 +5,7 @@ class AnimeListManager {
     this.completeList = []
     this.titleList = []
     this.initialiseList()
+    this.currentAnime = {}
   }
 
   initialiseList() {
@@ -31,6 +32,19 @@ class AnimeListManager {
       }
     }
     console.log(this.titleList)
+  }
+
+  getAnime() {
+    var index = Math.floor(Math.random() * this.completeList.length)
+    this.currentAnime = this.completeList[index]
+    return this.currentAnime
+  }
+
+  guessResult(guess) {
+    if (guess === this.currentAnime.source) {
+      return true
+    }
+    return false
   }
 }
 
