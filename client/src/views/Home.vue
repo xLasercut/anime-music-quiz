@@ -1,17 +1,16 @@
 <template>
   <div class="main-container">
-    <div class="game-container">
-
-    </div>
+    <game></game>
     <chat></chat>
   </div>
 </template>
 
 <script>
   import Chat from '../components/Chat.vue'
+  import Game from '../components/Game.vue'
 
   export default {
-    components: { Chat },
+    components: { Chat, Game },
     data() {
       return {
       }
@@ -28,12 +27,5 @@
   .main-container {
     height: 100%;
     width: 100%;
-  }
-
-  .game-container {
-    background: green;
-    height: 100%;
-    width: calc(100% - 420px);
-    float: left;
   }
 </style>

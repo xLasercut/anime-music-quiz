@@ -3,7 +3,7 @@
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">
-          <b>{{message.user}}</b>: {{message.message}}
+          <b v-if="message.user">{{message.user}}: </b>{{message.message}}
         </li>
       </ul>
     </div>
@@ -47,12 +47,14 @@
       }
     },
     mounted() {
-      this.socket.on('MESSAGE', (data) => {
-        this.addMessage(data)
-        this.$nextTick(() => {
-          this.scrollChat()
+      if (this.$store.getters.validState) {
+        this.socket.on('MESSAGE', (data) => {
+          this.addMessage(data)
+          this.$nextTick(() => {
+            this.scrollChat()
+          })
         })
-      })
+      }
     }
   }
 </script>

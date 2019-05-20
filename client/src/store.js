@@ -21,6 +21,7 @@ export default new Vuex.Store({
     login(state, data) {
       state.username = data.username
       state.socket = io(data.server)
+      state.socket.emit('LOGIN', state.username)
     }
   },
   actions: {
