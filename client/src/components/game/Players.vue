@@ -8,9 +8,6 @@
         <span>Score: </span>{{player.score}}
       </div>
     </div>
-    <div>
-      <el-button @click="$emit('start')">Start</el-button>
-    </div>
   </div>
 </template>
 

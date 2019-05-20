@@ -1,8 +1,8 @@
 <template>
   <div class="game-container">
-    <anime-video :anime="anime" :answer="answer"></anime-video>
+    <anime-video :anime="anime" :answer="answer"  @start="start()"></anime-video>
     <guess-input v-model="guess"></guess-input>
-    <players v-model="players" @start="start()"></players>
+    <players v-model="players"></players>
   </div>
 </template>
 

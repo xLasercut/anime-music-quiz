@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     username: '',
-    socket: '',
+    socket: null,
     animeList: []
   },
   getters: {

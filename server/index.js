@@ -15,7 +15,7 @@ io.on('connection', function(socket) {
 
   socket.on('disconnect', function () {
     var playersList = playerManager.players
-    io.emit('MESSAGE', { message: `${playersList[socket.id]} has left the room` })
+    io.emit('MESSAGE', { message: `${playersList[socket.id]['username']} has left the room` })
     playerManager.removePlayer(socket.id)
     io.emit('UPDATE_PLAYERS_LIST', playerManager.players)
   })
