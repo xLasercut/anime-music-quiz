@@ -3,15 +3,14 @@ class PlayerManager {
     this.players = {}
   }
 
-  addPlayer(username, id) {
-    if (!(id in this.players)) {
-      this.players[id] = {
-        score: 0,
-        username: '',
-        loaded: false
-      }
+  addPlayer(player, id) {
+    this.players[id] = {
+      score: 0,
+      username: player.username,
+      loaded: false,
+      avatar: player.avatar,
+      guess: ''
     }
-    this.players[id]['username'] = username
   }
 
   removePlayer(id) {

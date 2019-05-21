@@ -25,8 +25,12 @@
       }
 
       if (this.socket) {
-        this.socket.on('PLAYER_DETAILS', () => {
-          this.socket.emit('LOGIN', this.$store.state.username)
+        this.socket.on('REQUEST_PLAYER_DETAILS', () => {
+          this.socket.emit('LOGIN', this.$store.getters.playerData)
+        })
+
+        this.socket.on('UPDATE_ANIME_LIST', (data) => {
+          this.$store.commit('updateAnimeList', data)
         })
       }
     }

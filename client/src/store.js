@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     username: '',
     socket: null,
-    animeList: []
+    animeList: [],
+    avatar: 0
   },
   getters: {
     validState(state) {
@@ -16,11 +17,18 @@ export default new Vuex.Store({
         return true
       }
       return false
+    },
+    playerData(state) {
+      return {
+        username: state.username,
+        avatar: state.avatar
+      }
     }
   },
   mutations: {
     login(state, data) {
       state.username = data.username
+      state.avatar = data.avatar
       state.socket = io(data.server)
     },
     updateAnimeList(state, data) {

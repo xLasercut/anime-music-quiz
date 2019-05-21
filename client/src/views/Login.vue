@@ -3,9 +3,9 @@
     <el-row>
       <h1>Login</h1>
     </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="10">
-        <el-form ref="loginForm" :model="form" :rules="validationRules">
+    <el-form ref="loginForm" :model="form" :rules="validationRules">
+      <el-row type="flex" justify="center">
+        <el-col :span="10">
           <el-form-item label="Username" prop="username">
             <el-input
               v-model.trim="form.username"
@@ -19,12 +19,31 @@
               :clearable="true"
             ></el-input>
           </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row type="flex" justify="center">
+        <el-col :span="20">
+          <el-form-item>
+            <el-radio-group v-model="form.avatar">
+              <el-radio-button
+                v-for="(avatar, index) in avatars"
+                :key="`avatar_${index}`"
+                :label="avatar"
+              >
+                <img :src="`img/avatar/${avatar}.png`">
+              </el-radio-button>
+            </el-radio-group>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row type="flex" justify="center">
+        <el-col :span="10">
           <el-form-item>
             <el-button type="primary" @click="login()">Login</el-button>
           </el-form-item>
-        </el-form>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </el-form>
   </el-main>
 </template>
 
@@ -34,17 +53,21 @@
     default_server = 'http://localhost:3001'
   }
 
+  const avatars = ['0', '1', '2', '3']
+
   export default {
     data() {
       return {
         form: {
           username: '',
-          server: default_server
+          server: default_server,
+          avatar: '0'
         },
         validationRules: {
           username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],
           server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ]
-        }
+        },
+        avatars: avatars
       }
     },
     methods: {

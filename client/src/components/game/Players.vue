@@ -4,6 +4,9 @@
       <div class="player-name">
         {{player.username}}
       </div>
+      <div class="player-avatar">
+        <img :src="`img/avatar/${player.avatar}.png`">
+      </div>
       <div class="player-score">
         <span>Score: </span>{{player.score}}
       </div>
@@ -13,22 +16,22 @@
 
 <script>
   export default {
-    props: {
-      value: {
-        type: Object
-      }
-    },
-    watch: {
-      value(val) {
-        this.players = val
-      },
-      players(val) {
-        this.$emit('input', val)
-      }
-    },
     data() {
       return {
-        players: this.value
+        players: {},
+        socket: this.$store.state.socket
+      }
+    },
+    methods: {
+      avatar(file) {
+        return "../../assets/avatar/" + `${file}.png`
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.socket.on('UPDATE_PLAYERS', (data) => {
+          this.players = data
+        })
       }
     }
   }
@@ -44,8 +47,7 @@
 
   .player-card {
     border: 1px solid #E4E7ED;
-    width: 200px;
-    height: 300px;
+    width: 150px;
     float: left;
     margin: 20px;
   }
@@ -54,7 +56,6 @@
     padding: 10px;
     font-size: 16pt;
     width: calc(100% - 20px);
-    background: #E4E7ED;
     float: left;
   }
 

@@ -18,7 +18,7 @@
       <el-button @click="toggle()">Toggle Answer</el-button>
     </div>
     <div>
-      <el-button v-show="startButton" @click="$emit('start')">Start</el-button>
+      <el-button v-show="startButton" @click="start()">Start</el-button>
     </div>
   </div>
 </template>
@@ -26,14 +26,6 @@
 <script>
 import { setInterval, clearInterval } from 'timers';
   export default {
-    props: {
-      anime: {
-        type: Object
-      },
-      answer: {
-        type: Boolean
-      }
-    },
     data() {
       return {
         time: 30,
@@ -41,7 +33,9 @@ import { setInterval, clearInterval } from 'timers';
         showTimer: false,
         answerToggle: false,
         socket: this.$store.state.socket,
-        startButton: true
+        startButton: true,
+        anime: {},
+        answer: false
       }
     },
     methods: {
@@ -63,20 +57,25 @@ import { setInterval, clearInterval } from 'timers';
       sendLoadedSignal() {
         this.socket.emit('AUDIO_LOADED')
         this.startButton = false
+      },
+      start() {
+        this.socket.emit('START_GAME', 'test')
       }
     },
     mounted() {
       if (this.socket) {
+        this.socket.on('NEW_SONG', (data) => {
+          this.anime = data
+          this.$refs.player.load()
+        })
+
         this.socket.on('START_COUNTDOWN', () => {
           this.startCountdown()
         })
 
-        this.socket.on('PLAY_SONG', (data) => {
-          this.$refs.player.load()
-        })
-
-        this.socket.on('COLLECT_RESULT', () => {
+        this.socket.on('TIME_UP', () => {
           this.startButton = true
+          this.answer = true
         })
       }
     }

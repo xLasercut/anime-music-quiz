@@ -13,22 +13,10 @@
 
 <script>
   export default {
-    props: {
-      value: {
-        type: String
-      }
-    },
     data() {
       return {
-        guess: this.value
-      }
-    },
-    watch: {
-      value(val) {
-        this.guess = val
-      },
-      guess(val) {
-        this.$emit('input', val)
+        guess: '',
+        socket: this.$store.state.socket
       }
     },
     methods: {
@@ -39,6 +27,17 @@
           }
         })
         callback(results)
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.socket.on('NEW_SONG', (_data) => {
+          this.guess = ''
+        })
+
+        this.socket.on('TIME_UP', () => {
+          this.socket.emit('GUESS', this.guess)
+        })
       }
     }
   }

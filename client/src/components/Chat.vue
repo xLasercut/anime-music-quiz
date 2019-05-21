@@ -47,7 +47,7 @@
       }
     },
     mounted() {
-      if (this.$store.getters.validState) {
+      if (this.socket) {
         this.socket.on('MESSAGE', (data) => {
           this.addMessage(data)
           this.$nextTick(() => {
