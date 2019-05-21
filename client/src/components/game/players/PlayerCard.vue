@@ -1,6 +1,6 @@
 <template>
   <el-popover placement="top" v-model="showGuess">
-    {{guess || '...'}}
+    {{playerGuess}}
     <el-card class="player-card" slot="reference">
       <span class="player-name">
         {{name}}
@@ -35,6 +35,7 @@ import { setTimeout } from 'timers';
     },
     watch: {
       guess(val) {
+        console.log(val)
         this.showGuess = true
         setTimeout(() => {
           this.showGuess = false
@@ -44,6 +45,14 @@ import { setTimeout } from 'timers';
     data() {
       return {
         showGuess: false
+      }
+    },
+    computed: {
+      playerGuess() {
+        if (!this.guess) {
+          return '...'
+        }
+        return this.guess
       }
     }
   }
