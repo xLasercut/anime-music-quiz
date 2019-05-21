@@ -1,7 +1,8 @@
 <template>
   <div class="game-container">
-    <anime-video></anime-video>
+    <anime-video :toggle="toggle"></anime-video>
     <guess-input></guess-input>
+    <game-control @toggle="toggleAnswer()"></game-control>
     <players></players>
   </div>
 </template>
@@ -10,12 +11,24 @@
   import GuessInput from './game/GuessInput.vue'
   import Players from './game/Players.vue'
   import AnimeVideo from './game/AnimeVideo.vue'
+  import GameControl from './game/GameControl.vue'
 
   export default {
     components: {
       GuessInput,
       Players,
-      AnimeVideo
+      AnimeVideo,
+      GameControl
+    },
+    data() {
+      return {
+        toggle: false
+      }
+    },
+    methods: {
+      toggleAnswer() {
+        this.toggle = !this.toggle
+      }
     }
   }
 </script>

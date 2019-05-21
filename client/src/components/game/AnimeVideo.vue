@@ -1,81 +1,50 @@
 <template>
-  <div class="video-container">
-    <div class="name-container" v-if="answer || answerToggle">{{anime.source}}</div>
+  <div class="video-container" v-loading="loading">
     <div class="player-container">
-      <audio
-        ref="player"
-        @loadeddata="sendLoadedSignal()"
-        controls
-      >
+      <audio ref="player" @loadeddata="sendLoadedSignal()">
         <source :src="`https://openings.moe/video/${anime.file}.mp4`" v-if="anime.file">
         Your browser does not support audio element
       </audio>
     </div>
-    <div v-if="showTimer">
-      {{time}}
-    </div>
-    <div>
-      <el-button @click="toggle()">Toggle Answer</el-button>
-    </div>
-    <div>
-      <el-button v-show="startButton" @click="start()">Start</el-button>
-    </div>
+    <answer :name="anime.source" :toggle="toggle"></answer>
+    <countdown></countdown>
   </div>
 </template>
 
 <script>
-import { setInterval, clearInterval } from 'timers';
+  import Countdown from './anime-video/Countdown.vue'
+  import Answer from './anime-video/Answer.vue'
+
   export default {
+    props: {
+      toggle: {
+        type: Boolean
+      }
+    },
+    components: { Countdown, Answer },
     data() {
       return {
-        time: 30,
-        countdown: null,
-        showTimer: false,
-        answerToggle: false,
         socket: this.$store.state.socket,
-        startButton: true,
         anime: {},
-        answer: false
+        loading: false
       }
     },
     methods: {
-      startCountdown() {
-        this.$refs.player.play()
-        this.time = 30
-        this.showTimer = true
-        this.countdown = setInterval(() => {
-          this.time -= 1
-          if (this.time <= 0) {
-            clearInterval(this.countdown)
-            this.showTimer = false
-          }
-        }, 1000)
-      },
-      toggle() {
-        this.answerToggle = !this.answerToggle
-      },
       sendLoadedSignal() {
         this.socket.emit('AUDIO_LOADED')
-        this.startButton = false
-      },
-      start() {
-        this.socket.emit('START_GAME', 'test')
       }
     },
     mounted() {
       if (this.socket) {
         this.socket.on('NEW_SONG', (data) => {
           this.anime = data
+          this.loading = true
           this.$refs.player.load()
         })
 
         this.socket.on('START_COUNTDOWN', () => {
-          this.startCountdown()
-        })
-
-        this.socket.on('TIME_UP', () => {
-          this.startButton = true
-          this.answer = true
+          this.loading = false
+          this.$refs.player.play()
         })
       }
     }
@@ -88,4 +57,6 @@ import { setInterval, clearInterval } from 'timers';
     height: 200px;
     padding: 10px;
   }
+
+
 </style>

@@ -31,6 +31,10 @@ class PlayerManager {
     this.players[id]['loaded'] = status
   }
 
+  setGuess(id, guess) {
+    this.players[id]['guess'] = guess
+  }
+
   allPlayerReady() {
     var ready = true
     for (var key in this.players) {

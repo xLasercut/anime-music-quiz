@@ -1,21 +1,20 @@
 <template>
   <div class="player-container">
-    <div class="player-card" v-for="(player, key) in players" :key="`${key}`">
-      <div class="player-name">
-        {{player.username}}
-      </div>
-      <div class="player-avatar">
-        <img :src="`img/avatar/${player.avatar}.png`">
-      </div>
-      <div class="player-score">
-        <span>Score: </span>{{player.score}}
-      </div>
-    </div>
+    <el-row type="flex" justify="center">
+      <player-card
+        v-for="(player, key) in players" :key="`${key}`"
+        :name="player.username" :avatar="player.avatar"
+        :guess="player.guess" :score="player.score"
+      ></player-card>
+    </el-row>
   </div>
 </template>
 
 <script>
+  import PlayerCard from './players/PlayerCard.vue'
+
   export default {
+    components: { PlayerCard },
     data() {
       return {
         players: {},
@@ -23,8 +22,20 @@
       }
     },
     methods: {
-      avatar(file) {
-        return "../../assets/avatar/" + `${file}.png`
+      formatPlayers() {
+        var n = 0
+        var players = []
+        var row = {}
+        for (var key in this.players) {
+          row[key] = this.players[key]
+          n += 1
+          if (n >= 5 || Object.keys(this.players).length === n ) {
+            players.push(row)
+            n = 0
+            row = {}
+          }
+        }
+        return players
       }
     },
     mounted() {
@@ -41,27 +52,11 @@
   .player-container {
     padding: 10px;
     width: calc(100% - 20px);
-    height: calc(100% - 20px - 150px - 220px);
+    height: calc(100% - 20px - 150px - 320px);
     text-align: center;
   }
 
-  .player-card {
-    border: 1px solid #E4E7ED;
-    width: 150px;
-    float: left;
-    margin: 20px;
-  }
-
-  .player-name {
-    padding: 10px;
-    font-size: 16pt;
-    width: calc(100% - 20px);
-    float: left;
-  }
-
-  .player-score {
-    padding: 10px;
-    width: calc(100% - 20px);
-    float: left;
+  .el-row {
+    margin-top: 40px;
   }
 </style>

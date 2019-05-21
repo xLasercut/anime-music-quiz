@@ -48,6 +48,7 @@ io.on('connection', function(socket) {
   })
 
   socket.on('GUESS', function(guess) {
+    playerManager.setGuess(socket.id, guess)
     if (animeListManager.guessResult(guess)) {
       playerManager.addPoint(socket.id)
     }
