@@ -6,7 +6,7 @@ const server = app.listen(3001, function() {
 })
 
 const io = require('socket.io')(server)
-var playerManager = require('./src/player-manager.js')
+var players = require('./src/players.js')
 var animeListManager = require('./src/anime-list-manager.js')
 
 io.on('connection', function(socket) {
@@ -14,17 +14,16 @@ io.on('connection', function(socket) {
   socket.emit('REQUEST_PLAYER_DETAILS')
 
   socket.on('LOGIN', function(player) {
-    playerManager.addPlayer(player, socket.id)
+    players.addPlayer(player, socket.id)
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })
-    io.emit('UPDATE_PLAYERS', playerManager.players)
+    io.emit('UPDATE_PLAYERS', players.list)
     socket.emit('UPDATE_ANIME_LIST', animeListManager.titleList)
   })
 
   socket.on('disconnect', function () {
-    var playersList = playerManager.players
-    io.emit('MESSAGE', { message: `${playersList[socket.id]['username']} has left the room` })
-    playerManager.removePlayer(socket.id)
-    io.emit('UPDATE_PLAYERS', playerManager.players)
+    io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
+    players.removePlayer(socket.id)
+    io.emit('UPDATE_PLAYERS', players.list)
     console.log(`Disconnected: ${socket.id}`)
   })
 
@@ -37,10 +36,10 @@ io.on('connection', function(socket) {
   })
 
   socket.on('AUDIO_LOADED', () => {
-    playerManager.setPlayerLoadStatus(socket.id, true)
-    if (playerManager.allPlayerReady()) {
+    players.setPlayerLoadStatus(socket.id, true)
+    if (players.allPlayerReady()) {
       io.emit('START_COUNTDOWN')
-      playerManager.setPlayerLoadStatus(socket.id, false)
+      players.setPlayerLoadStatus(socket.id, false)
       setTimeout(() => {
         io.emit('TIME_UP')
       }, 30000)
@@ -48,10 +47,10 @@ io.on('connection', function(socket) {
   })
 
   socket.on('GUESS', function(guess) {
-    playerManager.setGuess(socket.id, guess)
+    players.setGuess(socket.id, guess)
     if (animeListManager.guessResult(guess)) {
-      playerManager.addPoint(socket.id)
+      players.addPoint(socket.id)
     }
-    io.emit('UPDATE_PLAYERS', playerManager.players)
+    io.emit('UPDATE_PLAYERS', players.list)
   })
 })

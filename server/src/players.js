@@ -1,10 +1,10 @@
-class PlayerManager {
+class Players {
   constructor() {
-    this.players = {}
+    this.list = {}
   }
 
   addPlayer(player, id) {
-    this.players[id] = {
+    this.list[id] = {
       score: 0,
       username: player.username,
       loaded: false,
@@ -14,31 +14,31 @@ class PlayerManager {
   }
 
   removePlayer(id) {
-    delete this.players[id]
+    delete this.list[id]
   }
 
   addPoint(id) {
-    this.players[id]['score'] += 1
+    this.list[id]['score'] += 1
   }
 
   resetScore() {
-    for (var key in this.players) {
-      this.players[key]['score'] = 0
+    for (var key in this.list) {
+      this.list[key]['score'] = 0
     }
   }
 
   setPlayerLoadStatus(id, status) {
-    this.players[id]['loaded'] = status
+    this.list[id]['loaded'] = status
   }
 
   setGuess(id, guess) {
-    this.players[id]['guess'] = guess
+    this.list[id]['guess'] = guess
   }
 
   allPlayerReady() {
     var ready = true
-    for (var key in this.players) {
-      if (!this.players[key]['loaded']) {
+    for (var key in this.list) {
+      if (!this.list[key]['loaded']) {
         ready = false
       }
     }
@@ -47,4 +47,4 @@ class PlayerManager {
   }
 }
 
-module.exports = new PlayerManager()
+module.exports = new Players()
