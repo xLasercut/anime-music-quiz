@@ -1,6 +1,6 @@
 <template>
   <el-row type="flex" justify="center" class="input-container">
-    <el-col :span="12">
+    <el-col :span="10">
       <el-autocomplete
         :fetch-suggestions="querySearch"
         v-model="guess"

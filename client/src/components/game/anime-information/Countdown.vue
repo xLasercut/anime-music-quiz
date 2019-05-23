@@ -22,12 +22,13 @@
         time: 30,
         countdown: null,
         socket: this.$store.state.socket,
-        show: false
+        show: false,
+        guessTime: 30
       }
     },
     methods: {
       percentage() {
-        return 100 * (1 - this.time / 30)
+        return 100 * (1 - this.time / this.guessTime)
       },
       color() {
         var percentage = this.percentage()
@@ -42,8 +43,9 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('START_COUNTDOWN', () => {
-          this.time = 30
+        this.socket.on('START_COUNTDOWN', (time) => {
+          this.time = time
+          this.guessTime = time
           this.show = true
           this.countdown = setInterval(() => {
             this.time -= 1
@@ -55,6 +57,7 @@
         })
 
         this.socket.on('TIME_UP', () => {
+          clearInterval(this.countdown)
           this.show = false
         })
       }

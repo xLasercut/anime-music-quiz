@@ -21,7 +21,7 @@
           this.$refs.player.load()
         })
 
-        this.socket.on('START_COUNTDOWN', () => {
+        this.socket.on('START_COUNTDOWN', (_time) => {
           this.$refs.player.play()
         })
 

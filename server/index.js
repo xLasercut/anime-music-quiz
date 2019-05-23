@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const GameState = require('./src/game-state.js')
 
 const server = app.listen(3001, function() {
   console.log('server running on port 3001')
@@ -7,8 +8,10 @@ const server = app.listen(3001, function() {
 
 const io = require('socket.io')(server)
 var players = require('./src/players.js')
-var gameState = require('./src/game-state.js')
+var gameState = new GameState(io)
 var animeListManager = require('./src/anime-list-manager.js')
+
+var timeout = null
 
 io.on('connection', function(socket) {
   console.log(`New connection made: ${socket.id}`)
@@ -19,10 +22,11 @@ io.on('connection', function(socket) {
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })
     io.emit('UPDATE_PLAYERS', players.list)
     socket.emit('UPDATE_ANIME_LIST', animeListManager.titleList)
-    socket.emit('UPDATE_SETTINGS', gameState.settings)
+    socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
+    socket.emit('UPDATE_PLAYING', gameState.playing)
   })
 
-  socket.on('disconnect', function () {
+  socket.on('disconnect', function() {
     io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
     players.removePlayer(socket.id)
     io.emit('UPDATE_PLAYERS', players.list)
@@ -33,27 +37,57 @@ io.on('connection', function(socket) {
     io.emit('MESSAGE', data)
   })
 
-  socket.on('START_GAME', function(settings) {
-    io.emit('NEW_SONG', animeListManager.getAnime())
+  socket.on('START_GAME', function() {
+    gameState.startGame()
+    players.resetScore()
+    var song = animeListManager.getSong()
+    gameState.newSong(song)
   })
 
-  socket.on('SONG_LOADED', () => {
-    players.setPlayerLoadStatus(socket.id, true)
-    if (players.allPlayerReady()) {
-      io.emit('START_COUNTDOWN')
-      players.setPlayerLoadStatus(socket.id, false)
-      setTimeout(() => {
+  socket.on('SONG_LOADED', function() {
+    players.ready(socket.id)
+    if (players.allReady()) {
+      io.emit('START_COUNTDOWN', gameState.settings.guessTime)
+      players.clearReady()
+      timeout = setTimeout(function () {
         io.emit('TIME_UP')
-      }, 30000)
+      }, gameState.settings.guessTime * 1000)
     }
   })
 
   socket.on('GUESS', function(guess) {
     players.setGuess(socket.id, guess)
-    if (animeListManager.guessResult(guess)) {
+    players.ready(socket.id)
+    if (gameState.checkGuess(guess)) {
       players.addPoint(socket.id)
     }
-    io.emit('UPDATE_PLAYERS', players.list)
-    io.emit('SHOW_GUESS')
+    if (players.allReady()) {
+      players.clearReady()
+      io.emit('UPDATE_PLAYERS', players.list)
+      io.emit('SHOW_GUESS')
+      if (gameState.roundEnd()) {
+        gameState.reset()
+      }
+      else {
+        timeout = setTimeout(function() {
+          var song = animeListManager.getSong()
+          gameState.newSong(song)
+        }, 10000)
+      }
+    }
+  })
+
+  socket.on('SYNC_SETTINGS', function() {
+    io.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
+  })
+
+  socket.on('UPDATE_SERVER_SETTINGS', function(settings) {
+    gameState.updateSettings(settings)
+    io.emit('MESSAGE', { message: 'Game settings updated' })
+  })
+
+  socket.on('LOBBY', function() {
+    clearTimeout(timeout)
+    gameState.reset()
   })
 })

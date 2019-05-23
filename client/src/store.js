@@ -11,7 +11,6 @@ export default new Vuex.Store({
     animeList: [],
     avatar: 0,
     players: {},
-    settings: {},
     anime: {}
   },
   getters: {

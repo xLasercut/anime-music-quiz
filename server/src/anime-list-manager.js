@@ -31,21 +31,14 @@ class AnimeListManager {
         })
       }
     }
-    console.log(this.titleList)
   }
 
-  getAnime() {
+  getSong() {
     var index = Math.floor(Math.random() * this.completeList.length)
-    this.currentAnime = this.completeList[index]
-    return this.currentAnime
+    return this.completeList[index]
   }
 
-  guessResult(guess) {
-    if (guess === this.currentAnime.source) {
-      return true
-    }
-    return false
-  }
+
 }
 
 module.exports = new AnimeListManager()

@@ -1,5 +1,5 @@
 <template>
-  <el-row>
+  <el-row class="info-container">
     <leader-board></leader-board>
     <el-col :span="8" v-loading="loading" class="video-container">
       <video-window></video-window>
@@ -29,7 +29,7 @@
           this.loading = true
         })
 
-        this.socket.on('START_COUNTDOWN', () => {
+        this.socket.on('START_COUNTDOWN', (_time) => {
           this.loading = false
         })
       }
@@ -38,6 +38,10 @@
 </script>
 
 <style scoped>
+  .info-container {
+    margin-top: 10px;
+  }
+
   .video-container {
     min-height: 200px;
   }

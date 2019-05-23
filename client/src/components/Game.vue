@@ -1,10 +1,14 @@
 <template>
   <el-main class="game-container">
+    <game-control
+      @toggle="toggleAnswer()"
+      @settings="showSettings = true"
+    ></game-control>
     <answer :toggle="toggle"></answer>
     <anime-information :toggle="toggle"></anime-information>
     <guess-input></guess-input>
     <players></players>
-    <game-control @toggle="toggleAnswer()"></game-control>
+    <settings-panel v-model="showSettings"></settings-panel>
   </el-main>
 </template>
 
@@ -14,6 +18,7 @@
   import Players from './game/Players.vue'
   import AnimeInformation from './game/AnimeInformation.vue'
   import GameControl from './game/GameControl.vue'
+  import SettingsPanel from './game/SettingsPanel.vue'
 
   export default {
     components: {
@@ -21,11 +26,13 @@
       GuessInput,
       Players,
       AnimeInformation,
-      GameControl
+      GameControl,
+      SettingsPanel
     },
     data() {
       return {
-        toggle: false
+        toggle: false,
+        showSettings: false
       }
     },
     methods: {

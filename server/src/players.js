@@ -7,7 +7,7 @@ class Players {
     this.list[id] = {
       score: 0,
       username: player.username,
-      loaded: false,
+      ready: false,
       avatar: player.avatar,
       guess: ''
     }
@@ -27,18 +27,24 @@ class Players {
     }
   }
 
-  setPlayerLoadStatus(id, status) {
-    this.list[id]['loaded'] = status
+  ready(id) {
+    this.list[id]['ready'] = true
+  }
+
+  clearReady() {
+    for (var key in this.list) {
+      this.list[key]['ready'] = false
+    }
   }
 
   setGuess(id, guess) {
     this.list[id]['guess'] = guess
   }
 
-  allPlayerReady() {
+  allReady() {
     var ready = true
     for (var key in this.list) {
-      if (!this.list[key]['loaded']) {
+      if (!this.list[key]['ready']) {
         ready = false
       }
     }
