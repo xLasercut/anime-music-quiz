@@ -1,8 +1,8 @@
 <template>
-  <div class="main-container">
+  <el-container class="main-container">
     <game></game>
     <chat></chat>
-  </div>
+  </el-container>
 </template>
 
 <script>

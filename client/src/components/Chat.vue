@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-container">
+  <el-aside class="chat-container">
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">
@@ -7,13 +7,12 @@
         </li>
       </ul>
     </div>
-    <div class="input-container">
+    <el-row class="input-container">
       <el-input v-model="message" @keydown.enter.native="sendMsg()">
         <el-button slot="append" @click="sendMsg()">Send</el-button>
       </el-input>
-
-    </div>
-  </div>
+    </el-row>
+  </el-aside>
 </template>
 
 <script>
@@ -62,20 +61,19 @@
 <style scoped>
   .chat-container {
     width: 400px;
-    height: calc(100% - 20px);
-    float: left;
+    height: 100%;
     padding: 10px;
     background: #E4E7ED;
   }
 
   .message-container {
-    height: calc(100% - 75px);
+    height: calc(100% - 60px);
     overflow: auto;
+    word-wrap: break-word;
   }
 
   .input-container {
-    padding-top: 10px;
-    height: 45px;
+    margin-top: 10px;
   }
 
   ul {

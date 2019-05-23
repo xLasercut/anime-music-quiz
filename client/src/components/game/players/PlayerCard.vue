@@ -1,58 +1,61 @@
 <template>
-  <el-popover placement="top" v-model="showGuess">
-    {{playerGuess}}
-    <el-card class="player-card" slot="reference">
-      <span class="player-name">
-        {{name}}
-      </span>
-      <img :src="`img/avatar/${avatar}.png`">
-      <span class="player-score">
-        <span>Score: </span>{{score}}
-      </span>
-    </el-card>
-  </el-popover>
+  <div class="player-card">
+    <transition name="el-zoom-in-top">
+      <div class="player-guess" v-show="showGuess" :style="guessStyle()">
+        {{guess()}}
+      </div>
+    </transition>
+    <img :src="`img/avatar/${player.avatar}.png`">
+    <el-row class="player-name">
+      {{player.username}}
+    </el-row>
+    <el-row type="flex" justify="center">
+      <el-col class="player-score">
+        {{player.score}}
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
 import { setTimeout } from 'timers';
   export default {
     props: {
-      name: {
-        type: String,
+      player: {
+        type: Object,
         required: true
-      },
-      avatar: {
-        type: String,
-        required: true
-      },
-      score: {
-        type: Number,
-        required: true
-      },
-      guess: {
-        type: String
-      }
-    },
-    watch: {
-      guess(val) {
-        console.log(val)
-        this.showGuess = true
-        setTimeout(() => {
-          this.showGuess = false
-        }, 5000)
       }
     },
     data() {
       return {
-        showGuess: false
+        showGuess: false,
+        socket: this.$store.state.socket
       }
     },
-    computed: {
-      playerGuess() {
-        if (!this.guess) {
+    methods: {
+      guess() {
+        if (!this.player.guess) {
           return '...'
         }
-        return this.guess
+        return this.player.guess
+      },
+      guessStyle() {
+        var background = '#F56C6C'
+        if (this.player.guess === this.$store.state.anime.source) {
+          background = '#67C23A'
+        }
+
+        return { background: background }
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.socket.on('SHOW_GUESS', () => {
+          this.showGuess = true
+          setTimeout(() => {
+            this.showGuess = false
+          }, 5000)
+        })
       }
     }
   }
@@ -60,20 +63,41 @@ import { setTimeout } from 'timers';
 
 <style scoped>
   .player-card {
-    width: 150px;
+    width: 160px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
   }
 
   .player-name {
+    width: 100%;
     font-size: 16pt;
+    background: #E4E7ED;
+    border-radius: 5px;
+    word-wrap: break-word;
+    padding: 4px;
   }
 
   .player-score {
+    width: 50px;
+    font-size: 12pt;
+    background: #E4E7ED;
+    border-radius: 0 0 50px 50px;
+    padding: 2px;
   }
 
   .player-guess {
-    position: relative;
-    padding: 10px;
-    background: red;
-    float: left;
+    width: 150px;
+    top: 0;
+    position: absolute;
+    font-size: 12pt;
+    word-wrap: break-word;
+    padding: 5px;
+    border-radius: 2px;
+    color: white;
   }
 </style>

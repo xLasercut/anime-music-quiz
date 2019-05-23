@@ -1,23 +1,26 @@
 <template>
-  <div class="game-container">
-    <anime-video :toggle="toggle"></anime-video>
+  <el-main class="game-container">
+    <answer :toggle="toggle"></answer>
+    <anime-information :toggle="toggle"></anime-information>
     <guess-input></guess-input>
-    <game-control @toggle="toggleAnswer()"></game-control>
     <players></players>
-  </div>
+    <game-control @toggle="toggleAnswer()"></game-control>
+  </el-main>
 </template>
 
 <script>
+  import Answer from './game/Answer.vue'
   import GuessInput from './game/GuessInput.vue'
   import Players from './game/Players.vue'
-  import AnimeVideo from './game/AnimeVideo.vue'
+  import AnimeInformation from './game/AnimeInformation.vue'
   import GameControl from './game/GameControl.vue'
 
   export default {
     components: {
+      Answer,
       GuessInput,
       Players,
-      AnimeVideo,
+      AnimeInformation,
       GameControl
     },
     data() {
@@ -32,11 +35,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .game-container {
-    height: 100%;
-    width: calc(100% - 420px);
-    float: left;
-  }
-</style>

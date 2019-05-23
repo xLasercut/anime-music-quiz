@@ -1,14 +1,12 @@
 <template>
-  <div class="input-container">
-    <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <el-autocomplete
-          :fetch-suggestions="querySearch"
-          v-model="guess"
-        ></el-autocomplete>
-      </el-col>
-    </el-row>
-  </div>
+  <el-row type="flex" justify="center" class="input-container">
+    <el-col :span="12">
+      <el-autocomplete
+        :fetch-suggestions="querySearch"
+        v-model="guess"
+      ></el-autocomplete>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -50,8 +48,6 @@
   }
 
   .input-container {
-    width: 100%;
-    height: 100px;
-    padding-top: 50px;
+    margin-top: 10px;
   }
 </style>

@@ -1,20 +1,18 @@
 <template>
-  <el-row class="timer-container" type="flex" justify="center" v-if="showTimer">
-    <el-col :span="12">
-      <span>
-        <h1>
-          {{time}}
-        </h1>
-      </span>
-      <el-progress
-        :percentage="percentage()"
-        :color="color()"
-        :show-text="false"
-        :stroke-width="20"
-      >
-      </el-progress>
-    </el-col>
-  </el-row>
+  <div v-show="show">
+    <span>
+      <h1>
+        {{time}}
+      </h1>
+    </span>
+    <el-progress
+      :percentage="percentage()"
+      :color="color()"
+      :show-text="false"
+      :stroke-width="20"
+    >
+    </el-progress>
+  </div>
 </template>
 
 <script>
@@ -24,7 +22,7 @@
         time: 30,
         countdown: null,
         socket: this.$store.state.socket,
-        showTimer: false
+        show: false
       }
     },
     methods: {
@@ -46,24 +44,20 @@
       if (this.socket) {
         this.socket.on('START_COUNTDOWN', () => {
           this.time = 30
-          this.showTimer = true
+          this.show = true
           this.countdown = setInterval(() => {
             this.time -= 1
             if (this.time <= 0) {
               clearInterval(this.countdown)
-              this.showTimer = false
+              this.show = false
             }
           }, 1000)
+        })
+
+        this.socket.on('TIME_UP', () => {
+          this.show = false
         })
       }
     }
   }
 </script>
-
-<style scoped>
-  .timer-container {
-    height: 200px;
-    line-height: 100px;
-  }
-
-</style>

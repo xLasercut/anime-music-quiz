@@ -1,5 +1,5 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
 const server = app.listen(3001, function() {
   console.log('server running on port 3001')
@@ -7,6 +7,7 @@ const server = app.listen(3001, function() {
 
 const io = require('socket.io')(server)
 var players = require('./src/players.js')
+var gameState = require('./src/game-state.js')
 var animeListManager = require('./src/anime-list-manager.js')
 
 io.on('connection', function(socket) {
@@ -18,6 +19,7 @@ io.on('connection', function(socket) {
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })
     io.emit('UPDATE_PLAYERS', players.list)
     socket.emit('UPDATE_ANIME_LIST', animeListManager.titleList)
+    socket.emit('UPDATE_SETTINGS', gameState.settings)
   })
 
   socket.on('disconnect', function () {
@@ -35,7 +37,7 @@ io.on('connection', function(socket) {
     io.emit('NEW_SONG', animeListManager.getAnime())
   })
 
-  socket.on('AUDIO_LOADED', () => {
+  socket.on('SONG_LOADED', () => {
     players.setPlayerLoadStatus(socket.id, true)
     if (players.allPlayerReady()) {
       io.emit('START_COUNTDOWN')
@@ -52,5 +54,6 @@ io.on('connection', function(socket) {
       players.addPoint(socket.id)
     }
     io.emit('UPDATE_PLAYERS', players.list)
+    io.emit('SHOW_GUESS')
   })
 })

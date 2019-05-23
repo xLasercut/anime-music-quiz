@@ -1,22 +1,22 @@
 <template>
-  <el-row class="answer-container" v-if="answer || toggle">
-    <h1>{{name}}</h1>
+  <el-row type="flex" justify="center">
+    <div class="answer-container">
+      <b v-show="this.answer || this.toggle">{{$store.state.anime.source}}</b>
+      <b v-show="!this.answer || !this.toggle">?</b>
+    </div>
   </el-row>
 </template>
 
 <script>
   export default {
     props: {
-      name: {
-        type: String
-      },
       toggle: {
         type: Boolean
       }
     },
     data() {
       return {
-        answer: true,
+        answer: false,
         socket: this.$store.state.socket
       }
     },
@@ -36,6 +36,11 @@
 
 <style scoped>
   .answer-container {
-
+    background: #E4E7ED;
+    font-size: 16pt;
+    min-width: 480px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
   }
 </style>
