@@ -2,7 +2,7 @@
   <el-row class="info-container">
     <leader-board></leader-board>
     <el-col :span="8" v-loading="loading" class="video-container">
-      <video-window></video-window>
+      <video-window :volume="volume"></video-window>
       <countdown></countdown>
     </el-col>
     <song-information></song-information>
@@ -16,6 +16,11 @@
   import SongInformation from './anime-information/SongInformation.vue'
 
   export default {
+    props: {
+      volume: {
+        type: Number
+      }
+    },
     components: { Countdown, VideoWindow, LeaderBoard, SongInformation },
     data() {
       return {

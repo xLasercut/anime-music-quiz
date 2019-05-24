@@ -7,6 +7,16 @@
 
 <script>
   export default {
+    props: {
+      volume: {
+        type: Number
+      }
+    },
+    watch: {
+      volume(val) {
+        this.$refs.player.volume = val / 100
+      }
+    },
     data() {
       return {
         show: false,

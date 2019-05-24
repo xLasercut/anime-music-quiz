@@ -3,9 +3,10 @@
     <game-control
       @toggle="toggleAnswer()"
       @settings="showSettings = true"
+      v-model="volume"
     ></game-control>
     <answer :toggle="toggle"></answer>
-    <anime-information :toggle="toggle"></anime-information>
+    <anime-information :toggle="toggle" :volume="volume"></anime-information>
     <guess-input></guess-input>
     <players></players>
     <settings-panel v-model="showSettings"></settings-panel>
@@ -32,7 +33,8 @@
     data() {
       return {
         toggle: false,
-        showSettings: false
+        showSettings: false,
+        volume: 50
       }
     },
     methods: {

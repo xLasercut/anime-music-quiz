@@ -7,18 +7,37 @@
         <el-button v-if="playing" @click="$emit('toggle')">Toggle Answer</el-button>
       </el-button-group>
     </el-col>
-    <el-col :span="12" class="setting-controls">
-      <el-button :disabled="playing" type="info" icon="el-icon-setting" @click="$emit('settings')"></el-button>
+    <el-col :span="12">
+      <el-row type="flex" justify="end">
+        <div class="volume-slider">
+          <el-slider v-model.number="volume"></el-slider>
+        </div>
+        <el-button :disabled="playing" type="info" icon="el-icon-setting" @click="$emit('settings')"></el-button>
+      </el-row>
     </el-col>
   </el-row>
 </template>
 
 <script>
   export default {
+    props: {
+      value: {
+        type: Number
+      }
+    },
     data() {
       return {
         playing: false,
-        socket: this.$store.state.socket
+        socket: this.$store.state.socket,
+        volume: this.value
+      }
+    },
+    watch: {
+      value(val) {
+        this.volume = val
+      },
+      volume(val) {
+        this.$emit('input', val)
       }
     },
     methods: {
@@ -40,11 +59,14 @@
 </script>
 
 <style scoped>
-  .setting-controls {
-    text-align: right;
-  }
+
 
   .game-controls {
     text-align: left;
+  }
+
+  .volume-slider {
+    margin: 0 20px 0 10px;
+    width: 100px;
   }
 </style>
