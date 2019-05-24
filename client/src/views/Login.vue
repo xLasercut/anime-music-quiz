@@ -121,7 +121,7 @@
     },
     mounted() {
       if (this.socket) {
-        this.$router.push('/home')
+        this.$store.commit('DISCONNECT')
       }
     }
   }

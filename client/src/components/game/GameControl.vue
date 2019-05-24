@@ -4,7 +4,7 @@
       <el-button-group>
         <el-button v-if="showStartButton" @click="start()">Start</el-button>
         <el-button v-if="showLobbyButton" @click="lobby()">Back to Lobby</el-button>
-        <el-button v-if="playing" @click="$emit('toggle')">Toggle Answer</el-button>
+        <el-button v-if="$store.state.playing" @click="$emit('toggle')">Toggle Answer</el-button>
       </el-button-group>
     </el-col>
     <el-col :span="12">
@@ -12,7 +12,7 @@
         <div class="volume-slider">
           <el-slider v-model.number="volume"></el-slider>
         </div>
-        <el-button :disabled="playing" type="info" icon="el-icon-setting" @click="$emit('settings')"></el-button>
+        <el-button :disabled="$store.state.playing" type="info" icon="el-icon-setting" @click="$emit('settings')"></el-button>
       </el-row>
     </el-col>
   </el-row>
@@ -27,7 +27,6 @@
     },
     data() {
       return {
-        playing: false,
         socket: this.$store.state.socket,
         volume: this.value
       }
@@ -42,10 +41,10 @@
     },
     computed: {
       showStartButton() {
-        return (!this.playing && this.$store.state.host)
+        return (!this.$store.state.playing && this.$store.state.host)
       },
       showLobbyButton() {
-        return (this.playing && this.$store.state.host)
+        return (this.$store.state.playing && this.$store.state.host)
       }
     },
     methods: {
@@ -59,7 +58,7 @@
     mounted() {
       if (this.socket) {
         this.socket.on('UPDATE_PLAYING', (playing) => {
-          this.playing = playing
+          this.$store.commit('UPDATE_PLAYING', playing)
         })
       }
     }

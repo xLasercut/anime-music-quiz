@@ -19,7 +19,7 @@
     },
     methods: {
       querySearch(string, callback) {
-        var results = this.$store.state.animeList.filter((item) => {
+        var results = this.$store.state.choices.filter((item) => {
           if (item.value.toLowerCase().includes(string.toLowerCase())) {
             return item
           }

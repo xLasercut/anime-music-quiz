@@ -4,7 +4,7 @@ const fs = require('fs')
 class AnimeListManager {
   constructor() {
     this.completeList = []
-    this.titleList = []
+    this.choices = []
     this.initialiseList()
     this.currentAnime = {}
   }
@@ -29,7 +29,7 @@ class AnimeListManager {
     for (var anime of this.completeList) {
       if (!addedTitles.includes(anime.source)) {
         addedTitles.push(anime.source)
-        this.titleList.push({
+        this.choices.push({
           value: anime.source
         })
       }

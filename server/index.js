@@ -18,7 +18,7 @@ io.on('connection', function(socket) {
 
   socket.on('LOGIN', function(player) {
     players.addPlayer(player, socket.id)
-    socket.emit('UPDATE_ANIME_LIST', animeListManager.titleList)
+    socket.emit('UPDATE_CHOICES', animeListManager.choices)
     socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
     socket.emit('UPDATE_PLAYING', gameState.playing)
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })

@@ -21,8 +21,8 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('UPDATE_ANIME_LIST', (data) => {
-          this.$store.commit('UPDATE_ANIME_LIST', data)
+        this.socket.on('UPDATE_CHOICES', (data) => {
+          this.$store.commit('UPDATE_CHOICES', data)
         })
 
         this.socket.on('UPDATE_HOST', (id) => {

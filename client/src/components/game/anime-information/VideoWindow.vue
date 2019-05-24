@@ -1,5 +1,5 @@
 <template>
-  <video id="video" @loadeddata="socket.emit('SONG_LOADED')" v-show="show">
+  <video ref="player" @loadeddata="confirmLoad()" v-show="show">
     <source :src="`https://openings.moe/video/${$store.state.anime.file}.mp4`" v-if="$store.state.anime.file">
     Your browser does not support video element
   </video>
@@ -14,8 +14,7 @@
     },
     watch: {
       volume(val) {
-        var video = document.getElementById('video')
-        video.volume = val / 100
+        this.$refs.player.volume = val / 100
       }
     },
     data() {
@@ -24,18 +23,23 @@
         socket: this.$store.state.socket
       }
     },
+    methods: {
+      confirmLoad() {
+        if (this.socket) {
+          this.socket.emit('SONG_LOADED')
+        }
+      }
+    },
     mounted() {
-      var video = document.getElementById('video')
-
       if (this.socket) {
         this.socket.on('NEW_SONG', (anime) => {
           this.show = false
           this.$store.commit('UPDATE_ANIME', anime)
-          video.load()
+          this.$refs.player.load()
         })
 
         this.socket.on('START_COUNTDOWN', (_time) => {
-          video.play()
+          this.$refs.player.play()
         })
 
         this.socket.on('TIME_UP', () => {
@@ -43,7 +47,7 @@
         })
 
         this.socket.on('RESET', () => {
-          video.pause()
+          this.$refs.player.pause()
         })
       }
     }
