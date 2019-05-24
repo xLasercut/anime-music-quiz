@@ -60,7 +60,7 @@
     default_server = 'http://localhost:3001'
   }
 
-  const avatars = ['0', '1', '2', '3']
+  const avatars = ['0', '1', '2', '3', '4', '5', '6']
 
   export default {
     data() {
