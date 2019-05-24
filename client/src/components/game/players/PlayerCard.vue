@@ -1,11 +1,11 @@
 <template>
   <div class="player-card">
     <transition name="el-zoom-in-top">
-      <div class="player-guess" v-show="showGuess" :style="guessStyle()">
-        {{guess()}}
+      <div class="player-guess" v-show="showGuess" :style="guessStyle">
+        {{guess}}
       </div>
     </transition>
-    <img :src="`img/avatar/${player.avatar}.png`">
+    <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
     <el-row class="player-name">
       {{player.username}}
     </el-row>
@@ -32,7 +32,7 @@ import { setTimeout } from 'timers';
         socket: this.$store.state.socket
       }
     },
-    methods: {
+    computed: {
       guess() {
         if (!this.player.guess) {
           return '...'
@@ -46,6 +46,15 @@ import { setTimeout } from 'timers';
         }
 
         return { background: background }
+      }
+    },
+    methods: {
+      imgStyle(player) {
+        var border = '1px solid #E4E7ED'
+        if (player.host) {
+          border = '1px solid #E6A23C'
+        }
+        return {border: border}
       }
     },
     mounted() {

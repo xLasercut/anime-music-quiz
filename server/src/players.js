@@ -4,17 +4,36 @@ class Players {
   }
 
   addPlayer(player, id) {
+    var host = false
+    if (Object.keys(this.list).length === 0) {
+      host = true
+    }
+    console.log(this.list)
     this.list[id] = {
-      score: 0,
+      score: player.score || 0,
       username: player.username,
       ready: false,
       avatar: player.avatar,
-      guess: ''
+      guess: '',
+      host: host
     }
+    console.log(this.list)
   }
 
   removePlayer(id) {
+    this.moveHost(id)
     delete this.list[id]
+  }
+
+  moveHost(id) {
+    if (this.list[id].host) {
+      for (var key in this.list) {
+        if (key !== id) {
+          this.list[key].host = true
+          break
+        }
+      }
+    }
   }
 
   addPoint(id) {
@@ -50,6 +69,14 @@ class Players {
     }
 
     return ready
+  }
+
+  hostId() {
+    for (var key in this.list) {
+      if (this.list[key].host) {
+        return key
+      }
+    }
   }
 }
 

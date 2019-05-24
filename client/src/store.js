@@ -6,25 +6,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    username: '',
+    self: {},
     socket: null,
     animeList: [],
-    avatar: 0,
     players: {},
-    anime: {}
+    anime: {},
+    host: false,
+    id: ''
   },
   getters: {
     validState(state) {
-      if (state.username && state.socket) {
+      if (state.connectionId && state.socket) {
         return true
       }
       return false
-    },
-    playerData(state) {
-      return {
-        username: state.username,
-        avatar: state.avatar
-      }
     },
     players(state) {
       var n = 1
@@ -68,12 +63,16 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    login(state, data) {
-      state.username = data.username
-      state.avatar = data.avatar
+    LOGIN(state, data) {
+      var player = {
+        username: data.username,
+        avatar: data.avatar,
+        score: data.score
+      }
       state.socket = io(data.server)
+      state.socket.emit('LOGIN', player)
     },
-    updateAnimeList(state, data) {
+    UPDATE_ANIME_LIST(state, data) {
       state.animeList = data
     },
     UPDATE_PLAYERS(state, players) {
@@ -81,6 +80,14 @@ export default new Vuex.Store({
     },
     UPDATE_ANIME(state, anime) {
       state.anime = anime
+    },
+    UPDATE_HOST(state, id) {
+      if (state.socket.id === id) {
+        state.host = true
+      }
+      else {
+        state.host = false
+      }
     }
   },
   actions: {

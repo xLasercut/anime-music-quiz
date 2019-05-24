@@ -3,7 +3,7 @@
     <el-row>
       <h1>Login</h1>
     </el-row>
-    <el-form ref="loginForm" :model="form" :rules="validationRules">
+    <el-form ref="loginForm" :model="form" :rules="validationRules" label-position="top">
       <el-row type="flex" justify="center">
         <el-col :span="10">
           <el-form-item label="Username" prop="username">
@@ -38,6 +38,13 @@
       </el-row>
       <el-row type="flex" justify="center">
         <el-col :span="10">
+          <el-form-item label="Score" prop="score">
+            <el-input-number v-model.number="form.score" :min="0"></el-input-number>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row type="flex" justify="center">
+        <el-col :span="10">
           <el-form-item>
             <el-button type="primary" @click="login()">Login</el-button>
           </el-form-item>
@@ -61,20 +68,23 @@
         form: {
           username: '',
           server: default_server,
-          avatar: '0'
+          avatar: '0',
+          score: 0
         },
         validationRules: {
           username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],
-          server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ]
+          server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ],
+          score: [ { required: false, validator: this.validateScore, trigger: 'blur' } ]
         },
-        avatars: avatars
+        avatars: avatars,
+        socket: this.$store.state.socket
       }
     },
     methods: {
       login() {
         this.$refs['loginForm'].validate((valid) => {
           if (valid) {
-            this.$store.commit('login', this.form)
+            this.$store.commit('LOGIN', this.form)
             this.$router.push({name: 'home'})
           }
         })
@@ -99,6 +109,19 @@
         else {
           callback()
         }
+      },
+      validateScore(rule, val, callback) {
+        if (val < 0) {
+          callback(new Error('Score cannot be negative'))
+        }
+        else {
+          callback()
+        }
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.$router.push('/home')
       }
     }
   }

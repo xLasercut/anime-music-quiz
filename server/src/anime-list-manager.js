@@ -1,4 +1,5 @@
 const axios = require('axios')
+const fs = require('fs')
 
 class AnimeListManager {
   constructor() {
@@ -9,7 +10,9 @@ class AnimeListManager {
   }
 
   initialiseList() {
-    axios.get('https://openings.moe/api/list.php')
+    this.completeList = JSON.parse(fs.readFileSync('./anime.json', { encoding: 'utf-8' }))
+    this.initialiseTitleList()
+    /*axios.get('https://openings.moe/api/list.php')
     .then((response) => {
       this.completeList = response.data
       this.initialiseTitleList()
@@ -17,7 +20,7 @@ class AnimeListManager {
     })
     .catch((error) => {
       console.log(error)
-    })
+    })*/
   }
 
   initialiseTitleList() {

@@ -20,18 +20,17 @@
       }
     },
     mounted() {
-      if (!this.$store.getters.validState) {
-        this.$router.push('/')
-      }
-
       if (this.socket) {
-        this.socket.on('REQUEST_PLAYER_DETAILS', () => {
-          this.socket.emit('LOGIN', this.$store.getters.playerData)
+        this.socket.on('UPDATE_ANIME_LIST', (data) => {
+          this.$store.commit('UPDATE_ANIME_LIST', data)
         })
 
-        this.socket.on('UPDATE_ANIME_LIST', (data) => {
-          this.$store.commit('updateAnimeList', data)
+        this.socket.on('UPDATE_HOST', (id) => {
+          this.$store.commit('UPDATE_HOST', id)
         })
+      }
+      else {
+        this.$router.push('/')
       }
     }
   }

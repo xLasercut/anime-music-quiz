@@ -2,8 +2,8 @@
   <el-row>
     <el-col :span="12" class="game-controls">
       <el-button-group>
-        <el-button v-if="!playing" @click="start()">Start</el-button>
-        <el-button v-if="playing" @click="lobby()">Back to Lobby</el-button>
+        <el-button v-if="showStartButton" @click="start()">Start</el-button>
+        <el-button v-if="showLobbyButton" @click="lobby()">Back to Lobby</el-button>
         <el-button v-if="playing" @click="$emit('toggle')">Toggle Answer</el-button>
       </el-button-group>
     </el-col>
@@ -38,6 +38,14 @@
       },
       volume(val) {
         this.$emit('input', val)
+      }
+    },
+    computed: {
+      showStartButton() {
+        return (!this.playing && this.$store.state.host)
+      },
+      showLobbyButton() {
+        return (this.playing && this.$store.state.host)
       }
     },
     methods: {

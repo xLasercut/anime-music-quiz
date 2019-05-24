@@ -15,20 +15,21 @@ var timeout = null
 
 io.on('connection', function(socket) {
   console.log(`New connection made: ${socket.id}`)
-  socket.emit('REQUEST_PLAYER_DETAILS')
 
   socket.on('LOGIN', function(player) {
     players.addPlayer(player, socket.id)
-    io.emit('MESSAGE', { message: `${player.username} has joined the room` })
-    io.emit('UPDATE_PLAYERS', players.list)
     socket.emit('UPDATE_ANIME_LIST', animeListManager.titleList)
     socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
     socket.emit('UPDATE_PLAYING', gameState.playing)
+    io.emit('MESSAGE', { message: `${player.username} has joined the room` })
+    io.emit('UPDATE_PLAYERS', players.list)
+    io.emit('UPDATE_HOST', players.hostId())
   })
 
   socket.on('disconnect', function() {
     io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
     players.removePlayer(socket.id)
+    io.emit('UPDATE_HOST', players.hostId())
     io.emit('UPDATE_PLAYERS', players.list)
     console.log(`Disconnected: ${socket.id}`)
   })
@@ -89,5 +90,6 @@ io.on('connection', function(socket) {
   socket.on('LOBBY', function() {
     clearTimeout(timeout)
     gameState.reset()
+    players.clearReady()
   })
 })
