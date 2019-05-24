@@ -45,7 +45,7 @@
         this.countdown = setInterval(() => {
           this.time -= 100
           if (this.time <= 0) {
-            this.clearCountdown()
+            this.stopCountdown()
           }
         }, 100)
       },
@@ -64,11 +64,11 @@
         })
 
         this.socket.on('TIME_UP', () => {
-          this.clearCountdown()
+          this.stopCountdown()
         })
 
         this.socket.on('RESET', () => {
-          this.clearCountdown()
+          this.stopCountdown()
         })
       }
     }
