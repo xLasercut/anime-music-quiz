@@ -46,6 +46,7 @@ class GameState {
     this.currentSongNumber = 0
     this.playing = false
     this.io.emit('UPDATE_PLAYING', this.playing)
+    this.io.emit('RESET')
   }
 
   newSong(song) {

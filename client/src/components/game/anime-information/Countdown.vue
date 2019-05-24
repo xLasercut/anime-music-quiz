@@ -2,7 +2,7 @@
   <div v-show="show">
     <span>
       <h1>
-        {{time}}
+        {{Math.floor(time / 1000)}}
       </h1>
     </span>
     <el-progress
@@ -19,11 +19,12 @@
   export default {
     data() {
       return {
-        time: 30,
+        time: 30000,
         countdown: null,
+        bar: null,
         socket: this.$store.state.socket,
         show: false,
-        guessTime: 30
+        guessTime: 30000
       }
     },
     methods: {
@@ -39,26 +40,35 @@
           return '#E6A23C'
         }
         return '#67C23A'
+      },
+      startCountdown() {
+        this.countdown = setInterval(() => {
+          this.time -= 100
+          if (this.time <= 0) {
+            this.clearCountdown()
+          }
+        }, 100)
+      },
+      stopCountdown() {
+        clearInterval(this.countdown)
+        this.show = false
       }
     },
     mounted() {
       if (this.socket) {
         this.socket.on('START_COUNTDOWN', (time) => {
-          this.time = time
-          this.guessTime = time
+          this.time = time * 1000
+          this.guessTime = time * 1000
           this.show = true
-          this.countdown = setInterval(() => {
-            this.time -= 1
-            if (this.time <= 0) {
-              clearInterval(this.countdown)
-              this.show = false
-            }
-          }, 1000)
+          this.startCountdown()
         })
 
         this.socket.on('TIME_UP', () => {
-          clearInterval(this.countdown)
-          this.show = false
+          this.clearCountdown()
+        })
+
+        this.socket.on('RESET', () => {
+          this.clearCountdown()
         })
       }
     }

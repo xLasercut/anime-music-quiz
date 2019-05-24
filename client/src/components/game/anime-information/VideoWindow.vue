@@ -28,6 +28,10 @@
         this.socket.on('TIME_UP', () => {
           this.show = true
         })
+
+        this.socket.on('RESET', () => {
+          this.$refs.player.pause()
+        })
       }
     }
   }
