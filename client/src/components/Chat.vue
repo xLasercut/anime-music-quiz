@@ -27,10 +27,7 @@
     methods: {
       sendMsg() {
         if (this.message) {
-          this.socket.emit('SEND_MESSAGE', {
-            user: this.$store.state.username,
-            message: this.message
-          });
+          this.socket.emit('SEND_MESSAGE', this.message)
           this.message = ''
         }
       },

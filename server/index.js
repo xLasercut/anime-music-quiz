@@ -34,7 +34,11 @@ io.on('connection', function(socket) {
     console.log(`Disconnected: ${socket.id}`)
   })
 
-  socket.on('SEND_MESSAGE', function(data) {
+  socket.on('SEND_MESSAGE', function(message) {
+    var data = {
+      user: players.username(socket.id),
+      message: message
+    }
     io.emit('MESSAGE', data)
   })
 

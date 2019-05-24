@@ -78,6 +78,10 @@ class Players {
       }
     }
   }
+
+  username(id) {
+    return this.list[id].username
+  }
 }
 
 module.exports = new Players()
