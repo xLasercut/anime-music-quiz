@@ -18,19 +18,7 @@
   import PlayerCard from './players/PlayerCard.vue'
 
   export default {
-    components: { PlayerCard },
-    data() {
-      return {
-        socket: this.$store.state.socket
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('UPDATE_PLAYERS', (data) => {
-          this.$store.commit('UPDATE_PLAYERS', data)
-        })
-      }
-    }
+    components: { PlayerCard }
   }
 </script>
 

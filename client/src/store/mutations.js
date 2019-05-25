@@ -20,12 +20,7 @@ export default {
     state.anime = anime
   },
   UPDATE_HOST(state, id) {
-    if (state.socket.id === id) {
-      state.host = true
-    }
-    else {
-      state.host = false
-    }
+    state.host = state.players[id].host
   },
   UPDATE_PLAYING(state, playing) {
     state.playing = playing

@@ -71,14 +71,6 @@ class Players {
     return ready
   }
 
-  hostId() {
-    for (var key in this.list) {
-      if (this.list[key].host) {
-        return key
-      }
-    }
-  }
-
   username(id) {
     return this.list[id].username
   }

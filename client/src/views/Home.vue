@@ -25,8 +25,9 @@
           this.$store.commit('UPDATE_CHOICES', data)
         })
 
-        this.socket.on('UPDATE_HOST', (id) => {
-          this.$store.commit('UPDATE_HOST', id)
+        this.socket.on('UPDATE_PLAYERS', (data) => {
+          this.$store.commit('UPDATE_PLAYERS', data)
+          this.$store.commit('UPDATE_HOST', this.socket.id)
         })
       }
       else {

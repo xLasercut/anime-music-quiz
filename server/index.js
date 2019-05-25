@@ -23,13 +23,11 @@ io.on('connection', function(socket) {
     socket.emit('UPDATE_PLAYING', gameState.playing)
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })
     io.emit('UPDATE_PLAYERS', players.list)
-    io.emit('UPDATE_HOST', players.hostId())
   })
 
   socket.on('disconnect', function() {
     io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
     players.removePlayer(socket.id)
-    io.emit('UPDATE_HOST', players.hostId())
     io.emit('UPDATE_PLAYERS', players.list)
     console.log(`Disconnected: ${socket.id}`)
   })
