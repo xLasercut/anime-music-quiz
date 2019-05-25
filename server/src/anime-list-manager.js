@@ -11,29 +11,7 @@ class AnimeListManager {
 
   initialiseList() {
     this.completeList = JSON.parse(fs.readFileSync('./anime.json', { encoding: 'utf-8' }))
-    this.initialiseTitleList()
-    /*axios.get('https://openings.moe/api/list.php')
-    .then((response) => {
-      this.completeList = response.data
-      this.initialiseTitleList()
-      console.log('Anime list loaded')
-    })
-    .catch((error) => {
-      console.log(error)
-    })*/
-  }
-
-  initialiseTitleList() {
-    var addedTitles = []
-
-    for (var anime of this.completeList) {
-      if (!addedTitles.includes(anime.source)) {
-        addedTitles.push(anime.source)
-        this.choices.push({
-          value: anime.source
-        })
-      }
-    }
+    this.choices = JSON.parse(fs.readFileSync('./choices.json', { encoding: 'utf-8' }))
   }
 
   getSong() {

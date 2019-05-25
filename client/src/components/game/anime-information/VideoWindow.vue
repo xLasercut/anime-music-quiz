@@ -1,6 +1,6 @@
 <template>
   <video ref="player" @loadeddata="confirmLoad()" v-show="show">
-    <source :src="`https://openings.moe/video/${$store.state.anime.file}.mp4`" v-if="$store.state.anime.file">
+    <source :src="$store.state.anime.src" v-if="$store.state.anime.src">
     Your browser does not support video element
   </video>
 </template>

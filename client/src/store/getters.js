@@ -30,7 +30,7 @@ export default {
     if (state.anime.song) {
       title = state.anime.song.title
       artist = state.anime.song.artist
-      type = state.anime.title
+      type = state.anime.song.type
     }
 
     return {

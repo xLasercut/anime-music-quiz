@@ -31,7 +31,7 @@
     methods: {
       answer() {
         if (this.show || this.toggle) {
-          return this.$store.state.anime.source
+          return this.$store.state.anime.name
         }
         return '?'
       }
