@@ -2,9 +2,9 @@
   <el-row>
     <el-col :span="12" class="game-controls">
       <el-button-group>
-        <el-button v-if="showStartButton" @click="start()">Start</el-button>
-        <el-button v-if="showLobbyButton" @click="lobby()">Back to Lobby</el-button>
-        <el-button v-if="$store.state.playing" @click="$emit('toggle')">Toggle Answer</el-button>
+        <el-button v-if="showStartButton" @click="start()" type="success">Start</el-button>
+        <el-button v-if="showLobbyButton" @click="lobby()" type="danger">Stop</el-button>
+        <el-button v-if="$store.state.playing" @click="$emit('toggle')" type="primary">Toggle Answer</el-button>
       </el-button-group>
     </el-col>
     <el-col :span="12">
@@ -12,7 +12,14 @@
         <div class="volume-slider">
           <el-slider v-model.number="volume"></el-slider>
         </div>
-        <el-button :disabled="$store.state.playing" type="info" icon="el-icon-setting" @click="$emit('settings')"></el-button>
+        <el-button-group>
+          <el-button :disabled="true" icon="el-icon-document" type="info"></el-button>
+          <el-button
+            :disabled="$store.state.playing"
+            type="info" icon="el-icon-setting"
+            @click="$emit('settings')"
+          ></el-button>
+        </el-button-group>
       </el-row>
     </el-col>
   </el-row>
