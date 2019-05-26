@@ -31,7 +31,6 @@ function getSongDetails(cell) {
 
 var animes = []
 
-
 /* Get animes from animethemes wiki */
 axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
 .then((response) => {
@@ -48,7 +47,6 @@ axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
   return axios.all(queued)
 })
 .then((responses) => {
-
   for (var response of responses) {
     const $ = cheerio.load(response.data)
     var titles = $('h3 a')
