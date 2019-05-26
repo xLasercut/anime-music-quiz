@@ -4,6 +4,8 @@ const fs = require('fs')
 
 const regex = new RegExp('^(OP|ED)')
 
+var animes = []
+
 function getSongDetails(cell) {
   var songArray = cell.text().split('"')
   var type = ''
@@ -29,7 +31,14 @@ function getSongDetails(cell) {
   }
 }
 
-var animes = []
+function isDuplicate(anime) {
+  for (var item of animes) {
+    if (anime.src === item.src && anime.name === item.name) {
+      return true
+    }
+  }
+  return false
+}
 
 /* Get animes from animethemes wiki */
 axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
@@ -65,10 +74,14 @@ axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
             var anime = {
               name: name,
               src: src,
-              song: song
+              title: song.title,
+              artist: song.artist,
+              type: song.type
             }
 
-            animes.push(anime)
+            if (!isDuplicate(anime)) {
+              animes.push(anime)
+            }
           }
         })
       })
@@ -80,22 +93,26 @@ axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
 .then((response) => {
   var data = response.data
   for (var anime of data) {
-    var song = {
-      title: '',
-      artist: '',
-      type: anime.title
-    }
+    var title = ''
+    var artist = ''
+    var type = anime.title
 
     if (anime.song) {
-      song.title = anime.song.title
-      song.artis = anime.song.artist
+      title = anime.song.title
+      artist = anime.song.artist
     }
 
-    animes.push({
+    var anime = {
       src: `https://openings.moe/video/${anime.file}.mp4`,
       name: anime.source,
-      song: song
-    })
+      title: title,
+      artist: artist,
+      type: type
+    }
+
+    if (!isDuplicate(anime)) {
+      animes.push(anime)
+    }
   }
   fs.writeFileSync('./anime.json', JSON.stringify(animes, null, 2))
 })

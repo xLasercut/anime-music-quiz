@@ -13,7 +13,6 @@
           <el-slider v-model.number="volume"></el-slider>
         </div>
         <el-button-group>
-          <el-button :disabled="true" icon="el-icon-document" type="info"></el-button>
           <el-button
             :disabled="$store.state.playing"
             type="info" icon="el-icon-setting"

@@ -1,5 +1,10 @@
 <template>
   <el-main>
+    <el-row type="flex" justify="end">
+      <el-button icon="el-icon-document" type="info" @click="$router.push('list-picker')">
+        Song List Generator
+      </el-button>
+    </el-row>
     <el-row>
       <h1>Login</h1>
     </el-row>

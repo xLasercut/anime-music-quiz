@@ -26,9 +26,11 @@ io.on('connection', function(socket) {
   })
 
   socket.on('disconnect', function() {
-    io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
-    players.removePlayer(socket.id)
-    io.emit('UPDATE_PLAYERS', players.list)
+    if (socket.id in players.list) {
+      io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
+      players.removePlayer(socket.id)
+      io.emit('UPDATE_PLAYERS', players.list)
+    }
     console.log(`Disconnected: ${socket.id}`)
   })
 
@@ -93,5 +95,9 @@ io.on('connection', function(socket) {
     clearTimeout(timeout)
     gameState.reset()
     players.clearReady()
+  })
+
+  socket.on('GET_ALL_ANIME', function() {
+    socket.emit('GET_ALL_ANIME', animeListManager.completeList)
   })
 })
