@@ -1,11 +1,11 @@
 <template>
-  <el-row :gutter="10" class="filter-container">
-    <el-col :span="12">
+  <el-row :gutter="10" type="flex" justify="center" class="filter-container">
+    <el-col :span="10">
       <el-input v-model="filter['anime']">
         <span slot="prepend">Anime</span>
       </el-input>
     </el-col>
-    <el-col :span="12">
+    <el-col :span="10">
       <el-input v-model="filter['song']">
         <span slot="prepend">Song</span>
       </el-input>

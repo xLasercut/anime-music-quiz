@@ -2,7 +2,7 @@
   <el-row>
     <el-dialog :visible.sync="dialog" :fullscreen="true" title="User List">
       <el-row>
-        <el-button @click="download()">Download List</el-button>
+        <el-button @click="download()" type="success" icon="el-icon-download">Download List</el-button>
       </el-row>
       <list-filter v-model="filter"></list-filter>
       <list-data

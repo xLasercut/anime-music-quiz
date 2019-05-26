@@ -1,15 +1,15 @@
 <template>
   <el-main>
-    <el-row :gutter="10">
-      <el-col :span="12">
+    <el-row type="flex" justify="center">
+      <el-col :span="12" v-show="disabled()">
         <el-input v-model.trim="serverUrl">
           <span slot="prepend">Server URL</span>
           <el-button slot="append" @click="connect()">Connect</el-button>
         </el-input>
       </el-col>
-      <el-col :span="12">
-        <el-button @click="reload()" :disabled="disabled()">Reload</el-button>
-        <el-button @click="dialog = true">Show List</el-button>
+      <el-col :span="12" v-show="!disabled()">
+        <el-button @click="reload()" type="warning" icon="el-icon-refresh">Reload Full List</el-button>
+        <el-button @click="dialog = true" type="success">Show List</el-button>
       </el-col>
     </el-row>
     <list-filter v-model="filter"></list-filter>
