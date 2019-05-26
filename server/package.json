@@ -5,12 +5,14 @@
   "repository": "https://github.com/xLasercut/anime-music-quiz",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "generatedb": "node tools/generate-anime-list.js && node tools/generate-choices.js"
   },
   "author": "xLasercut",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.0",
     "socket.io": "^2.2.0"
   }

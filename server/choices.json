@@ -1,5 +1,1493 @@
 [
   {
+    "value": "Aikatsu Friends!: Kagayaki no Jewel"
+  },
+  {
+    "value": "Bakugan Battle Planet"
+  },
+  {
+    "value": "Cardfight!! Vanguard: Zoku Koukousei-hen"
+  },
+  {
+    "value": "Carole & Tuesday"
+  },
+  {
+    "value": "Duel Masters!!"
+  },
+  {
+    "value": "Fairy Gone"
+  },
+  {
+    "value": "Hachigatsu no Cinderella Nine"
+  },
+  {
+    "value": "Isekai Quartet"
+  },
+  {
+    "value": "Kedama no Gonjirou"
+  },
+  {
+    "value": "Miru Tights"
+  },
+  {
+    "value": "Mix: Meisei Story"
+  },
+  {
+    "value": "Poputepipikku Special"
+  },
+  {
+    "value": "RobiHachi"
+  },
+  {
+    "value": "Sarazanmai"
+  },
+  {
+    "value": "Ultraman"
+  },
+  {
+    "value": "Yatogame-chan Kansatsu Nikki"
+  },
+  {
+    "value": "Youkai Watch"
+  },
+  {
+    "value": "3D Kanojo: Real Girl 2nd Season"
+  },
+  {
+    "value": "Circlet Princess"
+  },
+  {
+    "value": "Dimension High School"
+  },
+  {
+    "value": "Fight League: Gear Gadget Generators"
+  },
+  {
+    "value": "Girly Air Force"
+  },
+  {
+    "value": "Grimms Notes The Animation"
+  },
+  {
+    "value": "Kemono Friends 2"
+  },
+  {
+    "value": "Kemurikusa"
+  },
+  {
+    "value": "Meiji Tokyo Renka"
+  },
+  {
+    "value": "Pastel Memories"
+  },
+  {
+    "value": "Revisions"
+  },
+  {
+    "value": "Star☆Twinkle Precure"
+  },
+  {
+    "value": "W'z"
+  },
+  {
+    "value": "Anima Yell!"
+  },
+  {
+    "value": "Bakutsuri Bar Hunter"
+  },
+  {
+    "value": "Conception"
+  },
+  {
+    "value": "Devidol!"
+  },
+  {
+    "value": "Double Decker! Doug & Kirill"
+  },
+  {
+    "value": "Goblin Slayer"
+  },
+  {
+    "value": "Inazuma Eleven: Orion no Kokuin"
+  },
+  {
+    "value": "Ingress the Animation"
+  },
+  {
+    "value": "Jingai-san no Yome"
+  },
+  {
+    "value": "Manga de Wakaru! Fate/Grand Order"
+  },
+  {
+    "value": "Okoshiyasu, Chitose-chan"
+  },
+  {
+    "value": "Radiant"
+  },
+  {
+    "value": "Release the Spyce"
+  },
+  {
+    "value": "SSSS.Gridman"
+  },
+  {
+    "value": "Sword Art Online: Alicization"
+  },
+  {
+    "value": "Tantei Opera Milky Holmes: Psycho no Aisatsu"
+  },
+  {
+    "value": "Zoku Owarimonogatari"
+  },
+  {
+    "value": "Banana Fish"
+  },
+  {
+    "value": "Dragon Ball Heroes"
+  },
+  {
+    "value": "Harukana Receive"
+  },
+  {
+    "value": "Island"
+  },
+  {
+    "value": "Kirakira Happy★Hirake! Cocotama"
+  },
+  {
+    "value": "Monster Strike The Animation"
+  },
+  {
+    "value": "One Room 2nd Season"
+  },
+  {
+    "value": "Oshiete Mahou no Pendulum: Rilu Rilu Fairilu"
+  },
+  {
+    "value": "Overlord III"
+  },
+  {
+    "value": "Phantom in the Twilight"
+  },
+  {
+    "value": "Planet With"
+  },
+  {
+    "value": "Shoujo☆Kageki Revue Starlight"
+  },
+  {
+    "value": "Sirius the Jaeger"
+  },
+  {
+    "value": "Yakiniku-ten Sengoku"
+  },
+  {
+    "value": "Zoids Wild"
+  },
+  {
+    "value": "Aikatsu Friends!"
+  },
+  {
+    "value": "Alice or Alice: Siscon Niisan to Futago no Imouto"
+  },
+  {
+    "value": "Baki"
+  },
+  {
+    "value": "Captain Tsubasa"
+  },
+  {
+    "value": "Cardfight!! Vanguard"
+  },
+  {
+    "value": "Comic Girls"
+  },
+  {
+    "value": "Devils Line"
+  },
+  {
+    "value": "Duel Masters!"
+  },
+  {
+    "value": "Gegege no Kitarou"
+  },
+  {
+    "value": "Gundam Build Divers"
+  },
+  {
+    "value": "High School DxD Hero"
+  },
+  {
+    "value": "Inazuma Eleven: Ares no Tenbin"
+  },
+  {
+    "value": "Lost Song"
+  },
+  {
+    "value": "Lostorage Conflated WIXOSS"
+  },
+  {
+    "value": "Major 2nd"
+  },
+  {
+    "value": "Pastel Life"
+  },
+  {
+    "value": "Persona 5 the Animation"
+  },
+  {
+    "value": "Rokuhoudou Yotsuiro Biyori"
+  },
+  {
+    "value": "Wakaokami wa Shougakusei!"
+  },
+  {
+    "value": "B: The Beginning"
+  },
+  {
+    "value": "Beatless"
+  },
+  {
+    "value": "Bungou Stray Dogs: Dead Apple"
+  },
+  {
+    "value": "Citrus"
+  },
+  {
+    "value": "Darling in the FranXX"
+  },
+  {
+    "value": "Devilman: Crybaby"
+  },
+  {
+    "value": "Fate/Extra Last Encore"
+  },
+  {
+    "value": "Hakata Tonkotsu Ramens"
+  },
+  {
+    "value": "Killing Bites"
+  },
+  {
+    "value": "Mameneko"
+  },
+  {
+    "value": "Mitsuboshi Colors"
+  },
+  {
+    "value": "Overlord II"
+  },
+  {
+    "value": "Slow Start"
+  },
+  {
+    "value": "Sword Gai: The Animation"
+  },
+  {
+    "value": "Takunomi."
+  },
+  {
+    "value": "Violet Evergarden"
+  },
+  {
+    "value": "Zoku Touken Ranbu: Hanamaru"
+  },
+  {
+    "value": "Black Clover (TV)"
+  },
+  {
+    "value": "Dia Horizon (Kabu)"
+  },
+  {
+    "value": "Dynamic Chord"
+  },
+  {
+    "value": "Fate/stay night Movie: Heaven's Feel - I. Presage Flower"
+  },
+  {
+    "value": "Gintama: Porori-hen"
+  },
+  {
+    "value": "Glamorous Heroes"
+  },
+  {
+    "value": "Infini-T Force"
+  },
+  {
+    "value": "Just Because!"
+  },
+  {
+    "value": "Konohana Kitan"
+  },
+  {
+    "value": "Nekopara"
+  },
+  {
+    "value": "Omiai Aite wa Oshiego, Tsuyokina, Mondaiji."
+  },
+  {
+    "value": "Pingu in the City"
+  },
+  {
+    "value": "RoboMasters the Animated Series"
+  },
+  {
+    "value": "Sengoku Night Blood"
+  },
+  {
+    "value": "The iDOLM@STER Side M"
+  },
+  {
+    "value": "Tsukipro The Animation"
+  },
+  {
+    "value": "Urahara"
+  },
+  {
+    "value": "Action Heroine Cheer Fruits"
+  },
+  {
+    "value": "BanG Dream! Special"
+  },
+  {
+    "value": "Dive!!"
+  },
+  {
+    "value": "Escha Chron"
+  },
+  {
+    "value": "Fate/Apocrypha"
+  },
+  {
+    "value": "Gamers!"
+  },
+  {
+    "value": "Made in Abyss"
+  },
+  {
+    "value": "New Game!!"
+  },
+  {
+    "value": "Owarimonogatari 2nd Season"
+  },
+  {
+    "value": "Princess Principal"
+  },
+  {
+    "value": "The Reflection"
+  },
+  {
+    "value": "Ani ni Tsukeru Kusuri wa Nai!"
+  },
+  {
+    "value": "Atom: The Beginning"
+  },
+  {
+    "value": "Berserk"
+  },
+  {
+    "value": "Beyblade Burst God"
+  },
+  {
+    "value": "Boruto: Naruto Next Generations"
+  },
+  {
+    "value": "Clockwork Planet"
+  },
+  {
+    "value": "Frame Arms Girl"
+  },
+  {
+    "value": "Granblue Fantasy The Animation"
+  },
+  {
+    "value": "Hinako Note"
+  },
+  {
+    "value": "ID-0"
+  },
+  {
+    "value": "Kabukibu!"
+  },
+  {
+    "value": "Kenka Banchou Otome: Girl Beats Boys"
+  },
+  {
+    "value": "Re:Creators"
+  },
+  {
+    "value": "Room Mate"
+  },
+  {
+    "value": "Sakura Quest"
+  },
+  {
+    "value": "Tomica Hyper Rescue Drive Head: Kidou Kyuukyuu Keisatsu"
+  },
+  {
+    "value": "Tsugumomo"
+  },
+  {
+    "value": "Akiba's Trip The Animation"
+  },
+  {
+    "value": "BanG Dream!"
+  },
+  {
+    "value": "ChäoS;Child"
+  },
+  {
+    "value": "ChäoS;Child Episode 0"
+  },
+  {
+    "value": "Choboraunyopomi Gekijou Dai San Maku Ai Mai Mii: Surgical Friends"
+  },
+  {
+    "value": "Demi-chan wa Kataritai"
+  },
+  {
+    "value": "ēlDLIVE"
+  },
+  {
+    "value": "Fuuka"
+  },
+  {
+    "value": "Gabriel DropOut"
+  },
+  {
+    "value": "Hand Shakers"
+  },
+  {
+    "value": "Kemono Friends"
+  },
+  {
+    "value": "Little Witch Academia (TV)"
+  },
+  {
+    "value": "Nyanko Days"
+  },
+  {
+    "value": "Onihei"
+  },
+  {
+    "value": "Rewrite 2nd Season"
+  },
+  {
+    "value": "Schoolgirl Strikers: Animation Channel"
+  },
+  {
+    "value": "Seiren"
+  },
+  {
+    "value": "Spiritpact"
+  },
+  {
+    "value": "Urara Meirochou"
+  },
+  {
+    "value": "All Out!!"
+  },
+  {
+    "value": "Brave Witches"
+  },
+  {
+    "value": "ClassicaLoid"
+  },
+  {
+    "value": "Dream Festival!"
+  },
+  {
+    "value": "Fate/Grand Order: First Order"
+  },
+  {
+    "value": "Flip Flappers"
+  },
+  {
+    "value": "Heybot!"
+  },
+  {
+    "value": "KanColle Movie"
+  },
+  {
+    "value": "Kiniro Mosaic: Pretty Days"
+  },
+  {
+    "value": "Lostorage incited WIXOSS"
+  },
+  {
+    "value": "Monster Hunter Stories: Ride On"
+  },
+  {
+    "value": "Nazotokine"
+  },
+  {
+    "value": "Nyanbo!"
+  },
+  {
+    "value": "Tiger Mask W"
+  },
+  {
+    "value": "Time Bokan 24"
+  },
+  {
+    "value": "To Be Hero"
+  },
+  {
+    "value": "Touken Ranbu: Hanamaru"
+  },
+  {
+    "value": "ViVid Strike!"
+  },
+  {
+    "value": "YURI!!! on ICE"
+  },
+  {
+    "value": "Amanchu!"
+  },
+  {
+    "value": "Ange Vierge"
+  },
+  {
+    "value": "B-Project: Kodou*Ambitious"
+  },
+  {
+    "value": "Bananya"
+  },
+  {
+    "value": "Battery"
+  },
+  {
+    "value": "Handa-kun"
+  },
+  {
+    "value": "Mahou Shoujo? Naria☆Girls"
+  },
+  {
+    "value": "New Game!"
+  },
+  {
+    "value": "Orange"
+  },
+  {
+    "value": "Ozmafia!!"
+  },
+  {
+    "value": "Qualidea Code"
+  },
+  {
+    "value": "Regalia: The Three Sacred Stars"
+  },
+  {
+    "value": "Rewrite"
+  },
+  {
+    "value": "Scared Rider Xechs"
+  },
+  {
+    "value": "Servamp"
+  },
+  {
+    "value": "Show By Rock!! Short!!"
+  },
+  {
+    "value": "Taboo Tattoo"
+  },
+  {
+    "value": "Tsukiuta. The Animation"
+  },
+  {
+    "value": "Aikatsu Stars!"
+  },
+  {
+    "value": "Bakuon!!"
+  },
+  {
+    "value": "Bakuon!! OVA"
+  },
+  {
+    "value": "Beyblade Burst"
+  },
+  {
+    "value": "Big Order (TV)"
+  },
+  {
+    "value": "Concrete Revolutio: Choujin Gensou - The Last Song"
+  },
+  {
+    "value": "Endride"
+  },
+  {
+    "value": "Flying Witch"
+  },
+  {
+    "value": "Hundred"
+  },
+  {
+    "value": "Joker Game"
+  },
+  {
+    "value": "Kiznaiver"
+  },
+  {
+    "value": "Masamune Datenicle"
+  },
+  {
+    "value": "Super Lovers"
+  },
+  {
+    "value": "Tonkatsu DJ Agetarou"
+  },
+  {
+    "value": "Usakame"
+  },
+  {
+    "value": "Wagamama High Spec"
+  },
+  {
+    "value": "Divine Gate"
+  },
+  {
+    "value": "Durarara!!x2 Ketsu"
+  },
+  {
+    "value": "Koyomimonogatari"
+  },
+  {
+    "value": "Momokuri"
+  },
+  {
+    "value": "Nurse Witch Komugi-chan R"
+  },
+  {
+    "value": "Sushi Police"
+  },
+  {
+    "value": "Aria The Avvenire"
+  },
+  {
+    "value": "Comet Lucifer"
+  },
+  {
+    "value": "Cyborg 009 VS Devilman"
+  },
+  {
+    "value": "Heavy Object"
+  },
+  {
+    "value": "Miss Monochrome: The Animation 3"
+  },
+  {
+    "value": "Monster Strike"
+  },
+  {
+    "value": "Noragami Aragoto"
+  },
+  {
+    "value": "One Punch Man Specials"
+  },
+  {
+    "value": "Soukyuu no Fafner: Dead Aggressor - Exodus 2nd Season"
+  },
+  {
+    "value": "Valkyrie Drive: Mermaid"
+  },
+  {
+    "value": "Young Black Jack"
+  },
+  {
+    "value": "Aquarion Logos"
+  },
+  {
+    "value": "Charlotte"
+  },
+  {
+    "value": "Classroom☆Crisis"
+  },
+  {
+    "value": "Danchigai"
+  },
+  {
+    "value": "Durarara!!x2 Ten"
+  },
+  {
+    "value": "Gangsta."
+  },
+  {
+    "value": "God Eater"
+  },
+  {
+    "value": "Million Doll"
+  },
+  {
+    "value": "Miss Monochrome: The Animation 2"
+  },
+  {
+    "value": "Senki Zesshou Symphogear GX: Believe in Justice and Hold a Determination to Fist."
+  },
+  {
+    "value": "Wakaba*Girl"
+  },
+  {
+    "value": "Gunslinger Stratos: The Animation"
+  },
+  {
+    "value": "Haiyore! Nyaruko-san F"
+  },
+  {
+    "value": "Ninja Slayer from Animation"
+  },
+  {
+    "value": "Re-Kan!"
+  },
+  {
+    "value": "Triage X"
+  },
+  {
+    "value": "Absolute Duo"
+  },
+  {
+    "value": "Aldnoah.Zero 2nd Season"
+  },
+  {
+    "value": "Death Parade"
+  },
+  {
+    "value": "Soukyuu no Fafner: Dead Aggressor - Exodus"
+  },
+  {
+    "value": "Cardfight!! Vanguard G"
+  },
+  {
+    "value": "Gugure! Kokkuri-san"
+  },
+  {
+    "value": "Gundam Build Fighters Try"
+  },
+  {
+    "value": "Gundam: G no Reconguista"
+  },
+  {
+    "value": "IS: Infinite Stratos 2 - World Purge-hen"
+  },
+  {
+    "value": "Santa Company"
+  },
+  {
+    "value": "Selector Spread WIXOSS"
+  },
+  {
+    "value": "Shirobako"
+  },
+  {
+    "value": "Strike Witches: Operation Victory Arrow"
+  },
+  {
+    "value": "Trinity Seven"
+  },
+  {
+    "value": "World Trigger"
+  },
+  {
+    "value": "Akame ga Kill!"
+  },
+  {
+    "value": "Aldnoah.Zero"
+  },
+  {
+    "value": "Barakamon"
+  },
+  {
+    "value": "Glasslip"
+  },
+  {
+    "value": "Rail Wars!"
+  },
+  {
+    "value": "Sword Art Online II"
+  },
+  {
+    "value": "Tokyo ESP"
+  },
+  {
+    "value": "Tokyo Ghoul"
+  },
+  {
+    "value": "Baby Steps"
+  },
+  {
+    "value": "Black Bullet"
+  },
+  {
+    "value": "Captain Earth"
+  },
+  {
+    "value": "Initial D Final Stage"
+  },
+  {
+    "value": "Inugami-san to Nekoyama-san"
+  },
+  {
+    "value": "Love Live! School Idol Project 2nd Season"
+  },
+  {
+    "value": "No Game No Life"
+  },
+  {
+    "value": "Ping Pong The Animation"
+  },
+  {
+    "value": "Selector Infected WIXOSS"
+  },
+  {
+    "value": "Buddy Complex"
+  },
+  {
+    "value": "Future Card Buddyfight"
+  },
+  {
+    "value": "Hamatora The Animation"
+  },
+  {
+    "value": "Nobunaga the Fool"
+  },
+  {
+    "value": "Nobunagun"
+  },
+  {
+    "value": "Noragami"
+  },
+  {
+    "value": "Sakura Trick"
+  },
+  {
+    "value": "Tiger & Bunny Movie 2: The Rising"
+  },
+  {
+    "value": "BlazBlue: Alter Memory"
+  },
+  {
+    "value": "Coppelion"
+  },
+  {
+    "value": "Golden Time"
+  },
+  {
+    "value": "Gundam Build Fighters"
+  },
+  {
+    "value": "Hidamari Sketch: Sae Hiro Sotsugyou-hen"
+  },
+  {
+    "value": "Log Horizon"
+  },
+  {
+    "value": "Miss Monochrome: The Animation"
+  },
+  {
+    "value": "Non Non Biyori"
+  },
+  {
+    "value": "Outbreak Company"
+  },
+  {
+    "value": "Shingeki no Kyojin OVA"
+  },
+  {
+    "value": "Strike the Blood"
+  },
+  {
+    "value": "Tokyo Ravens"
+  },
+  {
+    "value": "Yozakura Quartet: Hana no Uta"
+  },
+  {
+    "value": "Yozakura Quartet: Tsuki ni Naku"
+  },
+  {
+    "value": "Blood Lad"
+  },
+  {
+    "value": "Fantasista Doll"
+  },
+  {
+    "value": "Futari wa Milky Holmes"
+  },
+  {
+    "value": "Gatchaman Crowds"
+  },
+  {
+    "value": "Minami-ke Natsuyasumi"
+  },
+  {
+    "value": "Servant x Service"
+  },
+  {
+    "value": "Aiura"
+  },
+  {
+    "value": "Danchi Tomoo"
+  },
+  {
+    "value": "Date A Live"
+  },
+  {
+    "value": "Jewelpet Happiness"
+  },
+  {
+    "value": "Karneval (TV)"
+  },
+  {
+    "value": "Pretty Rhythm: Rainbow Live"
+  },
+  {
+    "value": "Shingeki no Kyojin"
+  },
+  {
+    "value": "Amnesia"
+  },
+  {
+    "value": "Dokidoki! Precure"
+  },
+  {
+    "value": "Love Live! School Idol Project"
+  },
+  {
+    "value": "Star Driver the Movie"
+  },
+  {
+    "value": "Tamako Market"
+  },
+  {
+    "value": "Vividred Operation"
+  },
+  {
+    "value": "Bakuman. 3"
+  },
+  {
+    "value": "Btooom!"
+  },
+  {
+    "value": "Initial D Fifth Stage"
+  },
+  {
+    "value": "Magi: The Labyrinth of Magic"
+  },
+  {
+    "value": "Minami-ke Omatase"
+  },
+  {
+    "value": "Smile Precure! Movie: Ehon no Naka wa Minna Chiguhagu!"
+  },
+  {
+    "value": "To LOVE-Ru Darkness"
+  },
+  {
+    "value": "Chitose Get You!!"
+  },
+  {
+    "value": "Joshiraku"
+  },
+  {
+    "value": "Kingdom"
+  },
+  {
+    "value": "Tantei Opera Milky Holmes: Alternative"
+  },
+  {
+    "value": "Tari Tari"
+  },
+  {
+    "value": "Tiger & Bunny Movie 1: The Beginning"
+  },
+  {
+    "value": "Fate/Zero 2nd Season"
+  },
+  {
+    "value": "Jormungand"
+  },
+  {
+    "value": "Queen's Blade: Rebellion"
+  },
+  {
+    "value": "Tsuritama"
+  },
+  {
+    "value": "Upotte!!"
+  },
+  {
+    "value": "Zetman"
+  },
+  {
+    "value": "Another"
+  },
+  {
+    "value": "Aquarion Evol"
+  },
+  {
+    "value": "Maken-Ki! OVA"
+  },
+  {
+    "value": "Senki Zesshou Symphogear: Meteoroid-Falling, Burning, and Disappear, Then..."
+  },
+  {
+    "value": "Smile Precure!"
+  },
+  {
+    "value": "Bakuman. 2"
+  },
+  {
+    "value": "Fate/Zero"
+  },
+  {
+    "value": "Guilty Crown"
+  },
+  {
+    "value": "Hidamari Sketch x SP"
+  },
+  {
+    "value": "K-On! Movie"
+  },
+  {
+    "value": "Blood-C"
+  },
+  {
+    "value": "Busou Shinki Moon Angel"
+  },
+  {
+    "value": "Carnival Phantasm"
+  },
+  {
+    "value": "Gensou Mangekyou: The Memories of Phantasm"
+  },
+  {
+    "value": "Mayo Chiki!"
+  },
+  {
+    "value": "Tantei Opera Milky Holmes: Summer Special"
+  },
+  {
+    "value": "Deadman Wonderland"
+  },
+  {
+    "value": "Dog Days"
+  },
+  {
+    "value": "Pretty Rhythm: Aurora Dream"
+  },
+  {
+    "value": "SKET Dance"
+  },
+  {
+    "value": "Softenni"
+  },
+  {
+    "value": "Steins;Gate"
+  },
+  {
+    "value": "Tiger & Bunny"
+  },
+  {
+    "value": "Toriko"
+  },
+  {
+    "value": "Beelzebub"
+  },
+  {
+    "value": "Dragon Crisis!"
+  },
+  {
+    "value": "Fractale"
+  },
+  {
+    "value": "Freezing"
+  },
+  {
+    "value": "Gosick"
+  },
+  {
+    "value": "Level E"
+  },
+  {
+    "value": "Bakuman."
+  },
+  {
+    "value": "Fortune Arterial: Akai Yakusoku"
+  },
+  {
+    "value": "Star Driver: Kagayaki no Takuto"
+  },
+  {
+    "value": "Tantei Opera Milky Holmes"
+  },
+  {
+    "value": "Yosuga no Sora: In Solitude, Where We Are Least Alone."
+  },
+  {
+    "value": "Yozakura Quartet: Hoshi no Umi"
+  },
+  {
+    "value": "Amagami SS"
+  },
+  {
+    "value": "Strike Witches 2"
+  },
+  {
+    "value": "Tamayura"
+  },
+  {
+    "value": "Angel Beats!"
+  },
+  {
+    "value": "Giant Killing"
+  },
+  {
+    "value": "Heroman"
+  },
+  {
+    "value": "Dance in the Vampire Bund"
+  },
+  {
+    "value": "Asura Cryin' 2"
+  },
+  {
+    "value": "Fairy Tail"
+  },
+  {
+    "value": "Kanamemo"
+  },
+  {
+    "value": "Needless"
+  },
+  {
+    "value": "Princess Lover!"
+  },
+  {
+    "value": "Tokyo Magnitude 8.0"
+  },
+  {
+    "value": "Asura Cryin'"
+  },
+  {
+    "value": "Basquash!"
+  },
+  {
+    "value": "Cross Game"
+  },
+  {
+    "value": "Guin Saga"
+  },
+  {
+    "value": "K-On!"
+  },
+  {
+    "value": "Natsu no Arashi!"
+  },
+  {
+    "value": "Ristorante Paradiso"
+  },
+  {
+    "value": "Saki"
+  },
+  {
+    "value": "Shangri-La"
+  },
+  {
+    "value": "Tears to Tiara"
+  },
+  {
+    "value": "Minami-ke Okaeri"
+  },
+  {
+    "value": "Casshern Sins"
+  },
+  {
+    "value": "Clannad: After Story"
+  },
+  {
+    "value": "Inazuma Eleven"
+  },
+  {
+    "value": "Skip Beat!"
+  },
+  {
+    "value": "Tales of the Abyss"
+  },
+  {
+    "value": "Hidamari Sketch x 365"
+  },
+  {
+    "value": "Sekirei"
+  },
+  {
+    "value": "Kaiba"
+  },
+  {
+    "value": "Kamen no Maid Guy"
+  },
+  {
+    "value": "Soul Eater"
+  },
+  {
+    "value": "Aria The Origination"
+  },
+  {
+    "value": "Ayakashi"
+  },
+  {
+    "value": "Persona: Trinity Soul"
+  },
+  {
+    "value": "True Tears"
+  },
+  {
+    "value": "Aria The OVA: Arietta"
+  },
+  {
+    "value": "Bamboo Blade"
+  },
+  {
+    "value": "Clannad"
+  },
+  {
+    "value": "Prism Ark"
+  },
+  {
+    "value": "Baccano!"
+  },
+  {
+    "value": "Kenkou Zenra-kei Suiei-bu Umishou"
+  },
+  {
+    "value": "Mononoke"
+  },
+  {
+    "value": "School Days"
+  },
+  {
+    "value": "Tokyo Majin Gakuen Kenpucho: Tou Dai Ni Maku"
+  },
+  {
+    "value": "Wangan Midnight"
+  },
+  {
+    "value": "Bakugan Battle Brawlers"
+  },
+  {
+    "value": "Blue Dragon"
+  },
+  {
+    "value": "Claymore"
+  },
+  {
+    "value": "Heroic Age"
+  },
+  {
+    "value": "Murder Princess"
+  },
+  {
+    "value": "Naruto: Shippuuden"
+  },
+  {
+    "value": "Nodame Cantabile"
+  },
+  {
+    "value": "Tokyo Majin Gakuen Kenpucho: Tou"
+  },
+  {
+    "value": "Bartender"
+  },
+  {
+    "value": "Death Note"
+  },
+  {
+    "value": "Paprika"
+  },
+  {
+    "value": "Innocent Venus"
+  },
+  {
+    "value": "Air Gear"
+  },
+  {
+    "value": "Black Lagoon"
+  },
+  {
+    "value": "Nana"
+  },
+  {
+    "value": "Oban Star-Racers"
+  },
+  {
+    "value": "Strawberry Panic"
+  },
+  {
+    "value": "xxxHOLiC"
+  },
+  {
+    "value": "Zegapain"
+  },
+  {
+    "value": "Ergo Proxy"
+  },
+  {
+    "value": "Fate/stay night"
+  },
+  {
+    "value": "Major S2"
+  },
+  {
+    "value": "Rec"
+  },
+  {
+    "value": "Aria The Animation"
+  },
+  {
+    "value": "Black Cat"
+  },
+  {
+    "value": "Shuffle!"
+  },
+  {
+    "value": "Suzuka"
+  },
+  {
+    "value": "Trinity Blood"
+  },
+  {
+    "value": "Zoids Genesis"
+  },
+  {
+    "value": "Starship Operators"
+  },
+  {
+    "value": "Xenosaga The Animation"
+  },
+  {
+    "value": "Bleach"
+  },
+  {
+    "value": "Fantastic Children"
+  },
+  {
+    "value": "Final Approach"
+  },
+  {
+    "value": "Major S1"
+  },
+  {
+    "value": "Rozen Maiden"
+  },
+  {
+    "value": "School Rumble"
+  },
+  {
+    "value": "Zipang"
+  },
+  {
+    "value": "Gantz 2nd Stage"
+  },
+  {
+    "value": "Gantz"
+  },
+  {
+    "value": "Ghost in the Shell 2: Innocence"
+  },
+  {
+    "value": "Samurai Champloo"
+  },
+  {
+    "value": "Gungrave"
+  },
+  {
+    "value": "Maburaho"
+  },
+  {
+    "value": "Planetes"
+  },
+  {
+    "value": "Full Metal Panic? Fumoffu"
+  },
+  {
+    "value": "Sonic X"
+  },
+  {
+    "value": "Green Green OVA"
+  },
+  {
+    "value": "Hanada Shounen-shi"
+  },
+  {
+    "value": "Hungry Heart: Wild Striker"
+  },
+  {
+    "value": "Macross Zero"
+  },
+  {
+    "value": "Naruto"
+  },
+  {
+    "value": "Overman King Gainer"
+  },
+  {
+    "value": "Princess Tutu"
+  },
+  {
+    "value": ".hack//Sign"
+  },
+  {
+    "value": "Chobits"
+  },
+  {
+    "value": "Rizelmine"
+  },
+  {
+    "value": "Hunter x Hunter OVA"
+  },
+  {
+    "value": "Love Hina Again"
+  },
+  {
+    "value": "RahXephon"
+  },
+  {
+    "value": "Final Fantasy: Unlimited"
+  },
+  {
+    "value": "Gekitou! Crush Gear Turbo"
+  },
+  {
+    "value": "Hellsing"
+  },
+  {
+    "value": "Mahoromatic: Automatic Maiden"
+  },
+  {
+    "value": "Galaxy Angel"
+  },
+  {
+    "value": "Noir"
+  },
+  {
+    "value": "Star Ocean EX"
+  },
+  {
+    "value": "Initial D Extra Stage"
+  },
+  {
+    "value": "Initial D Third Stage"
+  },
+  {
+    "value": "Hand Maid May"
+  },
+  {
+    "value": "Strange Dawn"
+  },
+  {
+    "value": "Love Hina"
+  },
+  {
     "value": "11eyes"
   },
   {
@@ -12,9 +1500,6 @@
     "value": "AKB0048: Next Stage"
   },
   {
-    "value": "Absolute Duo"
-  },
-  {
     "value": "Accel World"
   },
   {
@@ -25,9 +1510,6 @@
   },
   {
     "value": "Ai Yori Aoshi"
-  },
-  {
-    "value": "Air Gear"
   },
   {
     "value": "Ajin"
@@ -51,15 +1533,6 @@
     "value": "Akuma no Riddle"
   },
   {
-    "value": "Aldnoah.Zero"
-  },
-  {
-    "value": "Aldnoah.Zero 2nd Season"
-  },
-  {
-    "value": "Amagami SS"
-  },
-  {
     "value": "Amagami SS: Tachibana Miya-hen - Imouto"
   },
   {
@@ -67,15 +1540,6 @@
   },
   {
     "value": "Amagi Brilliant Park"
-  },
-  {
-    "value": "Amanchu!"
-  },
-  {
-    "value": "Ange Vierge"
-  },
-  {
-    "value": "Angel Beats!"
   },
   {
     "value": "Anitore! EX"
@@ -94,9 +1558,6 @@
   },
   {
     "value": "Anohana: The Flower We Saw That Day"
-  },
-  {
-    "value": "Another"
   },
   {
     "value": "Ansatsu Kyoushitsu (Assassination Classroom)"
@@ -126,9 +1587,6 @@
     "value": "Arakawa Under the Bridge x Bridge"
   },
   {
-    "value": "Aria The OVA: Arietta"
-  },
-  {
     "value": "Ashita no Joe 2"
   },
   {
@@ -150,22 +1608,7 @@
     "value": "B Gata H Kei"
   },
   {
-    "value": "Baccano!"
-  },
-  {
-    "value": "Bakuon!!"
-  },
-  {
-    "value": "Bamboo Blade"
-  },
-  {
-    "value": "Barakamon"
-  },
-  {
     "value": "Basilisk: Kouga Ninpouchou"
-  },
-  {
-    "value": "Battery"
   },
   {
     "value": "Battle Programmer Shirase"
@@ -174,19 +1617,13 @@
     "value": "Beck"
   },
   {
-    "value": "Beelzebub"
-  },
-  {
     "value": "Ben-Tou"
   },
   {
+    "value": "Bikini Warriors"
+  },
+  {
     "value": "Binbougami Ga! (Good Luck Girl!)"
-  },
-  {
-    "value": "Black Bullet"
-  },
-  {
-    "value": "Black Lagoon"
   },
   {
     "value": "Black Lagoon: The Second Barrage"
@@ -202,15 +1639,6 @@
   },
   {
     "value": "BlazBlue Alter Memory"
-  },
-  {
-    "value": "Bleach"
-  },
-  {
-    "value": "Blood Lad"
-  },
-  {
-    "value": "Blood-C"
   },
   {
     "value": "Boku dake ga Inai Machi (ERASED)"
@@ -231,13 +1659,7 @@
     "value": "Bokurano"
   },
   {
-    "value": "Btooom!"
-  },
-  {
     "value": "Bubblegum Crisis Tokyo 2040"
-  },
-  {
-    "value": "Buddy Complex"
   },
   {
     "value": "Byousoku 5 Centimeter (5 Centimeters per Second)"
@@ -255,28 +1677,13 @@
     "value": "Cardcaptor Sakura"
   },
   {
-    "value": "Carnival Phantasm"
-  },
-  {
-    "value": "Casshern Sins"
-  },
-  {
     "value": "Cat's Eye"
-  },
-  {
-    "value": "Charlotte"
   },
   {
     "value": "Chuunibyou demo Koi ga Shitai!"
   },
   {
-    "value": "Clannad"
-  },
-  {
     "value": "Clannad ~After Story~"
-  },
-  {
-    "value": "Claymore"
   },
   {
     "value": "Code Geass"
@@ -324,25 +1731,28 @@
     "value": "Damekko Doubutsu"
   },
   {
-    "value": "Danchigai"
+    "value": "Danganronpa 2: Goodbye Despair"
+  },
+  {
+    "value": "Super Danganronpa 2"
+  },
+  {
+    "value": "Danganronpa: The Animation"
   },
   {
     "value": "Danshi Koukousei no Nichijou (Daily Lives of High School Boys)"
   },
   {
-    "value": "Date A Live"
+    "value": "Darker than Black"
+  },
+  {
+    "value": "Darker than Black: Ryuusei no Gemini"
   },
   {
     "value": "Date A Live II"
   },
   {
-    "value": "Deadman Wonderland"
-  },
-  {
     "value": "Death March kara Hajimaru Isekai Kyousoukyoku (Death March to the Parallel World Rhapsody)"
-  },
-  {
-    "value": "Death Parade"
   },
   {
     "value": "Demi-chan wa Kataritai (Interviews With Monster Girls)"
@@ -405,7 +1815,10 @@
     "value": "Durarara!!"
   },
   {
-    "value": "Durarara!!x2 Ten"
+    "value": "Durarara!! X2"
+  },
+  {
+    "value": "Dysfunctional Systems: Learning to Manage Chaos"
   },
   {
     "value": "D.C. ~Da Capo~ Girl's Symphony"
@@ -421,9 +1834,6 @@
   },
   {
     "value": "Elfen Lied"
-  },
-  {
-    "value": "Ergo Proxy"
   },
   {
     "value": "Etotama"
@@ -444,16 +1854,10 @@
     "value": "FORTUNE ARTERIAL Akai Yakusoku"
   },
   {
-    "value": "Fairy Tail"
-  },
-  {
     "value": "Fairy Tail (2014)"
   },
   {
     "value": "Fate/EXTRA Last Encore"
-  },
-  {
-    "value": "Fate/Zero"
   },
   {
     "value": "Fate/kaleid liner Prisma Illya"
@@ -474,10 +1878,19 @@
     "value": "Final Fantasy XIII"
   },
   {
-    "value": "Flip Flappers"
+    "value": "Flag"
   },
   {
-    "value": "Flying Witch"
+    "value": "Free!"
+  },
+  {
+    "value": "Freedom"
+  },
+  {
+    "value": "Full Metal Panic!"
+  },
+  {
+    "value": "Full Metal Panic! The Second Raid"
   },
   {
     "value": "Fullmetal Alchemist"
@@ -493,6 +1906,9 @@
   },
   {
     "value": "Fushigi no Umi no Nadia (Nadia: The Secret of Blue Water)"
+  },
+  {
+    "value": "Futakoi Alternative"
   },
   {
     "value": "Futsuu no Joshikousei ga [Locodol] Yatte Mita."
@@ -540,9 +1956,6 @@
     "value": "GJ-bu@"
   },
   {
-    "value": "Gabriel DropOut"
-  },
-  {
     "value": "Gakkougurashi!"
   },
   {
@@ -555,7 +1968,7 @@
     "value": "Garo: Honoo no Kokuin"
   },
   {
-    "value": "Gatchaman Crowds"
+    "value": "Gekkan Shoujo Nozaki-kun (Monthly Girls' Nozaki-kun)"
   },
   {
     "value": "Genei wo Kakeru Taiyou (Day Break Illusion)"
@@ -630,19 +2043,13 @@
     "value": "Gokukoku no Brynhildr"
   },
   {
-    "value": "Golden Time"
-  },
-  {
-    "value": "Gosick"
-  },
-  {
     "value": "Granblue Fantasy"
   },
   {
     "value": "Great Teacher Onizuka"
   },
   {
-    "value": "Guilty Crown"
+    "value": "Mobile Suit Gundam"
   },
   {
     "value": "Mobile Suit Gundam Wing"
@@ -654,10 +2061,10 @@
     "value": "Mobile Suit Gundam Unicorn"
   },
   {
-    "value": "Gungrave"
+    "value": "Gunsmith Cats"
   },
   {
-    "value": "Gunsmith Cats"
+    "value": "HaNaYaMaTa"
   },
   {
     "value": "Hachimitsu to Clover I (Honey and Clover I)"
@@ -681,7 +2088,10 @@
     "value": "Haiyore! Nyaruko-san"
   },
   {
-    "value": "Haiyore! Nyaruko-san F"
+    "value": "Haiyore! Nyaruko-san W"
+  },
+  {
+    "value": "Hanasaku Iroha"
   },
   {
     "value": "Harmonie"
@@ -705,7 +2115,7 @@
     "value": "Hayate no Gotoku! Cuties"
   },
   {
-    "value": "Heavy Object"
+    "value": "Hentai Ouji to Warawanai Neko. (HenNeko: The \"Hentai\" Prince and the Stony Cat.)"
   },
   {
     "value": "Hibike! Euphonium"
@@ -729,6 +2139,9 @@
     "value": "Hidamari Sketch × SP"
   },
   {
+    "value": "Hidamari Sketch × Honeycomb"
+  },
+  {
     "value": "Hidamari Sketch × Hanikamu"
   },
   {
@@ -744,6 +2157,9 @@
     "value": "High School DxD"
   },
   {
+    "value": "Highschool DxD New"
+  },
+  {
     "value": "High School DxD BorN"
   },
   {
@@ -756,10 +2172,13 @@
     "value": "Higurashi no Naku Koro ni"
   },
   {
+    "value": "Higurashi no Naku Koro ni Rei"
+  },
+  {
     "value": "Higurashi no Naku Koro ni Kira"
   },
   {
-    "value": "Hinako Note"
+    "value": "Himouto! Umaru-chan"
   },
   {
     "value": "Hitsugi no Chaika"
@@ -775,9 +2194,6 @@
   },
   {
     "value": "Houseki no Kuni"
-  },
-  {
-    "value": "Hundred"
   },
   {
     "value": "Hunter × Hunter (2011)"
@@ -801,9 +2217,6 @@
     "value": "Inu x Boku SS"
   },
   {
-    "value": "Inugami-san to Nekoyama-san"
-  },
-  {
     "value": "Isshuukan Friends"
   },
   {
@@ -811,6 +2224,9 @@
   },
   {
     "value": "Jewelpet Tinkle ☆"
+  },
+  {
+    "value": "Jinrui wa Suitai Shimashita (Humanity Has Declined)"
   },
   {
     "value": "JoJo no Kimyou na Bouken (JoJo's Bizarre Adventure)"
@@ -822,7 +2238,10 @@
     "value": "JoJo no Kimyou na Bouken: Stardust Crusaders - Battle in Egypt (JoJo's Bizarre Adventure: Stardust Crusaders - Battle in Egypt)"
   },
   {
-    "value": "Joshiraku"
+    "value": "Joukamachi no Dandelion (Castle Town Dandelion)"
+  },
+  {
+    "value": "Junketsu no Maria (Maria the Virgin Witch)"
   },
   {
     "value": "Juuou Mujin no Fafnir (Unlimited Fafnir)"
@@ -831,13 +2250,10 @@
     "value": "K"
   },
   {
-    "value": "K-On!"
-  },
-  {
     "value": "K-On!!"
   },
   {
-    "value": "K-On! Movie"
+    "value": "Kachou Ouji: Legend of Black Heaven"
   },
   {
     "value": "Kaichou wa Maid-sama!"
@@ -876,6 +2292,9 @@
     "value": "Katanagatari"
   },
   {
+    "value": "Katsudou Shashin"
+  },
+  {
     "value": "Keijo!!!!!!!!"
   },
   {
@@ -883,9 +2302,6 @@
   },
   {
     "value": "Kekkai Sensen & Beyond"
-  },
-  {
-    "value": "Kemono Friends"
   },
   {
     "value": "Kemono no Souja Erin"
@@ -912,7 +2328,7 @@
     "value": "Kiss X Sis"
   },
   {
-    "value": "Kiznaiver"
+    "value": "Kitakubu Katsudou Kiroku (Chronicles of the Going Home Club)"
   },
   {
     "value": "Kobato."
@@ -990,6 +2406,9 @@
     "value": "Kuragehime"
   },
   {
+    "value": "Kurenai"
+  },
+  {
     "value": "Kurokami"
   },
   {
@@ -1017,19 +2436,13 @@
     "value": "Lance N' Masques"
   },
   {
+    "value": "Last Exile"
+  },
+  {
     "value": "Little Busters!: Sekai no Saitou wa Ore ga Mamoru!"
   },
   {
-    "value": "Log Horizon"
-  },
-  {
     "value": "Log Horizon 2"
-  },
-  {
-    "value": "Love Hina"
-  },
-  {
-    "value": "Love Hina Again"
   },
   {
     "value": "Love Lab"
@@ -1056,10 +2469,10 @@
     "value": "Lupin Sansei: Mine Fujiko to Iu Onna (Lupin the Third: The Woman Called Fujiko Mine) (2012)"
   },
   {
-    "value": "MM!"
+    "value": "Lupin Sansei: Italian Game (Lupin the Third Part 4: The Italian Game) (2015)"
   },
   {
-    "value": "Maburaho"
+    "value": "MM!"
   },
   {
     "value": "Machine Robo Battle Hackers"
@@ -1068,13 +2481,13 @@
     "value": "Machine-Doll wa Kizutsukanai (Unbreakable Machine-Doll)"
   },
   {
+    "value": "The Super Dimension Fortress Macross"
+  },
+  {
     "value": "Macross Δ (Delta)"
   },
   {
     "value": "Madan no Ou to Vanadis"
-  },
-  {
-    "value": "Magi: The Labyrinth of Magic"
   },
   {
     "value": "Magi: The Kingdom of Magic"
@@ -1101,9 +2514,6 @@
     "value": "Mahou Shoujo Lyrical Nanoha Vivid"
   },
   {
-    "value": "ViVid Strike!"
-  },
-  {
     "value": "Mahou Shoujo Nante Mou Ii Desu kara."
   },
   {
@@ -1119,7 +2529,16 @@
     "value": "Mangaka-san to Assistant-san"
   },
   {
+    "value": "Maria Holic"
+  },
+  {
     "value": "Masou Gakuen HxH"
+  },
+  {
+    "value": "Mawaru Penguindrum"
+  },
+  {
+    "value": "Mayo Chiki"
   },
   {
     "value": "Mayoi Neko Overrun!"
@@ -1137,6 +2556,9 @@
     "value": "Mekakucity Actors"
   },
   {
+    "value": "Mikagura Gakuen Kumikyoku"
+  },
+  {
     "value": "Mikakunin de Shinkoukei (Engaged to the Unidentified)"
   },
   {
@@ -1149,7 +2571,10 @@
     "value": "Mirai Nikki"
   },
   {
-    "value": "Momokuri"
+    "value": "Mitsudomoe"
+  },
+  {
+    "value": "Mittsu no Hanashi (Three Tales)"
   },
   {
     "value": "Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo?"
@@ -1176,9 +2601,6 @@
     "value": "Owarimonogatari Part 1"
   },
   {
-    "value": "Koyomimonogatari"
-  },
-  {
     "value": "Owarimonogatari Part 2"
   },
   {
@@ -1201,6 +2623,9 @@
   },
   {
     "value": "My Little Pony: Tomodachi wa Mahou"
+  },
+  {
+    "value": "NEEDLESS"
   },
   {
     "value": "NEKOPARA Vol.1"
@@ -1254,9 +2679,6 @@
     "value": "Nisekoi:"
   },
   {
-    "value": "No Game No Life"
-  },
-  {
     "value": "Nogizaka Haruka no Himitsu"
   },
   {
@@ -1266,16 +2688,7 @@
     "value": "Nogizaka Haruka no Himitsu: Finale"
   },
   {
-    "value": "Non Non Biyori"
-  },
-  {
     "value": "Non Non Biyori Repeat"
-  },
-  {
-    "value": "Noragami"
-  },
-  {
-    "value": "Noragami Aragoto"
   },
   {
     "value": "Norn9: Norn+Nonet"
@@ -1285,9 +2698,6 @@
   },
   {
     "value": "No. 6"
-  },
-  {
-    "value": "Nurse Witch Komugi-chan R"
   },
   {
     "value": "Nyan Koi!"
@@ -1335,10 +2745,10 @@
     "value": "Ore, Twintails ni Narimasu."
   },
   {
-    "value": "Oshiete! Galko-chan"
+    "value": "Oreshura"
   },
   {
-    "value": "Outbreak Company"
+    "value": "Oshiete! Galko-chan"
   },
   {
     "value": "Overlord"
@@ -1347,13 +2757,16 @@
     "value": "Pan de Peace!"
   },
   {
+    "value": "Pani Poni Dash!"
+  },
+  {
     "value": "Panty & Stocking with Garterbelt"
   },
   {
     "value": "Papa no Iu Koto o Kikinasai!"
   },
   {
-    "value": "Paprika"
+    "value": "Paradise Kiss"
   },
   {
     "value": "Parasyte"
@@ -1365,16 +2778,16 @@
     "value": "Persona 4"
   },
   {
+    "value": "Persona 4: The Animation"
+  },
+  {
+    "value": "Persona 4: The Ultimax Ultra Suplex Hold"
+  },
+  {
     "value": "Persona 5"
   },
   {
-    "value": "Ping Pong The Animation"
-  },
-  {
     "value": "Plastic Memories"
-  },
-  {
-    "value": "Princess Lover!"
   },
   {
     "value": "Psycho Pass"
@@ -1392,10 +2805,10 @@
     "value": "Punchline"
   },
   {
-    "value": "R-15"
+    "value": "Puru Puru Pururin"
   },
   {
-    "value": "Rail Wars!"
+    "value": "R-15"
   },
   {
     "value": "Rakudai Kishi no Eiyuutan (Chivalry of a Failed Knight)"
@@ -1413,9 +2826,6 @@
     "value": "Renkin San-kyuu Magical? Pokaan Specials"
   },
   {
-    "value": "Re:Creators"
-  },
-  {
     "value": "Re:Zero kara Hajimeru Isekai Seikatsu"
   },
   {
@@ -1425,7 +2835,7 @@
     "value": "Rinne no Lagrange: Flower Declaration of Your Heart"
   },
   {
-    "value": "Rizelmine"
+    "value": "Rinne no Lagrange: Flower Declaration of Your Heart Season 2"
   },
   {
     "value": "Ro-Kyu-Bu!"
@@ -1437,7 +2847,13 @@
     "value": "Rocket Girls"
   },
   {
+    "value": "Rokka no Yuusha (Rokka: Braves of the Six Flowers)"
+  },
+  {
     "value": "Rokujouma no Shinryakusha!?"
+  },
+  {
+    "value": "Rosario + Vampire Capu2"
   },
   {
     "value": "Rozen Maiden: Ouvertüre"
@@ -1458,7 +2874,7 @@
     "value": "Saijaku Muhai no Bahamut"
   },
   {
-    "value": "Saki"
+    "value": "Sakamichi no Apollon"
   },
   {
     "value": "Saki Biyori Animation"
@@ -1470,19 +2886,16 @@
     "value": "Saki Zenkoku-hen"
   },
   {
-    "value": "Sakura Quest"
-  },
-  {
     "value": "Sakura Taisen: Gouka Kenran (Sakura Wars: The Gorgeous Blooming Cherry Blossoms)"
-  },
-  {
-    "value": "Sakura Trick"
   },
   {
     "value": "Sakurada Reset"
   },
   {
     "value": "Sakurako-san no Ashimoto ni wa Shitai ga Umatteiru (Beautiful Bones: Sakurako's Investigation)"
+  },
+  {
+    "value": "Sakurasou no Pet na Kanojo (The Pet Girl of Sakurasou)"
   },
   {
     "value": "Samurai 7"
@@ -1503,16 +2916,28 @@
     "value": "Zoku Sayonara Zetsubou Sensei"
   },
   {
+    "value": "Goku Sayonara Zetsubou Sensei"
+  },
+  {
     "value": "Zan Sayonara Zetsubou Sensei"
   },
   {
+    "value": "Zan Sayonara Zetsubou Sensei Bangachi"
+  },
+  {
     "value": "Seihou Bukyou Outlaw Star"
+  },
+  {
+    "value": "Seiken Tsukai no World Break"
   },
   {
     "value": "Seikoku no Dragonar"
   },
   {
     "value": "Seikon no Qwaser"
+  },
+  {
+    "value": "Seirei Tsukai no Blade Dance"
   },
   {
     "value": "Seirei no Moribito"
@@ -1527,13 +2952,13 @@
     "value": "Sekai de Ichiban Tsuyoku Naritai!"
   },
   {
-    "value": "Sekirei"
-  },
-  {
     "value": "Sengoku Basara"
   },
   {
     "value": "Senran Kagura"
+  },
+  {
+    "value": "Sentou Mecha Xabungle"
   },
   {
     "value": "Serial Experiments Lain"
@@ -1566,10 +2991,16 @@
     "value": "Shingeki no Bahamut: Virgin Soul (Rage of Bahamut: Virgin Soul)"
   },
   {
+    "value": "Shingeki no Kyojin (Attack on Titan)"
+  },
+  {
+    "value": "Shinmai Maou no Testament (The Testament of My New Devil Sister)"
+  },
+  {
     "value": "Shinryaku! Ika Musume"
   },
   {
-    "value": "Shirobako"
+    "value": "Shinsekai Yori (From the New World)"
   },
   {
     "value": "Shirogane no Ishi: Argevollen"
@@ -1590,9 +3021,6 @@
     "value": "Show by Rock!!"
   },
   {
-    "value": "Shuffle!"
-  },
-  {
     "value": "Shuumatsu Nani Shitemasu ka? Isogashii Desu ka? Sukutte Moratte Ii Desu ka? (SukaSuka/WorldEnd)"
   },
   {
@@ -1600,12 +3028,6 @@
   },
   {
     "value": "Sidonia no Kishi (Knights of Sidonia)"
-  },
-  {
-    "value": "Slow Start"
-  },
-  {
-    "value": "Softenni"
   },
   {
     "value": "Sora no Method"
@@ -1620,10 +3042,10 @@
     "value": "Sore ga Seiyuu!"
   },
   {
-    "value": "Soul Eater"
+    "value": "Soul Link"
   },
   {
-    "value": "Soul Link"
+    "value": "Space☆Dandy"
   },
   {
     "value": "Stardust Witch Meruru"
@@ -1632,16 +3054,7 @@
     "value": "Strike Witches"
   },
   {
-    "value": "Strike Witches 2"
-  },
-  {
     "value": "Strike Witches The Movie"
-  },
-  {
-    "value": "Strike Witches: Operation Victory Arrow"
-  },
-  {
-    "value": "Strike the Blood"
   },
   {
     "value": "Strike the Blood OVA"
@@ -1654,9 +3067,6 @@
   },
   {
     "value": "Sukitte Ii na yo. (Say \"I love you\".)"
-  },
-  {
-    "value": "Fuuka"
   },
   {
     "value": "Suzumiya Haruhi no Yuuutsu (The Melancholy of Haruhi Suzumiya)"
@@ -1689,10 +3099,25 @@
     "value": "Tales of Berseria"
   },
   {
+    "value": "Tales of Symphonia"
+  },
+  {
+    "value": "Tales of Symphonia: Ratatosk no Kishi (Knight of Ratatosk / Dawn of the New World)"
+  },
+  {
+    "value": "Tales of Graces ƒ"
+  },
+  {
+    "value": "Tales of Xillia"
+  },
+  {
+    "value": "Tales of Xillia 2"
+  },
+  {
     "value": "Tales of Zestiria the X Season 2"
   },
   {
-    "value": "Tamako Market"
+    "value": "Tamako Love Story"
   },
   {
     "value": "Tantei Opera Milky Holmes SS"
@@ -1704,16 +3129,28 @@
     "value": "Tantei Opera Milky Holmes Alternative"
   },
   {
-    "value": "Futari wa Milky Holmes"
-  },
-  {
     "value": "Tantei Kageki Milky Holmes TD"
   },
   {
     "value": "Tayutama: Kiss on my Deity"
   },
   {
+    "value": "Teekyuu"
+  },
+  {
+    "value": "Teekyuu 2"
+  },
+  {
+    "value": "Teekyuu 3"
+  },
+  {
+    "value": "Teekyuu 4"
+  },
+  {
     "value": "Tenchi Muyou! Ryououki 4th Season"
+  },
+  {
+    "value": "Tengen Toppa Gurren Lagann"
   },
   {
     "value": "Tenkuu no Escaflowne"
@@ -1728,13 +3165,13 @@
     "value": "The Tatami Galaxy"
   },
   {
+    "value": "Those Who Hunt Elves"
+  },
+  {
     "value": "To LOVE-Ru"
   },
   {
     "value": "Motto To LOVE-Ru"
-  },
-  {
-    "value": "To LOVE-Ru Darkness"
   },
   {
     "value": "To LOVE-Ru Darkness 2"
@@ -1746,22 +3183,16 @@
     "value": "Toaru Kagaku no Railgun S (A Certain Scientific Railgun 2nd Season)"
   },
   {
+    "value": "Toaru Majutsu no Index (A Certain Magical Index)"
+  },
+  {
     "value": "Toaru Majutsu no Index II (A Certain Magical Index 2)"
   },
   {
     "value": "Tokkou"
   },
   {
-    "value": "Tokyo ESP"
-  },
-  {
-    "value": "Tokyo Ghoul"
-  },
-  {
-    "value": "Tokyo Magnitude 8.0"
-  },
-  {
-    "value": "Tokyo Ravens"
+    "value": "Tokyo Ghoul √A"
   },
   {
     "value": "Tonari no Kaibutsu-kun (My Little Monster)"
@@ -1776,16 +3207,10 @@
     "value": "Touhai Densetsu Akagi: Yami ni Maiorita Tensai (Mahjong Legend Akagi: The Genius Who Descended Into the Darkness)"
   },
   {
-    "value": "Trinity Seven"
-  },
-  {
-    "value": "True Tears"
+    "value": "Trigun"
   },
   {
     "value": "Tsukuyomi: Moon Phase"
-  },
-  {
-    "value": "Tsuritama"
   },
   {
     "value": "Uchuu Patrol Luluco"
@@ -1794,16 +3219,13 @@
     "value": "Uchuu Senkan Yamato 2199"
   },
   {
+    "value": "Uchuu no Stellvia"
+  },
+  {
     "value": "Umineko no Naku Koro ni"
   },
   {
     "value": "Un-Go"
-  },
-  {
-    "value": "Upotte!!"
-  },
-  {
-    "value": "Urara Meirochou"
   },
   {
     "value": "Urusei Yatsura"
@@ -1816,12 +3238,6 @@
   },
   {
     "value": "Valkyrie Drive ~Mermaid~"
-  },
-  {
-    "value": "Violet Evergarden"
-  },
-  {
-    "value": "Vividred Operation"
   },
   {
     "value": "Wakaba Girl"
@@ -1842,6 +3258,9 @@
     "value": "Wolf's Rain"
   },
   {
+    "value": "Xam'd: Lost Memories"
+  },
+  {
     "value": "Yama no Susume"
   },
   {
@@ -1854,13 +3273,16 @@
     "value": "Yondemasu yo, Azazel-san."
   },
   {
+    "value": "Yondemasu yo, Azazel-san. Z"
+  },
+  {
     "value": "Yoru no Yatterman"
   },
   {
     "value": "Youjo Senki (The Saga of Tanya the Evil)"
   },
   {
-    "value": "Yozakura Quartet: Hana no Uta"
+    "value": "Yukikaze"
   },
   {
     "value": "Yumekui Merry"
@@ -1912,9 +3334,6 @@
   },
   {
     "value": "Zankyou no Terror (Terror in Resonance)"
-  },
-  {
-    "value": "Zegapain"
   },
   {
     "value": "Zero kara Hajimeru Mahou no Sho (Grimoire of Zero)"
