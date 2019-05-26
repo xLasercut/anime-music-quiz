@@ -4,7 +4,19 @@ const fs = require('fs')
 
 const regex = new RegExp('^(OP|ED)')
 
+const specialYears = ['90s', '80s', '70s', '60s']
+
+var queued = []
+
 var animes = []
+
+for (var year = 2000; year <= 2019; year++) {
+  queued.push(axios.get(`https://www.reddit.com/r/AnimeThemes/wiki/${year}`))
+}
+
+for (var year of specialYears) {
+  queued.push(axios.get(`https://www.reddit.com/r/AnimeThemes/wiki/${year}`))
+}
 
 function getSongDetails(cell) {
   var songArray = cell.text().split('"')
@@ -33,7 +45,7 @@ function getSongDetails(cell) {
 
 function isDuplicate(anime) {
   for (var item of animes) {
-    if (anime.src === item.src && anime.name === item.name) {
+    if ((anime.src === item.src || anime.title === item.title) && anime.name === item.name) {
       return true
     }
   }
@@ -41,20 +53,7 @@ function isDuplicate(anime) {
 }
 
 /* Get animes from animethemes wiki */
-axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
-.then((response) => {
-  const $ = cheerio.load(response.data)
-  var queued = []
-  var links = $('p a')
-  links.each(function(_i, link) {
-    var href = $(link).attr('href')
-    if (href.includes('/r/AnimeThemes/wiki/')) {
-      var url = `https://www.reddit.com${href}`
-      queued.push(axios.get(url))
-    }
-  })
-  return axios.all(queued)
-})
+axios.all(queued)
 .then((responses) => {
   for (var response of responses) {
     const $ = cheerio.load(response.data)
@@ -62,7 +61,7 @@ axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
 
     titles.each(function(_i, title) {
       var name = $(title).text()
-      var table = $(`h3 a:contains('${name}')`).parent().next().html()
+      var table = $(`h3 a:contains('${name}')`).parent().nextUntil('table').next().html()
       var rows = $(table).find('tr')
       rows.each(function(_i, row) {
         var cells = $(row).find('td')
@@ -89,7 +88,7 @@ axios.get('https://www.reddit.com/r/AnimeThemes/wiki/year_index')
   }
   return axios.get('https://openings.moe/api/list.php')
 })
-/* Get animes from openings.moe */
+//Get animes from openings.moe
 .then((response) => {
   var data = response.data
   for (var anime of data) {
