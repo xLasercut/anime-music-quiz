@@ -24,19 +24,10 @@ export default {
     })
   },
   songInformation(state) {
-    var title = ''
-    var artist = ''
-    var type = ''
-    if (state.anime.song) {
-      title = state.anime.song.title
-      artist = state.anime.song.artist
-      type = state.anime.song.type
-    }
-
     return {
-      Title: title,
-      Artist: artist,
-      Type: type
+      Title: state.anime.title,
+      Artist: state.anime.artist,
+      Type: state.anime.type
     }
   }
 }
