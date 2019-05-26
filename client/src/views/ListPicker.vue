@@ -37,6 +37,7 @@
 
 <script>
   import io from 'socket.io-client'
+  import { Loading } from 'element-ui'
   import ListFilter from '../components/list-picker/ListFilter.vue'
   import ListData from '../components/list-picker/ListData.vue'
   import UserList from '../components/list-picker/UserList.vue'
@@ -77,9 +78,11 @@
         this.reload()
       },
       reload() {
+        var loadingInstance = Loading.service()
         this.socket.emit('GET_ALL_ANIME')
         this.socket.on('GET_ALL_ANIME', (data) => {
           this.animes = data
+          loadingInstance.close()
         })
       },
       filteredData () {
