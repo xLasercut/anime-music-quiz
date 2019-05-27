@@ -2,10 +2,10 @@
   <el-main>
     <el-row type="flex" justify="center">
       <el-col :span="10">
-        <el-button @click="mode = 'game'">Game</el-button>
+        <el-button @click="mode = 'game'" type="success" icon="el-icon-stopwatch">Game</el-button>
       </el-col>
       <el-col :span="10">
-        <el-button @click="mode = 'list'">Song List</el-button>
+        <el-button @click="mode = 'list'" type="info" icon="el-icon-document">Song List</el-button>
       </el-col>
     </el-row>
     <game-form v-if="displayForm('game')"></game-form>

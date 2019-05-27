@@ -1,7 +1,6 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 const file = require('./shared/file.js')
-const conversionMap = require('./generate-anime-list/conversion-map.js')
 const queries = require('./generate-anime-list/query-generator.js')
 
 const titleFilter = new RegExp('^(OP|ED)')
@@ -13,7 +12,12 @@ function getTable(title) {
     return next.html()
   }
   else if (next[0].name === 'p') {
-    return title.parent().nextUntil('table').next().html()
+    var elementLength = title.parent().nextUntil('table').length
+    var table = title.parent()
+    for (var i = 0; i <= elementLength; i++) {
+      table = table.next()
+    }
+    return table.html()
   }
 }
 
@@ -42,30 +46,11 @@ function getSongDetails(cell) {
   }
 }
 
-function convertName(name) {
-  for (var key in conversionMap) {
-    if (conversionMap[key].includes(name)) {
-      return key
-    }
-  }
-  return name
-}
-
-function isDuplicate(anime) {
-  for (var item of animes) {
-    if ((anime.src === item.src || anime.title === item.title) && anime.name === item.name) {
-      return true
-    }
-  }
-  return false
-}
-
-function addToList(rawName, cell) {
-  if (titleFilter.exec(cell.text())) {
+function addToList(name, cell) {
+  if (cell.text().match(titleFilter)) {
     var src = cell.next().find('a').attr('href')
     if (src) {
       var song = getSongDetails(cell)
-      var name = convertName(rawName)
 
       var anime = {
         name: name,
@@ -75,13 +60,10 @@ function addToList(rawName, cell) {
         type: song.type
       }
 
-      if (!isDuplicate(anime)) {
-        animes.push(anime)
-      }
+      animes.push(anime)
     }
   }
 }
-
 
 
 // Get animes from animethemes wiki
@@ -128,11 +110,9 @@ axios.all(queries)
       type: type
     }
 
-    if (!isDuplicate(anime)) {
-      animes.push(anime)
-    }
+    animes.push(anime)
   }
-  file.write('./anime.json', animes)
+  file.write('./raw-anime.json', animes)
 })
 .catch((error) => {
   console.log(error)

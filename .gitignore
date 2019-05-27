@@ -20,6 +20,7 @@ yarn-error.log*
 *.sln
 *.sw?
 
+raw-anime.json
 anime.json
 choices.json
 user-list.json

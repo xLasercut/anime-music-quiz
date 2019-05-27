@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "generatedb": "node tools/generate-anime-list.js && node tools/generate-choices.js"
+    "generate": "node tools/generate-anime-list.js",
+    "process": "node tools/format-anime-list.js && node tools/generate-choices.js"
   },
   "author": "xLasercut",
   "license": "MIT",
