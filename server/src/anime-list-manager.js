@@ -7,7 +7,7 @@ class AnimeListManager {
     this.userList = []
     this.initialiseList()
     this.currentAnime = {}
-
+    this.gameList = []
   }
 
   initialiseList() {
@@ -17,8 +17,30 @@ class AnimeListManager {
   }
 
   getSong() {
-    var index = Math.floor(Math.random() * this.completeList.length)
-    return this.completeList[index]
+    var index = Math.floor(Math.random() * this.userList.length)
+    var song = this.userList[index]
+    this.userList.splice(index, 1)
+    return song
+  }
+
+  generateGameList(songNumber) {
+    this.gameList = []
+    var max = songNumber
+    if (this.userList.length < songNumber) {
+      max = this.userList.length
+      console.log(this.userList.length)
+    }
+    var dupe = []
+
+    for (var n = 0; n < max; n++) {
+      var index = Math.floor(Math.random() * this.userList.length)
+      if (!dupe.includes(index)) {
+        dupe.push(index)
+        this.gameList.push(this.userList[index])
+      }
+    }
+
+    return max
   }
 
   updateUserList(list) {

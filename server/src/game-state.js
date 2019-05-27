@@ -8,12 +8,14 @@ class GameState {
     }
     this.currentSong = {}
     this.currentSongNumber = 0
+    this.maxSongNumber = 20
     this.io = io
   }
 
-  startGame() {
+  startGame(max) {
     this.playing = true
     this.io.emit('UPDATE_PLAYING', this.playing)
+    this.maxSongNumber = max
   }
 
   updateSettings(settings) {
@@ -30,12 +32,12 @@ class GameState {
   songNumbers() {
     return {
       current: this.currentSongNumber,
-      max: this.settings.songNumber
+      max: this.maxSongNumber
     }
   }
 
   roundEnd() {
-    if (this.currentSongNumber < this.settings.songNumber) {
+    if (this.currentSongNumber < this.maxSongNumber) {
       return false
     }
     return true

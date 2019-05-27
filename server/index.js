@@ -43,7 +43,8 @@ io.on('connection', function(socket) {
   })
 
   socket.on('START_GAME', function() {
-    gameState.startGame()
+    var max = animeListManager.generateGameList(gameState.settings.songNumber)
+    gameState.startGame(max)
     players.resetScore()
     var song = animeListManager.getSong()
     gameState.newSong(song)
