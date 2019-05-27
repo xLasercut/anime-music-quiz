@@ -4,7 +4,7 @@
       <el-col :span="12">
         <el-button type="primary" icon="el-icon-back" @click="$router.push('/')">Home</el-button>
         <el-button @click="reload()" type="warning" icon="el-icon-refresh">Reload Full List</el-button>
-        <el-button @click="dialog = true" type="success">Show List</el-button>
+        <el-button @click="dialog = true" type="success" icon="el-icon-info">Show List</el-button>
       </el-col>
     </el-row>
     <list-filter v-model="filter"></list-filter>
@@ -43,7 +43,7 @@
       return {
         socket: this.$store.state.list.socket,
         animes: [],
-        pageSize: 10,
+        pageSize: 8,
         currentPage: 1,
         filter: {
           anime: '',

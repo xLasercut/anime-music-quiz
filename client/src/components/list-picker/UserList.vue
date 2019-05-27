@@ -1,14 +1,23 @@
 <template>
   <el-row>
-    <el-dialog :visible.sync="dialog" :fullscreen="true" @open="$emit('open')">
+    <el-dialog :visible.sync="dialog" width="80%" @open="$emit('open')">
       <el-row>
         <el-button @click="download()" type="success" icon="el-icon-download">Download List</el-button>
       </el-row>
       <list-filter v-model="filter"></list-filter>
       <list-data
-        :data="filteredData()"
+        :data="displayData()"
         @remove-anime="$emit('remove-anime', $event)"
       ></list-data>
+      <el-row>
+        <el-pagination
+          background
+          layout="prev, pager, next, jumper, ->, total"
+          :current-page.sync="currentPage"
+          :page-size="pageSize"
+          :total="filteredData().length"
+        ></el-pagination>
+      </el-row>
     </el-dialog>
   </el-row>
 </template>
@@ -31,7 +40,9 @@
         filter: {
           anime: '',
           song: ''
-        }
+        },
+        currentPage: 1,
+        pageSize: 5
       }
     },
     watch: {
@@ -56,6 +67,11 @@
           return filtered
         }
         return this.$store.state.list.userList
+      },
+      displayData() {
+        var start = (this.currentPage - 1) * this.pageSize
+        var end = start + this.pageSize
+        return this.filteredData().slice(start, end)
       },
       download() {
         var jsonstring = JSON.stringify(this.$store.state.list.userList)
