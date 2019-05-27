@@ -2,6 +2,7 @@
   <el-main>
     <el-row type="flex" justify="center">
       <el-col :span="12">
+        <el-button type="primary" icon="el-icon-back" @click="$router.push('/')">Home</el-button>
         <el-button @click="reload()" type="warning" icon="el-icon-refresh">Reload Full List</el-button>
         <el-button @click="dialog = true" type="success">Show List</el-button>
       </el-col>
@@ -101,7 +102,7 @@
         })
       }
       else {
-        this.$router.push('home')
+        this.$router.push('/')
       }
     }
   }

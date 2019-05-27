@@ -87,31 +87,6 @@ axios.all(queries)
       })
     })
   }
-  return axios.get('https://openings.moe/api/list.php')
-})
-//Get animes from openings.moe
-.then((response) => {
-  var data = response.data
-  for (var anime of data) {
-    var title = ''
-    var artist = ''
-    var type = anime.title
-
-    if (anime.song) {
-      title = anime.song.title
-      artist = anime.song.artist
-    }
-
-    var anime = {
-      src: `https://openings.moe/video/${anime.file}.mp4`,
-      name: anime.source,
-      title: title,
-      artist: artist,
-      type: type
-    }
-
-    animes.push(anime)
-  }
   file.write('./raw-anime.json', animes)
 })
 .catch((error) => {

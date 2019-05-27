@@ -17,30 +17,28 @@ class AnimeListManager {
   }
 
   getSong() {
-    var index = Math.floor(Math.random() * this.userList.length)
-    var song = this.userList[index]
-    this.userList.splice(index, 1)
+    var index = Math.floor(Math.random() * this.gameList.length)
+    var song = this.gameList[index]
+    this.gameList.splice(index, 1)
     return song
   }
 
   generateGameList(songNumber) {
     this.gameList = []
-    var max = songNumber
-    if (this.userList.length < songNumber) {
-      max = this.userList.length
-      console.log(this.userList.length)
-    }
+    var userList = JSON.parse(fs.readFileSync('./user-list.json', { encoding: 'utf-8' }))
     var dupe = []
 
-    for (var n = 0; n < max; n++) {
-      var index = Math.floor(Math.random() * this.userList.length)
-      if (!dupe.includes(index)) {
-        dupe.push(index)
-        this.gameList.push(this.userList[index])
+    while (this.gameList.length < songNumber && userList.length > 0) {
+      var index = Math.floor(Math.random() * userList.length)
+      var name = userList[index].name
+      if (!dupe.includes(name)) {
+        this.gameList.push(userList[index])
+        dupe.push(name)
       }
+      userList.splice(index, 1)
     }
 
-    return max
+    return this.gameList.length
   }
 
   updateUserList(list) {

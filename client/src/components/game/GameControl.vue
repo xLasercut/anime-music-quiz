@@ -2,9 +2,14 @@
   <el-row>
     <el-col :span="12" class="game-controls">
       <el-button-group>
-        <el-button v-if="showStartButton" @click="start()" type="success">Start</el-button>
-        <el-button v-if="showLobbyButton" @click="lobby()" type="danger">Stop</el-button>
-        <el-button v-if="$store.state.game.playing" @click="$emit('toggle')" type="primary">
+        <el-button type="primary" icon="el-icon-back" @click="$router.push('/')">Home</el-button>
+        <el-button v-if="showStartButton" @click="start()" type="success" icon="el-icon-video-play">
+          Start
+        </el-button>
+        <el-button v-if="showLobbyButton" @click="lobby()" type="danger" icon="el-icon-video-pause">
+          Stop
+        </el-button>
+        <el-button v-if="$store.state.game.playing" @click="$emit('toggle')" type="primary" icon="el-icon-info">
           Toggle Answer
         </el-button>
       </el-button-group>

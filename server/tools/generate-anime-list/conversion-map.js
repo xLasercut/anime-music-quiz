@@ -13,5 +13,16 @@ module.exports = {
   'Toaru Kagaku no Railgun S (A Certain Scientific Railgun 2nd Season)': ['Toaru Kagaku no Railgun S'],
   'Clannad ~After Story~': ['Clannad: After Story'],
   'Code Geass: Hangyaku no Lelouch': ['Code Geass'],
-  'Code Geass: Hangyaku no Lelouch R2': ['Code Geass R2']
+  'Code Geass: Hangyaku no Lelouch R2': ['Code Geass R2'],
+  'Akame ga Kill!': ['Akame ga Kill'],
+  'Shingeki no Kyojin (Attack on Titan)': ['Shingeki no Kyojin', 'Shingeki no Kyojin OVA'],
+  'Shingeki no Kyojin Season 2 (Attack on Titan Season 2)': ['Shingeki no Kyojin Season 2'],
+  'Shingeki no Kyojin Season 3 (Attack on Titan Season 3)': ['Shingeki no Kyojin Season 3', 'Shingeki no Kyojin Season 3 Part 2'],
+  'Log Horizon': ['Log Horizon 2nd Season', 'Log Horizon 2'],
+  'Sword Art Online II': ['Sword Art Online 2'],
+  'Shokugeki no Souma: Ni no Sara (Food Wars! The Second Plate)': ['Shokugeki no Souma: Ni no Sara'],
+  'Shokugeki no Souma: San no Sara (Food Wars! The Third Plate)': ['Shokugeki no Souma: San no Sara'],
+  'Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen (Food Wars! The Third Plate Part 2)': ['Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen'],
+  'Sakurasou no Pet na Kanojo (The Pet Girl of Sakurasou)': ['Sakurasou no Pet na Kanojo'],
+  'New Game!': ['NEW GAME!']
 }
