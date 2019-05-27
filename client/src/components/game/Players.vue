@@ -2,7 +2,7 @@
   <el-row>
     <el-row
       type="flex" justify="center"
-      v-for="(row, index) in $store.getters.players"
+      v-for="(row, index) in $store.getters['game/players']"
       :key="`row_${index}`"
       class="player-container"
     >

@@ -21,7 +21,7 @@ class GameState {
   }
 
   checkGuess(guess) {
-    if (guess === this.currentSong.source) {
+    if (guess === this.currentSong.name) {
       return true
     }
     return false

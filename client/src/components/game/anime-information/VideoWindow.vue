@@ -1,6 +1,6 @@
 <template>
   <video ref="player" @loadeddata="confirmLoad()" v-show="show">
-    <source :src="$store.state.anime.src" v-if="$store.state.anime.src">
+    <source :src="$store.state.game.anime.src" v-if="$store.state.game.anime.src">
     Your browser does not support video element
   </video>
 </template>
@@ -20,7 +20,7 @@
     data() {
       return {
         show: false,
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     methods: {
@@ -34,7 +34,7 @@
       if (this.socket) {
         this.socket.on('NEW_SONG', (anime) => {
           this.show = false
-          this.$store.commit('UPDATE_ANIME', anime)
+          this.$store.commit('game/UPDATE_ANIME', anime)
           this.$refs.player.load()
         })
 

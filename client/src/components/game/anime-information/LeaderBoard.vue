@@ -3,7 +3,7 @@
     <el-card class="leader-board" shadow="never">
       <el-row>Players</el-row>
       <ol>
-        <li v-for="(player, index) in $store.getters.playerScore" :key="`score_${index}`">
+        <li v-for="(player, index) in $store.getters['game/playerScore']" :key="`score_${index}`">
           {{player.username}}: {{player.score}}
         </li>
       </ol>

@@ -2,7 +2,7 @@
   <el-col :span="8">
     <el-card class="song-information" shadow="never" v-show="show">
       <el-row
-        v-for="(value, key) in $store.getters.songInformation"
+        v-for="(value, key) in $store.getters['game/songInformation']"
         :key="`song_info_${key}`"
       >
         <el-row>
@@ -21,7 +21,7 @@
     data() {
       return {
         show: false,
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     mounted() {

@@ -1,6 +1,6 @@
-const fs = require('fs')
+const file = require('./shared/file.js')
 
-var animeList = JSON.parse(fs.readFileSync('./anime.json', { encoding: 'utf-8' }))
+var animeList = file.read('./anime.json')
 
 var done = []
 
@@ -13,4 +13,4 @@ for (var anime of animeList) {
   }
 }
 
-fs.writeFileSync('./choices.json', JSON.stringify(choices, null, 2))
+file.write('./choices.json', choices)

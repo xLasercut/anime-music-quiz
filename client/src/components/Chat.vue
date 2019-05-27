@@ -21,7 +21,7 @@
       return {
         message: '',
         messages: [],
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     methods: {

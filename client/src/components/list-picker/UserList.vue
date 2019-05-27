@@ -1,12 +1,12 @@
 <template>
   <el-row>
-    <el-dialog :visible.sync="dialog" :fullscreen="true" title="User List">
+    <el-dialog :visible.sync="dialog" :fullscreen="true" @open="$emit('open')">
       <el-row>
         <el-button @click="download()" type="success" icon="el-icon-download">Download List</el-button>
       </el-row>
       <list-filter v-model="filter"></list-filter>
       <list-data
-        :data="filteredData()" :user-list="data"
+        :data="filteredData()"
         @remove-anime="$emit('remove-anime', $event)"
       ></list-data>
     </el-dialog>
@@ -18,17 +18,10 @@
   import ListFilter from './ListFilter.vue'
 
   export default {
-    components: {
-      ListData,
-      ListFilter
-    },
+    components: { ListData, ListFilter },
     props: {
       value: {
         type: Boolean,
-        required: true
-      },
-      data: {
-        type: Array,
         required: true
       }
     },
@@ -55,17 +48,17 @@
           var filtered = []
           var songfilter = new RegExp(this.filter.song, 'i')
           var animefilter = new RegExp(this.filter.anime, 'i')
-          for (var anime of this.data) {
+          for (var anime of this.$store.state.list.userList) {
             if (animefilter.exec(anime.name) && songfilter.exec(anime.title)) {
               filtered.push(anime)
             }
           }
           return filtered
         }
-        return this.data
+        return this.$store.state.list.userList
       },
       download() {
-        var jsonstring = JSON.stringify(this.data)
+        var jsonstring = JSON.stringify(this.$store.state.list.userList)
         let blob = new Blob(this.encodeString(jsonstring), {type: 'application/octet-stream'})
         let link = document.createElement('a')
         link.href = window.URL.createObjectURL(blob)

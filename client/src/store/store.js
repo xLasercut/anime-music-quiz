@@ -1,17 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import state from './state.js'
-import getters from './getters.js'
-import mutations from './mutations.js'
+import game from './game/game-store.js'
+import list from './list/list-store.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions: {
-
+  modules: {
+    game: game,
+    list: list
   }
 })

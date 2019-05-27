@@ -16,18 +16,18 @@
     },
     data() {
       return {
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     mounted() {
       if (this.socket) {
         this.socket.on('UPDATE_CHOICES', (data) => {
-          this.$store.commit('UPDATE_CHOICES', data)
+          this.$store.commit('game/UPDATE_CHOICES', data)
         })
 
         this.socket.on('UPDATE_PLAYERS', (data) => {
-          this.$store.commit('UPDATE_PLAYERS', data)
-          this.$store.commit('UPDATE_HOST', this.socket.id)
+          this.$store.commit('game/UPDATE_PLAYERS', data)
+          this.$store.commit('game/UPDATE_HOST', this.socket.id)
         })
       }
       else {

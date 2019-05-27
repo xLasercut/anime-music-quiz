@@ -1,21 +1,20 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
-const fs = require('fs')
+const file = require('./shared/file.js')
+const conversionMap = require('./generate-anime-list/conversion-map.js')
+const queries = require('./generate-anime-list/query-generator.js')
 
-const regex = new RegExp('^(OP|ED)')
-
-const specialYears = ['90s', '80s', '70s', '60s']
-
-var queued = []
-
+const titleFilter = new RegExp('^(OP|ED)')
 var animes = []
 
-for (var year = 2000; year <= 2019; year++) {
-  queued.push(axios.get(`https://www.reddit.com/r/AnimeThemes/wiki/${year}`))
-}
-
-for (var year of specialYears) {
-  queued.push(axios.get(`https://www.reddit.com/r/AnimeThemes/wiki/${year}`))
+function getTable(title) {
+  var next = title.parent().next()
+  if (next[0].name === 'table') {
+    return next.html()
+  }
+  else if (next[0].name === 'p') {
+    return title.parent().nextUntil('table').next().html()
+  }
 }
 
 function getSongDetails(cell) {
@@ -43,6 +42,15 @@ function getSongDetails(cell) {
   }
 }
 
+function convertName(name) {
+  for (var key in conversionMap) {
+    if (conversionMap[key].includes(name)) {
+      return key
+    }
+  }
+  return name
+}
+
 function isDuplicate(anime) {
   for (var item of animes) {
     if ((anime.src === item.src || anime.title === item.title) && anime.name === item.name) {
@@ -52,8 +60,32 @@ function isDuplicate(anime) {
   return false
 }
 
-/* Get animes from animethemes wiki */
-axios.all(queued)
+function addToList(rawName, cell) {
+  if (titleFilter.exec(cell.text())) {
+    var src = cell.next().find('a').attr('href')
+    if (src) {
+      var song = getSongDetails(cell)
+      var name = convertName(rawName)
+
+      var anime = {
+        name: name,
+        src: src,
+        title: song.title,
+        artist: song.artist,
+        type: song.type
+      }
+
+      if (!isDuplicate(anime)) {
+        animes.push(anime)
+      }
+    }
+  }
+}
+
+
+
+// Get animes from animethemes wiki
+axios.all(queries)
 .then((responses) => {
   for (var response of responses) {
     const $ = cheerio.load(response.data)
@@ -61,27 +93,14 @@ axios.all(queued)
 
     titles.each(function(_i, title) {
       var name = $(title).text()
-      var table = $(`h3 a:contains('${name}')`).parent().nextUntil('table').next().html()
+      var table = getTable($(title))
       var rows = $(table).find('tr')
+
       rows.each(function(_i, row) {
         var cells = $(row).find('td')
+
         cells.each(function(_i, cell) {
-          if (regex.exec($(cell).text())) {
-            var src = $(cell).next().find('a').attr('href')
-            var song = getSongDetails($(cell))
-
-            var anime = {
-              name: name,
-              src: src,
-              title: song.title,
-              artist: song.artist,
-              type: song.type
-            }
-
-            if (!isDuplicate(anime)) {
-              animes.push(anime)
-            }
-          }
+           addToList(name, $(cell))
         })
       })
     })
@@ -113,7 +132,7 @@ axios.all(queued)
       animes.push(anime)
     }
   }
-  fs.writeFileSync('./anime.json', JSON.stringify(animes, null, 2))
+  file.write('./anime.json', animes)
 })
 .catch((error) => {
   console.log(error)

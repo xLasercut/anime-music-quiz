@@ -22,3 +22,5 @@ yarn-error.log*
 
 anime.json
 choices.json
+user-list.json
+user-list-back.json

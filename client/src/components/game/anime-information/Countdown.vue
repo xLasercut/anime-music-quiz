@@ -22,7 +22,7 @@
         time: 30000,
         countdown: null,
         bar: null,
-        socket: this.$store.state.socket,
+        socket: this.$store.state.game.socket,
         show: false,
         guessTime: 30000
       }

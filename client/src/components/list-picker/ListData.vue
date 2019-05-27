@@ -52,15 +52,11 @@
       data: {
         type: Array,
         required: true
-      },
-      userList: {
-        type: Array,
-        required: true
       }
     },
     methods: {
       inUserList(anime) {
-        for (var item of this.userList) {
+        for (var item of this.$store.state.list.userList) {
           if (item.name === anime.name && anime.src === item.src) {
             return true
           }

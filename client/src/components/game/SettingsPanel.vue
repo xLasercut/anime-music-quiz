@@ -57,12 +57,12 @@
           guessTime: 25,
           type: ['opening', 'ending']
         },
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     computed: {
       disabled() {
-        return !this.$store.state.host
+        return !this.$store.state.game.host
       }
     },
     methods: {

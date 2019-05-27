@@ -29,7 +29,7 @@ import { setTimeout } from 'timers';
     data() {
       return {
         showGuess: false,
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     computed: {
@@ -41,7 +41,7 @@ import { setTimeout } from 'timers';
       },
       guessStyle() {
         var background = '#F56C6C'
-        if (this.player.guess === this.$store.state.anime.source) {
+        if (this.player.guess === this.$store.state.game.anime.name) {
           background = '#67C23A'
         }
 

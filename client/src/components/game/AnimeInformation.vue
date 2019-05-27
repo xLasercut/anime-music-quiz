@@ -24,7 +24,7 @@
     components: { Countdown, VideoWindow, LeaderBoard, SongInformation },
     data() {
       return {
-        socket: this.$store.state.socket,
+        socket: this.$store.state.game.socket,
         loading: false
       }
     },

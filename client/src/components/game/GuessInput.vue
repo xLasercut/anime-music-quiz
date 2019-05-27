@@ -14,12 +14,12 @@
     data() {
       return {
         guess: '',
-        socket: this.$store.state.socket
+        socket: this.$store.state.game.socket
       }
     },
     methods: {
       querySearch(string, callback) {
-        var results = this.$store.state.choices.filter((item) => {
+        var results = this.$store.state.game.choices.filter((item) => {
           if (item.value.toLowerCase().includes(string.toLowerCase())) {
             return item
           }

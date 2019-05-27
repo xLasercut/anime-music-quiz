@@ -23,7 +23,7 @@
     data() {
       return {
         show: false,
-        socket: this.$store.state.socket,
+        socket: this.$store.state.game.socket,
         currentSong: 0,
         maxSong: 0
       }
@@ -31,7 +31,7 @@
     methods: {
       answer() {
         if (this.show || this.toggle) {
-          return this.$store.state.anime.name
+          return this.$store.state.game.anime.name
         }
         return '?'
       }

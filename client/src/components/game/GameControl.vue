@@ -4,7 +4,9 @@
       <el-button-group>
         <el-button v-if="showStartButton" @click="start()" type="success">Start</el-button>
         <el-button v-if="showLobbyButton" @click="lobby()" type="danger">Stop</el-button>
-        <el-button v-if="$store.state.playing" @click="$emit('toggle')" type="primary">Toggle Answer</el-button>
+        <el-button v-if="$store.state.game.playing" @click="$emit('toggle')" type="primary">
+          Toggle Answer
+        </el-button>
       </el-button-group>
     </el-col>
     <el-col :span="12">
@@ -14,7 +16,7 @@
         </div>
         <el-button-group>
           <el-button
-            :disabled="$store.state.playing"
+            :disabled="$store.state.game.playing"
             type="info" icon="el-icon-setting"
             @click="$emit('settings')"
           ></el-button>
@@ -33,7 +35,7 @@
     },
     data() {
       return {
-        socket: this.$store.state.socket,
+        socket: this.$store.state.game.socket,
         volume: this.value
       }
     },
@@ -47,10 +49,10 @@
     },
     computed: {
       showStartButton() {
-        return (!this.$store.state.playing && this.$store.state.host)
+        return (!this.$store.state.game.playing && this.$store.state.game.host)
       },
       showLobbyButton() {
-        return (this.$store.state.playing && this.$store.state.host)
+        return (this.$store.state.game.playing && this.$store.state.game.host)
       }
     },
     methods: {
@@ -64,7 +66,7 @@
     mounted() {
       if (this.socket) {
         this.socket.on('UPDATE_PLAYING', (playing) => {
-          this.$store.commit('UPDATE_PLAYING', playing)
+          this.$store.commit('game/UPDATE_PLAYING', playing)
         })
       }
     }

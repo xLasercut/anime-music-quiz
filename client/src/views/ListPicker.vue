@@ -1,20 +1,14 @@
 <template>
   <el-main>
     <el-row type="flex" justify="center">
-      <el-col :span="12" v-show="disabled()">
-        <el-input v-model.trim="serverUrl">
-          <span slot="prepend">Server URL</span>
-          <el-button slot="append" @click="connect()">Connect</el-button>
-        </el-input>
-      </el-col>
-      <el-col :span="12" v-show="!disabled()">
+      <el-col :span="12">
         <el-button @click="reload()" type="warning" icon="el-icon-refresh">Reload Full List</el-button>
         <el-button @click="dialog = true" type="success">Show List</el-button>
       </el-col>
     </el-row>
     <list-filter v-model="filter"></list-filter>
     <list-data
-      :data="displayData()" :user-list="userList"
+      :data="displayData()"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
     ></list-data>
@@ -22,15 +16,15 @@
       <el-pagination
         background
         layout="prev, pager, next, jumper, ->, total"
-        :current-page="currentPage"
+        :current-page.sync="currentPage"
         :page-size="pageSize"
         :total="filteredData().length"
-        @current-change="currentPage = $event"
       ></el-pagination>
     </el-row>
     <user-list
-      v-model="dialog" :data="userList"
+      v-model="dialog"
       @remove-anime="removeAnime($event)"
+      @open="updateUserList()"
     ></user-list>
   </el-main>
 </template>
@@ -42,19 +36,11 @@
   import ListData from '../components/list-picker/ListData.vue'
   import UserList from '../components/list-picker/UserList.vue'
 
-  var default_server = ''
-  if (process.env.NODE_ENV === 'development') {
-    default_server = 'http://localhost:3001'
-  }
-
-  export default {
-    components: {
-      ListFilter, ListData, UserList
-    },
+   export default {
+    components: { ListFilter, ListData, UserList },
     data() {
       return {
-        serverUrl: default_server,
-        socket: null,
+        socket: this.$store.state.list.socket,
         animes: [],
         pageSize: 10,
         currentPage: 1,
@@ -62,28 +48,14 @@
           anime: '',
           song: ''
         },
-        userList: [],
-        dialog: false
+        dialog: false,
+        loading: null
       }
     },
     methods: {
-      disabled() {
-        if (this.socket) {
-          return false
-        }
-        return true
-      },
-      connect() {
-        this.socket = io(this.serverUrl)
-        this.reload()
-      },
       reload() {
-        var loadingInstance = Loading.service()
+        this.loading = Loading.service()
         this.socket.emit('GET_ALL_ANIME')
-        this.socket.on('GET_ALL_ANIME', (data) => {
-          this.animes = data
-          loadingInstance.close()
-        })
       },
       filteredData () {
         if (this.filter.anime || this.filter.song) {
@@ -105,14 +77,31 @@
         return this.filteredData().slice(start, end)
       },
       addAnime(anime) {
-        this.userList.push(anime)
+        this.$store.commit('list/ADD_ANIME', anime)
       },
       removeAnime(anime) {
-        for (var i = 0; i < this.userList.length; i++) {
-          if (anime.src === this.userList[i].src && anime.name === this.userList[i].name) {
-            this.userList.splice(i, 1)
-          }
-        }
+        this.$store.commit('list/REMOVE_ANIME', anime)
+      },
+      updateUserList() {
+        this.socket.emit('GET_USER_LIST')
+      }
+    },
+    mounted() {
+      if (this.socket) {
+        this.reload()
+        this.updateUserList()
+
+        this.socket.on('GET_ALL_ANIME', (data) => {
+          this.animes = data
+          this.loading.close()
+        })
+
+        this.socket.on('GET_USER_LIST', (list) => {
+          this.$store.commit('list/UPDATE_USER_LIST', list)
+        })
+      }
+      else {
+        this.$router.push('home')
       }
     }
   }
