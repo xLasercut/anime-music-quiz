@@ -16,6 +16,7 @@
               :value="avatar"
               on-icon=""
               off-icon=""
+              :ripple="false"
             >
               <template slot="label">
                 <img :src="`img/avatar/${avatar}.png`">

@@ -27,5 +27,6 @@ module.exports = {
   'New Game!': ['NEW GAME!'],
   'Kyoukai no Kanata (Beyond the Boundary)': ['Kyoukai no Kanata'],
   'Shigatsu wa Kimi no Uso (Your Lie in April)': ['Shigatsu wa Kimi no Uso'],
-  'Mahoutsukai no Yome (The Ancient Magus Bride)': ['Mahoutsukai no Yome']
+  'Mahoutsukai no Yome (The Ancient Magus Bride)': ['Mahoutsukai no Yome'],
+  'Nagi no Asukara (A Lull in the Sea)': ['Nagi no Asukara']
 }

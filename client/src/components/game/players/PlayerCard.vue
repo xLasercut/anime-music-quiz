@@ -1,6 +1,6 @@
 <template>
   <v-flex xs2>
-    <v-tooltip v-model="show" :color="color" min-width="160" max-width="160" top>
+    <v-tooltip v-model="show" :color="color()" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
           <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
@@ -40,12 +40,6 @@ import { setTimeout } from 'timers';
           return '...'
         }
         return this.player.guess
-      },
-      color() {
-        if (this.player.guess === this.$store.state.game.anime.name) {
-          return 'success'
-        }
-        return 'error'
       }
     },
     methods: {
@@ -53,6 +47,12 @@ import { setTimeout } from 'timers';
         if (player.host) {
           return { outline: '4px solid #E6A23C'}
         }
+      },
+      color() {
+        if (this.player.guess === this.$store.state.game.anime.name) {
+          return 'success'
+        }
+        return 'error'
       }
     },
     mounted() {
