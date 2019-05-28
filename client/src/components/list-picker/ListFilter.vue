@@ -1,46 +1,18 @@
 <template>
-  <el-row :gutter="10" type="flex" justify="center" class="filter-container">
-    <el-col :span="10">
-      <el-input v-model="filter['anime']">
-        <span slot="prepend">Anime</span>
-      </el-input>
-    </el-col>
-    <el-col :span="10">
-      <el-input v-model="filter['song']">
-        <span slot="prepend">Song</span>
-      </el-input>
-    </el-col>
-  </el-row>
+  <v-layout justify-center>
+    <v-flex xs6>
+      <v-text-field label="Anime" v-model="model.anime" clearable></v-text-field>
+    </v-flex>
+    <v-flex xs6>
+      <v-text-field label="Song" v-model="model.song" clearable></v-text-field>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
+  import VModel from '../../assets/mixins/v-model.js'
+
   export default {
-    props: {
-      value: {
-        type: Object,
-        required: true
-      }
-    },
-    data() {
-      return {
-        filter: this.value
-      }
-    },
-    watch: {
-      value(val) {
-        this.filter = val
-      },
-      filter(val) {
-        this.$emit('input', val)
-      }
-    }
+    mixins: [ VModel ]
   }
 </script>
-
-
-<style scoped>
-  .filter-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-</style>

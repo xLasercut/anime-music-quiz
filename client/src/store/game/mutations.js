@@ -28,5 +28,8 @@ export default {
   DISCONNECT(state) {
     state.socket.close()
     state.socket = null
+  },
+  TOGGLE_ANSWER(state) {
+    state.showAnswer = !state.showAnswer
   }
 }

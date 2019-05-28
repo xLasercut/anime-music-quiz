@@ -1,59 +1,47 @@
 <template>
-  <el-form ref="listForm" :model="form" :rules="validationRules" label-position="top">
-    <el-row type="flex" justify="center">
-      <el-col :span="10">
-        <el-form-item label="Server URL" prop="server">
-          <el-input
-            v-model.trim="form.server"
-            :clearable="true"
-          ></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="success" @click="login()">Connect</el-button>
-        </el-form-item>
-      </el-col>
-    </el-row>
-  </el-form>
+  <v-form ref="listForm">
+    <v-container fluid grid-list-lg>
+      <form-input-server v-model.trim="form.server"></form-input-server>
+      <v-layout justify-center wrap>
+        <v-flex xs12 class="text-xs-center">
+          <icon-btn
+            color="success" icon="fas fa-sign-in-alt"
+            @click="login()"
+          >
+            Connect
+          </icon-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-form>
 </template>
 
 <script>
+  import FormInputServer from './form/FormInputServer.vue'
+  import IconBtn from '../shared/IconBtn.vue'
+
   var default_server = ''
   if (process.env.NODE_ENV === 'development') {
     default_server = 'http://localhost:3001'
   }
 
   export default {
+    components: { IconBtn, FormInputServer },
     data() {
       return {
         form: {
           server: default_server
-        },
-        validationRules: {
-          server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ]
         }
       }
     },
     methods: {
-      validateServer(rule, val, callback) {
-        var regex = new RegExp('^(http|https):\/\/', 'i')
-
-        if (!val) {
-          callback(new Error('Server URL cannot be blank'))
-        }
-        else if (!regex.exec(val)) {
-          callback(new Error('Please input full server url'))
-        }
-        else {
-          callback()
-        }
-      },
       login() {
-        this.$refs['listForm'].validate((valid) => {
-          if (valid) {
-            this.$store.commit('list/LOGIN', this.form)
-            this.$router.push({name: 'list-picker'})
-          }
-        })
+        var valid = this.$refs['listForm'].validate()
+
+        if (valid) {
+          this.$store.commit('list/LOGIN', this.form)
+          this.$router.push({name: 'list-picker'})
+        }
       }
     }
   }

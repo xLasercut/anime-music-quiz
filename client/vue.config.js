@@ -8,6 +8,5 @@ else if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  publicPath: publicPath,
-  lintOnSave: false
+  publicPath: publicPath
 }

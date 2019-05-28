@@ -1,12 +1,13 @@
 <template>
-  <el-row type="flex" justify="center" class="input-container">
-    <el-col :span="10">
-      <el-autocomplete
-        :fetch-suggestions="querySearch"
+  <v-layout justify-center>
+    <v-flex xs6>
+      <v-autocomplete
+        box
+        :items="$store.state.game.choices"
         v-model="guess"
-      ></el-autocomplete>
-    </el-col>
-  </el-row>
+      ></v-autocomplete>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -15,16 +16,6 @@
       return {
         guess: '',
         socket: this.$store.state.game.socket
-      }
-    },
-    methods: {
-      querySearch(string, callback) {
-        var results = this.$store.state.game.choices.filter((item) => {
-          if (item.value.toLowerCase().includes(string.toLowerCase())) {
-            return item
-          }
-        })
-        callback(results)
       }
     },
     mounted() {

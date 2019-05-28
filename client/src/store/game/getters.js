@@ -5,7 +5,7 @@ export default {
     var row = {}
     for (var key in state.players) {
       row[key] = state.players[key]
-      if (n % 5 === 0 || Object.keys(state.players).length === n ) {
+      if (n % 6 === 0 || Object.keys(state.players).length === n ) {
         players.push(row)
         row = {}
       }

@@ -1,25 +1,16 @@
 <template>
-  <el-row type="flex" justify="center" class="container">
-    <el-col :span="10">
-      <el-row type="flex" justify="center">
-        <div class="song-num-container">
-          {{currentSong}} / {{maxSong}}
-        </div>
-      </el-row>
-      <div class="answer-container">
-        <b>{{answer()}}</b>
-      </div>
-    </el-col>
-  </el-row>
+  <v-layout column align-center class="text-xs-center">
+    <v-sheet class="song-num-container" :color="$store.getters.color">
+      {{currentSong}} / {{maxSong}}
+    </v-sheet>
+    <v-sheet class="answer-container" :color="$store.getters.color">
+      <b>{{answer()}}</b>
+    </v-sheet>
+  </v-layout>
 </template>
 
 <script>
   export default {
-    props: {
-      toggle: {
-        type: Boolean
-      }
-    },
     data() {
       return {
         show: false,
@@ -30,7 +21,7 @@
     },
     methods: {
       answer() {
-        if (this.show || this.toggle) {
+        if (this.show || this.$store.state.game.showAnswer) {
           return this.$store.state.game.anime.name
         }
         return '?'
@@ -58,15 +49,16 @@
 <style scoped>
   .song-num-container {
     border-radius: 50px 50px 0 0;
-    padding-top: 10px;
+    padding-top: 5px;
     width: 100px;
     background: #E4E7ED;
   }
 
   .answer-container {
+    min-width: 400px;
     background: #E4E7ED;
     font-size: 16pt;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
   }
 </style>

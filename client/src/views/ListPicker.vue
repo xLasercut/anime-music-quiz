@@ -1,61 +1,59 @@
 <template>
-  <el-main>
-    <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <el-button type="primary" icon="el-icon-back" @click="$router.push('/')">Home</el-button>
-        <el-button @click="reload()" type="warning" icon="el-icon-refresh">Reload Full List</el-button>
-        <el-button @click="dialog = true" type="success" icon="el-icon-info">Show List</el-button>
-      </el-col>
-    </el-row>
+  <v-container fluid grid-list-lg>
+    <v-layout wrap>
+      <v-flex xs12 class="text-xs-center">
+        <icon-btn color="primary" icon="fas fa-home" @click="$router.push('/')">Home</icon-btn>
+        <icon-btn color="warning" icon="fas fa-sync" @click="reload()">Reload Full List</icon-btn>
+        <user-list @remove-anime="removeAnime($event)" @open="updateUserList()"></user-list>
+      </v-flex>
+    </v-layout>
     <list-filter v-model="filter"></list-filter>
     <list-data
       :data="displayData()"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
+      v-if="!loading"
     ></list-data>
-    <el-row>
-      <el-pagination
-        background
-        layout="prev, pager, next, jumper, ->, total"
-        :current-page.sync="currentPage"
-        :page-size="pageSize"
-        :total="filteredData().length"
-      ></el-pagination>
-    </el-row>
-    <user-list
-      v-model="dialog"
-      @remove-anime="removeAnime($event)"
-      @open="updateUserList()"
-    ></user-list>
-  </el-main>
+    <v-layout>
+      <v-flex xs12 class="text-xs-center" v-if="loading">
+        <v-progress-circular
+          :size="50"
+          color="primary"
+          indeterminate
+        ></v-progress-circular>
+      </v-flex>
+    </v-layout>
+    <list-pagination v-model="currentPage" :length="maxPage"></list-pagination>
+  </v-container>
 </template>
 
 <script>
   import io from 'socket.io-client'
-  import { Loading } from 'element-ui'
+  import IconBtn from '../components/shared/IconBtn.vue'
   import ListFilter from '../components/list-picker/ListFilter.vue'
   import ListData from '../components/list-picker/ListData.vue'
+  import ListPagination from '../components/list-picker/ListPagination.vue'
   import UserList from '../components/list-picker/UserList.vue'
 
    export default {
-    components: { ListFilter, ListData, UserList },
+    components: { ListFilter, ListData, UserList, ListPagination, IconBtn },
     data() {
       return {
         socket: this.$store.state.list.socket,
         animes: [],
-        pageSize: 8,
+        pageSize: 10,
         currentPage: 1,
         filter: {
           anime: '',
           song: ''
         },
-        dialog: false,
-        loading: null
+        loading: false,
+        maxPage: 1
       }
     },
     methods: {
       reload() {
-        this.loading = Loading.service()
+        this.loading = true
         this.socket.emit('GET_ALL_ANIME')
       },
       filteredData () {
@@ -75,6 +73,7 @@
       displayData() {
         var start = (this.currentPage - 1) * this.pageSize
         var end = start + this.pageSize
+        this.maxPage = Math.ceil(this.filteredData().length / this.pageSize)
         return this.filteredData().slice(start, end)
       },
       addAnime(anime) {
@@ -94,7 +93,7 @@
 
         this.socket.on('GET_ALL_ANIME', (data) => {
           this.animes = data
-          this.loading.close()
+          this.loading = false
         })
 
         this.socket.on('GET_USER_LIST', (list) => {

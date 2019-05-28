@@ -1,12 +1,14 @@
 <template>
-  <el-row class="info-container">
+  <v-layout wrap>
     <leader-board></leader-board>
-    <el-col :span="8" v-loading="loading" class="video-container">
+    <v-flex xs1></v-flex>
+    <v-flex xs4>
       <video-window :volume="volume"></video-window>
       <countdown></countdown>
-    </el-col>
+    </v-flex>
+    <v-flex xs1></v-flex>
     <song-information></song-information>
-  </el-row>
+  </v-layout>
 </template>
 
 <script>

@@ -8,7 +8,7 @@ var choices = []
 
 for (var anime of animeList) {
   if (!done.includes(anime.name)) {
-    choices.push({ value: anime.name })
+    choices.push(anime.name)
     done.push(anime.name)
   }
 }

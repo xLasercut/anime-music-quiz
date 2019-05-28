@@ -1,5 +1,5 @@
 <template>
-  <el-aside class="chat-container">
+  <v-sheet class="chat-container" :color="$store.getters.color">
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">
@@ -7,12 +7,12 @@
         </li>
       </ul>
     </div>
-    <el-row class="input-container">
-      <el-input v-model="message" @keydown.enter.native="sendMsg()">
-        <el-button slot="append" @click="sendMsg()">Send</el-button>
-      </el-input>
-    </el-row>
-  </el-aside>
+    <v-layout>
+      <v-flex>
+        <v-text-field v-model="message" @keydown.enter.native="sendMsg()"></v-text-field>
+      </v-flex>
+    </v-layout>
+  </v-sheet>
 </template>
 
 <script>
@@ -57,14 +57,17 @@
 
 <style scoped>
   .chat-container {
-    width: 400px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 250px;
     height: 100%;
     padding: 10px;
-    background: #E4E7ED;
   }
 
   .message-container {
-    height: calc(100% - 60px);
+    height: calc(100% - 80px);
+    width: 100%;
     overflow: auto;
     word-wrap: break-word;
   }

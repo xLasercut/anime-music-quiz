@@ -1,20 +1,22 @@
 <template>
-  <div class="player-card">
-    <transition name="el-zoom-in-top">
-      <div class="player-guess" v-show="showGuess" :style="guessStyle">
-        {{guess}}
-      </div>
-    </transition>
-    <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
-    <el-row class="player-name">
-      {{player.username}}
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col class="player-score">
-        {{player.score}}
-      </el-col>
-    </el-row>
-  </div>
+  <v-flex xs2>
+    <v-tooltip v-model="show" :color="color" min-width="160" max-width="160" top>
+      <template #activator="{ on }">
+        <div class="player-card">
+          <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
+          <v-layout column align-center>
+            <v-sheet class="player-name" :color="$store.getters.color">
+              {{player.username}}
+            </v-sheet>
+            <v-sheet class="player-score" :color="$store.getters.color">
+              {{player.score}}
+            </v-sheet>
+          </v-layout>
+        </div>
+      </template>
+      {{guess}}
+    </v-tooltip>
+  </v-flex>
 </template>
 
 <script>
@@ -28,7 +30,7 @@ import { setTimeout } from 'timers';
     },
     data() {
       return {
-        showGuess: false,
+        show: false,
         socket: this.$store.state.game.socket
       }
     },
@@ -39,30 +41,26 @@ import { setTimeout } from 'timers';
         }
         return this.player.guess
       },
-      guessStyle() {
-        var background = '#F56C6C'
+      color() {
         if (this.player.guess === this.$store.state.game.anime.name) {
-          background = '#67C23A'
+          return 'success'
         }
-
-        return { background: background }
+        return 'error'
       }
     },
     methods: {
       imgStyle(player) {
-        var border = '1px solid #E4E7ED'
         if (player.host) {
-          border = '1px solid #E6A23C'
+          return { outline: '4px solid #E6A23C'}
         }
-        return {border: border}
       }
     },
     mounted() {
       if (this.socket) {
         this.socket.on('SHOW_GUESS', () => {
-          this.showGuess = true
+          this.show = true
           setTimeout(() => {
-            this.showGuess = false
+            this.show = false
           }, 5000)
         })
       }
@@ -75,6 +73,7 @@ import { setTimeout } from 'timers';
     width: 160px;
     margin-left: 10px;
     margin-right: 10px;
+    text-align: center;
   }
 
   img {
@@ -84,11 +83,10 @@ import { setTimeout } from 'timers';
 
   .player-name {
     width: 100%;
-    font-size: 16pt;
+    font-size: 12pt;
     background: #E4E7ED;
     border-radius: 5px;
     word-wrap: break-word;
-    padding: 4px;
   }
 
   .player-score {
@@ -96,17 +94,9 @@ import { setTimeout } from 'timers';
     font-size: 12pt;
     background: #E4E7ED;
     border-radius: 0 0 50px 50px;
-    padding: 2px;
   }
 
-  .player-guess {
-    width: 150px;
-    top: 0;
-    position: absolute;
-    font-size: 12pt;
+  .v-tooltip__content {
     word-wrap: break-word;
-    padding: 5px;
-    border-radius: 2px;
-    color: white;
   }
 </style>

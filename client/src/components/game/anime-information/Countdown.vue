@@ -1,18 +1,15 @@
 <template>
-  <div v-show="show">
-    <span>
-      <h1>
-        {{Math.floor(time / 1000)}}
-      </h1>
-    </span>
-    <el-progress
-      :percentage="percentage()"
+  <v-layout justify-center v-show="show">
+    <v-progress-circular
+      :rotate="270"
+      :size="100"
+      :width="15"
+      :value="percentage()"
       :color="color()"
-      :show-text="false"
-      :stroke-width="20"
     >
-    </el-progress>
-  </div>
+      {{ Math.ceil(time / 1000) }}
+    </v-progress-circular>
+  </v-layout>
 </template>
 
 <script>
@@ -34,20 +31,20 @@
       color() {
         var percentage = this.percentage()
         if (percentage > 75) {
-          return '#F56C6C'
+          return 'error'
         }
         else if (percentage > 50) {
-          return '#E6A23C'
+          return 'warning'
         }
-        return '#67C23A'
+        return 'success'
       },
       startCountdown() {
         this.countdown = setInterval(() => {
-          this.time -= 100
+          this.time -= 200
           if (this.time <= 0) {
             this.stopCountdown()
           }
-        }, 100)
+        }, 200)
       },
       stopCountdown() {
         clearInterval(this.countdown)

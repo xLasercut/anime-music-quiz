@@ -1,28 +1,29 @@
 <template>
-  <el-col :span="8">
-    <el-card class="leader-board" shadow="never">
-      <el-row>Players</el-row>
-      <ol>
-        <li v-for="(player, index) in $store.getters['game/playerScore']" :key="`score_${index}`">
-          {{player.username}}: {{player.score}}
-        </li>
-      </ol>
-    </el-card>
-  </el-col>
+  <song-card>
+    <v-card-title>
+      <div>
+        <div>Players</div>
+        <ol>
+          <li v-for="(player, index) in $store.getters['game/playerScore']" :key="`score_${index}`">
+            {{player.username}}: {{player.score}}
+          </li>
+        </ol>
+      </div>
+    </v-card-title>
+  </song-card>
 </template>
 
+<script>
+  import SongCard from './SongCard.vue'
+
+  export default {
+    components: { SongCard }
+  }
+</script>
+
 <style scoped>
-  .el-col {
-    padding-right: 80px;
-  }
-
-  .leader-board {
-    background: #E4E7ED;
-    text-align: left;
-  }
-
   ol {
-    margin: 15px;
+    margin-left: 15px;
     padding: 0;
   }
 

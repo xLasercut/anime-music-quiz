@@ -4,5 +4,6 @@ export default {
   players: {},
   anime: {},
   host: false,
-  playing: false
+  playing: false,
+  showAnswer: false
 }

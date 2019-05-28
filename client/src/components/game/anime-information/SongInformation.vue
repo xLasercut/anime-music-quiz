@@ -1,23 +1,24 @@
 <template>
-  <el-col :span="8">
-    <el-card class="song-information" shadow="never" v-show="show">
-      <el-row
-        v-for="(value, key) in $store.getters['game/songInformation']"
-        :key="`song_info_${key}`"
-      >
-        <el-row>
+  <song-card v-show="show">
+    <v-card-title>
+      <div v-for="(value, key) in $store.getters['game/songInformation']"
+      :key="`song_info_${key}`" class="song-container">
+        <div>
           <b>{{key}}</b>
-        </el-row>
-        <el-row>
+        </div>
+        <div>
           {{value}}
-        </el-row>
-      </el-row>
-    </el-card>
-  </el-col>
+        </div>
+      </div>
+    </v-card-title>
+  </song-card>
 </template>
 
 <script>
+  import SongCard from './SongCard.vue'
+
   export default {
+    components: { SongCard },
     data() {
       return {
         show: false,
@@ -39,11 +40,13 @@
 </script>
 
 <style scoped>
-  .el-col {
-    padding-left: 80px;
+  .song-container {
+    width: 100%;
+    text-align: center;
   }
 
   .song-information {
+    text-align: center;
     background: #E4E7ED;
   }
 </style>

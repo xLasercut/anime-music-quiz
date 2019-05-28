@@ -7,6 +7,22 @@ import list from './list/list-store.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  state: {
+    dark: false
+  },
+  getters: {
+    color(state) {
+      if (state.dark) {
+        return '#212121'
+      }
+      return '#E0E0E0'
+    }
+  },
+  mutations: {
+    TOGGLE_DARK_MODE(state, val) {
+      state.dark = val
+    }
+  },
   modules: {
     game: game,
     list: list

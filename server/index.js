@@ -46,6 +46,7 @@ io.on('connection', function(socket) {
     var max = animeListManager.generateGameList(gameState.settings.songNumber)
     gameState.startGame(max)
     players.resetScore()
+    io.emit('UPDATE_PLAYERS', players.list)
     var song = animeListManager.getSong()
     gameState.newSong(song)
   })

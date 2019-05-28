@@ -24,5 +24,6 @@ module.exports = {
   'Shokugeki no Souma: San no Sara (Food Wars! The Third Plate)': ['Shokugeki no Souma: San no Sara'],
   'Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen (Food Wars! The Third Plate Part 2)': ['Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen'],
   'Sakurasou no Pet na Kanojo (The Pet Girl of Sakurasou)': ['Sakurasou no Pet na Kanojo'],
-  'New Game!': ['NEW GAME!']
+  'New Game!': ['NEW GAME!'],
+  'Kyoukai no Kanata (Beyond the Boundary)': ['Kyoukai no Kanata']
 }

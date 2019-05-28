@@ -1,57 +1,46 @@
 <template>
-  <el-row>
-    <el-table :data="data">
-      <el-table-column
-        prop="name"
-        label="Anime"
-      >
-      </el-table-column>
-      <el-table-column label="Song">
-        <template slot-scope="scope">
-          {{ scope.row.title }}
+  <v-layout>
+    <v-flex xs12>
+      <v-data-table :items="data" :headers="headers" hide-actions>
+        <template #items="props">
+          <td>{{ props.item.name }}</td>
+          <td>{{ props.item.title }}</td>
+          <td>{{ props.item.type }}</td>
+          <td><a :href="props.item.src" target="_blank">View</a></td>
+          <td>
+            <v-btn
+              color="success" small icon
+              @click="addAnime(props.item)"
+              v-if="!inUserList(props.item)"
+            >
+              <v-icon size="12pt">fas fa-plus</v-icon>
+            </v-btn>
+            <v-btn
+              color="error" small icon
+              @click="removeAnime(props.item)"
+              v-if="inUserList(props.item)"
+            >
+              <v-icon size="12pt">fas fa-minus</v-icon>
+            </v-btn>
+          </td>
         </template>
-      </el-table-column>
-      <!--<el-table-column label="Artist">
-        <template slot-scope="scope">
-          {{ scope.row.artist }}
-        </template>
-      </el-table-column>-->
-      <el-table-column label="Type" width="100">
-        <template slot-scope="scope">
-          {{ scope.row.type }}
-        </template>
-      </el-table-column>
-      <el-table-column label="Link">
-        <template slot-scope="scope" width="100">
-          <a :href="scope.row.src" target="_blank"><i class="el-icon-link"></i> View</a>
-        </template>
-      </el-table-column>
-      <el-table-column label="Action" width="100">
-        <template slot-scope="scope">
-          <el-button
-            type="success"
-            icon="el-icon-circle-plus-outline" size="medium"
-            v-if="!inUserList(scope.row)"
-            @click="addAnime(scope.row)"
-          ></el-button>
-          <el-button
-            type="danger"
-            icon="el-icon-delete" size="medium"
-            v-if="inUserList(scope.row)"
-            @click="removeAnime(scope.row)"
-          ></el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-  </el-row>
+      </v-data-table>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
   export default {
-    props: {
-      data: {
-        type: Array,
-        required: true
+    props: [ 'data' ],
+    data() {
+      return {
+        headers: [
+          { text: 'Anime', value: 'name', sortable: false },
+          { text: 'Song', value: 'title', sortable: false },
+          { text: 'Type', value: 'type', sortable: false },
+          { text: 'Link', value: 'src', sortable: false },
+          { text: 'Action', value: 'action', sortable: false }
+        ]
       }
     },
     methods: {

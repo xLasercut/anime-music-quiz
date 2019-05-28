@@ -1,56 +1,59 @@
 <template>
-  <el-form ref="loginForm" :model="form" :rules="validationRules" label-position="top">
-    <el-row type="flex" justify="center">
-      <el-col :span="10">
-        <el-form-item label="Username" prop="username">
-          <el-input
-            v-model.trim="form.username"
-            minlength="1" maxlength="20"
-            :clearable="true"
-          ></el-input>
-        </el-form-item>
-        <el-form-item label="Server URL" prop="server">
-          <el-input
-            v-model.trim="form.server"
-            :clearable="true"
-          ></el-input>
-        </el-form-item>
-      </el-col>
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="20">
-        <el-form-item>
-          <el-radio-group v-model="form.avatar">
-            <el-radio-button
+  <v-form ref="loginForm">
+    <v-container fluid grid-list-lg>
+      <form-input
+        label="Username"
+        v-model.trim="form.username"
+        :rules="nameRules"
+      ></form-input>
+      <form-input-server v-model.trim="form.server"></form-input-server>
+      <v-layout justify-center wrap>
+        <v-flex shrink>
+          <v-radio-group :column="false" v-model="form.avatar">
+            <v-radio
               v-for="(avatar, index) in avatars"
               :key="`avatar_${index}`"
-              :label="avatar"
+              :value="avatar"
+              on-icon=""
+              off-icon=""
             >
-              <img :src="`img/avatar/${avatar}.png`">
-            </el-radio-button>
-          </el-radio-group>
-        </el-form-item>
-      </el-col>
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="10">
-        <el-form-item label="Score" prop="score">
-          <el-input-number v-model.number="form.score" :min="0"></el-input-number>
-        </el-form-item>
-      </el-col>
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="10">
-        <el-form-item>
-          <el-button type="success" @click="login()">Login</el-button>
-        </el-form-item>
-      </el-col>
-    </el-row>
-  </el-form>
+              <template slot="label">
+                <img :src="`img/avatar/${avatar}.png`">
+              </template>
+            </v-radio>
+          </v-radio-group>
+        </v-flex>
+      </v-layout>
+      <v-layout justify-center>
+        <v-flex xs2>
+          <v-text-field
+            label="Score"
+            v-model.number="form.score"
+            :rules="scoreRules" type="number"
+            box min="0" max="1000"
+          ></v-text-field>
+        </v-flex>
+      </v-layout>
+      <v-layout>
+        <v-flex xs12 class="text-xs-center">
+          <icon-btn
+            color="success" icon="fas fa-sign-in-alt"
+            @click="login()"
+          >
+            Login
+          </icon-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-form>
 </template>
 
 
 <script>
+  import IconBtn from '../shared/IconBtn.vue'
+  import FormInput from './form/FormInput.vue'
+  import FormInputServer from './form/FormInputServer.vue'
+
   var default_server = ''
   if (process.env.NODE_ENV === 'development') {
     default_server = 'http://localhost:3001'
@@ -59,6 +62,7 @@
   const avatars = ['0', '1', '2', '3', '4', '5', '6']
 
   export default {
+    components: { IconBtn, FormInput, FormInputServer },
     data() {
       return {
         form: {
@@ -67,53 +71,29 @@
           avatar: '0',
           score: 0
         },
-        validationRules: {
-          username: [ { required: true, validator: this.validateName, trigger: 'blur' } ],
-          server: [ { required: true, validator: this.validateServer, trigger: 'blur' } ],
-          score: [ { required: false, validator: this.validateScore, trigger: 'blur' } ]
-        },
+        nameRules: [
+          v => !!v || 'Username required'
+        ],
+        scoreRules: [
+          v => v >= 0 || 'Score cannot be negative'
+        ],
         avatars: avatars,
       }
     },
     methods: {
       login() {
-        this.$refs['loginForm'].validate((valid) => {
-          if (valid) {
-            this.$store.commit('game/LOGIN', this.form)
-            this.$router.push({name: 'home'})
-          }
-        })
-      },
-      validateName(rule, val, callback) {
-        if (!val) {
-          callback(new Error('Username cannot be blank'))
-        }
-        else {
-          callback()
-        }
-      },
-      validateServer(rule, val, callback) {
-        var regex = new RegExp('^(http|https):\/\/', 'i')
-
-        if (!val) {
-          callback(new Error('Server URL cannot be blank'))
-        }
-        else if (!regex.exec(val)) {
-          callback(new Error('Please input full server url'))
-        }
-        else {
-          callback()
-        }
-      },
-      validateScore(rule, val, callback) {
-        if (val < 0) {
-          callback(new Error('Score cannot be negative'))
-        }
-        else {
-          callback()
+        var valid = this.$refs['loginForm'].validate()
+        if (valid) {
+          this.$store.commit('game/LOGIN', this.form)
+          this.$router.push({name: 'home'})
         }
       }
     }
   }
+</script>
 
-</script>?
+<style scoped>
+  .accent--text label img {
+    outline: 5px solid #4caf50;
+  }
+</style>

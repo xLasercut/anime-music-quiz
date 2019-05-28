@@ -1,31 +1,35 @@
 <template>
-  <div class="app-container">
+  <v-app :dark="$store.state.dark">
+    <v-switch class="switch"
+      v-model="dark"
+    ></v-switch>
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
 
 <script>
-  export default {
-    mounted() {
 
+export default {
+  name: 'App',
+  data () {
+    return {
+      dark: false
+    }
+  },
+  watch: {
+    dark(val) {
+      this.$store.commit('TOGGLE_DARK_MODE', val)
     }
   }
+}
 </script>
 
-<style>
-  body {
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
+<style scoped>
+  .switch {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 2;
     margin: 0;
-  }
-
-  .app-container {
-    height: 100%;
-    width: 100%;
   }
 </style>

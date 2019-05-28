@@ -1,56 +1,48 @@
 <template>
-  <el-row>
-    <el-dialog :visible.sync="dialog" width="80%" @open="$emit('open')">
-      <el-row>
-        <el-button @click="download()" type="success" icon="el-icon-download">Download List</el-button>
-      </el-row>
-      <list-filter v-model="filter"></list-filter>
-      <list-data
-        :data="displayData()"
-        @remove-anime="$emit('remove-anime', $event)"
-      ></list-data>
-      <el-row>
-        <el-pagination
-          background
-          layout="prev, pager, next, jumper, ->, total"
-          :current-page.sync="currentPage"
-          :page-size="pageSize"
-          :total="filteredData().length"
-        ></el-pagination>
-      </el-row>
-    </el-dialog>
-  </el-row>
+  <v-dialog>
+    <template v-slot:activator="{ on }">
+      <v-btn v-on="on" color="success" depressed @click="$emit('open')">
+        Show List
+        <v-icon size="14pt" right>fas fa-list</v-icon>
+      </v-btn>
+    </template>
+    <v-card>
+      <v-container grid-list-lg>
+        <v-layout wrap>
+          <v-flex xs12 class="text-xs-center">
+            <icon-btn @click="download()" color="success" icon="fas fa-download">Download List</icon-btn>
+          </v-flex>
+        </v-layout>
+        <list-filter v-model="filter"></list-filter>
+        <list-data
+          :data="displayData()"
+          @remove-anime="$emit('remove-anime', $event)"
+        ></list-data>
+        <list-pagination
+          v-model="currentPage" :length="maxPage"
+        ></list-pagination>
+      </v-container>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
   import ListData from './ListData.vue'
   import ListFilter from './ListFilter.vue'
+  import IconBtn from '../shared/IconBtn.vue'
+  import ListPagination from './ListPagination.vue'
 
   export default {
-    components: { ListData, ListFilter },
-    props: {
-      value: {
-        type: Boolean,
-        required: true
-      }
-    },
+    components: { ListData, ListFilter, IconBtn, ListPagination },
     data() {
       return {
-        dialog: this.value,
         filter: {
           anime: '',
           song: ''
         },
         currentPage: 1,
-        pageSize: 5
-      }
-    },
-    watch: {
-      value(val) {
-        this.dialog = val
-      },
-      dialog(val) {
-        this.$emit('input', val)
+        pageSize: 10,
+        maxPage: 1
       }
     },
     methods: {
@@ -71,6 +63,7 @@
       displayData() {
         var start = (this.currentPage - 1) * this.pageSize
         var end = start + this.pageSize
+        this.maxPage = Math.ceil(this.filteredData().length / this.pageSize)
         return this.filteredData().slice(start, end)
       },
       download() {
