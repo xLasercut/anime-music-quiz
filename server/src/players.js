@@ -1,6 +1,11 @@
 class Players {
-  constructor() {
+  constructor(io) {
+    this.io = io
     this.list = {}
+  }
+
+  updateClient() {
+    this.io.emit('UPDATE_PLAYERS', this.list)
   }
 
   addPlayer(player, id) {
@@ -8,7 +13,6 @@ class Players {
     if (Object.keys(this.list).length === 0) {
       host = true
     }
-    console.log(this.list)
     this.list[id] = {
       score: player.score || 0,
       username: player.username,
@@ -17,12 +21,13 @@ class Players {
       guess: '',
       host: host
     }
-    console.log(this.list)
+    this.updateClient()
   }
 
   removePlayer(id) {
     this.moveHost(id)
     delete this.list[id]
+    this.updateClient()
   }
 
   moveHost(id) {
@@ -44,6 +49,7 @@ class Players {
     for (var key in this.list) {
       this.list[key]['score'] = 0
     }
+    this.updateClient()
   }
 
   ready(id) {
@@ -54,6 +60,7 @@ class Players {
     for (var key in this.list) {
       this.list[key]['ready'] = false
     }
+    this.updateClient()
   }
 
   setGuess(id, guess) {
@@ -76,4 +83,4 @@ class Players {
   }
 }
 
-module.exports = new Players()
+module.exports = Players

@@ -15,6 +15,7 @@
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.0",
+    "get-video-duration": "^1.0.3",
     "socket.io": "^2.2.0"
   }
 }

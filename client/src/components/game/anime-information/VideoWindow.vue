@@ -20,11 +20,13 @@
     data() {
       return {
         show: false,
-        socket: this.$store.state.game.socket
+        socket: this.$store.state.game.socket,
+        startPosition: 0
       }
     },
     methods: {
       confirmLoad() {
+        this.$refs.player.currentTime = this.startPosition
         if (this.socket) {
           this.socket.emit('SONG_LOADED')
         }
@@ -32,9 +34,10 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (anime) => {
+        this.socket.on('NEW_SONG', (anime, startPosition) => {
           this.show = false
           this.$store.commit('game/UPDATE_ANIME', anime)
+          this.startPosition = startPosition
           this.$refs.player.load()
         })
 

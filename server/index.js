@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
 const GameState = require('./src/game-state.js')
+const Players = require('./src/players.js')
+const { getVideoDurationInSeconds } = require('get-video-duration')
 
 const server = app.listen(3001, function() {
   console.log('server running on port 3001')
 })
 
 const io = require('socket.io')(server)
-var players = require('./src/players.js')
+var players = new Players(io)
 var gameState = new GameState(io)
 var animeListManager = require('./src/anime-list-manager.js')
 
@@ -22,14 +24,12 @@ io.on('connection', function(socket) {
     socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
     socket.emit('UPDATE_PLAYING', gameState.playing)
     io.emit('MESSAGE', { message: `${player.username} has joined the room` })
-    io.emit('UPDATE_PLAYERS', players.list)
   })
 
   socket.on('disconnect', function() {
     if (socket.id in players.list) {
       io.emit('MESSAGE', { message: `${players.list[socket.id]['username']} has left the room` })
       players.removePlayer(socket.id)
-      io.emit('UPDATE_PLAYERS', players.list)
     }
     console.log(`Disconnected: ${socket.id}`)
   })
@@ -46,9 +46,12 @@ io.on('connection', function(socket) {
     var max = animeListManager.generateGameList(gameState.settings.songNumber)
     gameState.startGame(max)
     players.resetScore()
-    io.emit('UPDATE_PLAYERS', players.list)
     var song = animeListManager.getSong()
-    gameState.newSong(song)
+    getVideoDurationInSeconds(song.src)
+    .then((duration) => {
+      console.log(duration)
+      gameState.newSong(song, duration)
+    })
   })
 
   socket.on('SONG_LOADED', function() {
@@ -70,7 +73,6 @@ io.on('connection', function(socket) {
     }
     if (players.allReady()) {
       players.clearReady()
-      io.emit('UPDATE_PLAYERS', players.list)
       io.emit('SHOW_GUESS')
       if (gameState.roundEnd()) {
         gameState.reset()
@@ -78,7 +80,11 @@ io.on('connection', function(socket) {
       else {
         timeout = setTimeout(function() {
           var song = animeListManager.getSong()
-          gameState.newSong(song)
+          getVideoDurationInSeconds(song.src)
+          .then((duration) => {
+            console.log(duration)
+            gameState.newSong(song, duration)
+          })
         }, 10000)
       }
     }

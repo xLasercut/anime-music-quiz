@@ -51,11 +51,21 @@ class GameState {
     this.io.emit('RESET')
   }
 
-  newSong(song) {
+  newSong(song, duration) {
+    var position = this.generatePosition(duration)
     this.currentSong = song
     this.currentSongNumber += 1
-    this.io.emit('NEW_SONG', song)
+    this.io.emit('NEW_SONG', song, position)
     this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
+  }
+
+  generatePosition(duration) {
+    var position = 0
+    var maxStart = Math.floor(duration - this.settings.guessTime)
+    if (maxStart > 0) {
+      position = Math.floor(Math.random() * maxStart)
+    }
+    return position
   }
 }
 

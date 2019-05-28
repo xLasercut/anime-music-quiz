@@ -41,7 +41,7 @@
           song: ''
         },
         currentPage: 1,
-        pageSize: 10,
+        pageSize: 6,
         maxPage: 1
       }
     },

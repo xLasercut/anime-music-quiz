@@ -41,7 +41,7 @@
       return {
         socket: this.$store.state.list.socket,
         animes: [],
-        pageSize: 10,
+        pageSize: 8,
         currentPage: 1,
         filter: {
           anime: '',

@@ -26,5 +26,6 @@ module.exports = {
   'Sakurasou no Pet na Kanojo (The Pet Girl of Sakurasou)': ['Sakurasou no Pet na Kanojo'],
   'New Game!': ['NEW GAME!'],
   'Kyoukai no Kanata (Beyond the Boundary)': ['Kyoukai no Kanata'],
-  'Shigatsu wa Kimi no Uso (Your Lie in April)': ['Shigatsu wa Kimi no Uso']
+  'Shigatsu wa Kimi no Uso (Your Lie in April)': ['Shigatsu wa Kimi no Uso'],
+  'Mahoutsukai no Yome (The Ancient Magus Bride)': ['Mahoutsukai no Yome']
 }
