@@ -1,4 +1,6 @@
 export default {
   socket: null,
-  userList: []
+  userList: [],
+  userListFiles: [],
+  filename: ''
 }

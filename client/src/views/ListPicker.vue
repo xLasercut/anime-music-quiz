@@ -1,7 +1,8 @@
 <template>
   <v-container fluid grid-list-lg>
-    <v-layout wrap>
-      <v-flex xs12 class="text-xs-center">
+    <v-layout justify-center wrap>
+      <list-selector></list-selector>
+      <v-flex shrink>
         <icon-btn color="primary" icon="fas fa-home" @click="$router.push('/')">Home</icon-btn>
         <icon-btn color="warning" icon="fas fa-sync" @click="reload()">Reload Full List</icon-btn>
         <user-list @remove-anime="removeAnime($event)" @open="updateUserList()"></user-list>
@@ -34,9 +35,10 @@
   import ListData from '../components/list-picker/ListData.vue'
   import ListPagination from '../components/list-picker/ListPagination.vue'
   import UserList from '../components/list-picker/UserList.vue'
+  import ListSelector from '../components/list-picker/ListSelector.vue'
 
    export default {
-    components: { ListFilter, ListData, UserList, ListPagination, IconBtn },
+    components: { ListFilter, ListData, UserList, ListPagination, IconBtn, ListSelector },
     data() {
       return {
         socket: this.$store.state.list.socket,
@@ -83,21 +85,22 @@
         this.$store.commit('list/REMOVE_ANIME', anime)
       },
       updateUserList() {
-        this.socket.emit('GET_USER_LIST')
+        this.socket.emit('GET_USER_LIST', this.$store.state.list.filename)
       }
     },
     mounted() {
       if (this.socket) {
         this.reload()
-        this.updateUserList()
 
-        this.socket.on('GET_ALL_ANIME', (data) => {
+        this.socket.on('UPDATE_ALL_ANIME', (data) => {
           this.animes = data
           this.loading = false
         })
 
-        this.socket.on('GET_USER_LIST', (list) => {
-          this.$store.commit('list/UPDATE_USER_LIST', list)
+        this.socket.on('UPDATE_USER_LIST', (list, filename) => {
+          if (this.$store.state.list.filename === filename) {
+            this.$store.commit('list/UPDATE_USER_LIST', list)
+          }
         })
       }
       else {

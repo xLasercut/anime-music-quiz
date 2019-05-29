@@ -106,15 +106,19 @@ io.on('connection', function(socket) {
   })
 
   socket.on('GET_ALL_ANIME', function() {
-    socket.emit('GET_ALL_ANIME', animeListManager.completeList)
+    socket.emit('UPDATE_ALL_ANIME', animeListManager.completeList)
   })
 
-  socket.on('GET_USER_LIST', function() {
-    socket.emit('GET_USER_LIST', animeListManager.userList)
+  socket.on('GET_USER_LIST', function(filename) {
+    socket.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
   })
 
-  socket.on('UPDATE_USER_LIST', function(list) {
-    animeListManager.updateUserList(list)
-    io.emit('GET_USER_LIST', animeListManager.userList)
+  socket.on('UPDATE_USER_LIST', function(list, filename) {
+    animeListManager.updateUserList(filename, list)
+    io.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
+  })
+
+  socket.on('LIST_LOGIN', function() {
+    socket.emit('USER_LIST_FILES', animeListManager.userListFiles)
   })
 })

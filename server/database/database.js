@@ -64,6 +64,8 @@ class Database {
 
   getUserList(filename) {
     var filepath = path.join(userBase, filename)
+    console.log(filename)
+    console.log(filepath)
     return read(filepath)
   }
 

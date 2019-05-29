@@ -3,6 +3,7 @@ import io from 'socket.io-client'
 export default {
   LOGIN(state, data) {
     state.socket = io(data.server)
+    state.socket.emit('LIST_LOGIN')
   },
   DISCONNECT(state) {
     state.socket.close()
@@ -10,7 +11,7 @@ export default {
   },
   ADD_ANIME(state, anime) {
     state.userList.push(anime)
-    state.socket.emit('UPDATE_USER_LIST', state.userList)
+    state.socket.emit('UPDATE_USER_LIST', state.userList, state.filename)
   },
   REMOVE_ANIME(state, anime) {
     for (var i = 0; i < state.userList.length; i++) {
@@ -18,9 +19,15 @@ export default {
         state.userList.splice(i, 1)
       }
     }
-    state.socket.emit('UPDATE_USER_LIST', state.userList)
+    state.socket.emit('UPDATE_USER_LIST', state.userList, state.filename)
   },
   UPDATE_USER_LIST(state, list) {
     state.userList = list
+  },
+  UPDATE_USER_LIST_FILES(state, files) {
+    state.userListFiles = files
+  },
+  UPDATE_FILENAME(state, filename) {
+    state.filename = filename
   }
 }
