@@ -4,7 +4,7 @@
       <div>
         <div>Players</div>
         <ol>
-          <li v-for="(player, index) in $store.getters['game/playerScore']" :key="`score_${index}`">
+          <li v-for="(player, index) in score()" :key="`score_${index}`">
             {{player.username}}: {{player.score}}
           </li>
         </ol>
@@ -17,7 +17,19 @@
   import SongCard from './SongCard.vue'
 
   export default {
-    components: { SongCard }
+    components: { SongCard },
+    methods: {
+      score() {
+        var players = []
+        for (var key in this.$store.state.game.players) {
+          players.push(this.$store.state.game.players[key])
+        }
+
+        return players.sort(function(a, b) {
+          return b.score > a.score
+        })
+      }
+    }
   }
 </script>
 

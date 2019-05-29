@@ -42,7 +42,7 @@ class GameState {
   }
 
   roundEnd() {
-    if (this.currentSongNumber <= this.maxSongNumber) {
+    if (this.currentSongNumber < this.maxSongNumber) {
       return false
     }
     return true
