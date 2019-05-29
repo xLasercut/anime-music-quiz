@@ -70,6 +70,8 @@
         var jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)
         let blob = new Blob([jsonstring], {type: 'text/plain'})
         let link = document.createElement('a')
+        document.body.appendChild(link)
+        link.setAttribute("type", "hidden")
         link.href = window.URL.createObjectURL(blob)
         link.download = 'my-list.json'
         link.click()

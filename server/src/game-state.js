@@ -78,6 +78,11 @@ class GameState {
       this.io.emit('NEW_SONG', this.currentSong, position)
       this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
     })
+    .catch((error) => {
+      this.logger.error(error)
+      this.io.emit('NEW_SONG', this.currentSong, 0)
+      this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
+    })
   }
 
   generatePosition(duration) {

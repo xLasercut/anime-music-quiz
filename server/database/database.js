@@ -78,8 +78,10 @@ class Database {
 
   writeUserList(filename, data) {
     var filepath = path.join(userBase, filename)
-    backup(filepath)
-    write(filepath, data)
+    if (/.*\.json$/gi.exec(filepath)) {
+      backup(filepath)
+      write(filepath, data)
+    }
   }
 
   getCombinedList(filenames) {

@@ -35,13 +35,14 @@ class AnimeListManager {
   }
 
   getUserList(filename) {
+    var list = database.getUserList(filename)
     this.logger.info(`fetched ${filename}`)
-    return database.getUserList(filename)
+    return list
   }
 
   updateUserList(filename, list) {
-    this.logger.info(`updated ${filename}`)
     database.writeUserList(filename, list)
+    this.logger.info(`updated ${filename}`)
   }
 
 }

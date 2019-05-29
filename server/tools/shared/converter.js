@@ -35,7 +35,11 @@ const map = {
   'Yuuki Yuuna wa Yuusha de Aru (Yuuki Yuuna is a Hero)': ['Yuuki Yuuna wa Yuusha de Aru: Hidamari', 'Yuuki Yuuna wa Yuusha de Aru'],
   'Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou (Yuuki Yuuna is a Hero: The Hero Chapter)': ['Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou'],
   'Gakkou Gurashi! (School-Live!)': ['Gakkou Gurashi!'],
-
+  'Ookami to Koushinryou (Spice and Wolf)': ['Ookami to Koushinryou'],
+  'Ookami to Koushinryou II (Spice and Wolf II)': ['Ookami to Koushinryou II'],
+  'Boku dake ga Inai Machi (ERASED)': ['Boku dake ga Inai Machi'],
+  'Anohana.': ['Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.'],
+  'Eromanga-sensei': ['Eromanga-sensei', 'Eromanga-sensei OVA']
 }
 
 

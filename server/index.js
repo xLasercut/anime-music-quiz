@@ -117,12 +117,29 @@ io.on('connection', function(socket) {
   })
 
   socket.on('GET_USER_LIST', function(filename) {
-    socket.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
+    try {
+      var list = animeListManager.getUserList(filename)
+      socket.emit('UPDATE_USER_LIST', list, filename)
+    }
+    catch (e) {
+      logger.error(e)
+    }
   })
 
   socket.on('UPDATE_USER_LIST', function(list, filename) {
-    animeListManager.updateUserList(filename, list)
-    io.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
+    if (/.*\.json$/gi.exec(filename)) {
+      try {
+        animeListManager.updateUserList(filename, list)
+        var list = animeListManager.getUserList(filename)
+        io.emit('UPDATE_USER_LIST', list, filename)
+      }
+      catch (e) {
+        logger.error(e)
+      }
+    }
+    else {
+      logger.error(`incorrect filename to write - filename=${filename}`)
+    }
   })
 
   socket.on('GET_USER_LIST_FILES', function() {
