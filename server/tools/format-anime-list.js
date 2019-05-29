@@ -1,22 +1,8 @@
-const file = require('./shared/file.js')
-const conversionMap = require('./generate-anime-list/conversion-map.js')
+const database = require('../database/database.js')
+const converter = require('./shared/converter.js')
 
-const titleJapFilter = new RegExp('\(.*\)', 'g')
-
-var raw = file.read('./raw-anime.json')
+var raw = database.getRawAnimeList()
 var animes = []
-
-
-function convertName(name) {
-  for (var key in conversionMap) {
-    for (var item of conversionMap[key]) {
-      if (item === name.toString().trim()) {
-        return key
-      }
-    }
-  }
-  return name
-}
 
 function cleanTitle(title) {
   if (title.includes('(')) {
@@ -35,9 +21,8 @@ function isDuplicate(anime) {
   return false
 }
 
-
 for (var anime of raw) {
-  anime.name = convertName(anime.name)
+  anime.name = converter.mapName(anime.name)
   anime.title = cleanTitle(anime.title)
 
 
@@ -46,4 +31,4 @@ for (var anime of raw) {
   }
 }
 
-file.write('./anime.json', animes)
+database.writeFullAnimeList(animes)

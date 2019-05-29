@@ -1,16 +1,13 @@
-const file = require('./shared/file.js')
+const database = require('../database/database.js')
 
-var animeList = file.read('./anime.json')
-
-var done = []
+var animes = database.getFullAnimeList()
 
 var choices = []
 
-for (var anime of animeList) {
-  if (!done.includes(anime.name)) {
+for (var anime of animes) {
+  if (!choices.includes(anime.name)) {
     choices.push(anime.name)
-    done.push(anime.name)
   }
 }
 
-file.write('./choices.json', choices)
+database.writeUserChoices(choices)

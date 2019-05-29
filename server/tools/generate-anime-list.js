@@ -1,6 +1,6 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
-const file = require('./shared/file.js')
+const database = require('../database/database.js')
 const queries = require('./generate-anime-list/query-generator.js')
 
 const titleFilter = new RegExp('^(OP|ED)')
@@ -87,7 +87,7 @@ axios.all(queries)
       })
     })
   }
-  file.write('./raw-anime.json', animes)
+  database.writeRawAnimeList(animes)
 })
 .catch((error) => {
   console.log(error)

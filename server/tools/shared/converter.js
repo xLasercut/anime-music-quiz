@@ -1,4 +1,4 @@
-module.exports = {
+const map = {
   'Yu-Gi-Oh! Zexal': ['Yu☆Gi☆Oh! Zexal'],
   'Yu-Gi-Oh! Zexal Second': ['Yu☆Gi☆Oh! Zexal Second'],
   'Yu-Gi-Oh! VRAINS' : ['Yu☆Gi☆Oh! VRAINS'],
@@ -28,5 +28,22 @@ module.exports = {
   'Kyoukai no Kanata (Beyond the Boundary)': ['Kyoukai no Kanata'],
   'Shigatsu wa Kimi no Uso (Your Lie in April)': ['Shigatsu wa Kimi no Uso'],
   'Mahoutsukai no Yome (The Ancient Magus Bride)': ['Mahoutsukai no Yome'],
-  'Nagi no Asukara (A Lull in the Sea)': ['Nagi no Asukara']
+  'Nagi no Asukara (A Lull in the Sea)': ['Nagi no Asukara'],
+  'Digimon Adventure tri.': ['Digimon Adventure tri. 1: Saikai', 'Digimon Adventure tri. 2: Ketsui']
 }
+
+
+class Converter {
+  mapName(name) {
+    for (var key in map) {
+      for (var item of map[key]) {
+        if (item === name.toString().trim()) {
+          return key
+        }
+      }
+    }
+    return name
+  }
+}
+
+module.exports = new Converter()

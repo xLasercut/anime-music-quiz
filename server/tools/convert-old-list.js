@@ -1,21 +1,13 @@
-const file = require('./shared/file.js')
-const conversionMap = require('./generate-anime-list/conversion-map.js')
+const database = require('../database/database.js')
+const converter = require('./shared/converter.js')
 
-var animes = file.read('./user-list.json')
+var userLists = database.getUserListFiles()
 
-function convertName(name) {
-  for (var key in conversionMap) {
-    for (var item of conversionMap[key]) {
-      if (item === name.toString().trim()) {
-        return key
-      }
-    }
+
+for (var userList of userLists) {
+  var animes = database.getUserList(userList)
+  for (var i = 0; i < animes.length; i++) {
+    animes[i].name = converter.mapName(animes[i].name)
   }
-  return name
+  database.writeUserList(userList, animes)
 }
-
-for (var i = 0; i < animes.length; i++) {
-  animes[i].name = convertName(animes[i].name)
-}
-
-file.write('./user-list.json', animes)

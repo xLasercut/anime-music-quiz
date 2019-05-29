@@ -1,4 +1,11 @@
+const file = require('../shared/file.js')
+const path = require('path')
 const fs = require('fs')
+
+const gameDataDir = path.join(__dirname, '..', 'database')
+const userDataDir = path.join(__dirname, '..', 'database', 'user')
+
+const ignore = ['.gitkeep', '.back']
 
 class AnimeListManager {
   constructor() {
@@ -8,12 +15,26 @@ class AnimeListManager {
     this.initialiseList()
     this.currentAnime = {}
     this.gameList = []
+    this.userListChoice = []
   }
 
   initialiseList() {
-    this.completeList = JSON.parse(fs.readFileSync('./anime.json', { encoding: 'utf-8' }))
-    this.choices = JSON.parse(fs.readFileSync('./choices.json', { encoding: 'utf-8' }))
-    this.userList = JSON.parse(fs.readFileSync('./user-list.json', { encoding: 'utf-8' }))
+    //this.completeList = JSON.parse(fs.readFileSync('./database/anime.json', { encoding: 'utf-8' }))
+    //this.choices = JSON.parse(fs.readFileSync('./database/choices.json', { encoding: 'utf-8' }))
+    //this.userList = JSON.parse(fs.readFileSync('./database/user-list.json', { encoding: 'utf-8' }))
+    this.getUserListChoices()
+  }
+
+  getUserListChoices() {
+    var choices = file.fileNames(userDataDir)
+    for (var i = 0; i < choices.length; i++) {
+      for (var item of ignore) {
+        if (choices[i].includes(item)) {
+          choices.splice(i, 1)
+        }
+      }
+    }
+    this.userListChoice = choices
   }
 
   getSong() {
