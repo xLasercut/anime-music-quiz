@@ -1,4 +1,7 @@
-# anime-music-quiz-client
+# Anime Music Quiz Client
+A websocket based anime music quiz client written with vue.js and vuetify
+
+[client page](https://xlasercut.github.io/anime-music-quiz/#/)
 
 ## Project setup
 ```
@@ -13,16 +16,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
