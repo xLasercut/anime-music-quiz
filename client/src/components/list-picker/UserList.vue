@@ -67,19 +67,12 @@
         return this.filteredData().slice(start, end)
       },
       download() {
-        var jsonstring = JSON.stringify(this.$store.state.list.userList)
-        let blob = new Blob(this.encodeString(jsonstring), {type: 'application/octet-stream'})
+        var jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)
+        let blob = new Blob([jsonstring], {type: 'text/plain'})
         let link = document.createElement('a')
         link.href = window.URL.createObjectURL(blob)
         link.download = 'my-list.json'
         link.click()
-      },
-      encodeString(s) {
-        var out = []
-        for ( var i = 0; i < s.length; i++ ) {
-          out[i] = s.charCodeAt(i)
-        }
-        return [new Uint8Array(out)]
       }
     }
   }
