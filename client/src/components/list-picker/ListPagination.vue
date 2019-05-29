@@ -3,7 +3,7 @@
     <v-flex xs12 class="text-xs-center">
       <v-pagination
         v-model="model"
-        :length="length"
+        :length="maxPage()"
         total-visible="10"
       >
       </v-pagination>
@@ -16,6 +16,14 @@
 
   export default {
     mixins: [ VModel ],
-    props: [ 'length' ]
+    props: [ 'length' ],
+    methods: {
+      maxPage() {
+        if (this.length < this.model) {
+          this.model = 1
+        }
+        return this.length
+      }
+    }
   }
 </script>
