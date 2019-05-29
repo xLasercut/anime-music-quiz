@@ -1,9 +1,11 @@
 class Chat {
-  constructor(io) {
+  constructor(io, logger) {
     this.io = io
+    this.logger = logger
   }
 
   userMsg(message, username) {
+    this.logger.debug(`user msg - ${username}=${message}`)
     var data = {
       user: username,
       message: message

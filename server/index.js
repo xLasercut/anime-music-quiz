@@ -3,23 +3,26 @@ const app = express()
 const GameState = require('./src/game-state.js')
 const Players = require('./src/players.js')
 const Chat = require('./src/chat.js')
+const AnimeListManager = require('./src/anime-list-manager.js')
+const logger = require('./src/logger.js')
 
 const server = app.listen(3001, function() {
-  console.log('server running on port 3001')
+  logger.info('server running on port 3001')
 })
 
 const io = require('socket.io')(server)
-var players = new Players(io)
-var gameState = new GameState(io)
-var chat = new Chat(io)
-var animeListManager = require('./src/anime-list-manager.js')
+var players = new Players(io, logger)
+var gameState = new GameState(io, logger)
+var chat = new Chat(io, logger)
+var animeListManager = new AnimeListManager(logger)
 
 var timeout = null
 
 io.on('connection', function(socket) {
-  console.log(`New connection made: ${socket.id}`)
+  logger.info(`new connection made - ${socket.id}`)
 
   socket.on('LOGIN', function(player) {
+    logger.info(`received login request from - ${socket.id}`)
     players.addPlayer(player, socket.id)
     socket.emit('UPDATE_CHOICES', animeListManager.choices)
     socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings)
@@ -32,7 +35,12 @@ io.on('connection', function(socket) {
       chat.systemMsg(`${players.list[socket.id]['username']} has left the room`)
       players.removePlayer(socket.id)
     }
-    console.log(`Disconnected: ${socket.id}`)
+    logger.info(`disconnected - ${socket.id}`)
+    if (Object.keys(players.list).length < 1) {
+      logger.info('zero players connected. server status reset')
+      clearTimeout(timeout)
+      gameState.reset()
+    }
   })
 
   socket.on('SEND_MESSAGE', function(message) {
@@ -40,6 +48,7 @@ io.on('connection', function(socket) {
   })
 
   socket.on('START_GAME', function() {
+    logger.info('start new round')
     var gameList = animeListManager.generateGameList(gameState.settings)
     if (gameList.length > 0) {
       gameState.startGame(gameList)
@@ -56,7 +65,11 @@ io.on('connection', function(socket) {
     if (players.allReady()) {
       io.emit('START_COUNTDOWN', gameState.settings.guessTime)
       players.clearReady()
+      var d = new Date()
+      logger.info(`countdown started at ${d.getTime()}`)
       timeout = setTimeout(function () {
+        var d = new Date()
+        logger.info(`countdown finished at ${d.getTime()}`)
         io.emit('TIME_UP')
       }, gameState.settings.guessTime * 1000)
     }
@@ -72,6 +85,8 @@ io.on('connection', function(socket) {
       players.clearReady()
       io.emit('SHOW_GUESS')
       if (gameState.roundEnd()) {
+        logger.info('round ended')
+        clearTimeout(timeout)
         gameState.reset()
       }
       else {

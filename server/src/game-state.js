@@ -1,7 +1,7 @@
 const { getVideoDurationInSeconds } = require('get-video-duration')
 
 class GameState {
-  constructor(io) {
+  constructor(io, logger) {
     this.playing = false
     this.settings = {
       songNumber: 20,
@@ -14,6 +14,7 @@ class GameState {
     this.maxSongNumber = 20
     this.io = io,
     this.gameList = []
+    this.logger = logger
   }
 
   startGame(gameList) {
@@ -21,10 +22,12 @@ class GameState {
     this.io.emit('UPDATE_PLAYING', this.playing)
     this.maxSongNumber = gameList.length
     this.gameList = gameList
+    this.logger.info(`setting game status - playing=${this.playing} song number=${this.maxSongNumber}`)
   }
 
   updateSettings(settings) {
     this.settings = settings
+    this.logger.info(`game setting updated - ${JSON.stringify(this.settings)}`)
   }
 
   checkGuess(guess) {
@@ -54,6 +57,7 @@ class GameState {
     this.playing = false
     this.io.emit('UPDATE_PLAYING', this.playing)
     this.io.emit('RESET')
+    this.logger.info('reset server status')
   }
 
   genRandomSong() {
@@ -66,9 +70,11 @@ class GameState {
   newSong() {
     this.currentSong = this.genRandomSong()
     this.currentSongNumber += 1
+    this.logger.info(`new song - number=${this.currentSongNumber} name=${this.currentSong.title} anime=${this.currentSong.name}`)
     getVideoDurationInSeconds(this.currentSong.src)
     .then((duration) => {
       var position = this.generatePosition(duration)
+      this.logger.debug(`generated starting time - ${position} of ${duration}`)
       this.io.emit('NEW_SONG', this.currentSong, position)
       this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
     })

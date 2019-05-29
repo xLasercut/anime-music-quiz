@@ -60,6 +60,6 @@
 
 <style scoped>
   video {
-    width: 100%;
+    width: 360px;
   }
 </style>

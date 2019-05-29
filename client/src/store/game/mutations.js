@@ -28,6 +28,7 @@ export default {
   DISCONNECT(state) {
     state.socket.close()
     state.socket = null
+    state.anime = {}
   },
   TOGGLE_ANSWER(state) {
     state.showAnswer = !state.showAnswer

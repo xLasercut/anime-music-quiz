@@ -1,10 +1,12 @@
 class Players {
-  constructor(io) {
+  constructor(io, logger) {
     this.io = io
     this.list = {}
+    this.logger = logger
   }
 
   updateClient() {
+    this.logger.debug('sent update players signal to client')
     this.io.emit('UPDATE_PLAYERS', this.list)
   }
 
@@ -21,12 +23,14 @@ class Players {
       guess: '',
       host: host
     }
+    this.logger.info(`added player - ${JSON.stringify(this.list[id])}`)
     this.updateClient()
   }
 
   removePlayer(id) {
     this.moveHost(id)
     delete this.list[id]
+    this.logger.info(`removed player id - ${id}`)
     this.updateClient()
   }
 
@@ -35,6 +39,7 @@ class Players {
       for (var key in this.list) {
         if (key !== id) {
           this.list[key].host = true
+          this.logger.info(`moved host to - ${JSON.stringify(list[key])}`)
           break
         }
       }
@@ -49,11 +54,13 @@ class Players {
     for (var key in this.list) {
       this.list[key]['score'] = 0
     }
+    this.logger.debug('reset all player scores')
     this.updateClient()
   }
 
   ready(id) {
     this.list[id]['ready'] = true
+    this.logger.debug(`player ${this.list[id].username} ready`)
   }
 
   clearReady() {
