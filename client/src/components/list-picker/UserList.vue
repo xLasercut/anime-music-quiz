@@ -1,5 +1,5 @@
 <template>
-  <v-dialog>
+  <v-dialog v-if="$store.state.list.filename">
     <template v-slot:activator="{ on }">
       <v-btn v-on="on" color="success" depressed @click="$emit('open')">
         Show List
