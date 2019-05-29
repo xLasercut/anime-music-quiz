@@ -11,16 +11,14 @@
             <v-btn
               color="success" small icon
               @click="addAnime(props.item)"
-              v-if="!inUserList(props.item)"
-              :disabled="!$store.state.list.filename"
+              :disabled="!$store.state.list.filename || inUserList(props.item)"
             >
               <v-icon size="12pt">fas fa-plus</v-icon>
             </v-btn>
             <v-btn
               color="error" small icon
               @click="removeAnime(props.item)"
-              v-if="inUserList(props.item)"
-              :disabled="!$store.state.list.filename"
+              :disabled="!$store.state.list.filename || !inUserList(props.item)"
             >
               <v-icon size="12pt">fas fa-minus</v-icon>
             </v-btn>
