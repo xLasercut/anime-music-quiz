@@ -8,6 +8,7 @@ export default {
   DISCONNECT(state) {
     state.socket.close()
     state.socket = null
+    state.filename = ''
   },
   ADD_ANIME(state, anime) {
     state.userList.push(anime)
