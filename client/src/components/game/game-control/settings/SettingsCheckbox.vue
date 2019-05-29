@@ -4,6 +4,7 @@
       <v-checkbox
         :label="item" :value="item"
         v-model="model"
+        :disabled="!$store.state.game.host"
       ></v-checkbox>
     </v-flex>
   </v-layout>
