@@ -24,6 +24,7 @@
             v-model.number="form.guessTime"
             min="1" max="50"
           ></settings-slider>
+          <settings-checkbox v-model="form.lists" :items="userListFiles"></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
               <icon-btn color="error" icon="fas fa-times" @click="show = false">Cancel</icon-btn>
@@ -43,19 +44,22 @@
 
 <script>
   import IconBtn from '../../shared/IconBtn.vue'
-  import SettingsSlider from './SettingsSlider.vue'
+  import SettingsSlider from './settings/SettingsSlider.vue'
+  import SettingsCheckbox from './settings/SettingsCheckbox.vue'
 
   export default {
-    components: { IconBtn, SettingsSlider },
+    components: { IconBtn, SettingsSlider, SettingsCheckbox },
     data() {
       return {
         form: {
           songNumber: 20,
           guessTime: 25,
-          type: ['opening', 'ending']
+          type: ['opening', 'ending'],
+          lists: []
         },
         socket: this.$store.state.game.socket,
-        show: false
+        show: false,
+        userListFiles: []
       }
     },
     computed: {
@@ -65,15 +69,15 @@
     },
     methods: {
       updateSettings() {
-        console.log(this.form)
         this.socket.emit('UPDATE_SERVER_SETTINGS', this.form)
         this.show = false
       }
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('UPDATE_CLIENT_SETTINGS', (settings) => {
+        this.socket.on('UPDATE_CLIENT_SETTINGS', (settings, userListFiles) => {
           this.form = settings
+          this.userListFiles = userListFiles
         })
       }
     }

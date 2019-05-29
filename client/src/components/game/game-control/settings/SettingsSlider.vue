@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import VModel from '../../../assets/mixins/v-model.js'
+  import VModel from '../../../../assets/mixins/v-model.js'
 
   export default {
     mixins: [ VModel ],

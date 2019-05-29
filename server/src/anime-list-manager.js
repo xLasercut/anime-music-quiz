@@ -15,16 +15,10 @@ class AnimeListManager {
     this.userListFiles = database.getUserListFiles()
   }
 
-  getSong() {
-    var index = Math.floor(Math.random() * this.gameList.length)
-    var song = this.gameList[index]
-    this.gameList.splice(index, 1)
-    return song
-  }
-
-  generateGameList(songNumber) {
+  generateGameList(settings) {
+    var songNumber = settings.songNumber
+    var userList = database.getCombinedList(settings.lists)
     this.gameList = []
-    var userList = JSON.parse(fs.readFileSync('./user-list.json', { encoding: 'utf-8' }))
     var dupe = []
 
     while (this.gameList.length < songNumber && userList.length > 0) {
@@ -37,7 +31,7 @@ class AnimeListManager {
       userList.splice(index, 1)
     }
 
-    return this.gameList.length
+    return this.gameList
   }
 
   getUserList(filename) {

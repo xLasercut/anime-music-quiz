@@ -3,7 +3,7 @@ import io from 'socket.io-client'
 export default {
   LOGIN(state, data) {
     state.socket = io(data.server)
-    state.socket.emit('LIST_LOGIN')
+    state.socket.emit('GET_USER_LIST_FILES')
   },
   DISCONNECT(state) {
     state.socket.close()

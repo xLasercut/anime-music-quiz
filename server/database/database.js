@@ -23,6 +23,15 @@ function backup(path) {
   fs.renameSync(path, newPath)
 }
 
+function isDuplicate(list, anime) {
+  for (var item of list) {
+    if ((anime.src === item.src || anime.title === item.title) && anime.name === item.name) {
+      return true
+    }
+  }
+  return false
+}
+
 class Database {
   getUserListFiles() {
     var userLists = fs.readdirSync(userBase)
@@ -64,8 +73,6 @@ class Database {
 
   getUserList(filename) {
     var filepath = path.join(userBase, filename)
-    console.log(filename)
-    console.log(filepath)
     return read(filepath)
   }
 
@@ -73,6 +80,19 @@ class Database {
     var filepath = path.join(userBase, filename)
     backup(filepath)
     write(filepath, data)
+  }
+
+  getCombinedList(filenames) {
+    var combinedList = []
+    for (var filename of filenames) {
+      var userList = this.getUserList(filename)
+      for (var item of userList) {
+        if (!isDuplicate(combinedList, item)) {
+          combinedList.push(item)
+        }
+      }
+    }
+    return combinedList
   }
 }
 

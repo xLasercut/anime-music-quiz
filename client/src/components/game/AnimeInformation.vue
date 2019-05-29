@@ -5,6 +5,7 @@
     <v-flex xs4>
       <video-window :volume="volume"></video-window>
       <countdown></countdown>
+      <loading v-if="loading"></loading>
     </v-flex>
     <v-flex xs1></v-flex>
     <song-information></song-information>
@@ -16,6 +17,7 @@
   import Countdown from './anime-information/Countdown.vue'
   import VideoWindow from './anime-information/VideoWindow.vue'
   import SongInformation from './anime-information/SongInformation.vue'
+  import Loading from '../shared/Loading.vue'
 
   export default {
     props: {
@@ -23,7 +25,7 @@
         type: Number
       }
     },
-    components: { Countdown, VideoWindow, LeaderBoard, SongInformation },
+    components: { Countdown, VideoWindow, LeaderBoard, SongInformation, Loading },
     data() {
       return {
         socket: this.$store.state.game.socket,

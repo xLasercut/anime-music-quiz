@@ -1,21 +1,26 @@
+const { getVideoDurationInSeconds } = require('get-video-duration')
+
 class GameState {
   constructor(io) {
     this.playing = false
     this.settings = {
       songNumber: 20,
       guessTime: 25,
-      type: ['opening', 'ending']
+      type: ['opening', 'ending'],
+      lists: []
     }
     this.currentSong = {}
     this.currentSongNumber = 0
     this.maxSongNumber = 20
-    this.io = io
+    this.io = io,
+    this.gameList = []
   }
 
-  startGame(max) {
+  startGame(gameList) {
     this.playing = true
     this.io.emit('UPDATE_PLAYING', this.playing)
-    this.maxSongNumber = max
+    this.maxSongNumber = gameList.length
+    this.gameList = gameList
   }
 
   updateSettings(settings) {
@@ -37,7 +42,7 @@ class GameState {
   }
 
   roundEnd() {
-    if (this.currentSongNumber < this.maxSongNumber) {
+    if (this.currentSongNumber <= this.maxSongNumber) {
       return false
     }
     return true
@@ -51,12 +56,22 @@ class GameState {
     this.io.emit('RESET')
   }
 
-  newSong(song, duration) {
-    var position = this.generatePosition(duration)
-    this.currentSong = song
+  genRandomSong() {
+    var index = Math.floor(Math.random() * this.gameList.length)
+    var song = this.gameList[index]
+    this.gameList.splice(index, 1)
+    return song
+  }
+
+  newSong() {
+    this.currentSong = this.genRandomSong()
     this.currentSongNumber += 1
-    this.io.emit('NEW_SONG', song, position)
-    this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
+    getVideoDurationInSeconds(this.currentSong.src)
+    .then((duration) => {
+      var position = this.generatePosition(duration)
+      this.io.emit('NEW_SONG', this.currentSong, position)
+      this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
+    })
   }
 
   generatePosition(duration) {

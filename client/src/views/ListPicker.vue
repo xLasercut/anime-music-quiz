@@ -15,15 +15,7 @@
       @remove-anime="removeAnime($event)"
       v-if="!loading"
     ></list-data>
-    <v-layout>
-      <v-flex xs12 class="text-xs-center" v-if="loading">
-        <v-progress-circular
-          :size="50"
-          color="primary"
-          indeterminate
-        ></v-progress-circular>
-      </v-flex>
-    </v-layout>
+    <loading v-if="loading"></loading>
     <list-pagination v-model="currentPage" :length="maxPage"></list-pagination>
   </v-container>
 </template>
@@ -36,9 +28,13 @@
   import ListPagination from '../components/list-picker/ListPagination.vue'
   import UserList from '../components/list-picker/UserList.vue'
   import ListSelector from '../components/list-picker/ListSelector.vue'
+  import Loading from '../components/shared/Loading.vue'
 
    export default {
-    components: { ListFilter, ListData, UserList, ListPagination, IconBtn, ListSelector },
+    components: {
+      ListFilter, ListData, UserList, ListPagination, IconBtn, ListSelector,
+      Loading
+    },
     data() {
       return {
         socket: this.$store.state.list.socket,
