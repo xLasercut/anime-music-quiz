@@ -20,7 +20,7 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (_data) => {
+        this.socket.on('NEW_SONG', (_song, _start, _guessTime) => {
           this.guess = ''
         })
 
