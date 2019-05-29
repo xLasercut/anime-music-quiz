@@ -71,27 +71,9 @@ class GameState {
     this.currentSong = this.genRandomSong()
     this.currentSongNumber += 1
     this.logger.info(`new song - number=${this.currentSongNumber} name=${this.currentSong.title} anime=${this.currentSong.name}`)
-    getVideoDurationInSeconds(this.currentSong.src)
-    .then((duration) => {
-      var position = this.generatePosition(duration)
-      this.logger.debug(`generated starting time - ${position} of ${duration}`)
-      this.io.emit('NEW_SONG', this.currentSong, position)
-      this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
-    })
-    .catch((error) => {
-      this.logger.error(error)
-      this.io.emit('NEW_SONG', this.currentSong, 0)
-      this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
-    })
-  }
-
-  generatePosition(duration) {
-    var position = 0
-    var maxStart = Math.floor(duration - this.settings.guessTime)
-    if (maxStart > 0) {
-      position = Math.floor(Math.random() * maxStart)
-    }
-    return position
+    var start = Math.random()
+    this.io.emit('NEW_SONG', this.currentSong, start, this.settings.guessTime)
+    this.io.emit('UPDATE_SONG_NUMBER', this.songNumbers())
   }
 }
 

@@ -39,7 +39,7 @@ class Players {
       for (var key in this.list) {
         if (key !== id) {
           this.list[key].host = true
-          this.logger.info(`moved host to - ${JSON.stringify(list[key])}`)
+          this.logger.info(`moved host to - ${JSON.stringify(this.list[key])}`)
           break
         }
       }

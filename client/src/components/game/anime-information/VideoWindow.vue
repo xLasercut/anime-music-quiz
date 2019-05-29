@@ -21,23 +21,33 @@
       return {
         show: false,
         socket: this.$store.state.game.socket,
-        startPosition: 0
+        start: 0,
+        guessTime: 0
       }
     },
     methods: {
       confirmLoad() {
-        this.$refs.player.currentTime = this.startPosition
+        this.$refs.player.currentTime = this.getStartPosition()
         if (this.socket) {
           this.socket.emit('SONG_LOADED')
         }
+      },
+      getStartPosition() {
+        var position = 0
+        var maxStart = Math.floor(this.$refs.player.duration - this.guessTime)
+        if (maxStart > 0) {
+          position = Math.floor(this.start * maxStart)
+        }
+        return position
       }
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (anime, startPosition) => {
+        this.socket.on('NEW_SONG', (anime, start, guessTime) => {
           this.show = false
           this.$store.commit('game/UPDATE_ANIME', anime)
-          this.startPosition = startPosition
+          this.start = start
+          this.guessTime = guessTime
           this.$refs.player.load()
         })
 
