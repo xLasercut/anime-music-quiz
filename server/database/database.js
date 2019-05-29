@@ -8,7 +8,7 @@ const fullAnimeListPath = path.join(gameBase, 'anime.json')
 const choicesPath = path.join(gameBase, 'choices.json')
 const rawAnimeListPath = path.join(gameBase, 'raw-anime.json')
 
-const ignore = ['.gitkeep', '.back']
+const jsonfile = /.*\.json$/gi
 
 function read(path) {
   return JSON.parse(fs.readFileSync(path, { encoding: 'utf-8' }))
@@ -36,10 +36,8 @@ class Database {
   getUserListFiles() {
     var userLists = fs.readdirSync(userBase)
     for (var i = 0; i < userLists.length; i++) {
-      for (var item of ignore) {
-        if (userLists[i].includes(item)) {
-          userLists.splice(i, 1)
-        }
+      if (!jsonfile.exec(userLists[i])) {
+        userLists.splice(i, 1)
       }
     }
     return userLists
@@ -78,7 +76,7 @@ class Database {
 
   writeUserList(filename, data) {
     var filepath = path.join(userBase, filename)
-    if (/.*\.json$/gi.exec(filepath)) {
+    if (jsonfile.exec(filepath)) {
       backup(filepath)
       write(filepath, data)
     }

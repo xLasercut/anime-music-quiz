@@ -39,7 +39,8 @@ const map = {
   'Ookami to Koushinryou II (Spice and Wolf II)': ['Ookami to Koushinryou II'],
   'Boku dake ga Inai Machi (ERASED)': ['Boku dake ga Inai Machi'],
   'Anohana.': ['Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.'],
-  'Eromanga-sensei': ['Eromanga-sensei', 'Eromanga-sensei OVA']
+  'Eromanga-sensei': ['Eromanga-sensei', 'Eromanga-sensei OVA'],
+  'Genei wo Kakeru Taiyou (Day Break Illusion)': ['Genei wo Kakeru Taiyou']
 }
 
 
