@@ -86,8 +86,14 @@
         var valid = this.$refs['loginForm'].validate()
         if (valid) {
           this.$store.commit('game/LOGIN', this.form)
+          localStorage.avatar = this.form.avatar
           this.$router.push({name: 'home'})
         }
+      }
+    },
+    mounted() {
+      if (localStorage.avatar) {
+        this.form.avatar = localStorage.avatar
       }
     }
   }
