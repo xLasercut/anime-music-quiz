@@ -1,5 +1,3 @@
-const { getVideoDurationInSeconds } = require('get-video-duration')
-
 class GameState {
   constructor(io, logger) {
     this.playing = false
