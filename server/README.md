@@ -63,7 +63,7 @@ All user lists will be picked up by the server when started. This will allow the
 ### Updating Anime Maps
 ## Replacing Anime Name
 For some animes, it's better to replace name to a more easily typable one. e.g. Yu☆Gi☆Oh! -> Yu-Gi-Oh!.
-This is controlled by `tools/name-swap.js`
+This is controlled by `tools/shared/name-swap.js`
 ```js
 module.exports = {
   // key is the name to convert from
@@ -75,7 +75,7 @@ module.exports = {
 
 ## Adding Alternative Answers
 You can add alternative answer to animes. e.g. Attack on Titan will be flagged as correct for Shingeki no Kyojin.
-This is controlled by `tools/alternate-name.js`
+This is controlled by `tools/shared/alternate-name.js`
 ```js
 module.exports = {
   // key is the name of the anime
@@ -88,7 +88,7 @@ module.exports = {
 
 ## Anime OP/ED that applies to multiple seasons
 Some songs applies to multiple seasons of anime. e.g. Database is correct for both Log Horizon and Log Horizon II.
-This is controlled by `tools/multi-season-songs.js`
+This is controlled by `tools/shared/multi-season-songs.js`
 ```js
 module.exports = {
   // Key is the song id to map (you can find this in the song list page of the client)
