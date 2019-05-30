@@ -19,6 +19,13 @@ export default {
   watch: {
     dark(val) {
       this.$store.commit('TOGGLE_DARK_MODE', val)
+      localStorage.dark = val
+    }
+  },
+  mounted() {
+    if (localStorage.dark) {
+      this.dark = (localStorage.dark === 'true')
+      this.$store.commit('TOGGLE_DARK_MODE', this.dark)
     }
   }
 }
