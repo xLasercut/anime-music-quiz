@@ -50,5 +50,6 @@ module.exports = {
   'Danshi Koukousei no Nichijou': ['Daily Lives of High School Boys'],
   'Ore no Imouto ga Konnani Kawaii Wake ga Nai.': ['Oreimo II'],
   'Ore no Imouto ga Konnani Kawaii Wake ga Nai': ['Oreimo'],
-  'Ao no Exorcist': ['Blue Exorcist']
+  'Ao no Exorcist': ['Blue Exorcist'],
+  'Zero kara Hajimeru Mahou no Sho': ['Grimoire of Zero']
 }
