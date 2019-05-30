@@ -41,5 +41,14 @@ module.exports = {
   'Kämpfer': ['Kampfer'],
   'Seirei Tsukai no Blade Dance': ['Blade Dance of the Elementalers'],
   'Shoujo-tachi wa Kouya wo Mezasu': ['Girls beyond the youth KOYA'],
-  'Tonari no Kaibutsu-kun': ['My Little Monster']
+  'Tonari no Kaibutsu-kun': ['My Little Monster'],
+  'Kami nomi zo Shiru Sekai': ['The World God Only Knows'],
+  'Gin no Saji 2nd Season': ['Silver Spoon II'],
+  'Gin no Saji': ['Silver Spoon'],
+  'Danna ga Nani wo Itteiru ka Wakaranai Ken': ['I Can\'t Understand What My Husband Is Saying'],
+  'Kono Naka ni Hitori, Imouto ga Iru!': ['Nakaimo'],
+  'Danshi Koukousei no Nichijou': ['Daily Lives of High School Boys'],
+  'Ore no Imouto ga Konnani Kawaii Wake ga Nai.': ['Oreimo II'],
+  'Ore no Imouto ga Konnani Kawaii Wake ga Nai': ['Oreimo'],
+  'Ao no Exorcist': ['Blue Exorcist']
 }
