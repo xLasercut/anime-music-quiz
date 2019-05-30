@@ -21,9 +21,15 @@
     },
     methods: {
       answer() {
-        if (this.show || this.$store.state.game.showAnswer) {
+        if (this.show) {
           return this.$store.state.game.anime.name
         }
+
+        if (this.$store.state.game.showAnswer) {
+          var index = Math.floor(Math.random() * this.$store.state.game.choices.length)
+          return this.$store.state.game.choices[index]
+        }
+
         return '?'
       }
     },
