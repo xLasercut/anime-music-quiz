@@ -2,7 +2,9 @@ export default {
   socket: null,
   choices: [],
   players: {},
-  anime: {},
+  anime: {
+    altName: []
+  },
   host: false,
   playing: false,
   showAnswer: false

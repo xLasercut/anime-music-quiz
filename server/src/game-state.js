@@ -31,7 +31,7 @@ class GameState {
   }
 
   checkGuess(guess) {
-    if (guess === this.currentSong.name) {
+    if (guess === this.currentSong.name || this.currentSong.altName.includes(guess)) {
       return true
     }
     return false

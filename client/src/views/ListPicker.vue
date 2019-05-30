@@ -55,18 +55,22 @@
         this.socket.emit('GET_ALL_ANIME')
       },
       filteredData () {
-        if (this.filter.anime || this.filter.song) {
           var filtered = []
-          var songfilter = new RegExp(this.filter.song, 'i')
-          var animefilter = new RegExp(this.filter.anime, 'i')
-          for (var anime of this.animes) {
-            if (animefilter.exec(anime.name) && songfilter.exec(anime.title)) {
-              filtered.push(anime)
-            }
+          var songfilter = ''
+          var animefilter = ''
+          if (this.filter.song) {
+            songfilter = this.filter.song.trim().toLowerCase()
           }
-          return filtered
-        }
-        return this.animes
+          if (this.filter.anime) {
+            animefilter = this.filter.anime.trim().toLowerCase()
+          }
+          return this.animes.filter((anime) => {
+            var names = `${anime.name},${anime.altName.join(',')}`.toLowerCase()
+            var songName = anime.title.toLowerCase()
+            if (names.includes(animefilter) && songName.includes(songfilter)) {
+              return anime
+            }
+          })
       },
       displayData() {
         var start = (this.currentPage - 1) * this.pageSize

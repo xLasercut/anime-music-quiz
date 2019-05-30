@@ -36,7 +36,7 @@ class Database {
   getUserListFiles() {
     var userLists = fs.readdirSync(userBase)
     for (var i = 0; i < userLists.length; i++) {
-      if (!jsonfile.exec(userLists[i])) {
+      if (!userLists[i].match(jsonfile)) {
         userLists.splice(i, 1)
       }
     }
@@ -76,8 +76,7 @@ class Database {
 
   writeUserList(filename, data) {
     var filepath = path.join(userBase, filename)
-    if (jsonfile.exec(filepath)) {
-      backup(filepath)
+    if (filepath.match(jsonfile)) {
       write(filepath, data)
     }
   }

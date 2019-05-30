@@ -49,7 +49,8 @@ import { setTimeout } from 'timers';
         }
       },
       color() {
-        if (this.player.guess === this.$store.state.game.anime.name) {
+        if (this.player.guess === this.$store.state.game.anime.name ||
+        this.$store.state.game.anime.altName.includes(this.player.guess)) {
           return 'success'
         }
         return 'error'

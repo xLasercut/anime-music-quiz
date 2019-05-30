@@ -28,7 +28,7 @@ function getSongDetails(cell) {
   var title = ''
 
   if (songArray[0]) {
-    type = songArray[0].trim().replace('OP', 'Opening').replace('ED', 'Ending')
+    type = songArray[0].trim()
   }
 
   if (songArray[1]) {
@@ -51,8 +51,10 @@ function addToList(name, cell) {
     var src = cell.next().find('a').attr('href')
     if (src) {
       var song = getSongDetails(cell)
+      var key = src.replace('https://animethemes.moe/video/', '').replace('.webm', '').replace('https://files.catbox.moe/', '')
 
       var anime = {
+        id: key,
         name: name,
         src: src,
         title: song.title,

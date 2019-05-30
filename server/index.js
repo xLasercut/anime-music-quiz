@@ -117,21 +117,14 @@ io.on('connection', function(socket) {
   })
 
   socket.on('GET_USER_LIST', function(filename) {
-    try {
-      var list = animeListManager.getUserList(filename)
-      socket.emit('UPDATE_USER_LIST', list, filename)
-    }
-    catch (e) {
-      logger.error(e)
-    }
+    socket.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
   })
 
   socket.on('UPDATE_USER_LIST', function(list, filename) {
-    if (/.*\.json$/gi.exec(filename)) {
+    if (filename.match(/.*\.json$/gi)) {
       try {
         animeListManager.updateUserList(filename, list)
-        var list = animeListManager.getUserList(filename)
-        io.emit('UPDATE_USER_LIST', list, filename)
+        io.emit('UPDATE_USER_LIST', animeListManager.getUserList(filename), filename)
       }
       catch (e) {
         logger.error(e)

@@ -3,6 +3,7 @@
     <v-flex xs12>
       <v-data-table :items="data" :headers="headers" hide-actions>
         <template #items="props">
+          <td>{{ props.item.id }}</td>
           <td>{{ props.item.name }}</td>
           <td>{{ props.item.title }}</td>
           <td>{{ props.item.type }}</td>
@@ -35,6 +36,7 @@
     data() {
       return {
         headers: [
+          { text: 'ID', value: 'id', sortable: false },
           { text: 'Anime', value: 'name', sortable: false },
           { text: 'Song', value: 'title', sortable: false },
           { text: 'Type', value: 'type', sortable: false },
