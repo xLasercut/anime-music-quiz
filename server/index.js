@@ -98,7 +98,7 @@ io.on('connection', function(socket) {
   })
 
   socket.on('SYNC_SETTINGS', function() {
-    io.emit('UPDATE_CLIENT_SETTINGS', gameState.settings, animeListManager.userListFiles)
+    socket.emit('UPDATE_CLIENT_SETTINGS', gameState.settings, animeListManager.userListFiles)
   })
 
   socket.on('UPDATE_SERVER_SETTINGS', function(settings) {

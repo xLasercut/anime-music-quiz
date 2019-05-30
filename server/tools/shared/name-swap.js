@@ -11,5 +11,7 @@ module.exports = {
   'Shingeki no Kyojin OVA': 'Shingeki no Kyojin',
   'Accel World EX': 'Accel World',
   'Digimon Adventure tri. 2: Ketsui': 'Digimon Adventure Tri.',
-  'Digimon Adventure tri. 1: Saikai': 'Digimon Adventure Tri.'
+  'Digimon Adventure tri. 1: Saikai': 'Digimon Adventure Tri.',
+  'Black★Rock Shooter (TV)': 'Black Rock Shooter (TV)',
+  'Lucky☆Star': 'Lucky Star'
 }
