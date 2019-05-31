@@ -1,11 +1,12 @@
 <template>
-  <v-flex shrink style="width: 300px">
+  <div class="selector-container">
     <v-select
       :items="$store.state.list.userListFiles"
-      box label="List"
+      label="List"
       @change="updateUserList($event)"
+      class="mt-2"
     ></v-select>
-  </v-flex>
+  </div>
 </template>
 
 <script>
@@ -30,3 +31,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .selector-container {
+    width: 200px;
+  }
+</style>

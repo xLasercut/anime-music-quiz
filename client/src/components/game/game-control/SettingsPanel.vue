@@ -1,14 +1,10 @@
 <template>
   <v-dialog width="500" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-list-tile>
-        <v-list-tile-action>
-          <v-btn class="settings-btn" v-on="on" color="info" flat @click="socket.emit('SYNC_SETTINGS')" :disabled="$store.state.game.playing">
-            Settings
-            <v-icon size="12pt" right>fas fa-cog</v-icon>
-          </v-btn>
-        </v-list-tile-action>
-      </v-list-tile>
+      <v-btn class="settings-btn" v-on="on" color="info" flat @click="socket.emit('SYNC_SETTINGS')" :disabled="$store.state.game.playing">
+        Settings
+        <v-icon size="12pt" right>fas fa-cog</v-icon>
+      </v-btn>
     </template>
     <v-card>
       <v-container grid-list-lg>
@@ -89,9 +85,9 @@
 
 </script>
 
+
 <style scoped>
   .settings-btn {
     border-radius: 0;
-    width: 120px;
   }
 </style>

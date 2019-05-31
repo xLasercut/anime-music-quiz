@@ -1,17 +1,5 @@
 <template>
   <v-container fluid grid-list-lg>
-    <v-layout row wrap>
-      <v-flex xs6 class="text-xs-center">
-        <icon-btn color="success" icon="fas fa-gamepad" @click="mode = 'game'">
-          Game
-        </icon-btn>
-      </v-flex>
-      <v-flex xs6 class="text-xs-center">
-        <icon-btn color="info" icon="fas fa-list" @click="mode = 'list'">
-          Song List
-        </icon-btn>
-      </v-flex>
-    </v-layout>
     <game-form v-if="displayForm('game')"></game-form>
     <list-form v-if="displayForm('list')"></list-form>
   </v-container>
@@ -27,13 +15,12 @@
     data() {
       return {
         gameSocket: this.$store.state.game.socket,
-        listSocket: this.$store.state.list.socket,
-        mode: 'game'
+        listSocket: this.$store.state.list.socket
       }
     },
     methods: {
       displayForm(type) {
-        if (this.mode === type) {
+        if (this.$store.state.mode === type) {
           return true
         }
         return false

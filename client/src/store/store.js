@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     dark: false,
-    drawer: false
+    mode: 'game'
   },
   getters: {
     color(state) {
@@ -20,11 +20,12 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    TOGGLE_DARK_MODE(state, val) {
-      state.dark = val
+    TOGGLE_DARK_MODE(state) {
+      state.dark = !state.dark
+      localStorage.dark = state.dark
     },
-    TOGGLE_DRAWER(state) {
-      state.drawer = true
+    CHANGE_MODE(state, mode) {
+      state.mode = mode
     }
   },
   modules: {

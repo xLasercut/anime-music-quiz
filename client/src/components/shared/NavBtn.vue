@@ -15,7 +15,6 @@
 
 <style scoped>
   .v-btn {
-    width: 120px;
     border-radius: 0;
   }
 </style>

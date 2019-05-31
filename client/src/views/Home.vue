@@ -1,8 +1,10 @@
 <template>
-  <div class="main-container">
-    <game></game>
-    <chat></chat>
-  </div>
+  <v-container fluid grid-list-md>
+    <v-layout wrap class="main-container">
+      <game></game>
+      <chat></chat>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -44,6 +46,5 @@
 <style scoped>
   .main-container {
     height: 100%;
-    width: 100%;
   }
 </style>

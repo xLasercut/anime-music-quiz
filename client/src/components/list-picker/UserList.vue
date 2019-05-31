@@ -1,13 +1,13 @@
 <template>
   <v-dialog v-if="$store.state.list.filename">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" color="success" depressed @click="$emit('open')">
+      <v-btn v-on="on" color="success" flat @click="$emit('open')" class="user-list-btn">
         Show List
-        <v-icon size="14pt" right>fas fa-list</v-icon>
+        <v-icon size="12pt" right>fas fa-list</v-icon>
       </v-btn>
     </template>
     <v-card>
-      <v-container grid-list-lg>
+      <v-container fluid grid-list-xs>
         <v-layout wrap>
           <v-flex xs12 class="text-xs-center">
             <icon-btn @click="download()" color="success" icon="fas fa-download">Download List</icon-btn>
@@ -16,7 +16,7 @@
         <list-filter v-model="filter"></list-filter>
         <list-data
           :data="displayData()"
-          @remove-anime="$emit('remove-anime', $event)"
+          @remove-anime="$store.commit('list/REMOVE_ANIME', $event)"
         ></list-data>
         <list-pagination
           v-model="currentPage" :length="maxPage"
@@ -83,3 +83,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .user-list-btn {
+    border-radius: 0;
+  }
+</style>

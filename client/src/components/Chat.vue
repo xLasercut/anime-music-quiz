@@ -1,18 +1,19 @@
 <template>
-  <v-sheet class="chat-container" :color="$store.getters.color">
+  <v-flex xs3 class="chat-container" :style="{ background: $store.getters.color }">
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">
-          <b v-if="message.user">{{message.user}}: </b>{{message.message}}
+          <b v-if="message.user">{{message.user}}: </b>
+          {{message.message}}
         </li>
       </ul>
     </div>
-    <v-layout>
-      <v-flex>
+    <v-layout justify-center>
+      <v-flex shrink class="input-container">
         <v-text-field outline v-model="message" @keydown.enter.native="sendMsg()"></v-text-field>
       </v-flex>
     </v-layout>
-  </v-sheet>
+  </v-flex>
 </template>
 
 <script>
@@ -57,23 +58,20 @@
 
 <style scoped>
   .chat-container {
-    top: 0;
-    right: 0;
-    position: absolute;
-    width: 400px;
     height: 100%;
-    padding: 10px;
+    border-radius: 4px;
   }
 
   .message-container {
-    height: calc(100% - 80px);
+    height: calc(100vh - 220px);
     width: 100%;
     overflow: auto;
     word-wrap: break-word;
+    padding: 5px;
   }
 
   .input-container {
-    margin-top: 10px;
+    width: 90%;
   }
 
   ul {

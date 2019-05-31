@@ -10,6 +10,10 @@ export default {
     state.socket = null
     state.filename = ''
   },
+  RELOAD_ALL_ANIME(state) {
+    state.socket.emit('GET_ALL_ANIME')
+    state.loading = true
+  },
   ADD_ANIME(state, anime) {
     state.userList.push(anime)
     state.socket.emit('UPDATE_USER_LIST', state.userList, state.filename)
@@ -30,5 +34,8 @@ export default {
   },
   UPDATE_FILENAME(state, filename) {
     state.filename = filename
+  },
+  SET_LOADING(state, loading) {
+    state.loading = loading
   }
 }

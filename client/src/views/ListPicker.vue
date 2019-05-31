@@ -1,39 +1,25 @@
 <template>
   <v-container fluid grid-list-lg>
-    <v-layout justify-center wrap>
-      <list-selector></list-selector>
-      <v-flex shrink>
-        <icon-btn color="warning" icon="fas fa-sync" @click="reload()">Reload Full List</icon-btn>
-        <user-list @remove-anime="removeAnime($event)" @open="updateUserList()"></user-list>
-      </v-flex>
-    </v-layout>
     <list-filter v-model="filter"></list-filter>
     <list-data
       :data="displayData()"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
-      v-if="!loading"
+      v-if="!$store.state.list.loading"
     ></list-data>
-    <loading v-if="loading"></loading>
+    <loading v-if="$store.state.list.loading"></loading>
     <list-pagination v-model="currentPage" :length="maxPage"></list-pagination>
   </v-container>
 </template>
 
 <script>
-  import io from 'socket.io-client'
-  import IconBtn from '../components/shared/IconBtn.vue'
   import ListFilter from '../components/list-picker/ListFilter.vue'
   import ListData from '../components/list-picker/ListData.vue'
   import ListPagination from '../components/list-picker/ListPagination.vue'
-  import UserList from '../components/list-picker/UserList.vue'
-  import ListSelector from '../components/list-picker/ListSelector.vue'
   import Loading from '../components/shared/Loading.vue'
 
    export default {
-    components: {
-      ListFilter, ListData, UserList, ListPagination, IconBtn, ListSelector,
-      Loading
-    },
+    components: { ListFilter, ListData, ListPagination, Loading },
     data() {
       return {
         socket: this.$store.state.list.socket,
@@ -44,15 +30,10 @@
           anime: '',
           song: ''
         },
-        loading: false,
         maxPage: 1
       }
     },
     methods: {
-      reload() {
-        this.loading = true
-        this.socket.emit('GET_ALL_ANIME')
-      },
       filteredData () {
         var filtered = []
         var songfilter = ''
@@ -89,11 +70,11 @@
     },
     mounted() {
       if (this.socket) {
-        this.reload()
+        this.$store.commit('list/RELOAD_ALL_ANIME')
 
         this.socket.on('UPDATE_ALL_ANIME', (data) => {
           this.animes = data
-          this.loading = false
+          this.$store.commit('list/SET_LOADING', false)
         })
 
         this.socket.on('UPDATE_USER_LIST', (list, filename) => {
