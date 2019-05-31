@@ -7,5 +7,6 @@ export default {
   },
   host: false,
   playing: false,
-  showAnswer: false
+  showAnswer: false,
+  volume: 50
 }

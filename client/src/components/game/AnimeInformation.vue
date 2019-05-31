@@ -1,9 +1,8 @@
 <template>
   <v-layout wrap>
-    <leader-board></leader-board>
-    <v-flex xs1></v-flex>
-    <v-flex xs4>
-      <video-window :volume="volume"></video-window>
+    <v-flex xs4></v-flex>
+    <v-flex xs4 class="video-container">
+      <video-window :volume="$store.state.game.volume"></video-window>
       <countdown></countdown>
       <loading v-if="loading"></loading>
     </v-flex>
@@ -20,11 +19,6 @@
   import Loading from '../shared/Loading.vue'
 
   export default {
-    props: {
-      volume: {
-        type: Number
-      }
-    },
     components: { Countdown, VideoWindow, LeaderBoard, SongInformation, Loading },
     data() {
       return {
@@ -52,6 +46,7 @@
   }
 
   .video-container {
-    min-height: 200px;
+    height: 200px;
+    text-align: center;
   }
 </style>

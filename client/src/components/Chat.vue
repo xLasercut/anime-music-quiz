@@ -9,7 +9,7 @@
     </div>
     <v-layout>
       <v-flex>
-        <v-text-field v-model="message" @keydown.enter.native="sendMsg()"></v-text-field>
+        <v-text-field outline v-model="message" @keydown.enter.native="sendMsg()"></v-text-field>
       </v-flex>
     </v-layout>
   </v-sheet>
@@ -60,7 +60,7 @@
     top: 0;
     right: 0;
     position: absolute;
-    width: 250px;
+    width: 400px;
     height: 100%;
     padding: 10px;
   }

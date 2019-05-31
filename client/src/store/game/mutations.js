@@ -34,5 +34,14 @@ export default {
   },
   TOGGLE_ANSWER(state) {
     state.showAnswer = !state.showAnswer
+  },
+  START_GAME(state) {
+    state.socket.emit('START_GAME')
+  },
+  STOP_GAME(state) {
+    state.socket.emit('LOBBY')
+  },
+  UPDATE_VOLUME(state, volume) {
+    state.volume = volume
   }
 }

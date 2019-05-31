@@ -1,5 +1,5 @@
 <template>
-  <v-layout justify-center v-show="show">
+  <v-layout fill-height align-center justify-center v-show="show">
     <v-progress-circular
       :rotate="270"
       :size="100"

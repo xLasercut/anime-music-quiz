@@ -29,6 +29,10 @@
           this.$store.commit('game/UPDATE_PLAYERS', data)
           this.$store.commit('game/UPDATE_HOST', this.socket.id)
         })
+
+        this.socket.on('UPDATE_PLAYING', (playing) => {
+          this.$store.commit('game/UPDATE_PLAYING', playing)
+        })
       }
       else {
         this.$router.push('/')

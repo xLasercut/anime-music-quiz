@@ -3,7 +3,6 @@
     <v-layout justify-center wrap>
       <list-selector></list-selector>
       <v-flex shrink>
-        <icon-btn color="primary" icon="fas fa-home" @click="$router.push('/')">Home</icon-btn>
         <icon-btn color="warning" icon="fas fa-sync" @click="reload()">Reload Full List</icon-btn>
         <user-list @remove-anime="removeAnime($event)" @open="updateUserList()"></user-list>
       </v-flex>

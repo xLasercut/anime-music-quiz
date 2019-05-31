@@ -1,11 +1,11 @@
 <template>
   <v-layout justify-center>
     <v-flex xs6>
-      <v-autocomplete
-        box
+      <v-combobox
+        box clearable
         :items="$store.state.game.choices"
         v-model="guess"
-      ></v-autocomplete>
+      ></v-combobox>
     </v-flex>
   </v-layout>
 </template>
@@ -34,11 +34,5 @@
 </script>
 
 <style scoped>
-  .el-autocomplete {
-    width: 100%;
-  }
 
-  .input-container {
-    margin-top: 10px;
-  }
 </style>

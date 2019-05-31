@@ -70,7 +70,7 @@
 
 <style scoped>
   video {
-    max-width: 360px;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 </style>

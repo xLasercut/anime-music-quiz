@@ -8,7 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    dark: false
+    dark: false,
+    drawer: false
   },
   getters: {
     color(state) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
   mutations: {
     TOGGLE_DARK_MODE(state, val) {
       state.dark = val
+    },
+    TOGGLE_DRAWER(state) {
+      state.drawer = true
     }
   },
   modules: {

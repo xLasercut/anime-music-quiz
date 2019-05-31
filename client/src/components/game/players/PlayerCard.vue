@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs2>
+  <v-flex xs4 lg2>
     <v-tooltip v-model="show" :color="color()" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
@@ -62,7 +62,7 @@ import { setTimeout } from 'timers';
           this.show = true
           setTimeout(() => {
             this.show = false
-          }, 5000)
+          }, 8000)
         })
       }
     }
@@ -71,19 +71,20 @@ import { setTimeout } from 'timers';
 
 <style scoped>
   .player-card {
-    width: 160px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 100%;
     text-align: center;
   }
 
   img {
+    width: 100%;
+    max-width: 100px;
     margin: 0;
     padding: 0;
   }
 
   .player-name {
-    width: 100%;
+    width: 100% ;
+    max-width: 150px;
     font-size: 12pt;
     background: #E4E7ED;
     border-radius: 5px;
@@ -91,13 +92,15 @@ import { setTimeout } from 'timers';
   }
 
   .player-score {
-    width: 50px;
+    width: 100%;
+    max-width: 50px;
     font-size: 12pt;
     background: #E4E7ED;
-    border-radius: 0 0 50px 50px;
+    border-radius: 0 0 20px 20px;
   }
 
   .v-tooltip__content {
     word-wrap: break-word;
+    font-size: 12pt;
   }
 </style>

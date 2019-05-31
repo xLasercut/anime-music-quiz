@@ -1,9 +1,8 @@
 <template>
   <div class="game-container">
-    <v-container grid-list-lg>
-      <game-control v-model="volume"></game-control>
+    <v-container fluid grid-list-lg>
       <answer></answer>
-      <anime-information :volume="volume"></anime-information>
+      <anime-information></anime-information>
       <guess-input></guess-input>
       <players></players>
     </v-container>
@@ -15,7 +14,6 @@
   import GuessInput from './game/GuessInput.vue'
   import Players from './game/Players.vue'
   import AnimeInformation from './game/AnimeInformation.vue'
-  import GameControl from './game/GameControl.vue'
   import SettingsPanel from './game/SettingsPanel.vue'
 
   export default {
@@ -24,13 +22,7 @@
       GuessInput,
       Players,
       AnimeInformation,
-      GameControl,
       SettingsPanel
-    },
-    data() {
-      return {
-        volume: 50
-      }
     }
   }
 </script>
@@ -40,7 +32,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% - 250px);
+    width: calc(100% - 400px);
     height: 100%;
   }
 </style>
