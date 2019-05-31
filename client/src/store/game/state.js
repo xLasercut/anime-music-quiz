@@ -6,7 +6,13 @@ export default {
   },
   players: {},
   anime: {
-    altName: []
+    name: '',
+    altName: [],
+    title: '',
+    src: '',
+    artist: '',
+    type: '',
+    id: ''
   },
   host: false,
   playing: false,

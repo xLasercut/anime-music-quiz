@@ -29,7 +29,13 @@ export default {
     state.socket.close()
     state.socket = null
     state.anime = {
-      altName: []
+      name: '',
+      altName: [],
+      title: '',
+      src: '',
+      artist: '',
+      type: '',
+      id: ''
     }
   },
   TOGGLE_ANSWER(state) {
