@@ -57,5 +57,6 @@ module.exports = {
   'Maria†Holic': ['Maria Holic'],
   'Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!': ['WATAMOTE.'],
   'Hidan no Aria': ['Aria the Scarlet Ammo'],
-  'Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai': ['Rascal Does Not Dream of Bunny Girl Senpai']
+  'Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai': ['Rascal Does Not Dream of Bunny Girl Senpai'],
+  'Shinrei Tantei Yakumo': ['Psychic Detective Yakumo']
 }
