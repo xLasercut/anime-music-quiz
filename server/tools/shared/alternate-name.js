@@ -51,5 +51,8 @@ module.exports = {
   'Ore no Imouto ga Konnani Kawaii Wake ga Nai.': ['Oreimo II'],
   'Ore no Imouto ga Konnani Kawaii Wake ga Nai': ['Oreimo'],
   'Ao no Exorcist': ['Blue Exorcist'],
-  'Zero kara Hajimeru Mahou no Sho': ['Grimoire of Zero']
+  'Zero kara Hajimeru Mahou no Sho': ['Grimoire of Zero'],
+  'Kiseijuu: Sei no Kakuritsu': ['Parasyte -the maxim-'],
+  'Naruto: Shippuuden': ['Naruto Shippuuden'],
+  'Maria†Holic': ['Maria Holic']
 }
