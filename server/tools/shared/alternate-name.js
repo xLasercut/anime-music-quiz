@@ -58,5 +58,8 @@ module.exports = {
   'Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!': ['WATAMOTE.'],
   'Hidan no Aria': ['Aria the Scarlet Ammo'],
   'Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai': ['Rascal Does Not Dream of Bunny Girl Senpai'],
-  'Shinrei Tantei Yakumo': ['Psychic Detective Yakumo']
+  'Shinrei Tantei Yakumo': ['Psychic Detective Yakumo'],
+  'Byousoku 5 Centimeter': ['5 Centimeters Per Second'],
+  'Hachimitsu to Clover II': ['Honey and Clover II'],
+  'Hachimitsu to Clover': ['Honey and Clover']
 }

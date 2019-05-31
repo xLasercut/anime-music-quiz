@@ -34,8 +34,10 @@ class GameState {
       point += 1
     }
 
-    if (guess.song.toLowerCase() === this.currentSong.title.toLowerCase()) {
-      point += 1
+    if (guess.song) {
+      if (guess.song.toLowerCase() === this.currentSong.title.toLowerCase()) {
+        point += 1
+      }
     }
 
     return point

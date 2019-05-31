@@ -48,8 +48,10 @@ import { setTimeout } from 'timers';
           point += 1
         }
 
-        if (this.player.guess.song.toLowerCase() === this.$store.state.game.anime.title.toLowerCase()) {
-          point += 1
+        if (this.player.guess.song) {
+          if (this.player.guess.song.toLowerCase() === this.$store.state.game.anime.title.toLowerCase()) {
+            point += 1
+          }
         }
 
         if (point === 2) {
