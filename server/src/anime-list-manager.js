@@ -3,7 +3,10 @@ const database = require('../database/database.js')
 class AnimeListManager {
   constructor(logger) {
     this.completeList = []
-    this.choices = []
+    this.choices = {
+      anime: [],
+      song: []
+    }
     this.userListFiles = []
     this.logger = logger
     this.userLists = {}
@@ -12,7 +15,8 @@ class AnimeListManager {
 
   initialiseList() {
     this.completeList = database.getFullAnimeList()
-    this.choices = database.getUserChoices()
+    this.choices.anime = database.getAnimeChoices()
+    this.choices.song = database.getSongChoices()
     this.userListFiles = database.getUserListFiles()
     for (var filename of this.userListFiles) {
       this.userLists[filename] = this.getUserListDisk(filename)

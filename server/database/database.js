@@ -5,7 +5,8 @@ const gameBase = path.join(__dirname)
 const userBase = path.join(__dirname, 'user')
 
 const fullAnimeListPath = path.join(gameBase, 'anime.json')
-const choicesPath = path.join(gameBase, 'choices.json')
+const animeChoicesPath = path.join(gameBase, 'anime-choices.json')
+const songChoicesPath = path.join(gameBase, 'song-choices.json')
 const rawAnimeListPath = path.join(gameBase, 'raw-anime.json')
 
 const jsonfile = /.*\.json$/gi
@@ -52,12 +53,20 @@ class Database {
     write(fullAnimeListPath, data)
   }
 
-  getUserChoices() {
-    return read(choicesPath)
+  getAnimeChoices() {
+    return read(animeChoicesPath)
   }
 
-  writeUserChoices(data) {
-    write(choicesPath, data)
+  writeAnimeChoices(data) {
+    write(animeChoicesPath, data)
+  }
+
+  getSongChoices() {
+    return read(songChoicesPath)
+  }
+
+  writeSongChoices(data) {
+    write(songChoicesPath, data)
   }
 
   getRawAnimeList() {

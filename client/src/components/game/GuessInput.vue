@@ -1,10 +1,19 @@
 <template>
   <v-layout justify-center>
-    <v-flex xs6>
+    <v-flex xs5>
       <v-combobox
         box clearable
-        :items="$store.state.game.choices"
-        v-model="guess"
+        :items="$store.state.game.choices.anime"
+        label="Anime"
+        v-model="guess.anime"
+      ></v-combobox>
+    </v-flex>
+    <v-flex xs5>
+      <v-combobox
+        box clearable
+        :items="$store.state.game.choices.song"
+        label="Song"
+        v-model="guess.song"
       ></v-combobox>
     </v-flex>
   </v-layout>
@@ -14,14 +23,18 @@
   export default {
     data() {
       return {
-        guess: '',
+        guess: {
+          anime: '',
+          song: ''
+        },
         socket: this.$store.state.game.socket
       }
     },
     mounted() {
       if (this.socket) {
         this.socket.on('NEW_SONG', (_song, _start, _guessTime) => {
-          this.guess = ''
+          this.guess.anime = ''
+          this.guess.song = ''
         })
 
         this.socket.on('TIME_UP', () => {

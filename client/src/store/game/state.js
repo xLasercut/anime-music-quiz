@@ -1,6 +1,9 @@
 export default {
   socket: null,
-  choices: [],
+  choices: {
+    anime: [],
+    song: []
+  },
   players: {},
   anime: {
     altName: []

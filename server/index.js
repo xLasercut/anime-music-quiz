@@ -78,9 +78,8 @@ io.on('connection', function(socket) {
   socket.on('GUESS', function(guess) {
     players.setGuess(socket.id, guess)
     players.ready(socket.id)
-    if (gameState.checkGuess(guess)) {
-      players.addPoint(socket.id)
-    }
+    var point = gameState.calculatePoints(guess)
+    players.addPoint(socket.id, point)
     if (players.allReady()) {
       players.clearReady()
       io.emit('SHOW_GUESS')

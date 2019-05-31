@@ -13,5 +13,6 @@ module.exports = {
   'Digimon Adventure tri. 2: Ketsui': 'Digimon Adventure Tri.',
   'Digimon Adventure tri. 1: Saikai': 'Digimon Adventure Tri.',
   'Black★Rock Shooter (TV)': 'Black Rock Shooter (TV)',
-  'Lucky☆Star': 'Lucky Star'
+  'Lucky☆Star': 'Lucky Star',
+  'Yu-Gi-Oh! (1999)': 'Yu-Gi-Oh!'
 }

@@ -2,18 +2,24 @@ const database = require('../database/database.js')
 
 var animes = database.getFullAnimeList()
 
-var choices = []
+var animeChoices = []
+var songChoices = []
 
 for (var anime of animes) {
-  if (!choices.includes(anime.name)) {
-    choices.push(anime.name)
+  if (!animeChoices.includes(anime.name)) {
+    animeChoices.push(anime.name)
   }
 
   for (var name of anime.altName) {
-    if (!choices.includes(name)) {
-      choices.push(name)
+    if (!animeChoices.includes(name)) {
+      animeChoices.push(name)
     }
+  }
+
+  if (!songChoices.includes(anime.title)) {
+    songChoices.push(anime.title)
   }
 }
 
-database.writeUserChoices(choices)
+database.writeAnimeChoices(animeChoices)
+database.writeSongChoices(songChoices)

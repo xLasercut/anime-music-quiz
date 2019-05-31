@@ -28,11 +28,17 @@ class GameState {
     this.logger.info(`game setting updated - ${JSON.stringify(this.settings)}`)
   }
 
-  checkGuess(guess) {
-    if (guess === this.currentSong.name || this.currentSong.altName.includes(guess)) {
-      return true
+  calculatePoints(guess) {
+    var point = 0
+    if (guess.anime === this.currentSong.name || this.currentSong.altName.includes(guess.anime)) {
+      point += 1
     }
-    return false
+
+    if (guess.song === this.currentSong.title) {
+      point += 1
+    }
+
+    return point
   }
 
   songNumbers() {

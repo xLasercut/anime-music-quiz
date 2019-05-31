@@ -14,7 +14,7 @@
           </v-layout>
         </div>
       </template>
-      {{guess}}
+      {{guess('anime')}} - {{guess('song')}}
     </v-tooltip>
   </v-flex>
 </template>
@@ -34,14 +34,6 @@ import { setTimeout } from 'timers';
         socket: this.$store.state.game.socket
       }
     },
-    computed: {
-      guess() {
-        if (!this.player.guess) {
-          return '...'
-        }
-        return this.player.guess
-      }
-    },
     methods: {
       imgStyle(player) {
         if (player.host) {
@@ -49,11 +41,31 @@ import { setTimeout } from 'timers';
         }
       },
       color() {
-        if (this.player.guess === this.$store.state.game.anime.name ||
-        this.$store.state.game.anime.altName.includes(this.player.guess)) {
+        var point = 0
+
+        if (this.player.guess.anime === this.$store.state.game.anime.name ||
+        this.$store.state.game.anime.altName.includes(this.player.guess.anime)) {
+          point += 1
+        }
+
+        if (this.player.guess.song === this.$store.state.game.anime.title) {
+          point += 1
+        }
+
+        if (point === 2) {
           return 'success'
         }
+        else if (point === 1) {
+          return 'warning'
+        }
+
         return 'error'
+      },
+      guess(type) {
+        if (!this.player.guess[type]) {
+          return '...'
+        }
+        return this.player.guess[type]
       }
     },
     mounted() {

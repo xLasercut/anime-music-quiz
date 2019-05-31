@@ -20,7 +20,10 @@ class Players {
       username: player.username,
       ready: false,
       avatar: player.avatar,
-      guess: '',
+      guess: {
+        anime: '',
+        song: ''
+      },
       host: host
     }
     this.logger.info(`added player - ${JSON.stringify(this.list[id])}`)
@@ -46,8 +49,8 @@ class Players {
     }
   }
 
-  addPoint(id) {
-    this.list[id]['score'] += 1
+  addPoint(id, point) {
+    this.list[id]['score'] += point
   }
 
   resetScore() {
