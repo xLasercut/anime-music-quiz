@@ -54,5 +54,8 @@ module.exports = {
   'Zero kara Hajimeru Mahou no Sho': ['Grimoire of Zero'],
   'Kiseijuu: Sei no Kakuritsu': ['Parasyte -the maxim-'],
   'Naruto: Shippuuden': ['Naruto Shippuuden'],
-  'Maria†Holic': ['Maria Holic']
+  'Maria†Holic': ['Maria Holic'],
+  'Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!': ['WATAMOTE.'],
+  'Hidan no Aria': ['Aria the Scarlet Ammo'],
+  'Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai': ['Rascal Does Not Dream of Bunny Girl Senpai']
 }

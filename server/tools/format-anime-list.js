@@ -16,6 +16,7 @@ function isDuplicate(anime) {
 for (var anime of raw) {
   anime.name = converter.swapName(anime.name)
   anime.altName = converter.alternateName(anime.name)
+  anime.title = converter.swapTitle(anime.title)
   if (!isDuplicate(anime)) {
     animes.push(anime)
   }

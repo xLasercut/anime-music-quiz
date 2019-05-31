@@ -26,8 +26,8 @@
         }
 
         if (this.$store.state.game.showAnswer) {
-          var index = Math.floor(Math.random() * this.$store.state.game.choices.length)
-          return this.$store.state.game.choices[index]
+          var index = Math.floor(Math.random() * this.$store.state.game.choices.anime.length)
+          return this.$store.state.game.choices.anime[index]
         }
 
         return '?'
