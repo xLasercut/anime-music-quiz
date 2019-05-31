@@ -1,6 +1,7 @@
 const nameSwap = require('./name-swap.js')
 const alternateName = require('./alternate-name.js')
 const multiSeason = require('./multi-season-songs.js')
+const titleSwap = require('./song-name-swap.js')
 
 function generateAltName(current, list) {
   var output = current
@@ -48,6 +49,13 @@ class Converter {
         }
       }
     }
+  }
+
+  swapTitle(title) {
+    if (title in titleSwap) {
+      return titleSwap[title]
+    }
+    return title
   }
 }
 
