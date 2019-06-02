@@ -1,7 +1,7 @@
 <template>
   <v-dialog width="500" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn class="settings-btn" v-on="on" color="info" flat @click="socket.emit('SYNC_SETTINGS')" :disabled="$store.state.game.playing">
+      <v-btn class="settings-btn" v-on="on" color="info" flat @click="syncSettings()" :disabled="$store.state.game.playing">
         Settings
         <v-icon size="12pt" right>fas fa-cog</v-icon>
       </v-btn>
@@ -16,15 +16,15 @@
         <v-form>
           <settings-slider
             label="Song Number"
-            v-model.number="form.songNumber"
+            v-model.number="settings.songNumber"
             min="1" max="100"
           ></settings-slider>
           <settings-slider
             label="Guess Time"
-            v-model.number="form.guessTime"
+            v-model.number="settings.guessTime"
             min="1" max="50"
           ></settings-slider>
-          <settings-checkbox v-model="form.lists" :items="userListFiles"></settings-checkbox>
+          <settings-checkbox v-model="settings.lists" :items="$store.state.game.userListFiles"></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
               <icon-btn color="error" icon="fas fa-times" @click="show = false">Cancel</icon-btn>
@@ -51,33 +51,36 @@
     components: { IconBtn, SettingsSlider, SettingsCheckbox },
     data() {
       return {
-        form: {
-          songNumber: 20,
-          guessTime: 25,
-          type: ['opening', 'ending'],
-          lists: []
-        },
         socket: this.$store.state.game.socket,
-        show: false,
-        userListFiles: []
+        show: false
       }
     },
     computed: {
+      settings: {
+        get () {
+          return this.$store.state.game.settings
+        },
+        set (settings) {
+          this.$store.commit('game/SYNC_SETTINGS', settings)
+        }
+      },
       disabled() {
         return !this.$store.state.game.host
       }
     },
     methods: {
       updateSettings() {
-        this.socket.emit('UPDATE_SERVER_SETTINGS', this.form)
+        this.socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)
         this.show = false
+      },
+      syncSettings() {
+        this.socket.emit('SYNC_SETTINGS')
       }
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('UPDATE_CLIENT_SETTINGS', (settings, userListFiles) => {
-          this.form = settings
-          this.userListFiles = userListFiles
+        this.socket.on('SYNC_SETTINGS', (settings) => {
+          this.$store.commit('game/SYNC_SETTINGS', settings)
         })
       }
     }

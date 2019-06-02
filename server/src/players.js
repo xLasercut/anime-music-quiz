@@ -1,13 +1,27 @@
+const Chat = require('./chat.js')
+
 class Players {
   constructor(io, logger) {
     this.io = io
     this.list = {}
     this.logger = logger
+    this.chat = new Chat(io, logger)
+  }
+
+  listener(socket) {
+    socket.on('LOGIN', (player) => {
+      this.addPlayer(player, socket.id)
+      this.chat.systemMsg(`${player.username} has joined the room`)
+    })
+
+    socket.on('USER_MESSAGE', (message) => {
+      this.chat.userMsg(message, this.username(socket.id))
+    })
   }
 
   updateClient() {
     this.logger.debug('sent update players signal to client')
-    this.io.emit('UPDATE_PLAYERS', this.list)
+    this.io.emit('SYNC_PLAYERS', this.list)
   }
 
   addPlayer(player, id) {

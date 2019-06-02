@@ -43,13 +43,13 @@ import { setTimeout } from 'timers';
       color() {
         var point = 0
 
-        if (this.player.guess.anime === this.$store.state.game.anime.name ||
-        this.$store.state.game.anime.altName.includes(this.player.guess.anime)) {
+        if (this.player.guess.anime === this.$store.state.game.currentSong.name ||
+        this.$store.state.game.currentSong.altName.includes(this.player.guess.anime)) {
           point += 1
         }
 
         if (this.player.guess.song) {
-          if (this.player.guess.song.toLowerCase() === this.$store.state.game.anime.title.toLowerCase()) {
+          if (this.player.guess.song.toLowerCase() === this.$store.state.game.currentSong.title.toLowerCase()) {
             point += 1
           }
         }

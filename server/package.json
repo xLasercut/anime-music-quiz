@@ -8,7 +8,8 @@
     "start": "node index.js",
     "generate": "node tools/generate-anime-list.js",
     "process": "node tools/format-anime-list.js && node tools/generate-choices.js",
-    "convert": "node tools/convert-old-list.js"
+    "convert": "node tools/convert-old-list.js",
+    "diff": "node tools/difference-finder.js"
   },
   "author": "xLasercut",
   "license": "MIT",

@@ -18,15 +18,13 @@
       return {
         time: 30000,
         countdown: null,
-        bar: null,
         socket: this.$store.state.game.socket,
-        show: false,
-        guessTime: 30000
+        show: false
       }
     },
     methods: {
       percentage() {
-        return 100 * (1 - this.time / this.guessTime)
+        return 100 * (1 - this.time / (this.$store.state.game.settings.guessTime * 1000))
       },
       color() {
         var percentage = this.percentage()
@@ -53,9 +51,8 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('START_COUNTDOWN', (time) => {
-          this.time = time * 1000
-          this.guessTime = time * 1000
+        this.socket.on('START_COUNTDOWN', () => {
+          this.time = this.$store.state.game.settings.guessTime * 1000
           this.show = true
           this.startCountdown()
         })

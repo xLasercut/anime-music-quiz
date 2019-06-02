@@ -3,16 +3,21 @@ import io from 'socket.io-client'
 export default {
   LOGIN(state, data) {
     state.socket = io(data.server)
-    state.socket.emit('GET_USER_LIST_FILES')
+    state.socket.emit('SYNC_USER_LIST_FILES', null, (userListFiles) => {
+      state.userListFiles = userListFiles
+    })
   },
   DISCONNECT(state) {
     state.socket.close()
     state.socket = null
     state.filename = ''
   },
-  RELOAD_ALL_ANIME(state) {
-    state.socket.emit('GET_ALL_ANIME')
+  SYNC_FULL_LIST(state) {
     state.loading = true
+    state.socket.emit('SYNC_FULL_LIST', null, (fullList) => {
+      state.fullList = fullList
+      state.loading = false
+    })
   },
   ADD_ANIME(state, anime) {
     state.userList.push(anime)
@@ -26,16 +31,11 @@ export default {
     }
     state.socket.emit('UPDATE_USER_LIST', state.userList, state.filename)
   },
-  UPDATE_USER_LIST(state, list) {
+  SYNC_USER_LIST(state, list) {
     state.userList = list
-  },
-  UPDATE_USER_LIST_FILES(state, files) {
-    state.userListFiles = files
   },
   UPDATE_FILENAME(state, filename) {
     state.filename = filename
-  },
-  SET_LOADING(state, loading) {
-    state.loading = loading
+    state.socket.emit('SYNC_USER_LIST', filename)
   }
 }

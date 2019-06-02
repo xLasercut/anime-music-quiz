@@ -8,27 +8,30 @@ export default {
       score: data.score
     }
     state.socket = io(data.server)
+    state.socket.emit('SYNC_CHOICES', null, (choices) => {
+      state.choices = choices
+    })
+    state.socket.emit('SYNC_USER_LIST_FILES', null, (userListFiles) => {
+      state.userListFiles = userListFiles
+    })
+    state.socket.emit('SYNC_SETTINGS')
+    state.socket.emit('SYNC_PLAYING')
     state.socket.emit('LOGIN', player)
   },
-  UPDATE_CHOICES(state, choices) {
-    state.choices = choices
-  },
-  UPDATE_PLAYERS(state, players) {
+  SYNC_PLAYERS(state, players) {
     state.players = players
+    state.host = state.players[state.socket.id].host
   },
-  UPDATE_ANIME(state, anime) {
-    state.anime = anime
+  SYNC_CURRENT_SONG(state, song) {
+    state.currentSong = song
   },
-  UPDATE_HOST(state, id) {
-    state.host = state.players[id].host
-  },
-  UPDATE_PLAYING(state, playing) {
+  SYNC_PLAYING(state, playing) {
     state.playing = playing
   },
   DISCONNECT(state) {
     state.socket.close()
     state.socket = null
-    state.anime = {
+    state.currentSong = {
       name: '',
       altName: [],
       title: '',
@@ -45,9 +48,12 @@ export default {
     state.socket.emit('START_GAME')
   },
   STOP_GAME(state) {
-    state.socket.emit('LOBBY')
+    state.socket.emit('STOP_GAME')
   },
   UPDATE_VOLUME(state, volume) {
     state.volume = volume
+  },
+  SYNC_SETTINGS(state, settings) {
+    state.settings = settings
   }
 }

@@ -1,7 +1,7 @@
 const database = require('../database/database.js')
 
-var fullList = database.getFullAnimeList()
-var animes = database.getUserList('taj.json')
+var fullList = database.fullAnimeList
+var animes = database.getUserList('laser.json')
 
 var diff = []
 

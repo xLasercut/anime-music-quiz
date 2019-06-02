@@ -61,5 +61,7 @@ module.exports = {
   'Shinrei Tantei Yakumo': ['Psychic Detective Yakumo'],
   'Byousoku 5 Centimeter': ['5 Centimeters Per Second'],
   'Hachimitsu to Clover II': ['Honey and Clover II'],
-  'Hachimitsu to Clover': ['Honey and Clover']
+  'Hachimitsu to Clover': ['Honey and Clover'],
+  'Shinsekai yori': ['From the New World'],
+  'Kareshi Kanojo no Jijou': ['His and Her Circumstances']
 }

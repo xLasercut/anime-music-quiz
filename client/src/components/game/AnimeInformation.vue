@@ -28,11 +28,11 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _start, _guessTime) => {
+        this.socket.on('NEW_SONG', () => {
           this.loading = true
         })
 
-        this.socket.on('START_COUNTDOWN', (_time) => {
+        this.socket.on('START_COUNTDOWN', () => {
           this.loading = false
         })
       }

@@ -22,7 +22,7 @@
     methods: {
       answer() {
         if (this.show) {
-          return this.$store.state.game.anime.name
+          return this.$store.state.game.currentSong.name
         }
 
         if (this.$store.state.game.showAnswer) {
@@ -35,17 +35,16 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _start, _guessTime) => {
+        this.socket.on('NEW_SONG', () => {
           this.show = false
+          this.socket.emit('SYNC_SONG_NUMBER', null, (numbers) => {
+            this.currentSong = numbers.current,
+            this.maxSong = numbers.max
+          })
         })
 
         this.socket.on('TIME_UP', () => {
           this.show = true
-        })
-
-        this.socket.on('UPDATE_SONG_NUMBER', (numbers) => {
-          this.currentSong = numbers.current
-          this.maxSong = numbers.max
         })
       }
     }

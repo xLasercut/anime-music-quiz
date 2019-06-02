@@ -34,7 +34,7 @@ function isDuplicate(list, anime) {
 }
 
 class Database {
-  getUserListFiles() {
+  get userListFiles() {
     var userLists = fs.readdirSync(userBase)
     for (var i = 0; i < userLists.length; i++) {
       if (!userLists[i].match(jsonfile)) {
@@ -44,16 +44,15 @@ class Database {
     return userLists
   }
 
-  getFullAnimeList() {
+  get fullAnimeList() {
     return read(fullAnimeListPath)
   }
 
   writeFullAnimeList(data) {
-    backup(fullAnimeListPath)
     write(fullAnimeListPath, data)
   }
 
-  getAnimeChoices() {
+  get animeChoices() {
     return read(animeChoicesPath)
   }
 
@@ -61,7 +60,7 @@ class Database {
     write(animeChoicesPath, data)
   }
 
-  getSongChoices() {
+  get songChoices() {
     return read(songChoicesPath)
   }
 
@@ -69,12 +68,12 @@ class Database {
     write(songChoicesPath, data)
   }
 
-  getRawAnimeList() {
+
+  get rawAnimeList() {
     return read(rawAnimeListPath)
   }
 
   writeRawAnimeList(data) {
-    backup(rawAnimeListPath)
     write(rawAnimeListPath, data)
   }
 

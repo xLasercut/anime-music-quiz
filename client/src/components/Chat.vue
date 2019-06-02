@@ -28,7 +28,7 @@
     methods: {
       sendMsg() {
         if (this.message) {
-          this.socket.emit('SEND_MESSAGE', this.message)
+          this.socket.emit('USER_MESSAGE', this.message)
           this.message = ''
         }
       },

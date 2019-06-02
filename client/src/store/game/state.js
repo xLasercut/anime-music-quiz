@@ -4,8 +4,14 @@ export default {
     anime: [],
     song: []
   },
+  settings: {
+    songNumber: 20,
+    guessTime: 25,
+    type: ['opening', 'ending'],
+    lists: []
+  },
   players: {},
-  anime: {
+  currentSong: {
     name: '',
     altName: [],
     title: '',
@@ -17,5 +23,6 @@ export default {
   host: false,
   playing: false,
   showAnswer: false,
-  volume: 50
+  volume: 50,
+  userListFiles: []
 }

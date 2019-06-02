@@ -1,31 +1,60 @@
 const database = require('../database/database.js')
 
 class AnimeListManager {
-  constructor(logger) {
-    this.completeList = []
+  constructor(io, logger) {
+    this.completeList = database.fullAnimeList
     this.choices = {
-      anime: [],
-      song: []
+      anime: database.animeChoices,
+      song: database.songChoices
     }
-    this.userListFiles = []
+    this.userListFiles = database.userListFiles
     this.logger = logger
     this.userLists = {}
-    this.initialiseList()
+    this.initialiseUserList()
+    this.io = io
   }
 
-  initialiseList() {
-    this.completeList = database.getFullAnimeList()
-    this.choices.anime = database.getAnimeChoices()
-    this.choices.song = database.getSongChoices()
-    this.userListFiles = database.getUserListFiles()
+  initialiseUserList() {
     for (var filename of this.userListFiles) {
       this.userLists[filename] = this.getUserListDisk(filename)
     }
   }
 
-  generateGameList(settings) {
-    var songNumber = settings.songNumber
-    var userList = database.getCombinedList(settings.lists)
+  listener(socket) {
+    socket.on('SYNC_FULL_LIST', (_data, callback) => {
+      callback(this.completeList)
+    })
+
+    socket.on('SYNC_USER_LIST_FILES', (_data, callback) => {
+      callback(this.userListFiles)
+    })
+
+    socket.on('SYNC_USER_LIST', (filename) => {
+      socket.emit('SYNC_USER_LIST', this.getUserList(filename), filename)
+    })
+
+    socket.on('SYNC_CHOICES', (_data, callback) => {
+      callback(this.choices)
+    })
+
+    socket.on('UPDATE_USER_LIST', (list, filename) => {
+      if (filename.match(/.*\.json$/gi)) {
+        try {
+          this.updateUserList(filename, list)
+          this.io.emit('SYNC_USER_LIST', this.getUserList(filename), filename)
+        }
+        catch (e) {
+          this.logger.error(e)
+        }
+      }
+      else {
+        this.logger.error(`incorrect filename to write - filename=${filename}`)
+      }
+    })
+  }
+
+  generateGameList(songNumber, lists) {
+    var userList = database.getCombinedList(lists)
     var gameList = []
     var dupe = []
 

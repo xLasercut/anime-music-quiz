@@ -1,6 +1,6 @@
 <template>
   <video ref="player" @loadeddata="confirmLoad()" v-show="show">
-    <source :src="$store.state.game.anime.src" v-if="$store.state.game.anime.src">
+    <source :src="$store.state.game.currentSong.src" v-if="$store.state.game.currentSong.src">
     Your browser does not support video element
   </video>
 </template>
@@ -21,8 +21,7 @@
       return {
         show: false,
         socket: this.$store.state.game.socket,
-        start: 0,
-        guessTime: 0
+        start: 0
       }
     },
     methods: {
@@ -34,7 +33,7 @@
       },
       getStartPosition() {
         var position = 0
-        var maxStart = Math.floor(this.$refs.player.duration - this.guessTime)
+        var maxStart = Math.floor(this.$refs.player.duration - this.$store.state.game.settings.guessTime)
         if (maxStart > 0) {
           position = Math.floor(this.start * maxStart)
         }
@@ -43,15 +42,20 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', (anime, start, guessTime) => {
+        this.socket.on('NEW_SONG', () => {
           this.show = false
-          this.$store.commit('game/UPDATE_ANIME', anime)
-          this.start = start
-          this.guessTime = guessTime
-          this.$refs.player.load()
+          this.socket.emit('SYNC_SETTINGS')
+          this.socket.emit('SYNC_CURRENT_SONG', null, (song) => {
+            this.$store.commit('game/SYNC_CURRENT_SONG', song)
+            this.$refs.player.load()
+          })
+
+          this.socket.emit('SYNC_START_POSITION', null, (start) => {
+            this.start = start
+          })
         })
 
-        this.socket.on('START_COUNTDOWN', (_time) => {
+        this.socket.on('START_COUNTDOWN', () => {
           this.$refs.player.play()
         })
 

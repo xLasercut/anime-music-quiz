@@ -23,7 +23,6 @@
     data() {
       return {
         socket: this.$store.state.list.socket,
-        animes: [],
         pageSize: 8,
         currentPage: 1,
         filter: {
@@ -44,7 +43,7 @@
         if (this.filter.anime) {
           animefilter = this.filter.anime.trim().toLowerCase()
         }
-        return this.animes.filter((anime) => {
+        return this.$store.state.list.fullList.filter((anime) => {
           var names = `${anime.name},${anime.altName.join(',')}`.toLowerCase()
           var songName = anime.title.toLowerCase()
           if (names.includes(animefilter) && songName.includes(songfilter)) {
@@ -63,23 +62,15 @@
       },
       removeAnime(anime) {
         this.$store.commit('list/REMOVE_ANIME', anime)
-      },
-      updateUserList() {
-        this.socket.emit('GET_USER_LIST', this.$store.state.list.filename)
       }
     },
     mounted() {
       if (this.socket) {
-        this.$store.commit('list/RELOAD_ALL_ANIME')
+        this.$store.commit('list/SYNC_FULL_LIST')
 
-        this.socket.on('UPDATE_ALL_ANIME', (data) => {
-          this.animes = data
-          this.$store.commit('list/SET_LOADING', false)
-        })
-
-        this.socket.on('UPDATE_USER_LIST', (list, filename) => {
+        this.socket.on('SYNC_USER_LIST', (list, filename) => {
           if (this.$store.state.list.filename === filename) {
-            this.$store.commit('list/UPDATE_USER_LIST', list)
+            this.$store.commit('list/SYNC_USER_LIST', list)
           }
         })
       }

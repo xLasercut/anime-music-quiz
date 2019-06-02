@@ -4,6 +4,12 @@ class Chat {
     this.logger = logger
   }
 
+  listener(socket, players) {
+    socket.on('USER_MESSAGE', (message) => {
+      this.userMsg(message, players.username(socket.id))
+    })
+  }
+
   userMsg(message, username) {
     this.logger.debug(`user msg - ${username}=${message}`)
     var data = {

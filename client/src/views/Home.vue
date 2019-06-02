@@ -23,17 +23,12 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('UPDATE_CHOICES', (data) => {
-          this.$store.commit('game/UPDATE_CHOICES', data)
+        this.socket.on('SYNC_PLAYERS', (data) => {
+          this.$store.commit('game/SYNC_PLAYERS', data)
         })
 
-        this.socket.on('UPDATE_PLAYERS', (data) => {
-          this.$store.commit('game/UPDATE_PLAYERS', data)
-          this.$store.commit('game/UPDATE_HOST', this.socket.id)
-        })
-
-        this.socket.on('UPDATE_PLAYING', (playing) => {
-          this.$store.commit('game/UPDATE_PLAYING', playing)
+        this.socket.on('SYNC_PLAYING', (playing) => {
+          this.$store.commit('game/SYNC_PLAYING', playing)
         })
       }
       else {

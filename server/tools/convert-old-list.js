@@ -1,8 +1,7 @@
 const database = require('../database/database.js')
-const converter = require('./shared/converter.js')
 
-var userLists = database.getUserListFiles()
-var completeList = database.getFullAnimeList()
+var userLists = database.userListFiles
+var completeList = database.fullAnimeList
 
 
 for (var userList of userLists) {

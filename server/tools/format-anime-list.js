@@ -1,7 +1,7 @@
 const database = require('../database/database.js')
 const converter = require('./shared/converter.js')
 
-var raw = database.getRawAnimeList()
+var raw = database.rawAnimeList
 var animes = []
 
 function isDuplicate(anime) {

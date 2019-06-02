@@ -1,6 +1,6 @@
 const database = require('../database/database.js')
 
-var animes = database.getFullAnimeList()
+var animes = database.fullAnimeList
 
 var animeChoices = []
 var songChoices = []

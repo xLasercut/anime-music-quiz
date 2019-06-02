@@ -17,7 +17,7 @@
     components: { ListSelector, NavBtn, UserList },
     methods: {
       reload() {
-        this.$store.commit('list/RELOAD_ALL_ANIME')
+        this.$store.commit('list/SYNC_FULL_LIST')
       }
     }
   }
