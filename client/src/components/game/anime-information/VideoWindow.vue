@@ -44,7 +44,6 @@
       if (this.socket) {
         this.socket.on('NEW_SONG', () => {
           this.show = false
-          this.socket.emit('SYNC_SETTINGS')
           this.socket.emit('SYNC_CURRENT_SONG', null, (song) => {
             this.$store.commit('game/SYNC_CURRENT_SONG', song)
             this.$refs.player.load()

@@ -58,7 +58,7 @@ import { setTimeout } from 'timers';
           return 'success'
         }
         else if (point === 1) {
-          return 'warning'
+          return '#1B5E20'
         }
 
         return 'error'
