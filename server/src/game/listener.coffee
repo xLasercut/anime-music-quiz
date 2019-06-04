@@ -21,7 +21,6 @@ class GameListener
     socket.on 'disconnect', () =>
       if @playerManagement.isPlayer(socket.id)
         @playerManagement.removePlayer(socket.id)
-        @logger
         if @playerManagement.isEmpty()
           @gameState.reset()
           @logger.debug('zero players connected. resetting server status')

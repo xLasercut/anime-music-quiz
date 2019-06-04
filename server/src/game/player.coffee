@@ -20,7 +20,7 @@ class Player
     }
 
   setHost: () ->
-    @host = host
+    @host = true
 
   resetScore: () ->
     @score = 0
