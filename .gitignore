@@ -21,3 +21,5 @@ yarn-error.log*
 *.sw?
 
 server/logs/*.log
+server/database/data/*.json
+server/database/data/user/*.json
