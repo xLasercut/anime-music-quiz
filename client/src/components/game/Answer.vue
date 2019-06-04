@@ -37,10 +37,11 @@
       if (this.socket) {
         this.socket.on('NEW_SONG', () => {
           this.show = false
-          this.socket.emit('SYNC_SONG_NUMBER', null, (numbers) => {
-            this.currentSong = numbers.current,
-            this.maxSong = numbers.max
-          })
+        })
+
+        this.socket.on('SYNC_SONG_NUMBER', (numbers) => {
+          this.currentSong = numbers.current,
+          this.maxSong = numbers.max
         })
 
         this.socket.on('TIME_UP', () => {

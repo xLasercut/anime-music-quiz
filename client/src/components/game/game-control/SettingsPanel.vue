@@ -16,7 +16,7 @@
         <v-form>
           <settings-slider
             label="Song Number"
-            v-model.number="settings.songNumber"
+            v-model.number="settings.songCount"
             min="1" max="100"
           ></settings-slider>
           <settings-slider

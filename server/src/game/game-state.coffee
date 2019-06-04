@@ -1,0 +1,62 @@
+{ AnimeChoices, SongChoices } = require '../../database/database.coffee'
+{ userLists } = require '../shared-classes.coffee'
+
+animeChoices = new AnimeChoices()
+songChoices = new SongChoices()
+
+class GameState
+  constructor: (io, logger) ->
+    @io = io
+    @logger = logger
+    @choices = {
+      anime: animeChoices.read(),
+      song: songChoices.read()
+    }
+    @playing = false
+    @gameList = []
+    @maxSongCount = 0
+    @currentSongCount = 0
+    @currentSong = {}
+    @startPosition = 0
+
+  listen: (socket) ->
+    socket.on 'SYNC_CHOICES', (_data, callback) =>
+      callback(@choices)
+
+    socket.on 'SYNC_PLAYING', () =>
+      socket.emit('SYNC_PLAYING', @playing)
+
+  generateGameList: (songCount, lists) ->
+    combinedList = userLists.combinedList(lists)
+    @gameList = []
+    dupe = []
+
+    while @gameList.length < songCount and combinedList.length > 0
+      i = Math.floor(Math.random() * combinedList.length)
+      name = combinedList[i].name
+      if !dupe.includes(name)
+        @gameList.push(combinedList[i])
+        dupe.push(name)
+      combinedList.splice(i, 1)
+
+    @logger.info("generated game list - size=#{@gameList.length}")
+
+  startGame: () ->
+    @playing = true
+    @io.emit('SYNC_PLAYING', @playing)
+    @maxSongCount = @gameList.length
+    @logger.info("starting new round - songCount=#{@maxSongCount}")
+
+  newSong: () ->
+    @randomSong()
+    @currentSongCount += 1
+    @logger.info("new song - number=#{@currentSongCount} name=#{@currentSong.title} anime=#{@currentSong.name}")
+    @startPosition = Math.random()
+    @io.emit('NEW_SONG')
+
+  randomSong: () ->
+    i = Math.floor(Math.random() * @gameList.length)
+    @currentSong = @gameList[i]
+    @gameList.splice(i, 1)
+
+module.exports = GameState

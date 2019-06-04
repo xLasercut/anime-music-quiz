@@ -1,14 +1,13 @@
-const path = require('path')
-const winston = require('winston')
-const { combine, timestamp, printf } = winston.format
+path = require 'path'
+winston = require 'winston'
+{ combine, timestamp, printf } = winston.format
 
-const format = printf(({ level, message, timestamp }) => {
-  return `[${timestamp}] - [${level}]: ${message}`;
-})
+format = printf ({ level, message, timestamp }) =>
+  return "[#{timestamp}] - [#{level}]: #{message}"
 
-const logBase = path.join(__dirname, '..', 'logs')
+logBase = path.join(__dirname, '..', 'logs')
 
-const logger = winston.createLogger({
+logger = winston.createLogger({
   level: 'debug',
   format: combine(
     timestamp(),

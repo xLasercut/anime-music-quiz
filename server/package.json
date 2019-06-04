@@ -3,14 +3,12 @@
   "version": "0.0.1",
   "description": "Server for anime music quiz game",
   "repository": "https://github.com/xLasercut/anime-music-quiz",
-  "main": "index.js",
+  "main": "index.coffee",
   "scripts": {
-    "start": "node index.js",
+    "start": "coffee index.coffee",
     "generate": "coffee tools/raw-list-generator.coffee",
     "process": "coffee tools/full-list-generator.coffee && coffee tools/choices-generator.coffee",
-    "update": "coffee tools/user-list-updater.coffee",
-    "diff": "node tools/difference-finder.js",
-    "test": "coffee index.coffee"
+    "update": "coffee tools/user-list-updater.coffee"
   },
   "author": "xLasercut",
   "license": "MIT",

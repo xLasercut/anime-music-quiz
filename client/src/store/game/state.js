@@ -5,9 +5,8 @@ export default {
     song: []
   },
   settings: {
-    songNumber: 20,
+    songCount: 20,
     guessTime: 25,
-    type: ['opening', 'ending'],
     lists: []
   },
   players: {},
