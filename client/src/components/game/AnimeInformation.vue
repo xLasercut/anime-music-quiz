@@ -28,7 +28,7 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', () => {
+        this.socket.on('NEW_SONG', (_song, _position) => {
           this.loading = true
         })
 

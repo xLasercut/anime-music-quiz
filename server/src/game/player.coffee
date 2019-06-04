@@ -25,4 +25,16 @@ class Player
   resetScore: () ->
     @score = 0
 
+  setReady: () ->
+    @ready = true
+
+  readyClear: () ->
+    @ready = false
+
+  setGuess: (guess) ->
+    @guess = guess
+
+  addPoint: (point) ->
+    @score += point
+
 module.exports = Player

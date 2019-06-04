@@ -19,7 +19,7 @@ class GameSettings
       @guessTime = settings.guessTime
       @lists = settings.lists
 
-      @logger.info("settings updated - songCount=#{@songCount} guessTime=#{guessTime} lists=#{JSON.stringify(@lists)}")
+      @logger.info("settings updated - songCount=#{@songCount} guessTime=#{@guessTime} lists=#{JSON.stringify(@lists)}")
       @io.emit('SYNC_SETTINGS', @serialize())
       @chat.system('Game settings updated')
 

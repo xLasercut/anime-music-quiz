@@ -35,11 +35,11 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', () => {
+        this.socket.on('NEW_SONG', (_song, _position) => {
           this.show = false
         })
 
-        this.socket.on('SYNC_SONG_NUMBER', (numbers) => {
+        this.socket.on('SYNC_SONG_COUNT', (numbers) => {
           this.currentSong = numbers.current,
           this.maxSong = numbers.max
         })

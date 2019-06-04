@@ -12,6 +12,9 @@ class PlayerManagement
     socket.on 'LOGIN', (player) =>
       @addPlayer(player, socket.id)
 
+    socket.on 'USER_MESSAGE', (message) =>
+      @chat.user(message, @playerName(socket.id))
+
   addPlayer: (player, id) ->
     host = false
     if Object.keys(@players).length == 0
@@ -41,6 +44,26 @@ class PlayerManagement
   resetScore: () ->
     for _id, player of @players
       player.resetScore()
+    @updateClient()
+
+  playerReady: (id) ->
+    @players[id].setReady()
+
+  songOver: (guess, point, id) ->
+    @players[id].setGuess(guess)
+    @players[id].addPoint(point)
+    @players[id].setReady()
+    @updateClient()
+
+  readyClear: () ->
+    for _id, player of @players
+      player.readyClear()
+
+  isAllReady: () ->
+    for _id, player of @players
+      if !player.ready
+        return false
+    return true
 
   isPlayer: (id) ->
     return (id of @players)

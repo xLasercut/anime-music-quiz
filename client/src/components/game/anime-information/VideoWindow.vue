@@ -42,16 +42,11 @@
     },
     mounted() {
       if (this.socket) {
-        this.socket.on('NEW_SONG', () => {
+        this.socket.on('NEW_SONG', (song, position) => {
           this.show = false
-          this.socket.emit('SYNC_CURRENT_SONG', null, (song) => {
-            this.$store.commit('game/SYNC_CURRENT_SONG', song)
-            this.$refs.player.load()
-          })
-
-          this.socket.emit('SYNC_START_POSITION', null, (start) => {
-            this.start = start
-          })
+          this.$store.commit('game/SYNC_CURRENT_SONG', song)
+          this.start = position
+          this.$refs.player.load()
         })
 
         this.socket.on('START_COUNTDOWN', () => {

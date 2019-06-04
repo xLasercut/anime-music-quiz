@@ -11,6 +11,7 @@ class GameListener
     @gameSettings = new GameSettings(io, logger)
     @gameState = new GameState(io, logger)
     @chat = new Chat(io)
+    @timeout = null
 
   listen: (socket) ->
     @playerManagement.listen(socket)
@@ -35,12 +36,33 @@ class GameListener
         @gameState.newSong()
       else
         @chat.system('Empty song list')
-      if (this.gameList.length > 0) {
-        this.startGame()
-        players.resetScore()
-        this.newSong()
-      }
-      else {
-        this.chat.systemMsg('Empty song list')
-      }
+
+    socket.on 'SONG_LOADED', () =>
+      @playerManagement.playerReady(socket.id)
+      if @playerManagement.isAllReady()
+        @playerManagement.readyClear()
+        @io.emit('START_COUNTDOWN')
+        @timeout = setTimeout(() =>
+          @io.emit('TIME_UP')
+        , @gameSettings.guessTime * 1000)
+
+    socket.on 'GUESS', (guess) =>
+      @playerManagement.songOver(guess, @gameState.pointScored(guess), socket.id)
+      if @playerManagement.isAllReady()
+        @playerManagement.readyClear()
+        @io.emit('SHOW_GUESS')
+        if @gameState.roundEnd()
+          @logger.info('round ended')
+          clearTimeout(@timeout)
+          @gameState.reset()
+        else
+          @timeout = setTimeout( () =>
+            @gameState.newSong()
+          , 10000)
+
+    socket.on 'STOP_GAME', () =>
+      clearTimeout(@timeout)
+      @gameState.reset()
+      @playerManagement.readyClear()
+
 module.exports = GameListener
