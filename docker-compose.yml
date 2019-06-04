@@ -1,0 +1,10 @@
+version: '3'
+services:
+    server:
+        restart: unless-stopped
+        build:
+            context: './server/'
+        ports:
+            - 3001:3001
+        volumes:
+            - ./server/database/data/:/home/amq_server/database/data
