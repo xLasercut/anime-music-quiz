@@ -24,4 +24,6 @@ server/database/*.json
 server/database/*.json.back
 server/database/user/*.json
 server/database/user/*.json.back
+server/database/data/*.json
+server/database/data/user/*.json
 server/logs/*.log

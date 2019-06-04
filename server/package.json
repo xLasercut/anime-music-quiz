@@ -6,16 +6,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "generate": "node tools/generate-anime-list.js",
-    "process": "node tools/format-anime-list.js && node tools/generate-choices.js",
-    "convert": "node tools/convert-old-list.js",
-    "diff": "node tools/difference-finder.js"
+    "generate": "coffee tools/raw-list-generator.coffee",
+    "process": "coffee tools/full-list-generator.coffee && coffee tools/choices-generator.coffee",
+    "update": "coffee tools/user-list-updater.coffee",
+    "diff": "node tools/difference-finder.js",
+    "test": "coffee index.coffee"
   },
   "author": "xLasercut",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
+    "coffeescript": "^2.4.1",
     "express": "^4.17.1",
     "socket.io": "^2.2.0",
     "winston": "^3.2.1"
