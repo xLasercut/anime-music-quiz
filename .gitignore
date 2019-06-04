@@ -20,6 +20,6 @@ yarn-error.log*
 *.sln
 *.sw?
 
+server/logs/*.log
 server/database/data/*.json
 server/database/data/user/*.json
-server/logs/*.log
