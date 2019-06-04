@@ -20,6 +20,12 @@ yarn-error.log*
 *.sln
 *.sw?
 
+# server logs
 server/logs/*.log
 server/database/data/*.json
 server/database/data/user/*.json
+
+#ngrok executable
+ngrok/executable/*
+
+!.gitkeep
