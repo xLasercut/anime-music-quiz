@@ -1,0 +1,710 @@
+[
+  {
+    "id": "BakuganBattleBrawlers-OP1",
+    "name": "Bakugan Battle Brawlers",
+    "src": "https://animethemes.moe/video/BakuganBattleBrawlers-OP1.webm",
+    "title": "Number One Battle Brawlers",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "BakuganBattleBrawlers-OP2",
+    "name": "Bakugan Battle Brawlers",
+    "src": "https://animethemes.moe/video/BakuganBattleBrawlers-OP2.webm",
+    "title": "Puruchi Infinite Generation",
+    "artist": "",
+    "type": "OP2",
+    "altName": []
+  },
+  {
+    "id": "DetectiveConan-OP1",
+    "name": "Detective Conan",
+    "src": "https://animethemes.moe/video/DetectiveConan-OP1.webm",
+    "title": "Mune ga Dokidoki",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP1",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP1.webm",
+    "title": "R★O★C★K★S",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP2",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP2.webm",
+    "title": "Haruka Kanata",
+    "artist": "",
+    "type": "OP2",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP3",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP3.webm",
+    "title": "Kanashimi wo Yasashisa ni",
+    "artist": "",
+    "type": "OP3",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP4",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP4.webm",
+    "title": "GO!!!",
+    "artist": "",
+    "type": "OP4",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP5",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP5.webm",
+    "title": "Seishun Kyosokyoku",
+    "artist": "",
+    "type": "OP5",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP6",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP6.webm",
+    "title": "No Boy, No Cry",
+    "artist": "",
+    "type": "OP6",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP7",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP7.webm",
+    "title": "Namikaze Satellite",
+    "artist": "",
+    "type": "OP7",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP8",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP8.webm",
+    "title": "Re:member",
+    "artist": "",
+    "type": "OP8",
+    "altName": []
+  },
+  {
+    "id": "Naruto-OP9",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-OP9.webm",
+    "title": "YURA YURA",
+    "artist": "",
+    "type": "OP9",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED1",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED1.webm",
+    "title": "Wind",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED2",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED2.webm",
+    "title": "Harmonia",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED4",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED4.webm",
+    "title": "ALIVE",
+    "artist": "",
+    "type": "ED4",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED3",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED3.webm",
+    "title": "Viva Rock ~Japanese Side~",
+    "artist": "",
+    "type": "ED3",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED7",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED7.webm",
+    "title": "Mountain A Go Go Too",
+    "artist": "",
+    "type": "ED7",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED6",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED6.webm",
+    "title": "Ryusei",
+    "artist": "",
+    "type": "ED6",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED5",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED5.webm",
+    "title": "Ima made Nando mo",
+    "artist": "",
+    "type": "ED5",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED10",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED10.webm",
+    "title": "Speed",
+    "artist": "",
+    "type": "ED10",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED9",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED9.webm",
+    "title": "Nakushita Kotoba",
+    "artist": "",
+    "type": "ED9",
+    "altName": []
+  },
+  {
+    "id": "Naruto-ED8",
+    "name": "Naruto",
+    "src": "https://animethemes.moe/video/Naruto-ED8.webm",
+    "title": "Hajimete Kimi to Shabetta",
+    "artist": "",
+    "type": "ED8",
+    "altName": []
+  },
+  {
+    "id": "NarutoShippuuden-OP1",
+    "name": "Naruto: Shippuuden",
+    "src": "https://animethemes.moe/video/NarutoShippuuden-OP1.webm",
+    "title": "Hero's Come Back",
+    "artist": "",
+    "type": "OP1",
+    "altName": [
+      "Naruto Shippuuden"
+    ]
+  },
+  {
+    "id": "NarutoShippuuden-OP9",
+    "name": "Naruto: Shippuuden",
+    "src": "https://animethemes.moe/video/NarutoShippuuden-OP9.webm",
+    "title": "Lovers",
+    "artist": "",
+    "type": "OP9",
+    "altName": [
+      "Naruto Shippuuden"
+    ]
+  },
+  {
+    "id": "NarutoShippuuden-OP16",
+    "name": "Naruto: Shippuuden",
+    "src": "https://animethemes.moe/video/NarutoShippuuden-OP16.webm",
+    "title": "Silhouette",
+    "artist": "",
+    "type": "OP16",
+    "altName": [
+      "Naruto Shippuuden"
+    ]
+  },
+  {
+    "id": "MacrossDelta-ED1",
+    "name": "Macross Δ",
+    "src": "https://animethemes.moe/video/MacrossDelta-ED1.webm",
+    "title": "Ikenai Borderline",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "SelectorSpreadWIXOSS-OP1",
+    "name": "Selector Spread WIXOSS",
+    "src": "https://animethemes.moe/video/SelectorSpreadWIXOSS-OP1.webm",
+    "title": "world's end, girl's rondo",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "SelectorInfectedWIXOSS-OP1",
+    "name": "Selector Infected WIXOSS",
+    "src": "https://animethemes.moe/video/SelectorInfectedWIXOSS-OP1.webm",
+    "title": "killy killy JOKER",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "LostorageIncitedWIXOSS-OP1",
+    "name": "Lostorage incited WIXOSS",
+    "src": "https://animethemes.moe/video/LostorageIncitedWIXOSS-OP1.webm",
+    "title": "Lostorage",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "LostorageConflatedWIXOSS-OP1",
+    "name": "Lostorage Conflated WIXOSS",
+    "src": "https://animethemes.moe/video/LostorageConflatedWIXOSS-OP1.webm",
+    "title": "UNLOCK",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "KoiToUso-OP1",
+    "name": "Koi to Uso",
+    "src": "https://animethemes.moe/video/KoiToUso-OP1.webm",
+    "title": "Kanashii Ureshii",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "KyoukaiNoKanata-ED1",
+    "name": "Kyoukai no Kanata",
+    "src": "https://animethemes.moe/video/KyoukaiNoKanata-ED1.webm",
+    "title": "Daisy",
+    "artist": "",
+    "type": "ED",
+    "altName": [
+      "Beyond the Boundary"
+    ]
+  },
+  {
+    "id": "KyoukaiNoKanata-OP1",
+    "name": "Kyoukai no Kanata",
+    "src": "https://animethemes.moe/video/KyoukaiNoKanata-OP1.webm",
+    "title": "Kyoukai no Kanata",
+    "artist": "",
+    "type": "OP",
+    "altName": [
+      "Beyond the Boundary"
+    ]
+  },
+  {
+    "id": "TerraFormars-OP1",
+    "name": "Terra Formars",
+    "src": "https://animethemes.moe/video/TerraFormars-OP1.webm",
+    "title": "AMAZING BREAK",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "OneRoom-ED3",
+    "name": "One Room",
+    "src": "https://animethemes.moe/video/OneRoom-ED3.webm",
+    "title": "Kibou Refrain",
+    "artist": "",
+    "type": "ED3",
+    "altName": []
+  },
+  {
+    "id": "OneRoom-ED1",
+    "name": "One Room",
+    "src": "https://animethemes.moe/video/OneRoom-ED1.webm",
+    "title": "Harumachi Clover",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "Aobuta-OP1",
+    "name": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+    "src": "https://animethemes.moe/video/Aobuta-OP1.webm",
+    "title": "Kimi no Sei",
+    "artist": "",
+    "type": "OP",
+    "altName": [
+      "Rascal Does Not Dream of Bunny Girl Senpai"
+    ]
+  },
+  {
+    "id": "Aobuta-ED1",
+    "name": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+    "src": "https://animethemes.moe/video/Aobuta-ED1.webm",
+    "title": "Fukashigi no Karte",
+    "artist": "Mai Sakurajima, Tomoe Koga, Rio Futaba, Nodoka Toyohama, Kaede Azusagawa & Shouko Makinohara",
+    "type": "ED1 V1",
+    "altName": [
+      "Rascal Does Not Dream of Bunny Girl Senpai"
+    ]
+  },
+  {
+    "id": "HighSchoolDxD-OP1",
+    "name": "High School DxD",
+    "src": "https://animethemes.moe/video/HighSchoolDxD-OP1.webm",
+    "title": "Trip -innocent of D-",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "HighSchoolDxD-ED1",
+    "name": "High School DxD",
+    "src": "https://animethemes.moe/video/HighSchoolDxD-ED1.webm",
+    "title": "STUDY x STUDY",
+    "artist": "",
+    "type": "ED",
+    "altName": []
+  },
+  {
+    "id": "Danganronpa-ED1",
+    "name": "Danganronpa: Kibou no Gakuen to Zetsubou no Koukousei The Animation",
+    "src": "https://animethemes.moe/video/Danganronpa-ED1.webm",
+    "title": "Zetsubousei: Hero Chiryouyaku",
+    "artist": "",
+    "type": "ED1 V1",
+    "altName": []
+  },
+  {
+    "id": "DateALive-OP1",
+    "name": "Date A Live",
+    "src": "https://animethemes.moe/video/DateALive-OP1.webm",
+    "title": "Date A Live",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "DateALiveS2-OP1",
+    "name": "Date A Live II",
+    "src": "https://animethemes.moe/video/DateALiveS2-OP1.webm",
+    "title": "Trust in you",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "InitialDFourthStage-OP1",
+    "name": "Initial D Fourth Stage",
+    "src": "https://animethemes.moe/video/InitialDFourthStage-OP1.webm",
+    "title": "Dogfight",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "InitialDFinalStage-ED2",
+    "name": "Initial D Final Stage",
+    "src": "https://animethemes.moe/video/InitialDFinalStage-ED2.webm",
+    "title": "Rage your dream",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "InitialDFinalStage-OP1",
+    "name": "Initial D Final Stage",
+    "src": "https://animethemes.moe/video/InitialDFinalStage-OP1.webm",
+    "title": "Outsoar The Rainbow",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "InitialDSecondStage-OP1",
+    "name": "Initial D Second Stage",
+    "src": "https://animethemes.moe/video/InitialDSecondStage-OP1.webm",
+    "title": "Blazin' Beat",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "InitialDFirstStage-ED1",
+    "name": "Initial D First Stage",
+    "src": "https://animethemes.moe/video/InitialDFirstStage-ED1.webm",
+    "title": "Rage Your Dream",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "InitialDFirstStage-OP1",
+    "name": "Initial D First Stage",
+    "src": "https://animethemes.moe/video/InitialDFirstStage-OP1.webm",
+    "title": "Around the World",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "InitialDFirstStage-OP2",
+    "name": "Initial D First Stage",
+    "src": "https://animethemes.moe/video/InitialDFirstStage-OP2.webm",
+    "title": "Break in 2 the Nite",
+    "artist": "",
+    "type": "OP2",
+    "altName": []
+  },
+  {
+    "id": "AnsatsuKyoushitsuS2-OP2",
+    "name": "Ansatsu Kyoushitsu (TV) 2nd Season",
+    "src": "https://animethemes.moe/video/AnsatsuKyoushitsuS2-OP2.webm",
+    "title": "Bye Bye Yesterday",
+    "artist": "",
+    "type": "OP2",
+    "altName": [
+      "Assassination Classroom II"
+    ]
+  },
+  {
+    "id": "AnsatsuKyoushitsuS2-OP1",
+    "name": "Ansatsu Kyoushitsu (TV) 2nd Season",
+    "src": "https://animethemes.moe/video/AnsatsuKyoushitsuS2-OP1.webm",
+    "title": "QUESTION",
+    "artist": "",
+    "type": "OP1 V1",
+    "altName": [
+      "Assassination Classroom II"
+    ]
+  },
+  {
+    "id": "AnsatsuKyoushitsu-ED1",
+    "name": "Ansatsu Kyoushitsu (TV)",
+    "src": "https://animethemes.moe/video/AnsatsuKyoushitsu-ED1.webm",
+    "title": "Hello, shooting-star",
+    "artist": "",
+    "type": "ED",
+    "altName": [
+      "Assassination Classroom"
+    ]
+  },
+  {
+    "id": "AnsatsuKyoushitsu-OP2",
+    "name": "Ansatsu Kyoushitsu (TV)",
+    "src": "https://animethemes.moe/video/AnsatsuKyoushitsu-OP2.webm",
+    "title": "Jiriki Hongan Revolution",
+    "artist": "",
+    "type": "OP2 V1",
+    "altName": [
+      "Assassination Classroom"
+    ]
+  },
+  {
+    "id": "AnsatsuKyoushitsu-OP1",
+    "name": "Ansatsu Kyoushitsu (TV)",
+    "src": "https://animethemes.moe/video/AnsatsuKyoushitsu-OP1.webm",
+    "title": "Seishun Satsubatsu-ron",
+    "artist": "",
+    "type": "OP1",
+    "altName": [
+      "Assassination Classroom"
+    ]
+  },
+  {
+    "id": "TrinitySeven-OP1",
+    "name": "Trinity Seven",
+    "src": "https://animethemes.moe/video/TrinitySeven-OP1.webm",
+    "title": "Seven Doors",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "MiraiNikki-OP1",
+    "name": "Mirai Nikki (TV)",
+    "src": "https://animethemes.moe/video/MiraiNikki-OP1.webm",
+    "title": "Kuusou Mesorogiwi",
+    "artist": "",
+    "type": "OP1",
+    "altName": []
+  },
+  {
+    "id": "MiraiNikki-OP2",
+    "name": "Mirai Nikki (TV)",
+    "src": "https://animethemes.moe/video/MiraiNikki-OP2.webm",
+    "title": "Dead END",
+    "artist": "",
+    "type": "OP2",
+    "altName": []
+  },
+  {
+    "id": "MiraiNikki-ED2",
+    "name": "Mirai Nikki (TV)",
+    "src": "https://animethemes.moe/video/MiraiNikki-ED2.webm",
+    "title": "filament",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "Canaan-OP1",
+    "name": "Canaan",
+    "src": "https://animethemes.moe/video/Canaan-OP1.webm",
+    "title": "mind as Judgment",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "Nanbaka-OP1",
+    "name": "Nanbaka",
+    "src": "https://animethemes.moe/video/Nanbaka-OP1.webm",
+    "title": "Rin! Rin! Hi! Hi!",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "BlackClover-OP4",
+    "name": "Black Clover (TV)",
+    "src": "https://animethemes.moe/video/BlackClover-OP4.webm",
+    "title": "Guess Who Is Back",
+    "artist": "",
+    "type": "OP4",
+    "altName": []
+  },
+  {
+    "id": "Kuroshitsuji-OP1",
+    "name": "Kuroshitsuji",
+    "src": "https://animethemes.moe/video/Kuroshitsuji-OP1.webm",
+    "title": "Kiss of Monochrome",
+    "artist": "",
+    "type": "OP V1",
+    "altName": []
+  },
+  {
+    "id": "Kuroshitsuji-ED2",
+    "name": "Kuroshitsuji",
+    "src": "https://animethemes.moe/video/Kuroshitsuji-ED2.webm",
+    "title": "Lacrimosa",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "Kuroshitsuji-ED1",
+    "name": "Kuroshitsuji",
+    "src": "https://animethemes.moe/video/Kuroshitsuji-ED1.webm",
+    "title": "I'm ALIVE!",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "KuroshitsujiS2-ED2",
+    "name": "Kuroshitsuji II",
+    "src": "https://animethemes.moe/video/KuroshitsujiS2-ED2.webm",
+    "title": "Kagayaku Sora no Shijima ni wa",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "KuroshitsujiS2-ED1",
+    "name": "Kuroshitsuji II",
+    "src": "https://animethemes.moe/video/KuroshitsujiS2-ED1.webm",
+    "title": "Bird",
+    "artist": "",
+    "type": "ED1",
+    "altName": []
+  },
+  {
+    "id": "KuroshitsujiS2-OP1",
+    "name": "Kuroshitsuji II",
+    "src": "https://animethemes.moe/video/KuroshitsujiS2-OP1.webm",
+    "title": "SHIVER",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "Takagi3-ED5",
+    "name": "Karakai Jouzu no Takagi-san",
+    "src": "https://animethemes.moe/video/Takagi3-ED5.webm",
+    "title": "Chiisana Koi no Uta",
+    "artist": "",
+    "type": "ED5",
+    "altName": []
+  },
+  {
+    "id": "HighSchoolDxDBorN-OP1",
+    "name": "High School DxD BorN",
+    "src": "https://animethemes.moe/video/HighSchoolDxDBorN-OP1.webm",
+    "title": "BLESS YoUr NAME",
+    "artist": "",
+    "type": "OP V1",
+    "altName": []
+  },
+  {
+    "id": "HighSchoolDxDBorN-ED2",
+    "name": "High School DxD BorN",
+    "src": "https://animethemes.moe/video/HighSchoolDxDBorN-ED2.webm",
+    "title": "Oppai Dragon no Uta",
+    "artist": "",
+    "type": "ED2",
+    "altName": []
+  },
+  {
+    "id": "OwariNoSeraph-ED1",
+    "name": "Owari no Seraph",
+    "src": "https://animethemes.moe/video/OwariNoSeraph-ED1.webm",
+    "title": "scaPEGoat",
+    "artist": "",
+    "type": "ED",
+    "altName": []
+  },
+  {
+    "id": "OwariNoSeraphS2-OP1",
+    "name": "Owari no Seraph: Nagoya Kessen-hen",
+    "src": "https://animethemes.moe/video/OwariNoSeraphS2-OP1.webm",
+    "title": "Two souls -toward the truth-",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "KimiNoNaWa-OP1",
+    "name": "Kimi no Na wa.",
+    "src": "https://animethemes.moe/video/KimiNoNaWa-OP1.webm",
+    "title": "Yume Tourou",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  },
+  {
+    "id": "HimoutoUmaruChan-ED1",
+    "name": "Himouto! Umaru-chan",
+    "src": "https://animethemes.moe/video/HimoutoUmaruChan-ED1.webm",
+    "title": "Hidamari Days",
+    "artist": "",
+    "type": "ED V1",
+    "altName": []
+  },
+  {
+    "id": "ReHamatora-OP1",
+    "name": "Re:␣Hamatora",
+    "src": "https://animethemes.moe/video/ReHamatora-OP1.webm",
+    "title": "Sen no Tsubasa",
+    "artist": "",
+    "type": "OP",
+    "altName": []
+  }
+]
