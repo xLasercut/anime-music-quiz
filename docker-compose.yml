@@ -8,3 +8,4 @@ services:
             - 3001:3001
         volumes:
             - ./server/database/data/:/home/amq_server/database/data
+            - ./server/logs/:/home/amq_server/logs
