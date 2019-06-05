@@ -12,6 +12,7 @@ services:
             - ./server/logs/:/home/amq_server/logs
         environment:
             - NGROK_TOKEN
+            - SERVER_PASSWORD
         logging:
             options:
                 max-size: 50m

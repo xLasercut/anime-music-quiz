@@ -1,11 +1,12 @@
 #!/bin/bash
 
-while getopts ":t: :hrd" opt; do
+while getopts ":t: :p: :hrd" opt; do
   case ${opt} in
     h )
       echo "Usage:"
       echo "    -h        Display help"
-      echo "    -t        Dropbox API token (Mandatory)"
+      echo "    -p        Server password (mandatory)"
+      echo "    -t        ngrok auth token"
       echo "    -r        Force recreate containers"
       echo "    -d        Start in debug mode"
       exit 0
@@ -19,6 +20,9 @@ while getopts ":t: :hrd" opt; do
     r )
       recreate=true
       ;;
+    p )
+      password=$OPTARG
+      ;;
     \? )
       echo -e "${red}Invalid option: $OPTARG${end}" 1>&2
       exit 1
@@ -31,9 +35,16 @@ esac
 done
 shift $((OPTIND -1))
 
+if [[ -z $password ]]; then
+  echo "Did not supply server password"
+  exit 1
+fi
+
 if [[ ! -z $token ]]; then
   export NGROK_TOKEN=$token
 fi
+
+export SERVER_PASSWORD=$password
 
 cmd="sudo -E docker-compose up"
 
