@@ -19,5 +19,6 @@ RUN npm install
 COPY . ${WRK_DIR}/.
 
 EXPOSE 3001
+EXPOSE 4040
 
-CMD ["npm", "run", "start"]
+CMD ["/bin/bash", "start.sh"]

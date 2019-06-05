@@ -6,23 +6,12 @@ services:
             context: './server/'
         ports:
             - 3001:3001
+            - 4040:4040
         volumes:
             - ./server/database/data/:/home/amq_server/database/data
             - ./server/logs/:/home/amq_server/logs
-        logging:
-            options:
-                max-size: 50m
-
-    ngrok:
-        restart: unless-stopped
-        image: wernight/ngrok:armhf
         environment:
-            - NGROK_REGION=eu
-            - NGROK_PORT=3001
-        ports:
-            - 4040:4040
+            - NGROK_TOKEN
         logging:
             options:
                 max-size: 50m
-        links:
-            - server:http

@@ -26,6 +26,6 @@ server/database/data/*.json
 server/database/data/user/*.json
 
 #ngrok executable
-ngrok/executable/*
+server/ngrok/ngrok
 
 !.gitkeep
