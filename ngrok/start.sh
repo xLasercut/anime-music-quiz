@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./ngrok http 3001
+./executable/ngrok http 3001

@@ -11,3 +11,7 @@ RUN apk update && apk upgrade \
  && mkdir ${WRK_DIR}
 
 WORKDIR ${WRK_DIR}
+
+COPY . ${WRK_DIR}/.
+
+CMD ["/bin/bash", "start.sh"]
