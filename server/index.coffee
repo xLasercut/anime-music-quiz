@@ -3,6 +3,7 @@ socketio = require 'socket.io'
 logger = require './src/logger.coffee'
 GameListener = require './src/game/listener.coffee'
 ListListener = require './src/list/listener.coffee'
+config = require './src/config.coffee'
 
 app = express()
 server = app.listen 3001, () ->
@@ -15,6 +16,17 @@ listListener = new ListListener(io, logger)
 
 io.on 'connection', (socket) ->
   logger.info("new connection - #{socket.id}")
+  socket.auth = false
 
-  gameListener.listen(socket)
-  listListener.listen(socket)
+  socket.on 'AUTHENTICATE', (password) =>
+    if password == config.serverPassword
+      socket.auth = true
+      logger.info("authenticated client - id=#{socket.id}")
+      gameListener.listen(socket)
+      listListener.listen(socket)
+
+  setTimeout( () =>
+    if !socket.auth
+      logger.info("client unauthroized - id=#{socket.id}")
+      socket.disconnect('unauthorized')
+  , 1000)

@@ -3,6 +3,9 @@ import io from 'socket.io-client'
 export default {
   LOGIN(state, data) {
     state.socket = io(data.server)
+    state.socket.on('connect', () => {
+      state.socket.emit('AUTHENTICATE', '')
+    })
     state.socket.emit('SYNC_USER_LIST_FILES', null, (userListFiles) => {
       state.userListFiles = userListFiles
     })
