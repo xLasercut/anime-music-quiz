@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-var server = ''
+var server = 'https://3d15b017.eu.ngrok.io'
 if (process.env.NODE_ENV === 'development') {
   server = 'http://localhost:3001'
 }
