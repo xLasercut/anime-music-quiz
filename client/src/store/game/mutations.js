@@ -1,5 +1,10 @@
 import io from 'socket.io-client'
 
+var server = ''
+if (process.env.NODE_ENV === 'development') {
+  server = 'http://localhost:3001'
+}
+
 export default {
   LOGIN(state, data) {
     var player = {
@@ -7,7 +12,10 @@ export default {
       avatar: data.avatar,
       score: data.score
     }
-    state.socket = io(data.server)
+    state.socket = io(server)
+    state.socket.on('connect', () => {
+      state.socket.emit('AUTHENTICATE', data.password)
+    })
     state.socket.emit('SYNC_CHOICES', null, (choices) => {
       state.choices = choices
     })

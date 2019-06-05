@@ -6,7 +6,7 @@
         v-model.trim="form.username"
         :rules="nameRules"
       ></form-input>
-      <form-input-server v-model.trim="form.server"></form-input-server>
+      <form-input-password v-model.trim="form.password"></form-input-password>
       <v-layout justify-center wrap>
         <v-flex shrink>
           <v-radio-group :column="false" v-model="form.avatar">
@@ -53,22 +53,17 @@
 <script>
   import IconBtn from '../shared/IconBtn.vue'
   import FormInput from './form/FormInput.vue'
-  import FormInputServer from './form/FormInputServer.vue'
-
-  var default_server = ''
-  if (process.env.NODE_ENV === 'development') {
-    default_server = 'http://localhost:3001'
-  }
+  import FormInputPassword from './form/FormInputPassword.vue'
 
   const avatars = ['0', '1', '2', '3', '4', '5', '6']
 
   export default {
-    components: { IconBtn, FormInput, FormInputServer },
+    components: { IconBtn, FormInput, FormInputPassword },
     data() {
       return {
         form: {
           username: '',
-          server: default_server,
+          password: '',
           avatar: '0',
           score: 0
         },

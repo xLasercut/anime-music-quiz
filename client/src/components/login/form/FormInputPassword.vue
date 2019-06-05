@@ -1,6 +1,6 @@
 <template>
   <form-input
-    label="Server URL"
+    label="Server Password"
     v-model="model"
     :rules="rules"
   ></form-input>
@@ -16,8 +16,8 @@
     data() {
       return {
         rules: [
-          v => !!v || 'Server URL required',
-          v => /^(http|https):\/\//ig.test(v) || 'Please input full URL'
+          v => !!v || 'Server password required',
+          v => /[0-9A-Za-z]+/ig.test(v) || 'Valid characters A-Z, a-z, 0-9'
         ]
       }
     }

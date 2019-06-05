@@ -1,10 +1,15 @@
 import io from 'socket.io-client'
 
+var server = ''
+if (process.env.NODE_ENV === 'development') {
+  server = 'http://localhost:3001'
+}
+
 export default {
   LOGIN(state, data) {
-    state.socket = io(data.server)
+    state.socket = io(server)
     state.socket.on('connect', () => {
-      state.socket.emit('AUTHENTICATE', '')
+      state.socket.emit('AUTHENTICATE', data.password)
     })
     state.socket.emit('SYNC_USER_LIST_FILES', null, (userListFiles) => {
       state.userListFiles = userListFiles
