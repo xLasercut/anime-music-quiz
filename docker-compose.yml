@@ -15,7 +15,7 @@ services:
 
     ngrok:
         restart: unless-stopped
-        image: wernight/ngrok
+        image: wernight/ngrok:armhf
         environment:
             - NGROK_REGION=eu
             - NGROK_PORT=3001
