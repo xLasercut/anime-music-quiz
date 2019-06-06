@@ -9,6 +9,7 @@ class Player
       anime: ''
     }
     @ready = false
+    @scoreGained = 0
 
   serialize: () ->
     return {
@@ -16,7 +17,8 @@ class Player
       score: @score,
       avatar: @avatar,
       host: @host,
-      guess: @guess
+      guess: @guess,
+      scoreGained: @scoreGained
     }
 
   setHost: () ->
@@ -36,5 +38,6 @@ class Player
 
   addPoint: (point) ->
     @score += point
+    @scoreGained = point
 
 module.exports = Player

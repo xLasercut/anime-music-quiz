@@ -9,9 +9,6 @@ class PlayerManagement
     @chat = new Chat(io)
 
   listen: (socket) ->
-    socket.on 'LOGIN', (player) =>
-      @addPlayer(player, socket.id)
-
     socket.on 'USER_MESSAGE', (message) =>
       @chat.user(message, @playerName(socket.id))
 

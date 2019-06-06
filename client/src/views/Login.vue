@@ -5,35 +5,21 @@
   </v-container>
 </template>
 
-<script>
+<script lang="coffee">
   import IconBtn from '../components/shared/IconBtn.vue'
   import GameForm from '../components/login/GameForm.vue'
   import ListForm from '../components/login/ListForm.vue'
 
-  export default {
-    components: { GameForm, ListForm, IconBtn },
-    data() {
-      return {
-        gameSocket: this.$store.state.game.socket,
-        listSocket: this.$store.state.list.socket
-      }
-    },
-    methods: {
-      displayForm(type) {
-        if (this.$store.state.mode === type) {
+  export default
+    components: { GameForm, ListForm, IconBtn }
+    methods:
+      displayForm: (type) ->
+        if this.$store.state.mode == type
           return true
-        }
         return false
-      }
-    },
-    mounted() {
-      if (this.gameSocket) {
-        this.$store.commit('game/DISCONNECT')
-      }
-
-      if (this.listSocket) {
+    mounted: () ->
+      if this.$socket.connected
+        this.$socket.close()
         this.$store.commit('list/DISCONNECT')
-      }
-    }
-  }
+        this.$store.commit('game/DISCONNECT')
 </script>

@@ -11,19 +11,15 @@
   </v-layout>
 </template>
 
-<script>
-  import VModel from '../../assets/mixins/v-model.js'
+<script lang="coffee">
+  import VModel from '../../assets/mixins/v-model.coffee'
 
-  export default {
-    mixins: [ VModel ],
-    props: [ 'length' ],
-    methods: {
-      maxPage() {
-        if (this.length < this.model) {
+  export default
+    mixins: [ VModel ]
+    props: [ 'length' ]
+    methods:
+      maxPage: () ->
+        if this.length < this.model
           this.model = 1
-        }
         return this.length
-      }
-    }
-  }
 </script>

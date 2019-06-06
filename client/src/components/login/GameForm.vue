@@ -8,7 +8,7 @@
       ></form-input>
       <form-input-password v-model.trim="form.password"></form-input-password>
       <v-layout justify-center wrap>
-        <v-flex shrink>
+        <v-flex xs12>
           <v-radio-group :column="false" v-model="form.avatar">
             <v-radio
               v-for="(avatar, index) in avatars"
@@ -50,48 +50,57 @@
 </template>
 
 
-<script>
+<script lang="coffee">
   import IconBtn from '../shared/IconBtn.vue'
   import FormInput from './form/FormInput.vue'
   import FormInputPassword from './form/FormInputPassword.vue'
+  import Notification from '../../assets/mixins/notification.coffee'
 
-  const avatars = ['0', '1', '2', '3', '4', '5', '6']
+  avatars = ['0', '1', '2', '3', '4', '5', '6']
 
-  export default {
-    components: { IconBtn, FormInput, FormInputPassword },
-    data() {
-      return {
-        form: {
-          username: '',
-          password: '',
-          avatar: '0',
-          score: 0
-        },
-        nameRules: [
-          v => !!v || 'Username required'
-        ],
-        scoreRules: [
-          v => v >= 0 || 'Score cannot be negative'
-        ],
-        avatars: avatars,
-      }
-    },
-    methods: {
-      login() {
-        var valid = this.$refs['loginForm'].validate()
-        if (valid) {
-          this.$store.commit('game/LOGIN', this.form)
+  password = ''
+  if process.env.NODE_ENV == 'development'
+    password = 'password'
+
+  export default
+    components: { IconBtn, FormInput, FormInputPassword }
+    mixins: [ Notification ]
+    data: () ->
+      form: {
+        username: '',
+        password: password,
+        avatar: '0',
+        score: 0
+      },
+      nameRules: [
+        (v) => !!v || 'Username required'
+      ],
+      scoreRules: [
+        (v) => v >= 0 || 'Score cannot be negative'
+      ],
+      avatars: avatars
+    methods:
+      login: () ->
+        valid = this.$refs['loginForm'].validate()
+        if valid
           localStorage.avatar = this.form.avatar
-          this.$router.push({name: 'home'})
-        }
-      }
-    },
-    mounted() {
-      if (localStorage.avatar) {
+          this.$socket.open()
+          this.$socket.emit('AUTHENTICATE', this.form.password, (auth) =>
+            if auth
+              player = {
+                username: this.form.username,
+                avatar: this.form.avatar,
+                score: this.form.score
+              }
+              this.$socket.emit('LOGIN_GAME', player)
+              this.$router.push({ name: 'home' })
+            else
+              this.notifyError('Incorrect server password')
+          )
+          #this.$store.commit('game/LOGIN', this.form)
+    mounted: () ->
+      if localStorage.avatar
         this.form.avatar = localStorage.avatar
-      }
-    }
-  }
 </script>
 
 <style scoped>

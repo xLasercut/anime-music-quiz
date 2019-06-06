@@ -30,36 +30,26 @@
   </v-layout>
 </template>
 
-<script>
-  export default {
-    props: [ 'data' ],
-    data() {
-      return {
-        headers: [
-          { text: 'ID', value: 'id', sortable: false },
-          { text: 'Anime', value: 'name', sortable: false },
-          { text: 'Song', value: 'title', sortable: false },
-          { text: 'Type', value: 'type', sortable: false },
-          { text: 'Link', value: 'src', sortable: false },
-          { text: 'Action', value: 'action', sortable: false }
-        ]
-      }
-    },
-    methods: {
-      inUserList(anime) {
-        for (var item of this.$store.state.list.userList) {
-          if (item.name === anime.name && anime.src === item.src) {
+<script lang="coffee">
+  export default
+    props: [ 'data' ]
+    data: () ->
+      headers: [
+        { text: 'ID', value: 'id', sortable: false },
+        { text: 'Anime', value: 'name', sortable: false },
+        { text: 'Song', value: 'title', sortable: false },
+        { text: 'Type', value: 'type', sortable: false },
+        { text: 'Link', value: 'src', sortable: false },
+        { text: 'Action', value: 'action', sortable: false }
+      ]
+    methods:
+      inUserList: (anime) ->
+        for item in this.$store.state.list.userList
+          if anime.id == item.id
             return true
-          }
-        }
         return false
-      },
-      addAnime(anime) {
+      addAnime: (anime) ->
         this.$emit('add-anime', anime)
-      },
-      removeAnime(anime) {
+      removeAnime: (anime) ->
         this.$emit('remove-anime', anime)
-      }
-    }
-  }
 </script>

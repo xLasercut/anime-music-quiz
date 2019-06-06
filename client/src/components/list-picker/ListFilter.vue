@@ -9,10 +9,9 @@
   </v-layout>
 </template>
 
-<script>
-  import VModel from '../../assets/mixins/v-model.js'
+<script lang="coffee">
+  import VModel from '../../assets/mixins/v-model.coffee'
 
-  export default {
+  export default
     mixins: [ VModel ]
-  }
 </script>

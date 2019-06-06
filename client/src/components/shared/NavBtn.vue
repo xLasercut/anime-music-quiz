@@ -7,10 +7,9 @@
   </v-btn>
 </template>
 
-<script>
-  export default {
+<script lang="coffee">
+  export default
     props: [ 'color', 'icon', 'disabled' ]
-  }
 </script>
 
 <style scoped>

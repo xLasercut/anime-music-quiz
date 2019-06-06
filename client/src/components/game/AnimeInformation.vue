@@ -11,33 +11,21 @@
   </v-layout>
 </template>
 
-<script>
-  import LeaderBoard from './anime-information/LeaderBoard.vue'
+<script lang="coffee">
   import Countdown from './anime-information/Countdown.vue'
   import VideoWindow from './anime-information/VideoWindow.vue'
   import SongInformation from './anime-information/SongInformation.vue'
   import Loading from '../shared/Loading.vue'
 
-  export default {
-    components: { Countdown, VideoWindow, LeaderBoard, SongInformation, Loading },
-    data() {
-      return {
-        socket: this.$store.state.game.socket,
-        loading: false
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _position) => {
-          this.loading = true
-        })
-
-        this.socket.on('START_COUNTDOWN', () => {
-          this.loading = false
-        })
-      }
-    }
-  }
+  export default
+    components: { Countdown, VideoWindow, SongInformation, Loading }
+    data: () ->
+      loading: false
+    sockets:
+      NEW_SONG: (_song, _position) ->
+        this.loading = true
+      START_COUNTDOWN: () ->
+        this.loading = false
 </script>
 
 <style scoped>

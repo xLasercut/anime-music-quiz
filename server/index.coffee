@@ -18,12 +18,15 @@ io.on 'connection', (socket) ->
   logger.info("new connection - #{socket.id}")
   socket.auth = false
 
-  socket.on 'AUTHENTICATE', (password) =>
+  socket.on 'AUTHENTICATE', (password, callback) =>
     if password == config.serverPassword
       socket.auth = true
       logger.info("authenticated client - id=#{socket.id}")
       gameListener.listen(socket)
       listListener.listen(socket)
+      callback(true)
+    else
+      callback(false)
 
   setTimeout( () =>
     if !socket.auth

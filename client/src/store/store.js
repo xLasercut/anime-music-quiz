@@ -9,7 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     dark: false,
-    mode: 'game'
+    mode: 'game',
+    userListFiles: []
   },
   getters: {
     color(state) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     CHANGE_MODE(state, mode) {
       state.mode = mode
+    },
+    SOCKET_SYNC_USER_LIST_FILES(state, userListFiles) {
+      state.userListFiles = userListFiles
     }
   },
   modules: {

@@ -7,35 +7,22 @@
   </v-container>
 </template>
 
-<script>
+<script lang="coffee">
   import Chat from '../components/Chat.vue'
   import Game from '../components/Game.vue'
 
-  export default {
-    components: {
-      Chat,
-      Game
-    },
-    data() {
-      return {
-        socket: this.$store.state.game.socket
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('SYNC_PLAYERS', (data) => {
-          this.$store.commit('game/SYNC_PLAYERS', data)
-        })
-
-        this.socket.on('SYNC_PLAYING', (playing) => {
-          this.$store.commit('game/SYNC_PLAYING', playing)
-        })
-      }
-      else {
+  export default
+    components: { Chat, Game }
+    sockets:
+      SYNC_PLAYERS: (players) ->
+        data = {
+          players: players,
+          id: this.$socket.id
+        }
+        this.$store.commit('game/UPDATE_PLAYERS', data)
+    mounted: () ->
+      if !this.$socket.connected
         this.$router.push('/')
-      }
-    }
-  }
 </script>
 
 <style scoped>

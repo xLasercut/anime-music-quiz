@@ -4,19 +4,13 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        volume: this.$store.state.game.volume
-      }
-    },
-    watch: {
-      volume(val) {
+<script lang="coffee">
+  export default
+    data: () ->
+      volume: this.$store.state.game.volume
+    watch:
+      volume: (val) ->
         this.$store.commit('game/UPDATE_VOLUME', val)
-      }
-    }
-  }
 </script>
 
 <style scoped>

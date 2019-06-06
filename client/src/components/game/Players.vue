@@ -7,12 +7,11 @@
   </v-layout>
 </template>
 
-<script>
+<script lang="coffee">
   import PlayerCard from './players/PlayerCard.vue'
 
-  export default {
+  export default
     components: { PlayerCard }
-  }
 </script>
 
 <style scoped>

@@ -10,11 +10,10 @@
   </v-layout>
 </template>
 
-<script>
-  import VModel from '../../../../assets/mixins/v-model.js'
+<script lang="coffee">
+  import VModel from '../../../../assets/mixins/v-model.coffee'
 
-  export default {
-    props: [ 'items' ],
+  export default
+    props: [ 'items' ]
     mixins: [ VModel ]
-  }
 </script>

@@ -2,6 +2,7 @@ PlayerManagement = require './player-management.coffee'
 GameSettings = require './game-settings.coffee'
 GameState = require './game-state.coffee'
 Chat = require './chat.coffee'
+{ userLists } = require '../shared-classes.coffee'
 
 class GameListener
   constructor: (io, logger) ->
@@ -16,7 +17,6 @@ class GameListener
   listen: (socket) ->
     @playerManagement.listen(socket)
     @gameSettings.listen(socket)
-    @gameState.listen(socket)
 
     socket.on 'disconnect', () =>
       if @playerManagement.isPlayer(socket.id)
@@ -25,6 +25,13 @@ class GameListener
           @gameState.reset()
           @logger.debug('zero players connected. resetting server status')
       @logger.info("disconnected - #{socket.id}")
+
+    socket.on 'LOGIN_GAME', (player) =>
+      @playerManagement.addPlayer(player, socket.id)
+      socket.emit('SYNC_USER_LIST_FILES', userLists.files)
+      socket.emit('SYNC_PLAYING', @gameState.playing)
+      socket.emit('SYNC_CHOICES', @gameState.choices)
+      socket.emit('SYNC_SETTINGS', @gameSettings.serialize())
 
     socket.on 'START_GAME', () =>
       @logger.info('start new round')

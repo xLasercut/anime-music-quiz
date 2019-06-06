@@ -14,29 +14,18 @@
   </song-card>
 </template>
 
-<script>
+<script lang="coffee">
   import SongCard from './SongCard.vue'
 
-  export default {
-    components: { SongCard },
-    data() {
-      return {
-        show: false,
-        socket: this.$store.state.game.socket
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _position) => {
-          this.show = false
-        })
-
-        this.socket.on('TIME_UP', () => {
-          this.show = true
-        })
-      }
-    }
-  }
+  export default
+    components: { SongCard }
+    data: () ->
+      show: false
+    sockets:
+      NEW_SONG: (_song, _positiong) ->
+        this.show = false
+      TIME_UP: () ->
+        this.show = true
 </script>
 
 <style scoped>

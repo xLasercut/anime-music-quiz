@@ -19,13 +19,6 @@ class GameState
     @currentSong = {}
     @startPosition = 0
 
-  listen: (socket) ->
-    socket.on 'SYNC_CHOICES', (_data, callback) =>
-      callback(@choices)
-
-    socket.on 'SYNC_PLAYING', () =>
-      socket.emit('SYNC_PLAYING', @playing)
-
   generateGameList: (songCount, lists) ->
     combinedList = userLists.combinedList(lists)
     @gameList = []

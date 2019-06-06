@@ -19,68 +19,35 @@
   </v-flex>
 </template>
 
-<script>
-import { setTimeout } from 'timers';
-  export default {
-    props: {
+<script lang="coffee">
+  export default
+    props:
       player: {
         type: Object,
         required: true
       }
-    },
-    data() {
-      return {
-        show: false,
-        socket: this.$store.state.game.socket
-      }
-    },
-    methods: {
-      imgStyle(player) {
-        if (player.host) {
-          return { outline: '4px solid #E6A23C'}
-        }
-      },
-      color() {
-        var point = 0
-
-        if (this.player.guess.anime === this.$store.state.game.currentSong.name ||
-        this.$store.state.game.currentSong.altName.includes(this.player.guess.anime)) {
-          point += 1
-        }
-
-        if (this.player.guess.song) {
-          if (this.player.guess.song.toLowerCase() === this.$store.state.game.currentSong.title.toLowerCase()) {
-            point += 1
-          }
-        }
-
-        if (point === 2) {
+    data: () ->
+      show: false
+    sockets:
+      SHOW_GUESS: () ->
+        this.show = true
+        setTimeout( () =>
+          this.show = false
+        , 8000)
+    methods:
+      imgStyle: (player) ->
+        if player.host
+          return { outline: '4px solid #E6A23C' }
+      color: () ->
+        if this.player.scoreGained == 2
           return 'success'
-        }
-        else if (point === 1) {
+        else if this.player.scoreGained == 1
           return 'warning'
-        }
-
         return 'error'
-      },
-      guess(type) {
-        if (!this.player.guess[type]) {
+      guess: (type) ->
+        if !this.player.guess[type]
           return '...'
-        }
         return this.player.guess[type]
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('SHOW_GUESS', () => {
-          this.show = true
-          setTimeout(() => {
-            this.show = false
-          }, 8000)
-        })
-      }
-    }
-  }
 </script>
 
 <style scoped>

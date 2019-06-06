@@ -12,59 +12,38 @@
   </v-layout>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        time: 30000,
-        countdown: null,
-        socket: this.$store.state.game.socket,
-        show: false
-      }
-    },
-    methods: {
-      percentage() {
+<script lang="coffee">
+  export default
+    data: () ->
+      time: 30000,
+      countdown: null,
+      show: false
+    sockets:
+      START_COUNTDOWN: () ->
+        this.time = this.$store.state.game.settings.guessTime * 1000
+        this.show = true
+        this.startCountdown()
+      TIME_UP: () ->
+        this.stopCountdown()
+      RESET: () ->
+        this.stopCountdown()
+    methods:
+      percentage: () ->
         return 100 * (1 - this.time / (this.$store.state.game.settings.guessTime * 1000))
-      },
-      color() {
-        var percentage = this.percentage()
-        if (percentage > 75) {
+      color: () ->
+        percentage = this.percentage()
+        if percentage > 75
           return 'error'
-        }
-        else if (percentage > 50) {
+        else if percentage > 50
           return 'warning'
-        }
         return 'success'
-      },
-      startCountdown() {
-        this.countdown = setInterval(() => {
+      startCountdown: () ->
+        this.countdown = setInterval( () =>
           this.time -= 200
-          if (this.time <= 0) {
+          if this.time <= 0
             this.stopCountdown()
-          }
-        }, 200)
-      },
-      stopCountdown() {
+        , 200)
+      stopCountdown: () ->
         clearInterval(this.countdown)
         this.show = false
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('START_COUNTDOWN', () => {
-          this.time = this.$store.state.game.settings.guessTime * 1000
-          this.show = true
-          this.startCountdown()
-        })
-
-        this.socket.on('TIME_UP', () => {
-          this.stopCountdown()
-        })
-
-        this.socket.on('RESET', () => {
-          this.stopCountdown()
-        })
-      }
-    }
-  }
 </script>

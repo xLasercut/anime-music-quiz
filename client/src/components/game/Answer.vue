@@ -9,47 +9,30 @@
   </v-layout>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        show: false,
-        socket: this.$store.state.game.socket,
-        currentSong: 0,
-        maxSong: 0
-      }
-    },
-    methods: {
-      answer() {
-        if (this.show) {
+<script lang="coffee">
+  export default
+    data: () ->
+      show: false,
+      currentSong: 0,
+      maxSong: 0
+    sockets:
+      NEW_SONG: (_song, _position) ->
+        this.show = false
+      SYNC_SONG_COUNT: (numbers) ->
+        this.currentSong = numbers.current
+        this.maxSong = numbers.max
+      TIME_UP: () ->
+        this.show = true
+    methods:
+      answer: () ->
+        if this.show
           return this.$store.state.game.currentSong.name
-        }
 
-        if (this.$store.state.game.showAnswer) {
-          var index = Math.floor(Math.random() * this.$store.state.game.choices.anime.length)
+        if this.$store.state.game.showAnswer
+          index = Math.floor(Math.random() * this.$store.state.game.choices.anime.length)
           return this.$store.state.game.choices.anime[index]
-        }
 
         return '?'
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _position) => {
-          this.show = false
-        })
-
-        this.socket.on('SYNC_SONG_COUNT', (numbers) => {
-          this.currentSong = numbers.current,
-          this.maxSong = numbers.max
-        })
-
-        this.socket.on('TIME_UP', () => {
-          this.show = true
-        })
-      }
-    }
-  }
 </script>
 
 <style scoped>

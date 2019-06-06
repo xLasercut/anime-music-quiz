@@ -1,5 +1,4 @@
 export default {
-  socket: null,
   choices: {
     anime: [],
     song: []
@@ -22,6 +21,5 @@ export default {
   host: false,
   playing: false,
   showAnswer: false,
-  volume: 50,
-  userListFiles: []
+  volume: 50
 }

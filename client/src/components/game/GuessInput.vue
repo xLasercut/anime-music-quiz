@@ -19,31 +19,20 @@
   </v-layout>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        guess: {
-          anime: '',
-          song: ''
-        },
-        socket: this.$store.state.game.socket
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('NEW_SONG', (_song, _position) => {
-          this.guess.anime = ''
-          this.guess.song = ''
-        })
-
-        this.socket.on('TIME_UP', () => {
-          this.socket.emit('GUESS', this.guess)
-        })
-      }
-    }
-  }
-
+<script lang="coffee">
+  export default
+    data: () ->
+      guess: {
+        anime: '',
+        song: ''
+      },
+      socket: this.$store.state.game.socket
+    sockets:
+      NEW_SONG: (_song, _position) ->
+        this.guess.song = ''
+        this.guess.anime = ''
+      TIME_UP: () ->
+        this.$socket.emit('GUESS', this.guess)
 </script>
 
 <style scoped>

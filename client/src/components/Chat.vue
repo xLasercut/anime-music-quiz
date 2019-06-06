@@ -16,44 +16,28 @@
   </v-flex>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        message: '',
-        messages: [],
-        socket: this.$store.state.game.socket
-      }
-    },
-    methods: {
-      sendMsg() {
-        if (this.message) {
-          this.socket.emit('USER_MESSAGE', this.message)
+<script lang="coffee">
+  export default
+    data: () ->
+      message: '',
+      messages: [],
+    sockets:
+      MESSAGE: (data) ->
+        this.addMessage(data)
+        this.$nextTick () =>
+          this.scrollChat()
+    methods:
+      sendMsg: () ->
+        if this.message
+          this.$socket.emit('USER_MESSAGE', this.message)
           this.message = ''
-        }
-      },
-      scrollChat() {
-        var element = document.querySelector('.message-container')
+      scrollChat: () ->
+        element = document.querySelector('.message-container')
         element.scrollTop = element.scrollHeight - element.clientHeight
-      },
-      addMessage(data) {
-        if (this.messages.length > 200) {
+      addMessage: (data) ->
+        if this.messages.length > 200
           this.messages.splice(0, 1)
-        }
         this.messages.push(data)
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('MESSAGE', (data) => {
-          this.addMessage(data)
-          this.$nextTick(() => {
-            this.scrollChat()
-          })
-        })
-      }
-    }
-  }
 </script>
 
 <style scoped>

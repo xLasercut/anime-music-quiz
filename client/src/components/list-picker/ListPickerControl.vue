@@ -8,17 +8,15 @@
   </v-toolbar-items>
 </template>
 
-<script>
+<script lang="coffee">
   import ListSelector from './ListSelector.vue'
   import NavBtn from '../shared/NavBtn.vue'
   import UserList from './UserList.vue'
+  import EventBus from '../../assets/mixins/event-bus.coffee'
 
-  export default {
-    components: { ListSelector, NavBtn, UserList },
-    methods: {
-      reload() {
-        this.$store.commit('list/SYNC_FULL_LIST')
-      }
-    }
-  }
+  export default
+    components: { ListSelector, NavBtn, UserList }
+    methods:
+      reload: () ->
+        EventBus.$emit('sync-full-list')
 </script>

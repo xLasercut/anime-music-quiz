@@ -8,13 +8,16 @@ class ListListener
     @fullList = new FullList()
 
   listen: (socket) ->
+    socket.on 'LOGIN_LIST', () =>
+      socket.emit('SYNC_USER_LIST_FILES', userLists.files)
+
     socket.on 'SYNC_USER_LIST_FILES', (_data, callback) =>
       @logger.debug('user list files requested by client')
       callback(userLists.files)
 
-    socket.on 'SYNC_FULL_LIST', (_data, callback) =>
+    socket.on 'SYNC_FULL_LIST', () =>
       @logger.debug('full list requested by client')
-      callback(@fullList.read())
+      socket.emit('SYNC_FULL_LIST', @fullList.read())
 
     socket.on 'SYNC_USER_LIST', (file) =>
       @logger.debug("#{file} requested by client")

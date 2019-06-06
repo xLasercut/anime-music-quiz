@@ -16,28 +16,35 @@
   </v-form>
 </template>
 
-<script>
+<script lang="coffee">
   import FormInputPassword from './form/FormInputPassword.vue'
   import IconBtn from '../shared/IconBtn.vue'
+  import Notification from '../../assets/mixins/notification.coffee'
 
-  export default {
-    components: { IconBtn, FormInputPassword },
-    data() {
-      return {
-        form: {
-          password: ''
-        }
-      }
-    },
-    methods: {
-      login() {
-        var valid = this.$refs['listForm'].validate()
+  password = ''
+  if process.env.NODE_ENV == 'development'
+    password = 'password'
 
-        if (valid) {
-          this.$store.commit('list/LOGIN', this.form)
-          this.$router.push({name: 'list-picker'})
-        }
+  export default
+    components: { IconBtn, FormInputPassword }
+    mixins: [ Notification ]
+    data: () ->
+      form: {
+        password: password
       }
-    }
-  }
+    methods:
+      login: () ->
+        valid = this.$refs['listForm'].validate()
+
+        if valid
+          this.$socket.open()
+          this.$socket.emit('AUTHENTICATE', this.form.password, (auth) =>
+            if auth
+              this.$socket.emit('LOGIN_LIST')
+              this.$router.push({ name: 'list-picker' })
+            else
+              this.notifyError('Incorrect server password')
+          )
+
+
 </script>

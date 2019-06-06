@@ -5,6 +5,7 @@ import router from './router'
 import store from './store/store.js'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import './socket/socket.js'
 
 Vue.config.productionTip = false
 

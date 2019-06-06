@@ -24,7 +24,7 @@
             v-model.number="settings.guessTime"
             min="1" max="50"
           ></settings-slider>
-          <settings-checkbox v-model="settings.lists" :items="$store.state.game.userListFiles"></settings-checkbox>
+          <settings-checkbox v-model="settings.lists" :items="$store.state.userListFiles"></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
               <icon-btn color="error" icon="fas fa-times" @click="show = false">Cancel</icon-btn>
@@ -42,50 +42,32 @@
   </v-dialog>
 </template>
 
-<script>
+<script lang="coffee">
   import IconBtn from '../../shared/IconBtn.vue'
   import SettingsSlider from './settings/SettingsSlider.vue'
   import SettingsCheckbox from './settings/SettingsCheckbox.vue'
 
-  export default {
-    components: { IconBtn, SettingsSlider, SettingsCheckbox },
-    data() {
-      return {
-        socket: this.$store.state.game.socket,
-        show: false
-      }
-    },
-    computed: {
-      settings: {
-        get () {
+  export default
+    components: { IconBtn, SettingsSlider, SettingsCheckbox }
+    data: () ->
+      show: false
+    sockets:
+      SYNC_SETTINGS: (settings) ->
+        this.$store.commit('game/UPDATE_SETTINGS', settings)
+    computed:
+      settings:
+        get: () ->
           return this.$store.state.game.settings
-        },
-        set (settings) {
-          this.$store.commit('game/SYNC_SETTINGS', settings)
-        }
-      },
-      disabled() {
+        set: (settings) ->
+          this.$store.commit('game/UPDATE_SETTINGS', settings)
+      disabled: () ->
         return !this.$store.state.game.host
-      }
-    },
-    methods: {
-      updateSettings() {
-        this.socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)
+    methods:
+      updateSettings: () ->
+        this.$socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)
         this.show = false
-      },
-      syncSettings() {
-        this.socket.emit('SYNC_SETTINGS')
-      }
-    },
-    mounted() {
-      if (this.socket) {
-        this.socket.on('SYNC_SETTINGS', (settings) => {
-          this.$store.commit('game/SYNC_SETTINGS', settings)
-        })
-      }
-    }
-  }
-
+      syncSettings: () ->
+        this.$socket.emit('SYNC_SETTINGS')
 </script>
 
 

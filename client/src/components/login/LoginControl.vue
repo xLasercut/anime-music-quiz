@@ -9,10 +9,9 @@
   </v-toolbar-items>
 </template>
 
-<script>
+<script lang="coffee">
   import NavBtn from '../shared/NavBtn.vue'
 
-  export default {
+  export default
     components: { NavBtn }
-  }
 </script>

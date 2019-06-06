@@ -1,44 +1,18 @@
-import io from 'socket.io-client'
-
-var server = 'https://e24fc670.eu.ngrok.io'
-if (process.env.NODE_ENV === 'development') {
-  server = 'http://localhost:3001'
-}
-
 export default {
-  LOGIN(state, data) {
-    var player = {
-      username: data.username,
-      avatar: data.avatar,
-      score: data.score
-    }
-    state.socket = io(server)
-    state.socket.on('connect', () => {
-      state.socket.emit('AUTHENTICATE', data.password)
-    })
-    state.socket.emit('SYNC_CHOICES', null, (choices) => {
-      state.choices = choices
-    })
-    state.socket.emit('SYNC_USER_LIST_FILES', null, (userListFiles) => {
-      state.userListFiles = userListFiles
-    })
-    state.socket.emit('SYNC_SETTINGS')
-    state.socket.emit('SYNC_PLAYING')
-    state.socket.emit('LOGIN', player)
+  UPDATE_PLAYERS(state, data) {
+    state.players = data.players
+    state.host = state.players[data.id].host
   },
-  SYNC_PLAYERS(state, players) {
-    state.players = players
-    state.host = state.players[state.socket.id].host
-  },
-  SYNC_CURRENT_SONG(state, song) {
+  UPDATE_CURRENT_SONG(state, song) {
     state.currentSong = song
   },
-  SYNC_PLAYING(state, playing) {
+  SOCKET_SYNC_PLAYING(state, playing) {
     state.playing = playing
   },
+  SOCKET_SYNC_CHOICES(state, choices) {
+    state.choices = choices
+  },
   DISCONNECT(state) {
-    state.socket.close()
-    state.socket = null
     state.currentSong = {
       name: '',
       altName: [],
@@ -52,16 +26,10 @@ export default {
   TOGGLE_ANSWER(state) {
     state.showAnswer = !state.showAnswer
   },
-  START_GAME(state) {
-    state.socket.emit('START_GAME')
-  },
-  STOP_GAME(state) {
-    state.socket.emit('STOP_GAME')
-  },
   UPDATE_VOLUME(state, volume) {
     state.volume = volume
   },
-  SYNC_SETTINGS(state, settings) {
+  UPDATE_SETTINGS(state, settings) {
     state.settings = settings
   }
 }

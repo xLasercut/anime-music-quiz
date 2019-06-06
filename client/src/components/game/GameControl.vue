@@ -14,32 +14,23 @@
   </v-toolbar-items>
 </template>
 
-<script>
+<script lang="coffee">
   import NavBtn from '../shared/NavBtn.vue'
   import SettingsPanel from './game-control/SettingsPanel.vue'
   import VolumeSlider from './game-control/VolumeSlider.vue'
 
-
-  export default {
-    components: { SettingsPanel, VolumeSlider, NavBtn },
-    computed: {
-      showPlay() {
-        return (!this.$store.state.game.playing && this.$store.state.game.host)
-      },
-      showStop() {
-        return (this.$store.state.game.playing && this.$store.state.game.host)
-      }
-    },
-    methods: {
-      play() {
-        this.$store.commit('game/START_GAME')
-      },
-      stop() {
-        this.$store.commit('game/STOP_GAME')
-      },
-      toggle() {
+  export default
+    components: { SettingsPanel, VolumeSlider, NavBtn }
+    computed:
+      showPlay: () ->
+        return (!this.$store.state.game.playing and this.$store.state.game.host)
+      showStop: () ->
+        return (this.$store.state.game.playing and this.$store.state.game.host)
+    methods:
+      play: () ->
+        this.$socket.emit('START_GAME')
+      stop: () ->
+        this.$socket.emit('STOP_GAME')
+      toggle: () ->
         this.$store.commit('game/TOGGLE_ANSWER')
-      }
-    }
-  }
 </script>
