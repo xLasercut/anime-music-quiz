@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":t: :p: :hrd" opt; do
+while getopts ":t: :p: :a: :hrd" opt; do
   case ${opt} in
     h )
       echo "Usage:"
