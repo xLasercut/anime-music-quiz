@@ -13,6 +13,7 @@ services:
         environment:
             - NGROK_TOKEN
             - SERVER_PASSWORD
+            - ADMIN_PASSWORD
         logging:
             options:
                 max-size: 50m

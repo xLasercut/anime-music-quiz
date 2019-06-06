@@ -6,6 +6,7 @@ while getopts ":t: :p: :hrd" opt; do
       echo "Usage:"
       echo "    -h        Display help"
       echo "    -p        Server password (mandatory)"
+      echo "    -a        admin password (mandatory)"
       echo "    -t        ngrok auth token"
       echo "    -r        Force recreate containers"
       echo "    -d        Start in debug mode"
@@ -21,7 +22,10 @@ while getopts ":t: :p: :hrd" opt; do
       recreate=true
       ;;
     p )
-      password=$OPTARG
+      serverpass=$OPTARG
+      ;;
+    a )
+      adminpass=$OPTARG
       ;;
     \? )
       echo -e "${red}Invalid option: $OPTARG${end}" 1>&2
@@ -35,8 +39,13 @@ esac
 done
 shift $((OPTIND -1))
 
-if [[ -z $password ]]; then
+if [[ -z $serverpass ]]; then
   echo "Did not supply server password"
+  exit 1
+fi
+
+if [[ -z $adminpass ]]; then
+  echo "Did not supply admin password"
   exit 1
 fi
 
@@ -44,7 +53,8 @@ if [[ ! -z $token ]]; then
   export NGROK_TOKEN=$token
 fi
 
-export SERVER_PASSWORD=$password
+export SERVER_PASSWORD=$serverpass
+export ADMIN_PASSWORD=$adminpass
 
 cmd="sudo -E docker-compose up"
 
