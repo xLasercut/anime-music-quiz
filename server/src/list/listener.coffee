@@ -1,31 +1,25 @@
-{ FullList } = require '../../database/database.coffee'
-{ userLists } = require '../shared-classes.coffee'
+{ userLists, fullList } = require '../shared-classes.coffee'
 
 class ListListener
-  constructor: (io, logger) ->
+  constructor: (io, logObject) ->
     @io = io
-    @logger = logger
-    @fullList = new FullList()
+    @logObject = logObject
 
   listen: (socket) ->
     socket.on 'LOGIN_LIST', () =>
       socket.emit('SYNC_USER_LIST_FILES', userLists.files)
 
-    socket.on 'SYNC_USER_LIST_FILES', (_data, callback) =>
-      @logger.debug('user list files requested by client')
-      callback(userLists.files)
-
     socket.on 'SYNC_FULL_LIST', () =>
-      @logger.debug('full list requested by client')
-      socket.emit('SYNC_FULL_LIST', @fullList.read())
+      @logObject.writeLog('LIST002', { id: socket.id })
+      socket.emit('SYNC_FULL_LIST', fullList.read())
 
     socket.on 'SYNC_USER_LIST', (file) =>
-      @logger.debug("#{file} requested by client")
+      @logObject.writeLog('LIST003', { id: socket.id, filename: file })
       socket.emit('SYNC_USER_LIST', userLists.singleList(file), file)
 
     socket.on 'UPDATE_USER_LIST', (list, file) =>
       userLists.write(file, list)
-      @logger.debug("#{file} updated")
+      @logObject.writeLog('LIST004', { id: socket.id, filename: file })
       @io.emit('SYNC_USER_LIST', userLists.singleList(file), file)
 
 module.exports = ListListener

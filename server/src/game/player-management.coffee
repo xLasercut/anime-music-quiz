@@ -2,11 +2,11 @@ Player = require './player.coffee'
 Chat = require './chat.coffee'
 
 class PlayerManagement
-  constructor: (io, logger) ->
+  constructor: (io, logObject) ->
     @io = io
-    @logger = logger
+    @logObject = logObject
     @players = {}
-    @chat = new Chat(io)
+    @chat = new Chat(io, logObject)
 
   listen: (socket) ->
     socket.on 'USER_MESSAGE', (message) =>
@@ -20,12 +20,12 @@ class PlayerManagement
     @players[id] = new Player(player, host)
     @updateClient()
     @chat.system("#{@playerName(id)} has joined the room")
-    @logger.info("added player - id=#{id} name=#{@playerName(id)}")
+    @logObject.writeLog('PLAYER001', { id: id, username: @playerName(id) })
 
   removePlayer: (id) ->
     @chat.system("#{@playerName(id)} has left the room")
+    @logObject.writeLog('PLAYER002', { id: id, username: @playerName(id) })
     delete @players[id]
-    @logger.info("removed player - id=#{id}")
     @moveHost()
     @updateClient()
 
@@ -33,7 +33,7 @@ class PlayerManagement
     if !@isEmpty()
       id = Object.keys(@players)[0]
       @players[id].setHost()
-      @logger.info("new host set - id=#{id} name=#{@playerName(id)}")
+      @logObject.writeLog('PLAYER003', { id: id, username: @playerName(id) })
 
   playerName: (id) ->
     return @players[id].username

@@ -4,6 +4,7 @@ export default {
   },
   UPDATE_FULL_LIST(state, list) {
     state.fullList = list
+    state.loading = false
   },
   ADD_ANIME(state, anime) {
     state.userList.push(anime)
@@ -20,5 +21,8 @@ export default {
   },
   UPDATE_FILENAME(state, filename) {
     state.filename = filename
+  },
+  UPDATE_LOADING(state, status) {
+    state.loading = status
   }
 }

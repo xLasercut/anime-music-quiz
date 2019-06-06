@@ -92,4 +92,8 @@ class UserLists
 
     return combinedList
 
+  reload: () ->
+    for _key, userList of @lists
+      userList.reload()
+
 module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists }

@@ -2,5 +2,6 @@ export default {
   fullList: [],
   userList: [],
   userListFiles: [],
-  filename: ''
+  filename: '',
+  loading: false
 }

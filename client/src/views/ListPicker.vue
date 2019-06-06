@@ -5,9 +5,9 @@
       :data="displayData()"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
-      v-if="!loading"
+      v-if="!$store.state.list.loading"
     ></list-data>
-    <loading v-if="loading"></loading>
+    <loading v-if="$store.state.list.loading"></loading>
     <list-pagination v-model="currentPage" :length="maxPage"></list-pagination>
   </v-container>
 </template>
@@ -29,15 +29,13 @@
         anime: '',
         song: ''
       },
-      maxPage: 1,
-      loading: false
+      maxPage: 1
     sockets:
       SYNC_USER_LIST: (list, filename) ->
         if this.$store.state.list.filename == filename
           this.$store.commit('list/UPDATE_USER_LIST', list)
       SYNC_FULL_LIST: (list) ->
         this.$store.commit('list/UPDATE_FULL_LIST', list)
-        this.loading = false
     methods:
       filteredData: () ->
         songfilter = ''
@@ -66,15 +64,11 @@
       updateUserList: () ->
         this.$socket.emit('UPDATE_USER_LIST', this.$store.state.list.userList, this.$store.state.list.filename)
       syncFullList: () ->
-        this.loading = true
+        this.$store.commit('list/UPDATE_LOADING', true)
         this.$socket.emit('SYNC_FULL_LIST')
     mounted: () ->
       if !this.$socket.connected
         this.$router.push('/')
 
       this.syncFullList()
-
-      EventBus.$on('sync-full-list', () =>
-        this.syncFullList()
-      )
 </script>

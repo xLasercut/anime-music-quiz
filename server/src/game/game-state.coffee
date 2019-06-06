@@ -1,17 +1,9 @@
-{ AnimeChoices, SongChoices } = require '../../database/database.coffee'
-{ userLists } = require '../shared-classes.coffee'
-
-animeChoices = new AnimeChoices()
-songChoices = new SongChoices()
+{ userLists, animeChoices, songChoices } = require '../shared-classes.coffee'
 
 class GameState
-  constructor: (io, logger) ->
+  constructor: (io, logObject) ->
     @io = io
-    @logger = logger
-    @choices = {
-      anime: animeChoices.read(),
-      song: songChoices.read()
-    }
+    @logObject = logObject
     @playing = false
     @gameList = []
     @maxSongCount = 0
@@ -32,17 +24,23 @@ class GameState
         dupe.push(name)
       combinedList.splice(i, 1)
 
-    @logger.info("generated game list - size=#{@gameList.length}")
+    @logObject.writeLog('GAME004', { size: @gameList.length })
 
   startGame: () ->
     @playing = true
     @io.emit('SYNC_PLAYING', @playing)
     @maxSongCount = @gameList.length
-    @logger.info("starting new round - songCount=#{@maxSongCount}")
+    @logObject.writeLog('GAME002', { songCount: @maxSongCount })
 
   newSong: () ->
     @randomSong()
-    @logger.info("new song - number=#{@currentSongCount} name=#{@currentSong.title} anime=#{@currentSong.name}")
+    @logObject.writeLog('GAME005', {
+      number: @currentSongCount,
+      title: @currentSong.title,
+      anime: @currentSong.anime,
+      type: @currentSong.type,
+      artist: @currentSong.artist
+    })
     @startPosition = Math.random()
     @io.emit('NEW_SONG', @currentSong, @startPosition)
 
@@ -82,5 +80,11 @@ class GameState
     @playing = false
     @io.emit('SYNC_PLAYING', @playing)
     @io.emit('RESET')
+
+  choices: () ->
+    return {
+      anime: animeChoices.read(),
+      song: songChoices.read()
+    }
 
 module.exports = GameState

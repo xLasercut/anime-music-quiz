@@ -5,13 +5,13 @@ Chat = require './chat.coffee'
 { userLists } = require '../shared-classes.coffee'
 
 class GameListener
-  constructor: (io, logger) ->
+  constructor: (io, logObject) ->
     @io = io
-    @logger = logger
-    @playerManagement = new PlayerManagement(io, logger)
-    @gameSettings = new GameSettings(io, logger)
-    @gameState = new GameState(io, logger)
-    @chat = new Chat(io)
+    @logObject = logObject
+    @playerManagement = new PlayerManagement(io, logObject)
+    @gameSettings = new GameSettings(io, logObject)
+    @gameState = new GameState(io, logObject)
+    @chat = new Chat(io, logObject)
     @timeout = null
 
   listen: (socket) ->
@@ -23,18 +23,16 @@ class GameListener
         @playerManagement.removePlayer(socket.id)
         if @playerManagement.isEmpty()
           @gameState.reset()
-          @logger.debug('zero players connected. resetting server status')
-      @logger.info("disconnected - #{socket.id}")
+          @logObject.writeLog('GAME001')
 
     socket.on 'LOGIN_GAME', (player) =>
       @playerManagement.addPlayer(player, socket.id)
       socket.emit('SYNC_USER_LIST_FILES', userLists.files)
       socket.emit('SYNC_PLAYING', @gameState.playing)
-      socket.emit('SYNC_CHOICES', @gameState.choices)
+      socket.emit('SYNC_CHOICES', @gameState.choices())
       socket.emit('SYNC_SETTINGS', @gameSettings.serialize())
 
     socket.on 'START_GAME', () =>
-      @logger.info('start new round')
       @playerManagement.resetScore()
       @gameState.generateGameList(@gameSettings.songCount, @gameSettings.lists)
       if @gameState.gameList.length > 0
@@ -58,7 +56,7 @@ class GameListener
         @playerManagement.readyClear()
         @io.emit('SHOW_GUESS')
         if @gameState.roundEnd()
-          @logger.info('round ended')
+          @logObject.writeLog('GAME003')
           clearTimeout(@timeout)
           @gameState.reset()
         else

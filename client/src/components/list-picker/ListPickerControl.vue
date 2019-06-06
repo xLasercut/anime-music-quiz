@@ -18,5 +18,6 @@
     components: { ListSelector, NavBtn, UserList }
     methods:
       reload: () ->
-        EventBus.$emit('sync-full-list')
+        this.$store.commit('list/UPDATE_LOADING', true)
+        this.$socket.emit('SYNC_FULL_LIST')
 </script>

@@ -1,17 +1,17 @@
 Chat = require './chat.coffee'
 
 class GameSettings
-  constructor: (io, logger) ->
+  constructor: (io, logObject) ->
     @io = io
-    @logger = logger
-    @chat = new Chat(io)
+    @logObject = logObject
+    @chat = new Chat(io, logObject)
     @songCount = 20
     @guessTime = 25
     @lists = []
 
   listen: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>
-      @logger.debug('sync settings requested by client')
+      @logObject.writeLog('SETTING001', { id: socket.id })
       socket.emit('SYNC_SETTINGS', @serialize())
 
     socket.on 'UPDATE_SETTINGS', (settings) =>
@@ -19,7 +19,11 @@ class GameSettings
       @guessTime = settings.guessTime
       @lists = settings.lists
 
-      @logger.info("settings updated - songCount=#{@songCount} guessTime=#{@guessTime} lists=#{JSON.stringify(@lists)}")
+      @logObject.writeLog('SETTING002', {
+        songCount: @songCount,
+        guessTime: @guessTime,
+        lists: @lists.join('|')
+      })
       @io.emit('SYNC_SETTINGS', @serialize())
       @chat.system('Game settings updated')
 
