@@ -33,7 +33,7 @@ if [[ -z $serveraddress ]]; then
 fi
 
 if [[ -z $deployType ]]; then
-  $deployType="static"
+  $deployType="gh"
 fi
 
 if [[ $deployType = "static" ]]; then
