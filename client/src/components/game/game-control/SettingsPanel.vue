@@ -17,20 +17,23 @@
           <settings-slider
             label="Song Number"
             v-model.number="settings.songCount"
-            min="1" max="100"
+            min="1" max="100" :diabled="disabled"
           ></settings-slider>
           <settings-slider
             label="Guess Time"
             v-model.number="settings.guessTime"
-            min="1" max="50"
+            min="1" max="50" :disabled="disabled"
           ></settings-slider>
-          <settings-checkbox v-model="settings.lists" :items="$store.state.userListFiles"></settings-checkbox>
+          <settings-checkbox
+            :disabled="disabled" v-model="settings.lists"
+            :items="$store.state.userListFiles"
+          ></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
               <icon-btn color="error" icon="fas fa-times" @click="show = false">Cancel</icon-btn>
               <icon-btn
                 color="success" icon="fas fa-check" @click="updateSettings()"
-                :disabled="!$store.state.game.host"
+                :disabled="disabled"
               >
                 Confirm
               </icon-btn>
@@ -61,7 +64,7 @@
         set: (settings) ->
           this.$store.commit('game/UPDATE_SETTINGS', settings)
       disabled: () ->
-        return !this.$store.state.game.host
+        return !(this.$store.state.game.host or this.$store.state.game.admin)
     methods:
       updateSettings: () ->
         this.$socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)

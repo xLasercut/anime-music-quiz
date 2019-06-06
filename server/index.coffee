@@ -31,6 +31,7 @@ startListeners = (socket, callback) ->
     gameListener.listen(socket)
     listListener.listen(socket)
     if socket.admin
+      gameListener.listenAdmin(socket)
       adminListener.listen(socket)
     callback(true)
   else

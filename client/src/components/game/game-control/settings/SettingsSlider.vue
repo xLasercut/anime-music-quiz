@@ -4,14 +4,14 @@
       <v-slider :label="label"
         v-model.number="model"
         :min="min" :max="max"
-        :disabled="!$store.state.game.host"
+        :disabled="disabled"
       ></v-slider>
     </v-flex>
     <v-flex shrink xs2>
       <v-text-field
         class="mt-0" v-model.number="model"
         type="number" :min="min" :max="max"
-        :disabled="!$store.state.game.host"
+        :disabled="disabled"
       ></v-text-field>
     </v-flex>
   </v-layout>
@@ -22,5 +22,5 @@
 
   export default
     mixins: [ VModel ]
-    props: [ 'min', 'max', 'label' ]
+    props: [ 'min', 'max', 'label', 'disabled' ]
 </script>

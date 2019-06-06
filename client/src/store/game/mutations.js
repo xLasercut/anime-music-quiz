@@ -2,6 +2,7 @@ export default {
   UPDATE_PLAYERS(state, data) {
     state.players = data.players
     state.host = state.players[data.id].host
+    state.admin = state.players[data.id].admin
   },
   UPDATE_CURRENT_SONG(state, song) {
     state.currentSong = song
@@ -22,9 +23,6 @@ export default {
       type: '',
       id: ''
     }
-  },
-  TOGGLE_ANSWER(state) {
-    state.showAnswer = !state.showAnswer
   },
   UPDATE_VOLUME(state, volume) {
     state.volume = volume

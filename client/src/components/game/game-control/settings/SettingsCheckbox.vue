@@ -4,7 +4,7 @@
       <v-checkbox
         :label="item" :value="item"
         v-model="model"
-        :disabled="!$store.state.game.host"
+        :disabled="disabled"
       ></v-checkbox>
     </v-flex>
   </v-layout>
@@ -14,6 +14,6 @@
   import VModel from '../../../../assets/mixins/v-model.coffee'
 
   export default
-    props: [ 'items' ]
+    props: [ 'items', 'disabled' ]
     mixins: [ VModel ]
 </script>

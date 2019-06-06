@@ -12,12 +12,12 @@ class PlayerManagement
     socket.on 'USER_MESSAGE', (message) =>
       @chat.user(message, @playerName(socket.id))
 
-  addPlayer: (player, id) ->
+  addPlayer: (player, id, admin) ->
     host = false
     if Object.keys(@players).length == 0
       host = true
 
-    @players[id] = new Player(player, host)
+    @players[id] = new Player(player, host, admin)
     @updateClient()
     @chat.system("#{@playerName(id)} has joined the room")
     @logObject.writeLog('PLAYER001', { id: id, username: @playerName(id) })

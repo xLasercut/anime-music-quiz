@@ -1,5 +1,5 @@
 class Player
-  constructor: (player, host) ->
+  constructor: (player, host, admin) ->
     @username = player.username
     @score = player.score
     @avatar = player.avatar
@@ -10,6 +10,7 @@ class Player
     }
     @ready = false
     @scoreGained = 0
+    @admin = admin
 
   serialize: () ->
     return {
@@ -18,7 +19,8 @@ class Player
       avatar: @avatar,
       host: @host,
       guess: @guess,
-      scoreGained: @scoreGained
+      scoreGained: @scoreGained,
+      admin: @admin
     }
 
   setHost: () ->

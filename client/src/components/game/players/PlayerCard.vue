@@ -36,6 +36,8 @@
         , 8000)
     methods:
       imgStyle: (player) ->
+        if player.admin
+          return { outline: '4px solid red' }
         if player.host
           return { outline: '4px solid #E6A23C' }
       color: () ->

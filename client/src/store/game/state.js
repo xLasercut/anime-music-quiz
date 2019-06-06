@@ -20,6 +20,6 @@ export default {
   },
   host: false,
   playing: false,
-  showAnswer: false,
-  volume: 50
+  volume: 50,
+  admin: false
 }

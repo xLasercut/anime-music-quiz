@@ -28,10 +28,6 @@
         if this.show
           return this.$store.state.game.currentSong.name
 
-        if this.$store.state.game.showAnswer
-          index = Math.floor(Math.random() * this.$store.state.game.choices.anime.length)
-          return this.$store.state.game.choices.anime[index]
-
         return '?'
 </script>
 

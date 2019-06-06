@@ -6,7 +6,7 @@ class AdminListener
     @logObject = logObject
 
   listen: (socket) ->
-    socket.on 'RELOAD_DATABASE', () ->
+    socket.on 'ADMIN_RELOAD_DATABASE', () =>
       @updateUserLists()
       @updateChoices()
       fullList.reload()
@@ -24,7 +24,7 @@ class AdminListener
 
   updateUserLists: () ->
     userLists.reload()
-    for file of userLists
+    for file of userLists.lists
       @io.emit('SYNC_USER_LIST', userLists.singleList(file), file)
 
 module.exports = AdminListener

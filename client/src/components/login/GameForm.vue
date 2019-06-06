@@ -8,7 +8,7 @@
       ></form-input>
       <form-input-password v-model.trim="form.password"></form-input-password>
       <v-layout justify-center wrap>
-        <v-flex xs12>
+        <v-flex shrink>
           <v-radio-group :column="false" v-model="form.avatar">
             <v-radio
               v-for="(avatar, index) in avatars"
