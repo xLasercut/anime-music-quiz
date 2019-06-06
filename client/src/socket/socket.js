@@ -3,7 +3,7 @@ import store from '../store/store.js'
 import VueSocketio from 'vue-socket.io-extended'
 import io from 'socket.io-client'
 
-var server = process.env.SERVER_ADDRESS
+var server = 'https://6a482e31.eu.ngrok.io'
 if (process.env.NODE_ENV === 'development') {
   server = 'http://localhost:3001'
 }
