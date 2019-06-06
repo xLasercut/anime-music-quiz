@@ -7,7 +7,7 @@ mustache = require 'mustache'
 { combine, timestamp, printf } = winston.format
 
 format = printf ({ level, message, timestamp }) =>
-  return "[#{timestamp}] - [#{level}]: #{message}"
+  return "[#{timestamp}] - [#{level}] - #{message}"
 
 logBase = path.join(__dirname, '..', '..', 'logs')
 configPath = path.join(__dirname, 'logbase.cfg')
@@ -66,7 +66,8 @@ class LogObject
       if !template
         @writeLog('LOG003', { logReference: logReference, text: template })
       else
-        logMsg = mustache.render(template, variables)
+        msg = mustache.render(template, variables)
+        logMsg = "[#{logReference}]: #{msg}"
         if level == 'INFO'
           logger.info(logMsg)
         else if level == 'WARN'
