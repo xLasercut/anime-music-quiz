@@ -1,9 +1,8 @@
 <template>
   <v-dialog v-if="$store.state.list.filename">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" color="success" flat @click="$emit('open')" class="user-list-btn">
-        Show List
-        <v-icon size="12pt" right>fas fa-list</v-icon>
+      <v-btn v-on="on" color="success" flat fab @click="$emit('open')">
+        <v-icon>fas fa-list</v-icon>
       </v-btn>
     </template>
     <v-card>
@@ -71,9 +70,3 @@
         link.download = 'my-list.json'
         link.click()
 </script>
-
-<style scoped>
-  .user-list-btn {
-    border-radius: 0;
-  }
-</style>

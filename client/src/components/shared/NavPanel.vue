@@ -1,18 +1,26 @@
 <template>
-  <v-toolbar>
-    <v-toolbar-items>
-      <nav-btn :icon="switchIcon" @click="$store.commit('TOGGLE_DARK_MODE')">
-        {{switchLabel}}
-      </nav-btn>
-      <nav-btn color="primary" v-if="$route.path != '/'" icon="fas fa-home" @click="disconnect()">
-        Home
-      </nav-btn>
-    </v-toolbar-items>
-    <v-spacer></v-spacer>
-    <game-control></game-control>
-    <list-picker-control></list-picker-control>
-    <login-control></login-control>
-  </v-toolbar>
+  <v-layout wrap>
+    <v-flex xs12 sm3>
+      <v-toolbar flat>
+        <v-toolbar-items>
+          <nav-btn :icon="switchIcon" @click="$store.commit('TOGGLE_DARK_MODE')">
+            {{switchLabel}}
+          </nav-btn>
+          <nav-btn color="primary" v-if="$route.path != '/'" icon="fas fa-home" @click="disconnect()">
+            Home
+          </nav-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+    </v-flex>
+    <v-flex xs12 sm9>
+      <v-toolbar flat>
+        <v-spacer></v-spacer>
+        <game-control></game-control>
+        <list-picker-control></list-picker-control>
+        <login-control></login-control>
+      </v-toolbar>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script lang="coffee">

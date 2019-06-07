@@ -2,11 +2,10 @@
   <v-dialog width="600" v-model="show">
     <template v-slot:activator="{ on }">
       <v-btn
-        class="admin-btn" v-on="on" color="warning"
-        flat @click="syncAdminInfo()" v-if="$store.state.admin.admin"
+        v-on="on" color="warning"
+        flat fab @click="syncAdminInfo()" v-if="$store.state.admin.admin"
       >
-        Admin
-        <v-icon size="12pt" right>fas fa-user-shield</v-icon>
+        <v-icon>fas fa-user-shield</v-icon>
       </v-btn>
     </template>
     <v-card>
@@ -42,9 +41,3 @@
           @playerList = playerList
         )
 </script>
-
-<style scoped>
-  .admin-btn {
-    border-radius: 0;
-  }
-</style>

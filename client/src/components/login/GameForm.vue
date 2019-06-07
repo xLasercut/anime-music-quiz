@@ -7,26 +7,9 @@
         :rules="nameRules"
       ></form-input>
       <form-input-password v-model.trim="form.password"></form-input-password>
-      <v-layout justify-center wrap>
-        <v-flex shrink>
-          <v-radio-group :column="false" v-model="form.avatar">
-            <v-radio
-              v-for="(avatar, index) in avatars"
-              :key="`avatar_${index}`"
-              :value="avatar"
-              on-icon=""
-              off-icon=""
-              :ripple="false"
-            >
-              <template slot="label">
-                <img :src="`img/avatar/${avatar}.png`">
-              </template>
-            </v-radio>
-          </v-radio-group>
-        </v-flex>
-      </v-layout>
+      <form-avatar :avatars="avatars"></form-avatar>
       <v-layout justify-center>
-        <v-flex xs2>
+        <v-flex xs6 sm3 md2>
           <v-text-field
             label="Score"
             v-model.number="form.score"
@@ -55,6 +38,7 @@
   import FormInput from './form/FormInput.vue'
   import FormInputPassword from './form/FormInputPassword.vue'
   import Notification from '../../assets/mixins/notification.coffee'
+  import FormAvatar from './form/FormAvatar.vue'
 
   avatars = ['0', '1', '2', '3', '4', '5', '6']
 
@@ -63,7 +47,7 @@
     password = 'password'
 
   export default
-    components: { IconBtn, FormInput, FormInputPassword }
+    components: { IconBtn, FormInput, FormInputPassword, FormAvatar }
     mixins: [ Notification ]
     data: () ->
       form: {

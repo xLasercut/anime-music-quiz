@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs3 class="chat-container" :style="{ background: $store.getters.color }">
+  <v-flex xs5 sm3 class="chat-container" :style="{ background: $store.getters.color }">
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">

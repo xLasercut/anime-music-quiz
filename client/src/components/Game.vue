@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs9>
+  <v-flex xs7 sm9>
     <answer></answer>
     <anime-information></anime-information>
     <guess-input></guess-input>

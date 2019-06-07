@@ -1,12 +1,11 @@
 <template>
   <v-layout wrap>
-    <v-flex xs4></v-flex>
-    <v-flex xs4 class="video-container">
+    <v-flex xs12 sm3></v-flex>
+    <v-flex xs12 sm6 class="video-container">
       <video-window :volume="$store.state.game.volume"></video-window>
       <countdown></countdown>
       <loading v-if="loading"></loading>
     </v-flex>
-    <v-flex xs1></v-flex>
     <song-information></song-information>
   </v-layout>
 </template>
@@ -36,5 +35,6 @@
   .video-container {
     height: 200px;
     text-align: center;
+    padding: 10px;
   }
 </style>

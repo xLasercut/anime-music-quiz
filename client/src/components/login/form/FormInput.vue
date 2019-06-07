@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-flex xs6>
+    <v-flex xs12 sm6>
       <v-text-field
         :label="label" box clearable
         v-model="model"

@@ -1,6 +1,6 @@
 <template>
-  <v-layout justify-center>
-    <v-flex xs5>
+  <v-layout justify-center wrap>
+    <v-flex xs12 sm6 md5>
       <v-combobox
         box clearable
         :items="$store.state.game.choices.anime"
@@ -8,7 +8,7 @@
         v-model="guess.anime"
       ></v-combobox>
     </v-flex>
-    <v-flex xs5>
+    <v-flex xs12 sm6 md5>
       <v-combobox
         box clearable
         :items="$store.state.game.choices.song"

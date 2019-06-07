@@ -1,11 +1,21 @@
 <template>
-  <v-layout column align-center class="text-xs-center">
-    <v-sheet class="song-num-container" :color="$store.getters.color">
-      {{currentSong}} / {{maxSong}}
-    </v-sheet>
-    <v-sheet class="answer-container" :color="$store.getters.color">
-      <b>{{answer()}}</b>
-    </v-sheet>
+  <v-layout>
+    <v-flex xs12>
+      <v-layout justify-center>
+        <v-flex xs4 sm3 md2 lg1 class="text-xs-center">
+          <v-sheet class="song-num-container" :color="$store.getters.color">
+            {{currentSong}} / {{maxSong}}
+          </v-sheet>
+        </v-flex>
+      </v-layout>
+      <v-layout justify-center>
+        <v-flex xs12 sm8 md6 lg5 class="text-xs-center">
+          <v-sheet class="answer-container" :color="$store.getters.color">
+            <b>{{answer()}}</b>
+          </v-sheet>
+        </v-flex>
+      </v-layout>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -34,13 +44,11 @@
 <style scoped>
   .song-num-container {
     border-radius: 50px 50px 0 0;
-    padding-top: 5px;
-    width: 100px;
+    padding: 5px;
     background: #E4E7ED;
   }
 
   .answer-container {
-    min-width: 400px;
     background: #E4E7ED;
     font-size: 16pt;
     padding: 5px;

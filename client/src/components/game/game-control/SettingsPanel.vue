@@ -1,9 +1,8 @@
 <template>
   <v-dialog width="500" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn class="settings-btn" v-on="on" color="info" flat @click="syncSettings()" :disabled="$store.state.game.playing">
-        Settings
-        <v-icon size="12pt" right>fas fa-cog</v-icon>
+      <v-btn v-on="on" color="info" fab flat @click="syncSettings()" :disabled="$store.state.game.playing">
+        <v-icon>fas fa-cog</v-icon>
       </v-btn>
     </template>
     <v-card>
@@ -72,10 +71,3 @@
       syncSettings: () ->
         this.$socket.emit('SYNC_SETTINGS')
 </script>
-
-
-<style scoped>
-  .settings-btn {
-    border-radius: 0;
-  }
-</style>

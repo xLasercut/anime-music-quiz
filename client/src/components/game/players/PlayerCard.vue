@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs4 lg2>
+  <v-flex shrink>
     <v-tooltip v-model="show" :color="color()" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
@@ -54,13 +54,13 @@
 
 <style scoped>
   .player-card {
-    width: 100%;
+    width: 160px;
     text-align: center;
+    margin: 5px;
   }
 
   img {
-    width: 100%;
-    max-width: 100px;
+    width: 100px;
     margin: 0;
     padding: 0;
   }
