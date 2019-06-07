@@ -8,6 +8,7 @@ class GameSettings
     @songCount = 20
     @guessTime = 25
     @lists = []
+    @mode = 'raid'
 
   listen: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>

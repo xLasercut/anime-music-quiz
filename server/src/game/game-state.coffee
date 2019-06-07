@@ -37,7 +37,7 @@ class GameState
     @logObject.writeLog('GAME005', {
       number: @currentSongCount,
       title: @currentSong.title,
-      anime: @currentSong.anime,
+      anime: @currentSong.name,
       type: @currentSong.type,
       artist: @currentSong.artist
     })
