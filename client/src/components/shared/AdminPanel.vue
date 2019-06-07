@@ -17,12 +17,9 @@
           </v-flex>
         </v-layout>
         <kick-player :player-list="playerList"></kick-player>
-        <v-layout justify-center>
-          <v-flex shrink>
-            <icon-btn color="warning" icon="fas fa-sync" @click="reloadDb()">Reload Database</icon-btn>
-          </v-flex>
-        </v-layout>
+        <database-reload></database-reload>
         <system-message></system-message>
+        <song-answer></song-answer>
       </v-container>
     </v-card>
   </v-dialog>
@@ -30,17 +27,16 @@
 
 <script lang="coffee">
   import KickPlayer from './admin/KickPlayer.vue'
+  import DatabaseReload from './admin/DatabaseReload.vue'
   import SystemMessage from './admin/SystemMessage.vue'
-  import IconBtn from './IconBtn.vue'
+  import SongAnswer from './admin/SongAnswer.vue'
 
   export default
-    components: { KickPlayer, IconBtn, SystemMessage }
+    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload }
     data: () ->
       show: false,
       playerList: {}
     methods:
-      reloadDb: () ->
-        this.$socket.emit('ADMIN_RELOAD_DATABASE')
       syncAdminInfo: () ->
         this.$socket.emit('ADMIN_SYNC_PLAYER_LIST', null, (playerList) =>
           @playerList = playerList
