@@ -37,9 +37,9 @@
     methods:
       imgStyle: (player) ->
         if player.admin
-          return { outline: '4px solid red' }
+          return { outline: '4px solid #E65100' }
         if player.host
-          return { outline: '4px solid #E6A23C' }
+          return { outline: '4px solid #0277BD' }
       color: () ->
         if this.player.scoreGained == 2
           return 'success'

@@ -1,11 +1,13 @@
 <template>
   <v-layout justify-center wrap>
     <v-flex>
-      <v-select
+      <v-select box
         :items="items()"
         item-text="username"
         item-value="id"
-        v-model="playerToKick"
+        :hint="hint()"
+        return-object
+        v-model="player"
       >
       </v-select>
     </v-flex>
@@ -17,12 +19,13 @@
 
 <script lang="coffee">
   export default
+    props: [ 'playerList' ]
     data: () ->
-      playerToKick: {}
+      player: { username: '', id: '' }
     methods:
       items: () ->
         list = []
-        for id, player of this.$store.state.game.players
+        for id, player of this.playerList
           if !player.admin
             list.push({
               username: player.username,
@@ -30,5 +33,7 @@
             })
         return list
       kickPlayer: () ->
-        this.$socket.emit('ADMIN_KICK_PLAYER', this.playerToKick)
+        this.$socket.emit('ADMIN_KICK_PLAYER', this.player.id)
+      hint: () ->
+        return "name=#{this.player.username} id=#{this.player.id}"
 </script>

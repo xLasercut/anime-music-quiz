@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import game from './game/game-store.js'
 import list from './list/list-store.js'
+import admin from './admin/admin-store.js'
 
 Vue.use(Vuex)
 
@@ -34,6 +35,7 @@ export default new Vuex.Store({
   },
   modules: {
     game: game,
-    list: list
+    list: list,
+    admin: admin
   }
 })

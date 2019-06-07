@@ -1,7 +1,10 @@
 <template>
   <v-dialog width="600" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn class="admin-btn" v-on="on" color="warning" flat v-show="$store.state.game.admin">
+      <v-btn
+        class="admin-btn" v-on="on" color="warning"
+        flat @click="syncAdminInfo()" v-if="$store.state.admin.admin"
+      >
         Admin
         <v-icon size="12pt" right>fas fa-user-shield</v-icon>
       </v-btn>
@@ -13,12 +16,13 @@
             Admin
           </v-flex>
         </v-layout>
-        <kick-player></kick-player>
+        <kick-player :player-list="playerList"></kick-player>
         <v-layout justify-center>
           <v-flex shrink>
             <icon-btn color="warning" icon="fas fa-sync" @click="reloadDb()">Reload Database</icon-btn>
           </v-flex>
         </v-layout>
+        <system-message></system-message>
       </v-container>
     </v-card>
   </v-dialog>
@@ -26,15 +30,21 @@
 
 <script lang="coffee">
   import KickPlayer from './admin/KickPlayer.vue'
-  import IconBtn from '../../shared/IconBtn.vue'
+  import SystemMessage from './admin/SystemMessage.vue'
+  import IconBtn from './IconBtn.vue'
 
   export default
-    components: { KickPlayer, IconBtn }
+    components: { KickPlayer, IconBtn, SystemMessage }
     data: () ->
-      show: false
+      show: false,
+      playerList: {}
     methods:
       reloadDb: () ->
         this.$socket.emit('ADMIN_RELOAD_DATABASE')
+      syncAdminInfo: () ->
+        this.$socket.emit('ADMIN_SYNC_PLAYER_LIST', null, (playerList) =>
+          @playerList = playerList
+        )
 </script>
 
 <style scoped>

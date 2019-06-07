@@ -16,15 +16,15 @@
   import NavBtn from '../shared/NavBtn.vue'
   import SettingsPanel from './game-control/SettingsPanel.vue'
   import VolumeSlider from './game-control/VolumeSlider.vue'
-  import AdminPanel from './game-control/AdminPanel.vue'
+  import AdminPanel from '../shared/AdminPanel.vue'
 
   export default
     components: { SettingsPanel, VolumeSlider, NavBtn, AdminPanel }
     computed:
       showPlay: () ->
-        return (!this.$store.state.game.playing and (this.$store.state.game.host or this.$store.state.game.admin))
+        return (!this.$store.state.game.playing and (this.$store.state.game.host or this.$store.state.admin.admin))
       showStop: () ->
-        return (this.$store.state.game.playing and (this.$store.state.game.host or this.$store.state.game.admin))
+        return (this.$store.state.game.playing and (this.$store.state.game.host or this.$store.state.admin.admin))
     methods:
       play: () ->
         this.$socket.emit('START_GAME')

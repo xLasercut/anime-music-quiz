@@ -22,4 +22,5 @@
         this.$socket.close()
         this.$store.commit('list/DISCONNECT')
         this.$store.commit('game/DISCONNECT')
+        this.$store.commit('admin/DISCONNECT')
 </script>

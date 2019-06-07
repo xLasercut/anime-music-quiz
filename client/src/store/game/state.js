@@ -20,6 +20,5 @@ export default {
   },
   host: false,
   playing: false,
-  volume: 50,
-  admin: false
+  volume: 50
 }

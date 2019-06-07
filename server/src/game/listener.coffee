@@ -69,19 +69,5 @@ class GameListener
       @gameState.reset()
       @playerManagement.readyClear()
 
-  listenAdmin: (socket) ->
-    socket.on 'ADMIN_KICK_PLAYER', (id) =>
-      client = @io.nsps['/'].connected[id]
-      if client
-        client.emit('KICKED')
-        username = @playerManagement.playerName(id)
-        @chat.system("#{username} has been kicked")
-        client.disconnect()
-        @logObject.writeLog('ADMIN002', {
-          id: socket.id,
-          admin: socket.admin,
-          idKicked: id,
-          username: username
-        })
 
 module.exports = GameListener

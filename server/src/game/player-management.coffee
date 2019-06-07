@@ -10,7 +10,7 @@ class PlayerManagement
 
   listen: (socket) ->
     socket.on 'USER_MESSAGE', (message) =>
-      @chat.user(message, @playerName(socket.id))
+      @chat.user(message, @playerName(socket.id), socket.admin)
 
   addPlayer: (player, id, admin) ->
     host = false

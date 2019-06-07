@@ -3,10 +3,11 @@ class Chat
     @logObject = logObject
     @io = io
 
-  user: (message, username) ->
+  user: (message, username, admin) ->
     data = {
       user: username,
-      message: message
+      message: message,
+      admin: admin
     }
     @message(data)
     @logObject.writeLog('CHAT001', { username: username, message: message })

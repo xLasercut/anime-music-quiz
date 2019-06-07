@@ -1,5 +1,6 @@
 <template>
   <v-toolbar-items v-if="$route.path == '/list-picker'">
+    <admin-panel></admin-panel>
     <list-selector></list-selector>
     <nav-btn color="warning" @click="reload()" icon="fas fa-sync">
       Reload
@@ -13,9 +14,10 @@
   import NavBtn from '../shared/NavBtn.vue'
   import UserList from './UserList.vue'
   import EventBus from '../../assets/mixins/event-bus.coffee'
+  import AdminPanel from '../shared/AdminPanel.vue'
 
   export default
-    components: { ListSelector, NavBtn, UserList }
+    components: { ListSelector, NavBtn, UserList, AdminPanel }
     methods:
       reload: () ->
         this.$store.commit('list/UPDATE_LOADING', true)

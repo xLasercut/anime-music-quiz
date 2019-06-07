@@ -64,7 +64,7 @@
         set: (settings) ->
           this.$store.commit('game/UPDATE_SETTINGS', settings)
       disabled: () ->
-        return !(this.$store.state.game.host or this.$store.state.game.admin)
+        return !(this.$store.state.game.host or this.$store.state.admin.admin)
     methods:
       updateSettings: () ->
         this.$socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)

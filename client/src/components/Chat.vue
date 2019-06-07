@@ -3,8 +3,8 @@
     <div class="message-container">
       <ul>
         <li v-for="(message, index) in messages" :key="`chat_${index}`">
-          <b v-if="message.user">{{message.user}}: </b>
-          {{message.message}}
+          <span v-if="message.user"><b :style="nameColor(message.admin)">{{message.user}}: </b>{{message.message}}</span>
+          <span v-if="!message.user"><b>{{message.message}}</b></span>
         </li>
       </ul>
     </div>
@@ -38,6 +38,10 @@
         if this.messages.length > 200
           this.messages.splice(0, 1)
         this.messages.push(data)
+      nameColor: (admin) ->
+        if admin
+          return { color: '#E65100' }
+        return {}
 </script>
 
 <style scoped>

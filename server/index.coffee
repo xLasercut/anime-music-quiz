@@ -17,7 +17,7 @@ io = socketio(server)
 
 gameListener = new GameListener(io, logObject)
 listListener = new ListListener(io, logObject)
-adminListener = new AdminListener(io, logObject)
+adminListener = new AdminListener(io, logObject, gameListener, listListener)
 
 checkPassword = (socket, password) ->
   if password == config.adminPassword or password == config.serverPassword
@@ -28,14 +28,12 @@ checkPassword = (socket, password) ->
 startListeners = (socket, callback) ->
   if socket.auth
     logObject.writeLog('AUTH001', { id: socket.id, admin: socket.admin })
+    socket.emit('SYNC_ADMIN', socket.admin)
     gameListener.listen(socket)
     listListener.listen(socket)
     if socket.admin
-      gameListener.listenAdmin(socket)
       adminListener.listen(socket)
-    callback(true)
-  else
-    callback(false)
+  callback(socket.auth, socket.admin)
 
 io.on 'connection', (socket) ->
   logObject.writeLog('SERVER002', { id: socket.id })
