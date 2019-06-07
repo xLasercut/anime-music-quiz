@@ -6,6 +6,7 @@
         :items="$store.state.game.choices.anime"
         label="Anime"
         v-model="guess.anime"
+        clear-icon="far fa-times-circle"
       ></v-combobox>
     </v-flex>
     <v-flex xs12 sm6 md5>
@@ -14,6 +15,7 @@
         :items="$store.state.game.choices.song"
         label="Song"
         v-model="guess.song"
+        clear-icon="far fa-times-circle"
       ></v-combobox>
     </v-flex>
   </v-layout>

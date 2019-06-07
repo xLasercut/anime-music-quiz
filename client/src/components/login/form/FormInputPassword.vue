@@ -3,6 +3,9 @@
     label="Server Password"
     v-model="model"
     :rules="rules"
+    :append-icon="icon"
+    @click:append="show = !show"
+    :type="inputType"
   ></form-input>
 </template>
 
@@ -17,5 +20,15 @@
       rules: [
         (v) => !!v || 'Server password required',
         (v) => /[0-9A-Za-z]+/ig.test(v) || 'Valid characters A-Z, a-z, 0-9'
-      ]
+      ],
+      show: false
+    computed:
+      icon: () ->
+        if this.show
+          return 'fas fa-eye-slash'
+        return 'fas fa-eye'
+      inputType: () ->
+        if this.show
+          return 'text'
+        return 'password'
 </script>

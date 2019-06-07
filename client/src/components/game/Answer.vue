@@ -43,8 +43,8 @@
 
 <style scoped>
   .song-num-container {
-    border-radius: 50px 50px 0 0;
-    padding: 5px;
+    border-radius: 30px 30px 0 0;
+    padding: 2px;
     background: #E4E7ED;
   }
 

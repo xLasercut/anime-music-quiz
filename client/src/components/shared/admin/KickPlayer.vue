@@ -12,8 +12,8 @@
       </v-select>
     </v-flex>
     <v-flex shrink>
-        <v-btn depressed color="error" @click="kickPlayer()">Kick</v-btn>
-      </v-flex>
+      <v-btn depressed color="error" @click="kickPlayer()">Kick</v-btn>
+    </v-flex>
   </v-layout>
 </template>
 

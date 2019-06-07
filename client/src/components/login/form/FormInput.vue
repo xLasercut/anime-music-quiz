@@ -3,8 +3,12 @@
     <v-flex xs12 sm6>
       <v-text-field
         :label="label" box clearable
-        v-model="model"
+        v-model.trim="model"
         :rules="rules"
+        :append-icon="appendIcon"
+        @click:append="$emit('click:append')"
+        :type="type"
+        clear-icon="far fa-times-circle"
       ></v-text-field>
     </v-flex>
   </v-layout>
@@ -14,6 +18,6 @@
   import VModel from '../../../assets/mixins/v-model.coffee'
 
   export default
-    props: [ 'label', 'rules' ]
+    props: [ 'label', 'rules', 'appendIcon', 'type' ]
     mixins: [ VModel ]
 </script>

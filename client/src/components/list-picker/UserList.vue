@@ -6,7 +6,7 @@
       </v-btn>
     </template>
     <v-card>
-      <v-container fluid grid-list-xs>
+      <v-container fluid grid-list-lg>
         <v-layout wrap>
           <v-flex xs12 class="text-xs-center">
             <icon-btn @click="download()" color="success" icon="fas fa-download">Download List</icon-btn>
