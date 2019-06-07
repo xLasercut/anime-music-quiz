@@ -7,7 +7,7 @@
         :rules="nameRules"
       ></form-input>
       <form-input-password v-model.trim="form.password"></form-input-password>
-      <form-avatar :avatars="avatars"></form-avatar>
+      <form-avatar :avatars="avatars" v-model="form.avatar"></form-avatar>
       <v-layout justify-center>
         <v-flex xs6 sm3 md2>
           <v-text-field
