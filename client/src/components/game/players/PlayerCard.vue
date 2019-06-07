@@ -63,6 +63,7 @@
     width: 100px;
     margin: 0;
     padding: 0;
+    outline: 1px solid black;
   }
 
   .player-name {

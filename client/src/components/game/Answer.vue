@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex xs12>
       <v-layout justify-center>
-        <v-flex xs4 sm3 md2 lg1 class="text-xs-center">
+        <v-flex xs5 sm3 md2 class="text-xs-center">
           <v-sheet class="song-num-container" :color="$store.getters.color">
             {{currentSong}} / {{maxSong}}
           </v-sheet>

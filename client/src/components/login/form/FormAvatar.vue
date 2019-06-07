@@ -11,7 +11,7 @@
   import VModel from '../../../assets/mixins/v-model.coffee'
 
   export default
-    props: ['avatars'],
+    props: ['avatars']
     mixins: [ VModel ]
 </script>
 
@@ -20,11 +20,16 @@
     display: none;
   }
 
+  img {
+    outline: 1px solid black;
+    cursor: pointer;
+    transition: all 0.1s;
+    background-color: white;
+  }
+
   input:checked + label img {
     outline: 4px solid var(--v-success-base);
   }
 
-  img {
-    cursor: pointer;
-  }
+
 </style>
