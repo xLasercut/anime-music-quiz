@@ -1,7 +1,7 @@
 <template>
   <v-dialog width="500" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" color="info" fab flat @click="syncSettings()" :disabled="$store.state.game.playing">
+      <v-btn v-on="on" color="info" fab flat @click="syncSettings()">
         <v-icon>fas fa-cog</v-icon>
       </v-btn>
     </template>
@@ -16,7 +16,7 @@
           <settings-slider
             label="Song Number"
             v-model.number="settings.songCount"
-            min="1" max="100" :diabled="disabled"
+            min="1" max="100" :disabled="disabled"
           ></settings-slider>
           <settings-slider
             label="Guess Time"
@@ -63,7 +63,7 @@
         set: (settings) ->
           this.$store.commit('game/UPDATE_SETTINGS', settings)
       disabled: () ->
-        return !(this.$store.state.game.host or this.$store.state.admin.admin)
+        return !(this.$store.state.game.host or this.$store.state.admin.admin) or this.$store.state.game.playing
     methods:
       updateSettings: () ->
         this.$socket.emit('UPDATE_SETTINGS', this.$store.state.game.settings)
