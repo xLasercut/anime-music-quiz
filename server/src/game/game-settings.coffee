@@ -8,7 +8,7 @@ class GameSettings
     @songCount = 20
     @guessTime = 25
     @lists = []
-    @mode = 'raid'
+    @mode = 'normal'
 
   listen: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>
@@ -19,10 +19,12 @@ class GameSettings
       @songCount = settings.songCount
       @guessTime = settings.guessTime
       @lists = settings.lists
+      @mode = settings.mode
 
       @logObject.writeLog('SETTING002', {
         songCount: @songCount,
         guessTime: @guessTime,
+        mode: @mode,
         lists: @lists.join('|')
       })
       @io.emit('SYNC_SETTINGS', @serialize())
@@ -32,7 +34,8 @@ class GameSettings
     return {
       songCount: @songCount,
       guessTime: @guessTime,
-      lists: @lists
+      lists: @lists,
+      mode: @mode
     }
 
 module.exports = GameSettings

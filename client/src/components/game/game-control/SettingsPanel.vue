@@ -24,6 +24,7 @@
             v-model.number="settings.guessTime"
             min="1" max="50" :disabled="disabled"
           ></settings-slider>
+          <settings-radio v-model="settings.mode" :disabled="disabled"></settings-radio>
           <settings-checkbox
             :disabled="disabled" v-model="settings.lists"
             :items="$store.state.userListFiles"
@@ -50,9 +51,10 @@
   import SettingsSlider from './settings/SettingsSlider.vue'
   import SettingsCheckbox from './settings/SettingsCheckbox.vue'
   import NavBtn from '../../shared/NavBtn.vue'
+  import SettingsRadio from './settings/SettingsRadio.vue'
 
   export default
-    components: { IconBtn, SettingsSlider, SettingsCheckbox, NavBtn }
+    components: { IconBtn, SettingsSlider, SettingsCheckbox, NavBtn, SettingsRadio }
     data: () ->
       show: false
     sockets:

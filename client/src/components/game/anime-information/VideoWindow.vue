@@ -29,6 +29,9 @@
         this.show = true
       RESET: () ->
         this.$refs.player.pause()
+      PLACE_BET: () ->
+        this.$refs.player.pause()
+        this.show = false
     methods:
       confirmLoad: () ->
         this.$refs.player.currentTime = this.getStartPosition()

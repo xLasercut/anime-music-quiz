@@ -39,6 +39,12 @@ class PlayerManagement
     @players[id].changeName(name)
     @updateClient()
 
+  changeBet: (id, bet) ->
+    @players[id].changeBet(bet)
+
+  playerBet: (id) ->
+    return @players[id].bet
+
   playerName: (id) ->
     return @players[id].username
 
@@ -47,18 +53,21 @@ class PlayerManagement
       player.resetScore()
     @updateClient()
 
-  playerReady: (id) ->
-    @players[id].setReady()
+  canProgress: (id) ->
+    @players[id].setReady(true)
+    if @isAllReady()
+      @readyClear()
+      return true
+    return false
 
   songOver: (guess, point, id) ->
     @players[id].setGuess(guess)
     @players[id].addPoint(point)
-    @players[id].setReady()
     @updateClient()
 
   readyClear: () ->
     for _id, player of @players
-      player.readyClear()
+      player.setReady(false)
 
   isAllReady: () ->
     for _id, player of @players

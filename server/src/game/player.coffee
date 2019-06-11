@@ -11,6 +11,7 @@ class Player
     @ready = false
     @scoreGained = 0
     @admin = admin
+    @bet = 1
 
   serialize: () ->
     return {
@@ -29,11 +30,8 @@ class Player
   resetScore: () ->
     @score = 0
 
-  setReady: () ->
-    @ready = true
-
-  readyClear: () ->
-    @ready = false
+  setReady: (status) ->
+    @ready = status
 
   setGuess: (guess) ->
     @guess = guess
@@ -44,5 +42,8 @@ class Player
 
   changeName: (name) ->
     @username = name
+
+  changeBet: (bet) ->
+    @bet = bet
 
 module.exports = Player

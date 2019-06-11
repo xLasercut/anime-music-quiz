@@ -27,8 +27,7 @@
       guess: {
         anime: '',
         song: ''
-      },
-      socket: this.$store.state.game.socket
+      }
     sockets:
       NEW_SONG: (_song, _position) ->
         this.guess.song = ''

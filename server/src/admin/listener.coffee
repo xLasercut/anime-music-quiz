@@ -1,5 +1,6 @@
 { animeChoices, userLists, songChoices, fullList } = require '../shared-classes.coffee'
 Chat = require '../game/chat.coffee'
+Notification = require './notification.coffee'
 
 class AdminListener
   constructor: (io, logObject, game, list) ->
@@ -8,6 +9,7 @@ class AdminListener
     @game = game
     @list = list
     @chat = new Chat(io, logObject)
+    @notification = new Notification(io)
 
   listen: (socket) ->
     socket.on 'ADMIN_RELOAD_DATABASE', () =>
@@ -46,9 +48,7 @@ class AdminListener
           idChanged: id,
           newName: username
         })
-        client = @io.nsps['/'].connected[id]
-        if client
-          client.emit('SYSTEM_NOTIFICATION', 'warning', "Your username has been changed to: #{username}")
+        @notification.warning(id, "Your username has been changed to: #{username}")
 
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
       if @isAdmin(socket)

@@ -13,6 +13,7 @@ class GameListener
     @gameState = new GameState(io, logObject)
     @chat = new Chat(io, logObject)
     @timeout = null
+    @game = null
 
   listen: (socket) ->
     @playerManagement.listen(socket)
@@ -36,32 +37,35 @@ class GameListener
       @playerManagement.resetScore()
       @gameState.generateGameList(@gameSettings.songCount, @gameSettings.lists)
       if @gameState.gameList.length > 0
-        @gameState.startGame()
-        @gameState.newSong()
+        @gameState.startGame(@gameSettings.mode)
+        @newRound()
       else
         @chat.system('Empty song list')
 
+    socket.on 'SET_BET', (bet) =>
+      @playerManagement.changeBet(socket.id, bet)
+      if @playerManagement.canProgress(socket.id)
+        @gameState.newSong()
+
     socket.on 'SONG_LOADED', () =>
-      @playerManagement.playerReady(socket.id)
-      if @playerManagement.isAllReady()
-        @playerManagement.readyClear()
-        @io.emit('START_COUNTDOWN')
+      if @playerManagement.canProgress(socket.id)
+        @io.emit('START_COUNTDOWN', @gameSettings.guessTime)
         @timeout = setTimeout(() =>
           @io.emit('TIME_UP')
         , @gameSettings.guessTime * 1000)
 
     socket.on 'GUESS', (guess) =>
-      @playerManagement.songOver(guess, @gameState.pointScored(guess), socket.id)
-      if @playerManagement.isAllReady()
-        @playerManagement.readyClear()
+      point = @gameState.pointScored(guess, @playerManagement.playerBet(socket.id))
+      @playerManagement.songOver(guess, point, socket.id)
+      if @playerManagement.canProgress(socket.id)
         @io.emit('SHOW_GUESS')
-        if @gameState.roundEnd()
+        if @gameState.gameEnd()
           @logObject.writeLog('GAME003')
           clearTimeout(@timeout)
           @gameState.reset()
         else
           @timeout = setTimeout( () =>
-            @gameState.newSong()
+            @newRound()
           , 10000)
 
     socket.on 'STOP_GAME', () =>
@@ -69,5 +73,14 @@ class GameListener
       @gameState.reset()
       @playerManagement.readyClear()
 
+
+  newRound: () ->
+    if @gameSettings.mode == 'gamble'
+      @io.emit('PLACE_BET', 10)
+      @timeout = setTimeout( () =>
+        @io.emit('CLOSE_BET')
+      , 10000)
+    else
+      @gameState.newSong()
 
 module.exports = GameListener

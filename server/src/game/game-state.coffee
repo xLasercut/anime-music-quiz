@@ -1,4 +1,5 @@
 { userLists, animeChoices, songChoices } = require '../shared-classes.coffee'
+ScoreCalculator = require './score-calculator.coffee'
 
 class GameState
   constructor: (io, logObject) ->
@@ -10,6 +11,7 @@ class GameState
     @currentSongCount = 0
     @currentSong = {}
     @startPosition = 0
+    @gameMode = 'normal'
 
   generateGameList: (songCount, lists) ->
     combinedList = userLists.combinedList(lists)
@@ -26,11 +28,12 @@ class GameState
 
     @logObject.writeLog('GAME004', { size: @gameList.length })
 
-  startGame: () ->
+  startGame: (mode) ->
     @playing = true
     @io.emit('SYNC_PLAYING', @playing)
     @maxSongCount = @gameList.length
-    @logObject.writeLog('GAME002', { songCount: @maxSongCount })
+    @gameMode = mode
+    @logObject.writeLog('GAME002', { songCount: @maxSongCount, mode: @gameMode })
 
   newSong: () ->
     @randomSong()
@@ -58,33 +61,11 @@ class GameState
     }
     @io.emit('SYNC_SONG_COUNT', count)
 
-  pointScored: (guess) ->
-    point = 0
-    if guess.anime
-      if @animeCorrect(guess.anime.toLowerCase())
-        point += 1
+  pointScored: (guess, bet) ->
+    scoreCalculator = new ScoreCalculator(@gameMode, @currentSong, bet)
+    return scoreCalculator.calculateScore(guess)
 
-    if guess.song
-      if @songCorrect(guess.song.toLowerCase())
-        point += 1
-
-    return point
-
-  animeCorrect: (anime) ->
-    if anime == @currentSong.anime.toLowerCase()
-      return true
-
-    for altName in @currentSong.altName
-      if anime == altName.toLowerCase()
-        return true
-    return false
-
-  songCorrect: (song) ->
-    if song == @currentSong.title.toLowerCase()
-      return true
-    return false
-
-  roundEnd: () ->
+  gameEnd: () ->
     if @currentSongCount < @maxSongCount
       return false
     return true

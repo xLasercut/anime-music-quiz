@@ -6,7 +6,8 @@ export default {
   settings: {
     songCount: 20,
     guessTime: 25,
-    lists: []
+    lists: [],
+    mode: 'normal'
   },
   players: {},
   currentSong: {
