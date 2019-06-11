@@ -22,7 +22,7 @@ class AdminListener
       if @isAdmin(socket)
         client = @io.nsps['/'].connected[id]
         if client
-          client.emit('KICKED')
+          client.emit('SYSTEM_NOTIFICATION', 'error', 'You have been kicked')
           username = @game.playerManagement.playerName(id)
           @chat.system("#{username} has been kicked")
           client.disconnect()
@@ -36,6 +36,19 @@ class AdminListener
     socket.on 'ADMIN_SYSTEM_MESSAGE', (message) =>
       if @isAdmin(socket)
         @chat.system(message)
+
+    socket.on 'ADMIN_CHANGE_PLAYER_NAME', (id, username) =>
+      if @isAdmin(socket)
+        @game.playerManagement.changeName(id, username)
+        @logObject.writeLog('ADMIN004', {
+          id: socket.id,
+          admin: socket.admin,
+          idChanged: id,
+          newName: username
+        })
+        client = @io.nsps['/'].connected[id]
+        if client
+          client.emit('SYSTEM_NOTIFICATION', 'warning', "Your username has been changed to: #{username}")
 
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
       if @isAdmin(socket)

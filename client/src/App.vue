@@ -9,8 +9,18 @@
 <script lang="coffee">
   import NavPanel from './components/shared/NavPanel.vue'
   import GameNotification from './components/shared/GameNotification.vue'
+  import Notification from './assets/mixins/notification.coffee'
 
   export default
     name: 'App'
     components: { NavPanel, GameNotification }
+    mixins: [ Notification ]
+    sockets:
+      SYSTEM_NOTIFICATION: (type, message) ->
+        if type == 'error'
+          this.notifyError(message)
+        else if type == 'success'
+          this.notifySuccess(message)
+        else if type == 'warning'
+          this.notifyWarning(message)
 </script>

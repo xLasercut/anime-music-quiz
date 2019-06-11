@@ -24,8 +24,6 @@
         this.$store.commit('game/UPDATE_PLAYERS', data)
       disconnect: () ->
         this.$router.push('/')
-      KICKED: () ->
-        this.notifyError('You have been kicked')
     mounted: () ->
       if !this.$socket.connected
         this.$router.push('/')

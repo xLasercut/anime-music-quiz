@@ -35,6 +35,10 @@ class PlayerManagement
       @players[id].setHost()
       @logObject.writeLog('PLAYER003', { id: id, username: @playerName(id) })
 
+  changeName: (id, name) ->
+    @players[id].changeName(name)
+    @updateClient()
+
   playerName: (id) ->
     return @players[id].username
 

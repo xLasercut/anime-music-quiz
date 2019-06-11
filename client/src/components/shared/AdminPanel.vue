@@ -15,6 +15,7 @@
           </v-flex>
         </v-layout>
         <kick-player :player-list="playerList"></kick-player>
+        <name-changer :player-list="playerList"></name-changer>
         <database-reload></database-reload>
         <system-message></system-message>
         <song-answer></song-answer>
@@ -29,9 +30,10 @@
   import SystemMessage from './admin/SystemMessage.vue'
   import SongAnswer from './admin/SongAnswer.vue'
   import NavBtn from './NavBtn.vue'
+  import NameChanger from './admin/NameChanger.vue'
 
   export default
-    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload, NavBtn }
+    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload, NavBtn, NameChanger }
     data: () ->
       show: false,
       playerList: {}

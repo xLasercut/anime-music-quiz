@@ -42,4 +42,7 @@ class Player
     @score += point
     @scoreGained = point
 
+  changeName: (name) ->
+    @username = name
+
 module.exports = Player

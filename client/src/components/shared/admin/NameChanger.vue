@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center wrap>
-    <v-flex>
+    <v-flex xs5>
       <v-select box
         :items="items()"
         item-text="username"
@@ -10,8 +10,11 @@
       >
       </v-select>
     </v-flex>
-    <v-flex shrink>
-      <v-btn depressed color="error" @click="kickPlayer()">Kick</v-btn>
+    <v-flex xs4>
+      <v-text-field v-model="newName"></v-text-field>
+    </v-flex>
+    <v-flex xs3 class="text-xs-center">
+      <v-btn block depressed color="warning" @click="changeName()">Change Name</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -20,7 +23,8 @@
   export default
     props: [ 'playerList' ]
     data: () ->
-      id: ''
+      id: '',
+      newName: ''
     methods:
       items: () ->
         list = []
@@ -31,6 +35,6 @@
               id: id
             })
         return list
-      kickPlayer: () ->
-        this.$socket.emit('ADMIN_KICK_PLAYER', this.id)
+      changeName: () ->
+        this.$socket.emit('ADMIN_CHANGE_PLAYER_NAME', this.id, this.newName)
 </script>
