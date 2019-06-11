@@ -1,9 +1,10 @@
 <template>
   <v-dialog v-if="$store.state.list.filename">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" color="success" flat fab @click="$emit('open')">
-        <v-icon>fas fa-list</v-icon>
-      </v-btn>
+      <nav-btn
+        color="success" :activator="on" @click="syncUserList()"
+        icon="fas fa-list"
+      ></nav-btn>
     </template>
     <v-card>
       <v-container fluid grid-list-lg>
@@ -30,9 +31,10 @@
   import ListFilter from './ListFilter.vue'
   import IconBtn from '../shared/IconBtn.vue'
   import ListPagination from './ListPagination.vue'
+  import NavBtn from '../shared/NavBtn.vue'
 
   export default
-    components: { ListData, ListFilter, IconBtn, ListPagination }
+    components: { ListData, ListFilter, IconBtn, ListPagination, NavBtn }
     data: () ->
       filter: {
         anime: '',
@@ -69,4 +71,6 @@
         link.href = window.URL.createObjectURL(blob)
         link.download = 'my-list.json'
         link.click()
+      syncUserList: () ->
+        this.$socket.emit('SYNC_USER_LIST', this.$store.state.list.filename)
 </script>

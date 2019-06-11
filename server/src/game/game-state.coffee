@@ -60,14 +60,29 @@ class GameState
 
   pointScored: (guess) ->
     point = 0
-    if guess.anime == @currentSong.name or @currentSong.altName.includes(guess.anime)
-      point += 1
+    if guess.anime
+      if @animeCorrect(guess.anime.toLowerCase())
+        point += 1
 
     if guess.song
-      if guess.song.toLowerCase() == @currentSong.title.toLowerCase()
+      if @songCorrect(guess.song.toLowerCase())
         point += 1
 
     return point
+
+  animeCorrect: (anime) ->
+    if anime == @currentSong.anime.toLowerCase()
+      return true
+
+    for altName in @currentSong.altName
+      if anime == altName.toLowerCase()
+        return true
+    return false
+
+  songCorrect: (song) ->
+    if song == @currentSong.title.toLowerCase()
+      return true
+    return false
 
   roundEnd: () ->
     if @currentSongCount < @maxSongCount

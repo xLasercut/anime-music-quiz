@@ -1,9 +1,10 @@
 <template>
   <v-dialog width="500" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" color="info" fab flat @click="syncSettings()">
-        <v-icon>fas fa-cog</v-icon>
-      </v-btn>
+      <nav-btn
+        :activator="on" color="info" @click="syncSettings()"
+        icon="fas fa-cog"
+      ></nav-btn>
     </template>
     <v-card>
       <v-container grid-list-lg>
@@ -48,9 +49,10 @@
   import IconBtn from '../../shared/IconBtn.vue'
   import SettingsSlider from './settings/SettingsSlider.vue'
   import SettingsCheckbox from './settings/SettingsCheckbox.vue'
+  import NavBtn from '../../shared/NavBtn.vue'
 
   export default
-    components: { IconBtn, SettingsSlider, SettingsCheckbox }
+    components: { IconBtn, SettingsSlider, SettingsCheckbox, NavBtn }
     data: () ->
       show: false
     sockets:

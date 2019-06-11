@@ -1,12 +1,11 @@
 <template>
   <v-dialog width="600" v-model="show">
     <template v-slot:activator="{ on }">
-      <v-btn
-        v-on="on" color="warning"
-        flat fab @click="syncAdminInfo()" v-if="$store.state.admin.admin"
-      >
-        <v-icon>fas fa-user-shield</v-icon>
-      </v-btn>
+      <nav-btn
+        color="warning" @click="syncAdminInfo()"
+        v-if="$store.state.admin.admin" :activator="on"
+        icon="fas fa-user-shield"
+      ></nav-btn>
     </template>
     <v-card>
       <v-container grid-list-lg>
@@ -29,9 +28,10 @@
   import DatabaseReload from './admin/DatabaseReload.vue'
   import SystemMessage from './admin/SystemMessage.vue'
   import SongAnswer from './admin/SongAnswer.vue'
+  import NavBtn from './NavBtn.vue'
 
   export default
-    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload }
+    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload, NavBtn }
     data: () ->
       show: false,
       playerList: {}
