@@ -60,9 +60,10 @@ class PlayerManagement
       return true
     return false
 
-  songOver: (guess, point, id) ->
+  songOver: (guess, score, id) ->
     @players[id].setGuess(guess)
-    @players[id].addPoint(point)
+    @players[id].addPoint(score.point)
+    @players[id].changeColor(score.color)
     @updateClient()
 
   readyClear: () ->

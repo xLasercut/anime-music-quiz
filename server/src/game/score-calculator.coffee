@@ -11,17 +11,14 @@ class ScoreCalculator
       return @pointScoredNormal(guess)
 
   pointScoredBet: (guess) ->
-    point = 0
+    score = @pointScoredNormal(guess)
 
-    if @animeCorrect(guess.anime)
-      point += 1
+    if score.point == 0
+      score['point'] -= @bet
     else
-      point += -1
+      score['point'] = score.point * @bet
 
-    if @songCorrect(guess.song)
-      point += 1
-
-    return point * @bet
+    return score
 
   pointScoredNormal: (guess) ->
     point = 0
@@ -31,7 +28,10 @@ class ScoreCalculator
     if @songCorrect(guess.song)
       point += 1
 
-    return point
+    return {
+      point: point,
+      color: @bannerColor(point)
+    }
 
   animeCorrect: (anime) ->
     if anime
@@ -48,5 +48,13 @@ class ScoreCalculator
       if song.toLowerCase() == @currentSong.title.toLowerCase()
         return true
     return false
+
+  bannerColor: (point) ->
+    if point == 2
+      return 'success'
+    else if point == 1
+      return 'warning'
+
+    return 'error'
 
 module.exports = ScoreCalculator

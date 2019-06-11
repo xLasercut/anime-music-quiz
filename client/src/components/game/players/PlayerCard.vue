@@ -1,6 +1,6 @@
 <template>
   <v-flex shrink>
-    <v-tooltip v-model="show" :color="color()" min-width="160" max-width="160" top>
+    <v-tooltip v-model="show" :color="player.color" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
           <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
@@ -40,12 +40,6 @@
           return { outline: '4px solid #E65100' }
         if player.host
           return { outline: '4px solid #0277BD' }
-      color: () ->
-        if this.player.scoreGained == 2
-          return 'success'
-        else if this.player.scoreGained == 1
-          return 'warning'
-        return 'error'
       guess: (type) ->
         if !this.player.guess[type]
           return '...'

@@ -61,7 +61,7 @@ class GameState
     }
     @io.emit('SYNC_SONG_COUNT', count)
 
-  pointScored: (guess, bet) ->
+  getScore: (guess, bet) ->
     scoreCalculator = new ScoreCalculator(@gameMode, @currentSong, bet)
     return scoreCalculator.calculateScore(guess)
 

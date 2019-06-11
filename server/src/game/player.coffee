@@ -12,6 +12,7 @@ class Player
     @scoreGained = 0
     @admin = admin
     @bet = 1
+    @color = 'error'
 
   serialize: () ->
     return {
@@ -21,7 +22,8 @@ class Player
       host: @host,
       guess: @guess,
       scoreGained: @scoreGained,
-      admin: @admin
+      admin: @admin,
+      color: @color
     }
 
   setHost: () ->
@@ -46,4 +48,6 @@ class Player
   changeBet: (bet) ->
     @bet = bet
 
+  changeColor: (color) ->
+    @color = color
 module.exports = Player

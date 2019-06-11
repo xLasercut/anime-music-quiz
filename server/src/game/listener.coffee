@@ -55,8 +55,8 @@ class GameListener
         , @gameSettings.guessTime * 1000)
 
     socket.on 'GUESS', (guess) =>
-      point = @gameState.pointScored(guess, @playerManagement.playerBet(socket.id))
-      @playerManagement.songOver(guess, point, socket.id)
+      score = @gameState.getScore(guess, @playerManagement.playerBet(socket.id))
+      @playerManagement.songOver(guess, score, socket.id)
       if @playerManagement.canProgress(socket.id)
         @io.emit('SHOW_GUESS')
         if @gameState.gameEnd()
