@@ -3,7 +3,7 @@
 </template>
 
 <script lang="coffee">
-  import TimerCircle from '../shared/TimerCircle.vue'
+  import TimerCircle from '../../shared/TimerCircle.vue'
 
   export default
     components: { TimerCircle }

@@ -1,0 +1,36 @@
+<template>
+  <video ref="player" @loadeddata="$emit('loaded')">
+    <source :src="$store.state.game.currentSong.src" v-if="$store.state.game.currentSong.src">
+    Your browser does not support video element
+  </video>
+</template>
+
+<script lang="coffee">
+  export default
+    props: [ 'start', 'volume' ]
+    watch:
+      volume: (val) ->
+        this.$refs.player.volume = val / 100
+    methods:
+      getStartPosition: () ->
+        position = 0
+        maxStart = Math.floor(this.$refs.player.duration - this.$store.state.game.settings.guessTime)
+        if maxStart > 0
+          position = Math.floor(this.start * maxStart)
+        return position
+      load: () ->
+        this.$refs.player.load()
+      setPosition: () ->
+        this.$refs.player.currentTime = this.getStartPosition()
+      play: () ->
+        this.$refs.player.play()
+      pause: () ->
+        this.$refs.player.pause()
+</script>
+
+<style scoped>
+  video {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>

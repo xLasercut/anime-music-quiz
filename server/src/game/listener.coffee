@@ -73,7 +73,6 @@ class GameListener
       @gameState.reset()
       @playerManagement.readyClear()
 
-
   newRound: () ->
     if @gameSettings.mode == 'gamble'
       @io.emit('PLACE_BET', 10)

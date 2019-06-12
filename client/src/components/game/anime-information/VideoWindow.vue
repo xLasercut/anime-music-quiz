@@ -1,53 +1,65 @@
 <template>
-  <video ref="player" @loadeddata="confirmLoad()" v-show="show">
-    <source :src="$store.state.game.currentSong.src" v-if="$store.state.game.currentSong.src">
-    Your browser does not support video element
-  </video>
+  <v-flex xs12 sm6 class="video-container">
+    <youtube-video ref="youtube" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.youtube"></youtube-video>
+    <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal"></normal-video>
+    <countdown></countdown>
+    <loading v-if="loading"></loading>
+  </v-flex>
 </template>
 
 <script lang="coffee">
+  import YoutubeVideo from './video-window/YoutubeVideo.vue'
+  import NormalVideo from './video-window/NormalVideo.vue'
+  import Countdown from './video-window/Countdown.vue'
+  import Loading from '../../shared/Loading.vue'
+
   export default
+    components: { YoutubeVideo, NormalVideo, Countdown, Loading }
     props:
       volume: {
         type: Number
       }
-    watch:
-      volume: (val) ->
-        this.$refs.player.volume = val / 100
     data: () ->
-      show: false,
-      start: 0
+      show: {
+        youtube: false,
+        normal: true
+      },
+      start: 0,
+      loading: false
     sockets:
       NEW_SONG: (song, position) ->
-        this.show = false
+        this.loading = true
+        this.$refs.youtube.pause()
+        this.$refs.normal.pause()
+        this.show[this.playerType()] = false
         this.$store.commit('game/UPDATE_CURRENT_SONG', song)
         this.start = position
-        this.$refs.player.load()
+        this.$refs[this.playerType()].load()
       START_COUNTDOWN: () ->
-        this.$refs.player.play()
+        this.loading = false
+        this.$refs[this.playerType()].play()
       TIME_UP: () ->
-        this.show = true
+        this.show[this.playerType()] = true
       RESET: () ->
-        this.$refs.player.pause()
+        this.$refs[this.playerType()].pause()
       PLACE_BET: () ->
-        this.$refs.player.pause()
-        this.show = false
+        this.$refs[this.playerType()].pause()
+        this.show[this.playerType()] = false
     methods:
       confirmLoad: () ->
-        this.$refs.player.currentTime = this.getStartPosition()
+        this.$refs[this.playerType()].setPosition()
         this.$socket.emit('SONG_LOADED')
-      getStartPosition: () ->
-        position = 0
-        maxStart = Math.floor(this.$refs.player.duration - this.$store.state.game.settings.guessTime)
-        if maxStart > 0
-          position = Math.floor(this.start * maxStart)
-        return position
+      playerType: () ->
+        if this.$store.state.game.currentSong.src.includes('youtube')
+          return 'youtube'
+        return 'normal'
 </script>
 
 
 <style scoped>
-  video {
-    max-width: 100%;
-    max-height: 100%;
+  .video-container {
+    height: 200px;
+    text-align: center;
+    padding: 10px;
   }
 </style>
