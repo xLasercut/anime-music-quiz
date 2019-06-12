@@ -21,4 +21,7 @@ module.exports = {
   'vdk_76z38bA': {
     altName: ['Clannad: After Story', 'Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen']
   }
+  '4GaxCGZqEvQ': {
+    altName: ['Code Geass: Hangyaku no Lelouch R2', 'Code Geass: Lelouch of the Rebellion R2']
+  }
 }

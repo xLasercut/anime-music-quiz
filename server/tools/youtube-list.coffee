@@ -199,4 +199,108 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'EMQeGubna3E',
+    name: 'Shingeki no Kyojin',
+    src: 'https://www.youtube.com/watch?v=EMQeGubna3E',
+    title: 'Attack On Titan',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'M2LdF1RlSL0',
+    name: 'Shingeki no Kyojin',
+    src: 'https://www.youtube.com/watch?v=M2LdF1RlSL0',
+    title: 'Vogel im Kafig',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'be7xekK9anQ',
+    name: 'Re:Creators',
+    src: 'https://www.youtube.com/watch?v=be7xekK9anQ',
+    title: 'Layers',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ioDIeeMH2wM',
+    name: 'Re:Creators',
+    src: 'https://www.youtube.com/watch?v=ioDIeeMH2wM',
+    title: 'AL:Lu',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'dv13gl0a-FA',
+    name: 'Initial D Second Stage',
+    src: 'https://www.youtube.com/watch?v=dv13gl0a-FA',
+    title: 'Deja Vu',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'atuFSv2bLa8',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=atuFSv2bLa8',
+    title: 'Gas Gas Gas',
+    artist: 'Manuel',
+    type: 'Insert'
+  },
+  {
+    id: 'SRbhLtjOiRc',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=SRbhLtjOiRc',
+    title: 'Night of Fire',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ad5TszNUVYI',
+    name: 'Sword Art Online',
+    src: 'https://www.youtube.com/watch?v=ad5TszNUVYI',
+    title: 'Swordland',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 't2tGEiYU9KU',
+    name: 'Code Geass: Hangyaku no Lelouch R2',
+    src: 'https://www.youtube.com/watch?v=t2tGEiYU9KU',
+    title: 'Madder Sky',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'nyoYaWQ0ydI',
+    name: 'Code Geass: Hangyaku no Lelouch R2',
+    src: 'https://www.youtube.com/watch?v=nyoYaWQ0ydI',
+    title: 'Madder Sky',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '7YGDri2VvvE',
+    name: 'Code Geass: Hangyaku no Lelouch R2',
+    src: 'https://www.youtube.com/watch?v=7YGDri2VvvE',
+    title: 'Continued Story',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '4GaxCGZqEvQ',
+    name: 'Code Geass: Hangyaku no Lelouch',
+    src: 'https://www.youtube.com/watch?v=4GaxCGZqEvQ',
+    title: 'Stories',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'w2zd61KO0dQ',
+    name: 'Sword Art Online Alternative: Gun Gale Online',
+    src: 'https://www.youtube.com/watch?v=w2zd61KO0dQ',
+    title: 'Pilgrim',
+    artist: '',
+    type: 'Insert'
+  },
 ]
