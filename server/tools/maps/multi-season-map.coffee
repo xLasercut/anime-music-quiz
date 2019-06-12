@@ -23,5 +23,8 @@ module.exports = {
   }
   '4GaxCGZqEvQ': {
     altName: ['Code Geass: Hangyaku no Lelouch R2', 'Code Geass: Lelouch of the Rebellion R2']
+  },
+  'EkZkjVFFAoU': {
+    altName: ['Shokugeki no Souma: Ni no Sara', 'Food Wars! The Second Plate', 'Shokugeki no Souma: San no Sara', 'Food Wars! The Third Plate', 'Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen', 'Food Wars! The Third Plate Part 2']
   }
 }

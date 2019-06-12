@@ -359,4 +359,20 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'yE-kfC1wEwc',
+    name: 'Aldnoah.Zero',
+    src: 'https://www.youtube.com/watch?v=yE-kfC1wEwc',
+    title: 'MKAlieZ',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'EkZkjVFFAoU',
+    name: 'Shokugeki no Souma: Food Wars',
+    src: 'https://www.youtube.com/watch?v=EkZkjVFFAoU',
+    title: 'The Secret Ingredient Called Victory',
+    artist: '',
+    type: 'Insert'
+  },
 ]
