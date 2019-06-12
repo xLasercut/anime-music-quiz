@@ -1,6 +1,7 @@
 timer = require './timer.coffee'
 mapper = require './mapper.coffee'
 { RawList, FullList } = require '../database/database.coffee'
+youtubeList = require './youtube-list.coffee'
 
 rawList = new RawList()
 fullList = new FullList()
@@ -16,6 +17,14 @@ isDuplicate = (song) ->
 console.log('Generating full list...')
 timer.run()
 for song in rawList.read()
+  song.name = mapper.swapName(song.name)
+  song.title = mapper.swapTitle(song.title)
+  song.altName = mapper.altName(song.name, song.id)
+
+  if !isDuplicate(song)
+    songs.push(song)
+
+for song in youtubeList
   song.name = mapper.swapName(song.name)
   song.title = mapper.swapTitle(song.title)
   song.altName = mapper.altName(song.name, song.id)
