@@ -527,4 +527,124 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: '7KyMAeNYmYc',
+    name: 'K-On!!',
+    src: 'https://www.youtube.com/watch?v=7KyMAeNYmYc',
+    title: 'U&I',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'jL8p9vteR5g',
+    name: 'K-On!',
+    src: 'https://www.youtube.com/watch?v=jL8p9vteR5g',
+    title: 'Fuwa Fuwa Time',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'BvbknTk2FzI',
+    name: 'KimiKiss Pure Rouge',
+    src: 'https://www.youtube.com/watch?v=BvbknTk2FzI',
+    title: 'Aozora Loop',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'gu0EdKAybK8',
+    name: 'Nogizaka Haruka no Himitsu',
+    src: 'https://www.youtube.com/watch?v=gu0EdKAybK8',
+    title: 'Tomadoi Bittertune',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: '9z5KJEqO6KA',
+    name: 'Nogizaka Haruka no Himitsu: Purezza',
+    src: 'https://www.youtube.com/watch?v=9z5KJEqO6KA',
+    title: 'Chouhatsu Cheery Heart',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: '8aP7boFyJWI',
+    name: 'Jormungand: Perfect Order',
+    src: 'https://www.youtube.com/watch?v=8aP7boFyJWI',
+    title: 'Under/Shaft',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'yt8v3s6RPSs',
+    name: 'Katanagatari',
+    src: 'https://www.youtube.com/watch?v=yt8v3s6RPSs',
+    title: 'Hakushu Kassai Utaawase',
+    artist: '',
+    type: 'OP3'
+  },
+  {
+    id: 'WvNq3YKbZ-Q',
+    name: 'Futakoi Alternative',
+    src: 'https://www.youtube.com/watch?v=WvNq3YKbZ-Q',
+    title: 'New World',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'TF4pLDpiO84',
+    name: 'Candy Boy',
+    src: 'https://www.youtube.com/watch?v=TF4pLDpiO84',
+    title: 'Candy Boy',
+    artist: '',
+    type: 'ED'
+  },
+  {
+    id: 'Pr-fnDyiYeE',
+    name: 'Aku no Hana',
+    src: 'https://www.youtube.com/watch?v=Pr-fnDyiYeE',
+    title: 'Aku no Hana: Nakamura Sawa',
+    artist: '',
+    type: 'OP2'
+  },
+  {
+    id: 'h7qmEtwE47c',
+    name: 'Aku no Hana',
+    src: 'https://www.youtube.com/watch?v=h7qmEtwE47c',
+    title: 'Aku no Hana: Kasuga Takao',
+    artist: '',
+    type: 'OP1'
+  },
+  {
+    id: 'prPTHkAW_wE',
+    name: 'Aku no Hana',
+    src: 'https://www.youtube.com/watch?v=prPTHkAW_wE',
+    title: 'Aku no Hana: Saeki Nanako',
+    artist: '',
+    type: 'OP3'
+  },
+  {
+    id: 'mY7W-GyDCIU',
+    name: 'Aku no Hana',
+    src: 'https://www.youtube.com/watch?v=mY7W-GyDCIU',
+    title: 'Aku no Hana: Gunma Ken Kiryuu Shi',
+    artist: '',
+    type: 'OP4'
+  },
+  {
+    id: 'tDNj7mqOud0',
+    name: 'Aku no Hana',
+    src: 'https://www.youtube.com/watch?v=tDNj7mqOud0',
+    title: 'A Last Flower',
+    artist: '',
+    type: 'ED'
+  },
+  {
+    id: 'z3Vw2_mAxzk',
+    name: 'Bleach',
+    src: 'https://www.youtube.com/watch?v=z3Vw2_mAxzk',
+    title: 'Nothing Can Be Explained',
+    artist: '',
+    type: 'Insert'
+  }
 ]
