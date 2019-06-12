@@ -81,7 +81,7 @@ module.exports = [
   },
   {
     id: 'F_WXs1X60wM',
-    name: 'Fate/Zero',
+    name: 'Fate/Zero 2nd Season',
     src: 'https://www.youtube.com/watch?v=F_WXs1X60wM',
     title: 'The Sword of Promised Victory',
     artist: '',
