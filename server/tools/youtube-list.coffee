@@ -367,4 +367,12 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'E5ayd_cBMl8',
+    name: 'Sword Art Online',
+    src: 'https://www.youtube.com/watch?v=E5ayd_cBMl8',
+    title: 'Luminous Sword',
+    artist: '',
+    type: 'Insert'
+  },
 ]

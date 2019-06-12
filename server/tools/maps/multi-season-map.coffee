@@ -26,5 +26,11 @@ module.exports = {
   },
   'EkZkjVFFAoU': {
     altName: ['Shokugeki no Souma: Ni no Sara', 'Food Wars! The Second Plate', 'Shokugeki no Souma: San no Sara', 'Food Wars! The Third Plate', 'Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen', 'Food Wars! The Third Plate Part 2']
+  },
+  'ad5TszNUVYI': {
+    altName: ['Sword Art Online II']
+  },
+  'E5ayd_cBMl8': {
+    altName: ['Sword Art Online II']
   }
 }
