@@ -31,6 +31,8 @@ for song in youtubeList
 
   if !isDuplicate(song)
     songs.push(song)
+  else
+    console.log(song)
 
 fullList.write(songs.sort((a, b) ->
   if a.name > b.name
