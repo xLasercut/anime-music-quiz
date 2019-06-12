@@ -32,5 +32,8 @@ module.exports = {
   },
   'E5ayd_cBMl8': {
     altName: ['Sword Art Online II']
+  },
+  'MI_wWlz2Rck': {
+    altName: ['Suzumiya Haruhi no Yuuutsu (2009)', 'The Melancholy of Haruhi Suzumiya (2009)']
   }
 }

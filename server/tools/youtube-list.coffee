@@ -399,4 +399,132 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'BJ0xBCwkg3E',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=BJ0xBCwkg3E',
+    title: 'Running in the 90s',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Wu5TDEpAqw',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=Wu5TDEpAqwQ',
+    title: 'No One Sleep in Tokyo',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'nk8COybCLuU',
+    name: 'Made in Abyss',
+    src: 'https://www.youtube.com/watch?v=nk8COybCLuU',
+    title: 'Pathway',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'sdPwvBJiQJY',
+    name: 'Angel Beats!',
+    src: 'https://www.youtube.com/watch?v=sdPwvBJiQJY',
+    title: 'Crow Song',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '8ld4Mj1EkqU',
+    name: 'Angel Beats!',
+    src: 'https://www.youtube.com/watch?v=8ld4Mj1EkqU',
+    title: 'Alchemy',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'aJl2jhDldMs',
+    name: 'Angel Beats!',
+    src: 'https://www.youtube.com/watch?v=aJl2jhDldMs',
+    title: 'Thousand Enemies',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'OLF-CxDfOQk',
+    name: 'Naruto: Shippuuden',
+    src: 'https://www.youtube.com/watch?v=OLF-CxDfOQk',
+    title: 'Senya',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '-GLEaaZbSIw',
+    name: 'Grisaia no Kajitsu',
+    src: 'https://www.youtube.com/watch?v=-GLEaaZbSIw',
+    title: 'Holograph',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Ck39y__cshY',
+    name: 'Grisaia no Kajitsu',
+    src: 'https://www.youtube.com/watch?v=Ck39y__cshY',
+    title: 'Home',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '-qtqXYrit54',
+    name: 'Naruto',
+    src: 'https://www.youtube.com/watch?v=-qtqXYrit54',
+    title: 'Heavy Violence',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '-Ug070QK674',
+    name: 'Naruto',
+    src: 'https://www.youtube.com/watch?v=-Ug070QK674',
+    title: 'Sadness and Sorrow',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '81D8CCguW4g',
+    name: 'Death Note',
+    src: 'https://www.youtube.com/watch?v=81D8CCguW4g',
+    title: 'Low of Solipsism',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'MTGlrcReWrk',
+    name: 'Death Note',
+    src: 'https://www.youtube.com/watch?v=MTGlrcReWrk',
+    title: 'L\'s Theme',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'gAPGBBo6p_o',
+    name: 'Death Note',
+    src: 'https://www.youtube.com/watch?v=gAPGBBo6p_o',
+    title: 'Kira\'s Theme',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'TrwInzqN-dA',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=TrwInzqN-dA',
+    title: 'Night & Day',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'MI_wWlz2Rck',
+    name: 'Suzumiya Haruhi no Yuuutsu',
+    src: 'https://www.youtube.com/watch?v=MI_wWlz2Rck',
+    title: 'Lost My Music',
+    artist: '',
+    type: 'Insert'
+  },
 ]
