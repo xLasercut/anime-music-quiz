@@ -32,6 +32,11 @@ for song in youtubeList
   if !isDuplicate(song)
     songs.push(song)
 
-fullList.write(songs)
+fullList.write(songs.sort((a, b) ->
+  if a.name > b.name
+    return 1
+  else
+    return -1
+))
 processTime = timer.end()
 console.log("Generation complete. Time Taken: #{processTime} seconds")

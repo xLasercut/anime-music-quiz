@@ -38,7 +38,8 @@
     data: () ->
       filter: {
         anime: '',
-        song: ''
+        song: '',
+        type: 'All'
       },
       currentPage: 1,
       pageSize: 6,
@@ -47,14 +48,18 @@
       filteredData: () ->
         songfilter = ''
         animefilter = ''
+        typefilter = ''
         if this.filter.song
           songfilter = this.filter.song.trim().toLowerCase()
         if this.filter.anime
           animefilter = this.filter.anime.trim().toLowerCase()
+        if this.filter.type and this.filter.type != 'All'
+          typefilter = this.filter.type.trim().toLowerCase()
         return this.$store.state.list.userList.filter((anime) =>
           names = "#{anime.name},#{anime.altName.join(',')}".toLowerCase()
           songName = anime.title.toLowerCase()
-          if names.includes(animefilter) and songName.includes(songfilter)
+          type = anime.type.toLowerCase()
+          if names.includes(animefilter) and songName.includes(songfilter) and type.includes(typefilter)
             return anime
         )
       displayData: () ->
