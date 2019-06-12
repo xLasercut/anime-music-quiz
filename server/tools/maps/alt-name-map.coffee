@@ -69,5 +69,6 @@ module.exports = {
   'The King\'s Avatar': ['Quan Zhi Gao Shou'],
   'Code Geass: Hangyaku no Lelouch R2': ['Code Geass: Lelouch of the Rebellion R2'],
   'Code Geass: Hangyaku no Lelouch': ['Code Geass: Lelouch of the Rebellion'],
-  'Mahou Shoujo Madoka★Magica': ['Puella Magi Madoka★Magica']
+  'Mahou Shoujo Madoka★Magica': ['Puella Magi Madoka★Magica'],
+  'Shingetsutan Tsukihime': ['Lunar Legend Moon Princess']
 }
