@@ -86,5 +86,29 @@ module.exports = [
     title: 'The Sword of Promised Victory',
     artist: '',
     type: 'Insert'
-  }
+  },
+  {
+    id: 'VHsG0_kKDG4',
+    name: 'Sword Art Online Alternative: Gun Gale Online',
+    src: 'https://www.youtube.com/watch?v=VHsG0_kKDG4',
+    title: 'REA(S)ON',
+    artist: 'ReoNa',
+    type: 'Insert'
+  },
+  {
+    id: 'kH2j6dKPwxo',
+    name: 'Digimon Adventure 02',
+    src: 'https://www.youtube.com/watch?v=kH2j6dKPwxo',
+    title: 'Break Up!',
+    artist: 'Ayumi Miyazaki',
+    type: 'Insert'
+  },
+  {
+    id: 'HVVcrV8zXgU',
+    name: 'Digimon Adventure',
+    src: 'https://www.youtube.com/watch?v=HVVcrV8zXgU',
+    title: 'Brave Heart',
+    artist: 'Ayumi Miyazaki',
+    type: 'Insert'
+  },
 ]
