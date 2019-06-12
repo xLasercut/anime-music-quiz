@@ -17,5 +17,8 @@ module.exports = {
   },
   'HVVcrV8zXgU': {
     altName: ['Digimon Adventure 02']
+  },
+  'vdk_76z38bA': {
+    altName: ['Clannad: After Story', 'Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen']
   }
 }

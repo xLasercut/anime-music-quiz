@@ -151,4 +151,52 @@ module.exports = [
     artist: '',
     type: 'OP'
   },
+  {
+    id: 'FUVDtwpWgp0',
+    name: 'Guilty Crown',
+    src: 'https://www.youtube.com/watch?v=FUVDtwpWgp0',
+    title: 'Bios',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'RZzm459vlls',
+    name: 'Kill la Kill',
+    src: 'https://www.youtube.com/watch?v=RZzm459vlls',
+    title: 'Before My Body is Dry',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'm1gbTMxY6OE',
+    name: 'The King\'s Avatar',
+    src: 'https://www.youtube.com/watch?v=m1gbTMxY6OE',
+    title: 'Xin Yang',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'VUkxwUhoOSU',
+    name: 'Angel Beats!',
+    src: 'https://www.youtube.com/watch?v=VUkxwUhoOSU',
+    title: 'My Song',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'OiTqfiMlLVs',
+    name: 'Air',
+    src: 'https://www.youtube.com/watch?v=OiTqfiMlLVs',
+    title: 'Natsukage',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'vdk_76z38bA',
+    name: 'Clannad',
+    src: 'https://www.youtube.com/watch?v=vdk_76z38bA',
+    title: 'Roaring Tides',
+    artist: '',
+    type: 'Insert'
+  },
 ]

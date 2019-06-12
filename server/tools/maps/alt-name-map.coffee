@@ -65,5 +65,6 @@ module.exports = {
   'Shinsekai yori': ['From the New World'],
   'Kareshi Kanojo no Jijou': ['His and Her Circumstances'],
   'Tetsuwan Atom': ['Astro Boy'],
-  'Danna ga Nani wo Itteiru ka Wakaranai Ken 2 Sure-me': ['I Can\'t Understand What My Husband Is Saying: 2nd Thread']
+  'Danna ga Nani wo Itteiru ka Wakaranai Ken 2 Sure-me': ['I Can\'t Understand What My Husband Is Saying: 2nd Thread'],
+  'The King\'s Avatar': ['Quan Zhi Gao Shou']
 }
