@@ -45,7 +45,7 @@ module.exports = [
     src: 'https://www.youtube.com/watch?v=1xUW3vaw0cg',
     title: 'Calling all Spider Riders',
     artist: '',
-    type: 'Insert'
+    type: 'OP'
   },
   {
     id: 'm7C2SOc5juM',
@@ -110,5 +110,45 @@ module.exports = [
     title: 'Brave Heart',
     artist: 'Ayumi Miyazaki',
     type: 'Insert'
+  },
+  {
+    id: 'PEWtMVRbBk8',
+    name: 'Digimon Adventure Tri.',
+    src: 'https://www.youtube.com/watch?v=PEWtMVRbBk8',
+    title: 'Brave Heart～tri. Version～',
+    artist: 'Ayumi Miyazaki',
+    type: 'Insert'
+  },
+  {
+    id: 'Pb8lWlEqcgY',
+    name: 'Pokemon',
+    src: 'https://www.youtube.com/watch?v=Pb8lWlEqcgY',
+    title: 'Pokemon Johto',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'fCkeLBGSINs',
+    name: 'Pokemon',
+    src: 'https://www.youtube.com/watch?v=fCkeLBGSINs',
+    title: 'Pokemon Theme',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'Rv5-mmaNJ70',
+    name: 'Pokemon Best Wishes!',
+    src: 'https://www.youtube.com/watch?v=Rv5-mmaNJ70',
+    title: 'Black and White',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'VZhDs5yegkI',
+    name: 'Yu-Gi-Oh! 5D\'s',
+    src: 'https://www.youtube.com/watch?v=VZhDs5yegkI',
+    title: 'Hyper Drive',
+    artist: '',
+    type: 'OP'
   },
 ]

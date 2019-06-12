@@ -14,5 +14,8 @@ module.exports = {
   },
   'XR8IifaeZIw': {
     altName: ['Aldnoah.Zero 2nd Season']
+  },
+  'HVVcrV8zXgU': {
+    altName: ['Digimon Adventure 02']
   }
 }
