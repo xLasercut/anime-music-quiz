@@ -375,4 +375,12 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'oIscL-Bjsq4',
+    name: 'The End of Evangelion',
+    src: 'https://www.youtube.com/watch?v=oIscL-Bjsq4',
+    title: 'Komm Susser Tod',
+    artist: '',
+    type: 'Insert'
+  },
 ]
