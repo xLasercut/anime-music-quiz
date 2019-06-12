@@ -383,4 +383,12 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'jmKRgqWGrWc',
+    name: 'Evangelion: 1.0 You Are (Not) Alone',
+    src: 'https://www.youtube.com/watch?v=jmKRgqWGrWc',
+    title: 'Komm Susser Tod',
+    artist: '',
+    type: 'ED'
+  },
 ]
