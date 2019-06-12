@@ -351,4 +351,12 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'f9Wh8DgWDts',
+    name: 'Evangelion: 1.0 You Are (Not) Alone',
+    src: 'https://www.youtube.com/watch?v=f9Wh8DgWDts',
+    title: 'Angel of Doom',
+    artist: '',
+    type: 'Insert'
+  },
 ]
