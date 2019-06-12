@@ -303,4 +303,52 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'WqQ3hP_q7Ns',
+    name: 'Mahou Shoujo Madoka★Magica',
+    src: 'https://www.youtube.com/watch?v=WqQ3hP_q7Ns',
+    title: 'Credens Justitiam',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ISGDAXsS8c8',
+    name: 'Mahou Shoujo Madoka★Magica',
+    src: 'https://www.youtube.com/watch?v=ISGDAXsS8c8',
+    title: 'Inevitabilis',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'pJdPO74R_Uo',
+    name: 'No Game No Life',
+    src: 'https://www.youtube.com/watch?v=pJdPO74R_Uo',
+    title: 'All of You is All of Me',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'kX9cmyocNNU',
+    name: 'Evangelion: 2.0 You Can (Not) Advance',
+    src: 'https://www.youtube.com/watch?v=kX9cmyocNNU',
+    title: 'At the Very Beginning',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '2_01FNANsjA',
+    name: 'Evangelion: 2.0 You Can (Not) Advance',
+    src: 'https://www.youtube.com/watch?v=2_01FNANsjA',
+    title: 'Fate',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '-WIiA9AuoLU',
+    name: 'Evangelion: 2.0 You Can (Not) Advance',
+    src: 'https://www.youtube.com/watch?v=-WIiA9AuoLU',
+    title: 'Tsubasa wo Kudasai',
+    artist: '',
+    type: 'Insert'
+  },
 ]

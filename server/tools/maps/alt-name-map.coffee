@@ -68,5 +68,6 @@ module.exports = {
   'Danna ga Nani wo Itteiru ka Wakaranai Ken 2 Sure-me': ['I Can\'t Understand What My Husband Is Saying: 2nd Thread'],
   'The King\'s Avatar': ['Quan Zhi Gao Shou'],
   'Code Geass: Hangyaku no Lelouch R2': ['Code Geass: Lelouch of the Rebellion R2'],
-  'Code Geass: Hangyaku no Lelouch': ['Code Geass: Lelouch of the Rebellion']
+  'Code Geass: Hangyaku no Lelouch': ['Code Geass: Lelouch of the Rebellion'],
+  'Mahou Shoujo Madoka★Magica': ['Puella Magi Madoka★Magica']
 }
