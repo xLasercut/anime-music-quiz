@@ -272,14 +272,6 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'nyoYaWQ0ydI',
-    name: 'Code Geass: Hangyaku no Lelouch R2',
-    src: 'https://www.youtube.com/watch?v=nyoYaWQ0ydI',
-    title: 'Madder Sky',
-    artist: '',
-    type: 'Insert'
-  },
-  {
     id: '7YGDri2VvvE',
     name: 'Code Geass: Hangyaku no Lelouch R2',
     src: 'https://www.youtube.com/watch?v=7YGDri2VvvE',
