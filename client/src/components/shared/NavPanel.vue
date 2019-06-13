@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
-    <v-flex xs12 sm3>
-      <v-toolbar flat>
+    <v-flex xs12>
+      <v-toolbar flat height="60px">
         <v-toolbar-items>
           <nav-btn :icon="switchIcon" @click="$store.commit('TOGGLE_DARK_MODE')">
             {{switchLabel}}
@@ -10,10 +10,6 @@
             Home
           </nav-btn>
         </v-toolbar-items>
-      </v-toolbar>
-    </v-flex>
-    <v-flex xs12 sm9>
-      <v-toolbar flat>
         <v-spacer></v-spacer>
         <game-control></game-control>
         <list-picker-control></list-picker-control>

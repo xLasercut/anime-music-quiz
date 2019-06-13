@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs7 sm9>
+  <v-flex xs7 sm9 class="game-container">
     <answer></answer>
     <anime-information></anime-information>
     <guess-input></guess-input>
@@ -18,3 +18,10 @@
   export default
     components: { Answer, GuessInput, Players, AnimeInformation, BetWindow }
 </script>
+
+<style scoped>
+  .game-container {
+    height: calc(100vh - 80px);
+    overflow: auto;
+  }
+</style>

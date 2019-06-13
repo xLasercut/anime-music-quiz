@@ -1,28 +1,15 @@
 <template>
   <v-layout justify-center wrap>
-    <v-flex xs12 sm6 md5>
-      <v-combobox
-        box clearable
-        :items="$store.state.game.choices.anime"
-        label="Anime"
-        v-model="guess.anime"
-        clear-icon="far fa-times-circle"
-      ></v-combobox>
-    </v-flex>
-    <v-flex xs12 sm6 md5>
-      <v-combobox
-        box clearable
-        :items="$store.state.game.choices.song"
-        label="Song"
-        v-model="guess.song"
-        clear-icon="far fa-times-circle"
-      ></v-combobox>
-    </v-flex>
+    <guess-text :items="$store.state.game.choices.anime" label="Anime" v-model="guess.anime" />
+    <guess-text :items="$store.state.game.choices.song" label="Song" v-model="guess.song" />
   </v-layout>
 </template>
 
 <script lang="coffee">
+  import GuessText from './guess-input/GuessText.vue'
+
   export default
+    components: { GuessText }
     data: () ->
       guess: {
         anime: '',

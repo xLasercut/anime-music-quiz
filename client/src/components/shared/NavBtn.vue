@@ -1,6 +1,6 @@
 <template>
-  <v-btn @click="$emit('click')" :color="color" v-on="activator" flat :disabled="disabled">
-    <v-icon>
+  <v-btn @click="$emit('click')" :color="color" v-on="activator" icon flat :disabled="disabled">
+    <v-icon size="16pt">
       {{icon}}
     </v-icon>
   </v-btn>
@@ -10,9 +10,3 @@
   export default
     props: [ 'color', 'icon', 'disabled', 'activator' ]
 </script>
-
-<style scoped>
-  .v-btn {
-    border-radius: 0;
-  }
-</style>

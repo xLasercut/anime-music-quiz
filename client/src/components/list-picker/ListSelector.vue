@@ -4,7 +4,7 @@
       :items="$store.state.userListFiles"
       label="List"
       @change="updateFileName($event)"
-      class="mt-2"
+      class="mt-2" height="30px"
     ></v-select>
   </div>
 </template>

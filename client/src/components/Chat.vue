@@ -46,12 +46,12 @@
 
 <style scoped>
   .chat-container {
-    height: 100%;
+    height: calc(100vh - 80px);
     border-radius: 4px;
   }
 
   .message-container {
-    height: calc(100vh - 220px);
+    height: calc(100% - 90px);
     width: 100%;
     overflow: auto;
     word-wrap: break-word;

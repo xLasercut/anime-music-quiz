@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout wrap class="main-container">
+  <v-container class="main-container" fluid grid-list-md>
+    <v-layout wrap>
       <game></game>
       <chat></chat>
     </v-layout>
@@ -31,6 +31,6 @@
 
 <style scoped>
   .main-container {
-    height: 100%;
+    padding: 10px;
   }
 </style>
