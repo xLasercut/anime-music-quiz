@@ -798,5 +798,21 @@ module.exports = [
     title: 'Bink\'s Sake',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'm3o3uHR1EOc',
+    name: 'Charlotte',
+    src: 'https://www.youtube.com/watch?v=m3o3uHR1EOc',
+    title: 'Singer Days',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '6ajUB8tFV9c',
+    name: 'Charlotte',
+    src: 'https://www.youtube.com/watch?v=6ajUB8tFV9c',
+    title: 'Hatsunetsu Days',
+    artist: '',
+    type: 'Insert'
   }
 ]
