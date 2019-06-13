@@ -654,5 +654,29 @@ module.exports = [
     title: 'A Moon Filled Sky',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'JhH4zIV0-Zs',
+    name: 'Tasogare Otome x Amnesia',
+    src: 'https://www.youtube.com/watch?v=JhH4zIV0-Zs',
+    title: 'Requiem',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'pM7az6rWfnc',
+    name: 'Soredemo Sekai wa Utsukushii',
+    src: 'https://www.youtube.com/watch?v=pM7az6rWfnc',
+    title: 'Beautiful Rain',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'LnJIikvtzbE',
+    name: 'Kyoukai no Kanata',
+    src: 'https://www.youtube.com/watch?v=LnJIikvtzbE',
+    title: 'Yakusoku no Kizuna',
+    artist: '',
+    type: 'Insert'
   }
 ]
