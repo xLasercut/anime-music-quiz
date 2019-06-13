@@ -72,5 +72,7 @@ module.exports = {
   'Mahou Shoujo Madoka★Magica': ['Puella Magi Madoka★Magica'],
   'Shingetsutan Tsukihime': ['Lunar Legend Moon Princess'],
   'Boku wa Tomodachi ga Sukunai Next': ['Haganai: I don\'t have many friends NEXT'],
-  'Boku wa Tomodachi ga Sukunai': ['Haganai: I don\'t have many friends']
+  'Boku wa Tomodachi ga Sukunai': ['Haganai: I don\'t have many friends'],
+  'Mahouka Koukou no Rettousei': ['The Irregular at Magic High School'],
+  'La Corda d\'Oro: Blue Sky': ['Kin\'iro no Chord: Blue Sky']
 }

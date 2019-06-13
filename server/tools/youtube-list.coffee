@@ -734,5 +734,69 @@ module.exports = [
     title: 'Stand On the Ground',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'QIq3x3YTMNA',
+    name: 'Mahouka Koukou no Rettousei',
+    src: 'https://www.youtube.com/watch?v=QIq3x3YTMNA',
+    title: 'Metaphore 2',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'KWZfnlYUB_4',
+    name: 'Brother Conflict',
+    src: 'https://www.youtube.com/watch?v=KWZfnlYUB_4',
+    title: 'Beloved x Survival',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'q01-PJDxdMw',
+    name: 'Brother Conflict',
+    src: 'https://www.youtube.com/watch?v=q01-PJDxdMw',
+    title: '14 To 1',
+    artist: '',
+    type: 'ED'
+  },
+  {
+    id: 'TwNbMVhRfgs',
+    name: 'La Corda d\'Oro: Blue Sky',
+    src: 'https://www.youtube.com/watch?v=TwNbMVhRfgs',
+    title: 'Wings to Fly',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'BuBb_PdZx4k',
+    name: 'Soul Eater',
+    src: 'https://www.youtube.com/watch?v=BuBb_PdZx4k',
+    title: 'Bang! Bang! Bang! Bang! Have a Nice Dream!',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'e6CDOG5TjNw',
+    name: 'Soul Eater',
+    src: 'https://www.youtube.com/watch?v=e6CDOG5TjNw',
+    title: 'Never Lose Myself',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '7Yl-DvkX0hY',
+    name: 'Girls und Panzer',
+    src: 'https://www.youtube.com/watch?v=7Yl-DvkX0hY',
+    title: 'Katyusha',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'dgFTDv0pBX8',
+    name: 'One Piece',
+    src: 'https://www.youtube.com/watch?v=dgFTDv0pBX8',
+    title: 'Bink\'s Sake',
+    artist: '',
+    type: 'Insert'
   }
 ]

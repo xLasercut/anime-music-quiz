@@ -10,7 +10,6 @@ songs = []
 
 isDuplicate = (song) ->
   if !song.title
-    console.log(song)
     return true
   for item in songs
     if (item.title == song.title and item.name == song.name) or item.id == song.id or mapper.dupe.includes(song.id)
