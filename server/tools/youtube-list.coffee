@@ -710,5 +710,29 @@ module.exports = [
     title: 'The Reluctant Heroes',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'qAgPH1CWiAw',
+    name: 'Shingeki no Kyojin Season 2',
+    src: 'https://www.youtube.com/watch?v=qAgPH1CWiAw',
+    title: 'Barricades',
+    artist: 'Yosh, Gemie & MPI',
+    type: 'Insert'
+  },
+  {
+    id: 'Swzbg3Uhz1s',
+    name: 'Ao no Exorcist',
+    src: 'https://www.youtube.com/watch?v=Swzbg3Uhz1s',
+    title: 'Call Me Later',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '46JE1VgcUQ0',
+    name: 'Hai to Gensou no Grimgar',
+    src: 'https://www.youtube.com/watch?v=46JE1VgcUQ0',
+    title: 'Stand On the Ground',
+    artist: '',
+    type: 'Insert'
   }
 ]
