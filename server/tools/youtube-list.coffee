@@ -65,7 +65,7 @@ module.exports = [
   },
   {
     id: 'k76j3YROSWQ',
-    name: 'Suzumiya Haruhi no Yuuutsu (2009)',
+    name: 'Suzumiya Haruhi no Yuuutsu',
     src: 'https://www.youtube.com/watch?v=k76j3YROSWQ',
     title: 'God Knows',
     artist: '',
@@ -686,5 +686,29 @@ module.exports = [
     title: 'Doraemon no Uta',
     artist: '',
     type: 'OP'
+  },
+  {
+    id: 'VNyP3uzgRhA',
+    name: 'One Piece',
+    src: 'https://www.youtube.com/watch?v=VNyP3uzgRhA',
+    title: 'SogeKing\'s Theme',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '1lsn2tT5yTc',
+    name: 'Bleach',
+    src: 'https://www.youtube.com/watch?v=1lsn2tT5yTc',
+    title: 'Number One',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'eFah8TCWOro',
+    name: 'Shingeki no Kyojin',
+    src: 'https://www.youtube.com/watch?v=eFah8TCWOro',
+    title: 'The Reluctant Heroes',
+    artist: '',
+    type: 'Insert'
   }
 ]
