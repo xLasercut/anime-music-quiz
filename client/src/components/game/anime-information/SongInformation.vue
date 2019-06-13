@@ -1,24 +1,38 @@
 <template>
-  <song-card v-show="show">
-    <v-card-title>
-      <div v-for="(value, key) in $store.getters['game/songInformation']"
-      :key="`song_info_${key}`" class="song-container">
-        <div>
-          <b>{{key}}</b>
+  <v-flex xs12 sm3 class="info-container">
+    <v-card elevation="0" :color="$store.getters.color">
+      <v-card-title>
+        <div class="song-container">
+          <div>
+            <b>Title</b>
+          </div>
+          <div>
+            {{songInfo('title')}}
+          </div>
         </div>
-        <div>
-          {{value}}
+        <div class="song-container">
+          <div>
+            <b>Artist</b>
+          </div>
+          <div>
+            {{songInfo('artist')}}
+          </div>
         </div>
-      </div>
-    </v-card-title>
-  </song-card>
+        <div class="song-container">
+          <div>
+            <b>Type</b>
+          </div>
+          <div>
+            {{songInfo('type')}}
+          </div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
 </template>
 
 <script lang="coffee">
-  import SongCard from './SongCard.vue'
-
   export default
-    components: { SongCard }
     data: () ->
       show: false
     sockets:
@@ -26,9 +40,20 @@
         this.show = false
       TIME_UP: () ->
         this.show = true
+    methods:
+      songInfo: (key) ->
+        if this.show
+          if this.$store.state.game.currentSong[key]
+            return this.$store.state.game.currentSong[key]
+          return '...'
+        return '?'
 </script>
 
 <style scoped>
+  .info-container {
+    max-width: 300px;
+  }
+
   .song-container {
     width: 100%;
     text-align: center;

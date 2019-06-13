@@ -1,6 +1,8 @@
 <template>
-  <youtube @ready="ready($event)" ref="youtube" :video-id="videoId()" player-width="100%" player-height="100%">
-  </youtube>
+  <youtube
+    @ready="ready($event)" :video-id="videoId()"
+    player-width="100%" player-height="100%" :player-vars="playerVars"
+  />
 </template>
 
 <script lang="coffee">
@@ -13,9 +15,22 @@
       player: null
       videoDuration: 0
       playing: false
+      timeout: null
+    sockets:
+      RESET: () ->
+        clearInterval(this.timeout)
+        this.endLoad()
+    computed:
+      playerVars: () ->
+        return {
+          fs: 0,
+          controls: 0,
+          disablekb: 1,
+          modestbranding: 1,
+          playsinline: 1
+        }
     methods:
       ready: (event) ->
-        console.log(event.target)
         this.player = event.target
       getId: (url) ->
         return this.$youtube.getIdFromURL(url)
@@ -23,13 +38,12 @@
         if this.$store.state.game.currentSong.src
           return this.getId(this.$store.state.game.currentSong.src)
       getStartPosition: () ->
-        position = 0
         maxStart = Math.floor(this.videoDuration - this.$store.state.game.settings.guessTime)
         if maxStart > 0
-          position = Math.floor(this.start * maxStart)
-        return position
+          return Math.floor(this.start * maxStart)
+        return 0
       load: () ->
-        timeout = setInterval( () =>
+        this.timeout = setInterval( () =>
           if this.getId(this.$store.state.game.currentSong.src) == this.getId(this.player.getVideoUrl())
             this.startLoad()
             duration = this.player.getDuration()
@@ -37,8 +51,8 @@
               this.endLoad()
               this.videoDuration = duration
               this.$emit('loaded')
-              clearInterval(timeout)
-        , 1)
+              clearInterval(this.timeout)
+        , 500)
       startLoad: () ->
         if !this.playing
           this.player.mute()
@@ -54,5 +68,4 @@
         this.player.playVideo()
       pause: () ->
         this.player.pauseVideo()
-
 </script>

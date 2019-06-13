@@ -1,9 +1,15 @@
 <template>
-  <v-flex xs12 sm6 class="video-container">
-    <youtube-video ref="youtube" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.youtube"></youtube-video>
-    <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal"></normal-video>
-    <countdown></countdown>
-    <loading v-if="loading"></loading>
+  <v-flex xs12 sm6>
+    <v-layout justify-center>
+      <v-flex xs12 class="video-container">
+        <youtube-video ref="youtube" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.youtube">
+        </youtube-video>
+        <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal">
+        </normal-video>
+        <countdown></countdown>
+        <loading v-if="loading"></loading>
+      </v-flex>
+    </v-layout>
   </v-flex>
 </template>
 
@@ -22,16 +28,14 @@
     data: () ->
       show: {
         youtube: false,
-        normal: true
+        normal: false
       },
       start: 0,
       loading: false
     sockets:
       NEW_SONG: (song, position) ->
         this.loading = true
-        this.$refs.youtube.pause()
-        this.$refs.normal.pause()
-        this.show[this.playerType()] = false
+        this.resetVideo()
         this.$store.commit('game/UPDATE_CURRENT_SONG', song)
         this.start = position
         this.$refs[this.playerType()].load()
@@ -53,6 +57,10 @@
         if this.$store.state.game.currentSong.src.includes('youtube')
           return 'youtube'
         return 'normal'
+      resetVideo: () ->
+        for key of this.show
+          this.show[key] = false
+          this.$refs[key].pause()
 </script>
 
 
@@ -61,5 +69,6 @@
     height: 200px;
     text-align: center;
     padding: 10px;
+    max-width: 300px;
   }
 </style>

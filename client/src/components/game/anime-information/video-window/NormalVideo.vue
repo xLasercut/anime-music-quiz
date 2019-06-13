@@ -13,11 +13,10 @@
         this.$refs.player.volume = val / 100
     methods:
       getStartPosition: () ->
-        position = 0
         maxStart = Math.floor(this.$refs.player.duration - this.$store.state.game.settings.guessTime)
         if maxStart > 0
-          position = Math.floor(this.start * maxStart)
-        return position
+          return Math.floor(this.start * maxStart)
+        return 0
       load: () ->
         this.$refs.player.load()
       setPosition: () ->
