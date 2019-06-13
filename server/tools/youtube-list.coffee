@@ -678,5 +678,13 @@ module.exports = [
     title: 'Yakusoku no Kizuna',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'mTmzuU-N62Y',
+    name: 'Doraemon',
+    src: 'https://www.youtube.com/watch?v=mTmzuU-N62Y',
+    title: 'Doraemon no Uta',
+    artist: '',
+    type: 'OP'
   }
 ]
