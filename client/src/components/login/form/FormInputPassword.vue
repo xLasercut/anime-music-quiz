@@ -5,6 +5,7 @@
     :rules="rules"
     :append-icon="icon"
     @click:append="show = !show"
+    @enter="$emit('enter')"
     :type="inputType"
   ></form-input>
 </template>

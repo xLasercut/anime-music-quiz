@@ -1,7 +1,7 @@
 <template>
   <v-form ref="listForm">
     <v-container fluid grid-list-lg>
-      <form-input-password v-model.trim="form.password"></form-input-password>
+      <form-input-password v-model.trim="form.password" @enter="login()" />
       <v-layout justify-center wrap>
         <v-flex xs12 class="text-xs-center">
           <icon-btn
