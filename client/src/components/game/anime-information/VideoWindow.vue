@@ -69,6 +69,6 @@
     height: 200px;
     text-align: center;
     padding: 10px;
-    max-width: 300px;
+    max-width: 352px;
   }
 </style>
