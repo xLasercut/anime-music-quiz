@@ -70,5 +70,7 @@ module.exports = {
   'Code Geass: Hangyaku no Lelouch R2': ['Code Geass: Lelouch of the Rebellion R2'],
   'Code Geass: Hangyaku no Lelouch': ['Code Geass: Lelouch of the Rebellion'],
   'Mahou Shoujo Madoka★Magica': ['Puella Magi Madoka★Magica'],
-  'Shingetsutan Tsukihime': ['Lunar Legend Moon Princess']
+  'Shingetsutan Tsukihime': ['Lunar Legend Moon Princess'],
+  'Boku wa Tomodachi ga Sukunai Next': ['Haganai: I don\'t have many friends NEXT'],
+  'Boku wa Tomodachi ga Sukunai': ['Haganai: I don\'t have many friends']
 }
