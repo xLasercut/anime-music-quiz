@@ -814,5 +814,21 @@ module.exports = [
     title: 'Hatsunetsu Days',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'H53mFG5nk04',
+    name: 'Charlotte',
+    src: 'https://www.youtube.com/watch?v=H53mFG5nk04',
+    title: 'Keep on Burning',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '99b--Odl2cs',
+    name: 'Charlotte',
+    src: 'https://www.youtube.com/watch?v=99b--Odl2cs',
+    title: 'Real',
+    artist: '',
+    type: 'Insert'
   }
 ]
