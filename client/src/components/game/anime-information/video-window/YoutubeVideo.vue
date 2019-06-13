@@ -36,8 +36,9 @@
       getId: (url) ->
         return this.$youtube.getIdFromURL(url)
       videoId: () ->
-        if this.$store.state.game.currentSong.src
+        if this.$store.state.game.currentSong.src and this.$store.state.game.currentSong.src.includes('youtube')
           return this.getId(this.$store.state.game.currentSong.src)
+        return ''
       getStartPosition: () ->
         maxStart = Math.floor(this.videoDuration - this.$store.state.game.settings.guessTime)
         if maxStart > 0

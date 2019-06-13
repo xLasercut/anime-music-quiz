@@ -16,7 +16,7 @@
         <list-filter v-model="filter"></list-filter>
         <list-data
           :data="displayData()"
-          @remove-anime="$store.commit('list/REMOVE_ANIME', $event)"
+          @remove-anime="removeAnime($event)"
         ></list-data>
         <list-pagination
           v-model="currentPage" :length="maxPage"
@@ -78,4 +78,7 @@
         link.click()
       syncUserList: () ->
         this.$socket.emit('SYNC_USER_LIST', this.$store.state.list.filename)
+      removeAnime: (anime) ->
+        this.$store.commit('list/REMOVE_ANIME', anime)
+        this.$socket.emit('UPDATE_USER_LIST', this.$store.state.list.userList, this.$store.state.list.filename)
 </script>
