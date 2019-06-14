@@ -1,6 +1,6 @@
 <template>
   <div class="slider-container">
-    <v-slider prepend-icon="fas fa-volume-down" v-model.number="volume"></v-slider>
+    <v-slider prepend-icon="mdi-volume-medium" v-model.number="volume"></v-slider>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
    <v-layout justify-center>
       <v-flex shrink>
-        <icon-btn color="warning" icon="fas fa-sync" @click="reloadDb()">Reload Database</icon-btn>
+        <icon-btn color="warning" icon="mdi-sync" @click="reloadDb()">Reload Database</icon-btn>
       </v-flex>
     </v-layout>
 </template>

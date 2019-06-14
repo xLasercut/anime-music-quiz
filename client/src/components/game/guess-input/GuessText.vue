@@ -5,7 +5,6 @@
       :items="items"
       :label="label"
       v-model="model"
-      clear-icon="far fa-times-circle"
     />
   </v-flex>
 </template>

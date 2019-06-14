@@ -9,7 +9,6 @@
         @click:append="$emit('click:append')"
         @keydown.enter.native="$emit('enter')"
         :type="type"
-        clear-icon="far fa-times-circle"
       ></v-text-field>
     </v-flex>
   </v-layout>

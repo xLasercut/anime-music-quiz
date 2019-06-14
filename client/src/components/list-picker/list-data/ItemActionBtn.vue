@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    :color="color" small icon outline
+    :color="color" small icon
     @click="$emit('click')"
     :disabled="disabled"
   >

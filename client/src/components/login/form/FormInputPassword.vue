@@ -26,8 +26,8 @@
     computed:
       icon: () ->
         if this.show
-          return 'fas fa-eye-slash'
-        return 'fas fa-eye'
+          return 'mdi-eye-off'
+        return 'mdi-eye'
       inputType: () ->
         if this.show
           return 'text'

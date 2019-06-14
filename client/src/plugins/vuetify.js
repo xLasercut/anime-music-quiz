@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(Vuetify, {
   theme: {
@@ -9,9 +10,5 @@ Vue.use(Vuetify, {
   options: {
     customProperties: true
   },
-  iconfont: 'fa',
-  icons: {
-    prev: 'fa-angle-left',
-    next: 'fa-angle-right'
-  }
+  iconfont: 'mdi'
 })

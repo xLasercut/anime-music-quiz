@@ -2,7 +2,7 @@
   <v-toolbar-items v-if="$route.path == '/list-picker'">
     <admin-panel></admin-panel>
     <list-selector></list-selector>
-    <nav-btn color="warning" @click="reload()" icon="fas fa-sync">
+    <nav-btn color="warning" @click="reload()" icon="mdi-sync">
       Reload
     </nav-btn>
     <user-list></user-list>

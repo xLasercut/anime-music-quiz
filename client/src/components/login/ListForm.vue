@@ -5,7 +5,7 @@
       <v-layout justify-center wrap>
         <v-flex xs12 class="text-xs-center">
           <icon-btn
-            color="success" icon="fas fa-sign-in-alt"
+            color="success" icon="mdi-login"
             @click="login()"
           >
             Connect

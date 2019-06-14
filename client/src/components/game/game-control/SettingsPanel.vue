@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on }">
       <nav-btn
         :activator="on" color="info" @click="syncSettings()"
-        icon="fas fa-cog"
+        icon="mdi-settings"
       ></nav-btn>
     </template>
     <v-card>
@@ -31,9 +31,9 @@
           ></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
-              <icon-btn color="error" icon="fas fa-times" @click="show = false">Cancel</icon-btn>
+              <icon-btn color="error" icon="mdi-close" @click="show = false">Cancel</icon-btn>
               <icon-btn
-                color="success" icon="fas fa-check" @click="updateSettings()"
+                color="success" icon="mdi-check" @click="updateSettings()"
                 :disabled="disabled"
               >
                 Confirm

@@ -1,7 +1,7 @@
 <template>
   <v-btn @click="$emit('click')" :color="color" depressed :disabled="disabled">
     <slot></slot>
-    <v-icon size="14pt" right>
+    <v-icon right>
       {{icon}}
     </v-icon>
   </v-btn>

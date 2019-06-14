@@ -3,10 +3,9 @@
     <v-flex xs12>
       <v-toolbar flat height="60px">
         <v-toolbar-items>
-          <nav-btn :icon="switchIcon" @click="$store.commit('TOGGLE_DARK_MODE')">
-            {{switchLabel}}
+          <nav-btn icon="mdi-theme-light-dark" @click="$store.commit('TOGGLE_DARK_MODE')">
           </nav-btn>
-          <nav-btn color="primary" v-if="$route.path != '/'" icon="fas fa-home" @click="disconnect()">
+          <nav-btn color="primary" v-if="$route.path != '/'" icon="mdi-home" @click="disconnect()">
             Home
           </nav-btn>
         </v-toolbar-items>
@@ -27,15 +26,6 @@
 
   export default
     components: { GameControl, NavBtn, ListPickerControl, LoginControl }
-    computed:
-      switchLabel: () ->
-        if this.$store.state.dark
-          return 'Light'
-        return 'Dark'
-      switchIcon: () ->
-        if this.$store.state.dark
-          return 'fas fa-sun'
-        return 'fas fa-moon'
     methods:
       disconnect: () ->
         this.$socket.close()

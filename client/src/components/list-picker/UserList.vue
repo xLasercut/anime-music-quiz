@@ -3,14 +3,14 @@
     <template v-slot:activator="{ on }">
       <nav-btn
         color="success" :activator="on" @click="syncUserList()"
-        icon="fas fa-list"
+        icon="mdi-playlist-music"
       ></nav-btn>
     </template>
     <v-card>
       <v-container fluid grid-list-lg>
         <v-layout wrap>
           <v-flex xs12 class="text-xs-center">
-            <icon-btn @click="download()" color="success" icon="fas fa-download">Download List</icon-btn>
+            <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
           </v-flex>
         </v-layout>
         <list-filter v-model="filter"></list-filter>

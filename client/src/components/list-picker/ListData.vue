@@ -13,14 +13,14 @@
               color="success" @click="addAnime(props.item)"
               :disabled="!$store.state.list.filename || inUserList(props.item)"
             >
-              fas fa-plus
+              mdi-plus
             </item-action-btn>
             <item-action-btn
               color="error"
               @click="removeAnime(props.item)"
               :disabled="!$store.state.list.filename || !inUserList(props.item)"
             >
-              fas fa-minus
+              mdi-minus
             </item-action-btn>
           </td>
         </template>

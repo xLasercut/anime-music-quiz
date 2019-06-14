@@ -4,7 +4,7 @@
       <nav-btn
         color="warning" @click="syncAdminInfo()"
         v-if="$store.state.admin.admin" :activator="on"
-        icon="fas fa-user-shield"
+        icon="mdi-shield-account"
       ></nav-btn>
     </template>
     <v-card>
