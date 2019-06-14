@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid grid-list-lg class="list-picker-container">
     <list-filter v-model="filter"></list-filter>
     <list-data
       :data="displayData()"
@@ -8,7 +8,7 @@
       v-if="!$store.state.list.loading"
     ></list-data>
     <loading v-if="$store.state.list.loading"></loading>
-    <list-pagination v-model="currentPage" :length="maxPage"></list-pagination>
+    <list-pagination v-model="pagination" :length="maxPage"></list-pagination>
   </v-container>
 </template>
 
@@ -22,9 +22,10 @@
     mixins: [ TableFilter ]
     components: { ListData, ListPagination, Loading }
     data: () ->
-      socket: this.$store.state.list.socket,
-      pageSize: 8,
-      currentPage: 1,
+      pagination: {
+        currentPage: 1,
+        pageSize: 5
+      },
       maxPage: 1
     sockets:
       SYNC_USER_LIST: (list, filename) ->
@@ -35,9 +36,9 @@
     methods:
       displayData: () ->
         filteredData = this.filteredData(this.$store.state.list.fullList)
-        start = (this.currentPage - 1) * this.pageSize
-        end = start + this.pageSize
-        this.maxPage = Math.ceil(filteredData.length / this.pageSize)
+        start = (this.pagination.currentPage - 1) * this.pagination.pageSize
+        end = start + this.pagination.pageSize
+        this.maxPage = Math.ceil(filteredData.length / this.pagination.pageSize)
         return filteredData.slice(start, end)
       addAnime: (anime) ->
         this.$store.commit('list/ADD_ANIME', anime)
@@ -56,3 +57,10 @@
 
       this.syncFullList()
 </script>
+
+<style scoped>
+  .list-picker-container {
+    height: calc(100vh - 60px);
+    padding: 10px;
+  }
+</style>

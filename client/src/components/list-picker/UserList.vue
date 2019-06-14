@@ -19,7 +19,7 @@
           @remove-anime="removeAnime($event)"
         ></list-data>
         <list-pagination
-          v-model="currentPage" :length="maxPage"
+          v-model="pagination" :length="maxPage"
         ></list-pagination>
       </v-container>
     </v-card>
@@ -37,15 +37,17 @@
     mixins: [ TableFilter ]
     components: { ListData, IconBtn, ListPagination, NavBtn }
     data: () ->
-      currentPage: 1,
-      pageSize: 6,
+      pagination: {
+        currentPage: 1,
+        pageSize: 5
+      }
       maxPage: 1
     methods:
       displayData: () ->
         filteredData = this.filteredData(this.$store.state.list.userList)
-        start = (this.currentPage - 1) * this.pageSize
-        end = start + this.pageSize
-        this.maxPage = Math.ceil(filteredData.length / this.pageSize)
+        start = (this.pagination.currentPage - 1) * this.pagination.pageSize
+        end = start + this.pagination.pageSize
+        this.maxPage = Math.ceil(filteredData.length / this.pagination.pageSize)
         return filteredData.slice(start, end)
       download: () ->
         jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)

@@ -1,5 +1,5 @@
 <template>
-  <v-layout justify-center>
+  <v-layout justify-center class="filter-container">
     <v-flex xs4>
       <v-text-field label="Anime" v-model="model.anime" clearable clear-icon="far fa-times-circle"></v-text-field>
     </v-flex>
@@ -20,3 +20,10 @@
     data: () ->
       items: ['All', 'OP', 'ED', 'Insert']
 </script>
+
+
+<style scoped>
+  .filter-container {
+    height: 70px;
+  }
+</style>
