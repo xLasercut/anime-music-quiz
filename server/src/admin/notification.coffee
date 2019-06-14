@@ -2,15 +2,13 @@ class Notification
   constructor: (io) ->
     @io = io
 
-  sendNotification: (id, type, msg) ->
+  client: (id, type, msg) ->
     client = @io.nsps['/'].connected[id]
     if client
       client.emit('SYSTEM_NOTIFICATION', type, msg)
 
-  error: (id, msg) ->
-    @sendNotification(id, 'error', msg)
+  all: (type, msg) ->
+    @io.emit('SYSTEM_NOTIFICATION', type, msg)
 
-  warning: (id, msg) ->
-    @sendNotification(id, 'warning', msg)
 
 module.exports = Notification

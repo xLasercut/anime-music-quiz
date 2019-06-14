@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="600" v-model="show">
+  <v-dialog width="800" v-model="show">
     <template v-slot:activator="{ on }">
       <nav-btn
         color="warning" @click="syncAdminInfo()"

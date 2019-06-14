@@ -7,6 +7,9 @@
         @keydown.enter.native="sendMsg()"
       ></v-text-field>
     </v-flex>
+    <v-flex shrink :style="{ width: '120px' }">
+      <v-select :items="types" v-model="type"></v-select>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -14,8 +17,10 @@
   export default
     data: () ->
       message: ''
+      type: 'success'
+      types: [ 'success', 'warning', 'error' ]
     methods:
       sendMsg: () ->
-        this.$socket.emit('ADMIN_SYSTEM_MESSAGE', this.message)
+        this.$socket.emit('ADMIN_SYSTEM_MESSAGE', this.type, this.message)
         this.message = ''
 </script>

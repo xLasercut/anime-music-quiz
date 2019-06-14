@@ -5,7 +5,7 @@
       flat
       @click="show = false"
     >
-      Close
+      <v-icon>mdi-close</v-icon>
     </v-btn>
   </v-snackbar>
 </template>

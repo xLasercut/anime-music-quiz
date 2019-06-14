@@ -19,6 +19,7 @@ class AdminListener
         fullList.reload()
         @io.emit('SYNC_FULL_LIST', fullList.read())
         @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
+        @notification.all('success', 'Game database reloaded')
 
     socket.on 'ADMIN_KICK_PLAYER', (id) =>
       if @isAdmin(socket)
@@ -35,9 +36,9 @@ class AdminListener
             username: username
           })
 
-    socket.on 'ADMIN_SYSTEM_MESSAGE', (message) =>
+    socket.on 'ADMIN_SYSTEM_MESSAGE', (type, message) =>
       if @isAdmin(socket)
-        @chat.system(message)
+        @notification.all(type, message)
 
     socket.on 'ADMIN_CHANGE_PLAYER_NAME', (id, username) =>
       if @isAdmin(socket)
@@ -48,7 +49,7 @@ class AdminListener
           idChanged: id,
           newName: username
         })
-        @notification.warning(id, "Your username has been changed to: #{username}")
+        @notification.client(id, 'warning', "Your username has been changed to: #{username}")
 
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
       if @isAdmin(socket)
