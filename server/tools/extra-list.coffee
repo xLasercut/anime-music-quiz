@@ -857,7 +857,7 @@ module.exports = [
   },
   {
     id: '-7aISWhDJNE',
-    name: 'Pokemon Advance',
+    name: 'Pokemon Advanced Generation',
     src: 'https://www.youtube.com/watch?v=-7aISWhDJNE',
     title: 'I Wanna Be a Hero',
     artist: '',
@@ -865,7 +865,7 @@ module.exports = [
   },
   {
     id: 'J_49dfhh5XU',
-    name: 'Pokemon Advance',
+    name: 'Pokemon Advanced Generation',
     src: 'https://www.youtube.com/watch?v=J_49dfhh5XU',
     title: 'Unbeatable',
     artist: '',
@@ -873,7 +873,7 @@ module.exports = [
   },
   {
     id: 'j4HlLnQF6Xs',
-    name: 'Pokemon Diamond and Pearl',
+    name: 'Pokemon Diamond & Pearl',
     src: 'https://www.youtube.com/watch?v=j4HlLnQF6Xs',
     title: 'We Will be Heroes',
     artist: '',
