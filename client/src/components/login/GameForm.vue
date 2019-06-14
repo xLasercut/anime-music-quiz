@@ -60,8 +60,8 @@
       },
       nameRules: [
         (v) => !!v || 'Username required',
-        (v) => this.isValidUsername(v) || 'Username can only contain: 0-9, A-Z, a-z',
-        (v) => v.length <= 20 || 'Username must be under 20 characters'
+        (v) => this.isValidUsername(v) || 'Username can only contain: 0-9, A-Z, a-z and space',
+        (v) => this.isValidNameLength(v) || 'Username must be under 20 characters'
       ],
       scoreRules: [
         (v) => v >= 0 and v <= 100 || 'Score must be between 0 and 100',
@@ -87,8 +87,12 @@
               this.notifyError('Incorrect server password')
           )
       isValidUsername: (name) ->
-        if /^[0-9A-Za-z]+$/.exec(name)
+        if /^[0-9A-Za-z ]+$/.exec(name)
           return true
+        return false
+      isValidNameLength: (name) ->
+        if name
+          return name.length <= 20
         return false
     mounted: () ->
       if localStorage.avatar
