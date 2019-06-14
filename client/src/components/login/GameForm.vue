@@ -6,6 +6,7 @@
         v-model.trim="form.username"
         :rules="nameRules"
         @enter="login()"
+        counter="20"
       />
       <form-input-password v-model.trim="form.password" @enter="login()" />
       <form-avatar :avatars="avatars" v-model="form.avatar" />
@@ -58,10 +59,13 @@
         score: 0
       },
       nameRules: [
-        (v) => !!v || 'Username required'
+        (v) => !!v || 'Username required',
+        (v) => this.isValidUsername(v) || 'Username can only contain: 0-9, A-Z, a-z',
+        (v) => v.length <= 20 || 'Username must be under 20 characters'
       ],
       scoreRules: [
-        (v) => v >= 0 || 'Score cannot be negative'
+        (v) => v >= 0 and v <= 100 || 'Score must be between 0 and 100',
+        (v) => Number.isInteger(v) || 'Score must be a number'
       ],
       avatars: avatars
     methods:
@@ -82,7 +86,10 @@
             else
               this.notifyError('Incorrect server password')
           )
-          #this.$store.commit('game/LOGIN', this.form)
+      isValidUsername: (name) ->
+        if /^[0-9A-Za-z]+$/.exec(name)
+          return true
+        return false
     mounted: () ->
       if localStorage.avatar
         this.form.avatar = localStorage.avatar
