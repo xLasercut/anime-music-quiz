@@ -75,5 +75,6 @@ module.exports = {
   'Boku wa Tomodachi ga Sukunai': ['Haganai: I don\'t have many friends'],
   'Mahouka Koukou no Rettousei': ['The Irregular at Magic High School'],
   'La Corda d\'Oro: Blue Sky': ['Kin\'iro no Chord: Blue Sky'],
-  'Shoujo Shuumatsu Ryokou': ['Girl\'s Last Tour']
+  'Shoujo Shuumatsu Ryokou': ['Girl\'s Last Tour'],
+  'Kumo no Mukou, Yakusoku no Basho': ['The Place Promised in Our Early Days']
 }

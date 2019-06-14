@@ -903,4 +903,12 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: '6VhWtidHF-g',
+    name: 'Kumo no Mukou, Yakusoku no Basho',
+    src: 'https://www.youtube.com/watch?v=6VhWtidHF-g',
+    title: 'Kimi no Koe',
+    artist: '',
+    type: 'Insert'
+  },
 ]
