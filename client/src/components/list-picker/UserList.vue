@@ -28,45 +28,25 @@
 
 <script lang="coffee">
   import ListData from './ListData.vue'
-  import ListFilter from './ListFilter.vue'
   import IconBtn from '../shared/IconBtn.vue'
   import ListPagination from './ListPagination.vue'
   import NavBtn from '../shared/NavBtn.vue'
+  import TableFilter from '../../assets/mixins/table-filter.coffee'
 
   export default
-    components: { ListData, ListFilter, IconBtn, ListPagination, NavBtn }
+    mixins: [ TableFilter ]
+    components: { ListData, IconBtn, ListPagination, NavBtn }
     data: () ->
-      filter: {
-        anime: '',
-        song: '',
-        type: 'All'
-      },
       currentPage: 1,
       pageSize: 6,
       maxPage: 1
     methods:
-      filteredData: () ->
-        songfilter = ''
-        animefilter = ''
-        typefilter = ''
-        if this.filter.song
-          songfilter = this.filter.song.trim().toLowerCase()
-        if this.filter.anime
-          animefilter = this.filter.anime.trim().toLowerCase()
-        if this.filter.type and this.filter.type != 'All'
-          typefilter = this.filter.type.trim().toLowerCase()
-        return this.$store.state.list.userList.filter((anime) =>
-          names = "#{anime.name},#{anime.altName.join(',')}".toLowerCase()
-          songName = anime.title.toLowerCase()
-          type = anime.type.toLowerCase()
-          if names.includes(animefilter) and songName.includes(songfilter) and type.includes(typefilter)
-            return anime
-        )
       displayData: () ->
+        filteredData = this.filteredData(this.$store.state.list.userList)
         start = (this.currentPage - 1) * this.pageSize
         end = start + this.pageSize
-        this.maxPage = Math.ceil(this.filteredData().length / this.pageSize)
-        return this.filteredData().slice(start, end)
+        this.maxPage = Math.ceil(filteredData.length / this.pageSize)
+        return filteredData.slice(start, end)
       download: () ->
         jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)
         blob = new Blob([jsonstring], {type: 'text/plain'})

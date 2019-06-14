@@ -1,7 +1,7 @@
 timer = require './timer.coffee'
 mapper = require './mapper.coffee'
 { RawList, FullList } = require '../database/database.coffee'
-youtubeList = require './youtube-list.coffee'
+extraList = require './extra-list.coffee'
 
 rawList = new RawList()
 fullList = new FullList()
@@ -26,7 +26,7 @@ for song in rawList.read()
   if !isDuplicate(song)
     songs.push(song)
 
-for song in youtubeList
+for song in extraList
   song.name = mapper.swapName(song.name)
   song.title = mapper.swapTitle(song.title)
   song.altName = mapper.altName(song.name, song.id)
@@ -36,11 +36,6 @@ for song in youtubeList
   else
     console.log(song)
 
-fullList.write(songs.sort((a, b) ->
-  if a.name > b.name
-    return 1
-  else
-    return -1
-))
+fullList.write(songs)
 processTime = timer.end()
 console.log("Generation complete. Time Taken: #{processTime} seconds")

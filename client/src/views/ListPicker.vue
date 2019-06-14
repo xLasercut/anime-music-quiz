@@ -13,23 +13,18 @@
 </template>
 
 <script lang="coffee">
-  import ListFilter from '../components/list-picker/ListFilter.vue'
   import ListData from '../components/list-picker/ListData.vue'
   import ListPagination from '../components/list-picker/ListPagination.vue'
   import Loading from '../components/shared/Loading.vue'
-  import EventBus from '../assets/mixins/event-bus.coffee'
+  import TableFilter from '../assets/mixins/table-filter.coffee'
 
   export default
-    components: { ListFilter, ListData, ListPagination, Loading }
+    mixins: [ TableFilter ]
+    components: { ListData, ListPagination, Loading }
     data: () ->
       socket: this.$store.state.list.socket,
       pageSize: 8,
       currentPage: 1,
-      filter: {
-        anime: '',
-        song: '',
-        type: 'All'
-      },
       maxPage: 1
     sockets:
       SYNC_USER_LIST: (list, filename) ->
@@ -38,28 +33,12 @@
       SYNC_FULL_LIST: (list) ->
         this.$store.commit('list/UPDATE_FULL_LIST', list)
     methods:
-      filteredData: () ->
-        songfilter = ''
-        animefilter = ''
-        typefilter = ''
-        if this.filter.song
-          songfilter = this.filter.song.trim().toLowerCase()
-        if this.filter.anime
-          animefilter = this.filter.anime.trim().toLowerCase()
-        if this.filter.type and this.filter.type != 'All'
-          typefilter = this.filter.type.trim().toLowerCase()
-        return this.$store.state.list.fullList.filter( (anime) =>
-          names = "#{anime.name},#{anime.altName.join(',')}".toLowerCase()
-          songName = anime.title.toLowerCase()
-          type = anime.type.toLowerCase()
-          if names.includes(animefilter) and songName.includes(songfilter) and type.includes(typefilter)
-            return anime
-        )
       displayData: () ->
+        filteredData = this.filteredData(this.$store.state.list.fullList)
         start = (this.currentPage - 1) * this.pageSize
         end = start + this.pageSize
-        this.maxPage = Math.ceil(this.filteredData().length / this.pageSize)
-        return this.filteredData().slice(start, end)
+        this.maxPage = Math.ceil(filteredData.length / this.pageSize)
+        return filteredData.slice(start, end)
       addAnime: (anime) ->
         this.$store.commit('list/ADD_ANIME', anime)
         this.updateUserList()
