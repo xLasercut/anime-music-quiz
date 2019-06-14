@@ -830,5 +830,21 @@ module.exports = [
     title: 'Real',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: '5wkryk',
+    name: 'Shoujo Shuumatsu Ryokou',
+    src: 'https://files.catbox.moe/5wkryk.webm',
+    title: 'Hitomi ni Utsuru Keshiki',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'c0e9q2',
+    name: 'Shoujo Shuumatsu Ryokou',
+    src: 'https://files.catbox.moe/c0e9q2.webm',
+    title: 'Shoujo Shuumatsu Ryokou -Main Theme-',
+    artist: '',
+    type: 'Insert'
   }
 ]
