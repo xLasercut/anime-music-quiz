@@ -911,4 +911,36 @@ module.exports = [
     artist: '',
     type: 'Insert'
   },
+  {
+    id: 'iPYKBjIO4l8',
+    name: 'Mitsubachi Maaya no Bouken',
+    src: 'https://www.youtube.com/watch?v=iPYKBjIO4l8',
+    title: 'Die Biene Maja',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: '-k1g0UXbJlU',
+    name: 'Kirarin Revolution',
+    src: 'https://www.youtube.com/watch?v=-k1g0UXbJlU',
+    title: 'Balalaika',
+    artist: '',
+    type: 'OP2'
+  },
+  {
+    id: 'NvOv8XpsO2s',
+    name: 'Kirarin Revolution',
+    src: 'https://www.youtube.com/watch?v=NvOv8XpsO2s',
+    title: 'Koi Kana',
+    artist: '',
+    type: 'OP1'
+  },
+  {
+    id: 'zAoCwKJ9nZg',
+    name: 'Kyoro-chan',
+    src: 'https://www.youtube.com/watch?v=zAoCwKJ9nZg',
+    title: 'Kyoro-chan deshu',
+    artist: '',
+    type: 'OP2'
+  }
 ]

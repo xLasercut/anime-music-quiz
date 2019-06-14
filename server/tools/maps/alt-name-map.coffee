@@ -76,5 +76,6 @@ module.exports = {
   'Mahouka Koukou no Rettousei': ['The Irregular at Magic High School'],
   'La Corda d\'Oro: Blue Sky': ['Kin\'iro no Chord: Blue Sky'],
   'Shoujo Shuumatsu Ryokou': ['Girl\'s Last Tour'],
-  'Kumo no Mukou, Yakusoku no Basho': ['The Place Promised in Our Early Days']
+  'Kumo no Mukou, Yakusoku no Basho': ['The Place Promised in Our Early Days'],
+  'Mitsubachi Maaya no Bouken': ['Maya the Bee']
 }
