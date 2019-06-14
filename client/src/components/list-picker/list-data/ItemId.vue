@@ -9,7 +9,6 @@
       show: false
     methods:
       toggle: () ->
-        console.log(this.show)
         this.show = !this.show
       outputId: () ->
         if this.show
