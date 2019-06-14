@@ -846,5 +846,61 @@ module.exports = [
     title: 'Shoujo Shuumatsu Ryokou -Main Theme-',
     artist: '',
     type: 'Insert'
-  }
+  },
+  {
+    id: 'qoy6yB9FeD0',
+    name: 'Pokemon',
+    src: 'https://www.youtube.com/watch?v=qoy6yB9FeD0',
+    title: 'Believe in Me',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: '-7aISWhDJNE',
+    name: 'Pokemon Advance',
+    src: 'https://www.youtube.com/watch?v=-7aISWhDJNE',
+    title: 'I Wanna Be a Hero',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'J_49dfhh5XU',
+    name: 'Pokemon Advance',
+    src: 'https://www.youtube.com/watch?v=J_49dfhh5XU',
+    title: 'Unbeatable',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'j4HlLnQF6Xs',
+    name: 'Pokemon Diamond and Pearl',
+    src: 'https://www.youtube.com/watch?v=j4HlLnQF6Xs',
+    title: 'We Will be Heroes',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'mH0008o-6cs',
+    name: 'Pokemon Movie 1: Mewtwo Strikes Back',
+    src: 'https://www.youtube.com/watch?v=mH0008o-6cs',
+    title: 'Tears of Life',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ZqpXrDuLqE0',
+    name: 'Pokemon Movie 2: The Power of One',
+    src: 'https://www.youtube.com/watch?v=ZqpXrDuLqE0',
+    title: 'Lugia\'s Theme',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'SWa3RgEOjOg',
+    name: 'Pokemon Movie 10: The Rise of Darkrai',
+    src: 'https://www.youtube.com/watch?v=SWa3RgEOjOg',
+    title: 'Oracion',
+    artist: '',
+    type: 'Insert'
+  },
 ]
