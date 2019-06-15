@@ -2,6 +2,8 @@ PlayerManagement = require './player-management.coffee'
 GameSettings = require './game-settings.coffee'
 GameState = require './game-state.coffee'
 Chat = require './chat.coffee'
+Timer = require './timer.coffee'
+q = require 'q'
 { userLists } = require '../shared-classes.coffee'
 
 class GameListener
@@ -12,8 +14,7 @@ class GameListener
     @gameSettings = new GameSettings(io, logObject)
     @gameState = new GameState(io, logObject)
     @chat = new Chat(io, logObject)
-    @timeout = null
-    @game = null
+    @timer = new Timer()
 
   listen: (socket) ->
     @playerManagement.listen(socket)
@@ -23,7 +24,7 @@ class GameListener
       if @playerManagement.isPlayer(socket.id)
         @playerManagement.removePlayer(socket.id)
         if @playerManagement.isEmpty()
-          @gameState.reset()
+          @resetGame()
           @logObject.writeLog('GAME001')
 
     socket.on 'LOGIN_GAME', (player) =>
@@ -42,44 +43,54 @@ class GameListener
       else
         @chat.system('Empty song list')
 
-    socket.on 'SET_BET', (bet) =>
-      @playerManagement.changeBet(socket.id, bet)
-      if @playerManagement.canProgress(socket.id)
-        @gameState.newSong()
-
-    socket.on 'SONG_LOADED', () =>
-      if @playerManagement.canProgress(socket.id)
-        @io.emit('START_COUNTDOWN', @gameSettings.guessTime)
-        @timeout = setTimeout(() =>
-          @io.emit('TIME_UP')
-        , @gameSettings.guessTime * 1000)
-
-    socket.on 'GUESS', (guess) =>
-      score = @gameState.getScore(guess, @playerManagement.playerBet(socket.id))
-      @playerManagement.songOver(guess, score, socket.id)
-      if @playerManagement.canProgress(socket.id)
-        @io.emit('SHOW_GUESS')
-        if @gameState.gameEnd()
-          @logObject.writeLog('GAME003')
-          clearTimeout(@timeout)
-          @gameState.reset()
-        else
-          @timeout = setTimeout( () =>
-            @newRound()
-          , 10000)
-
     socket.on 'STOP_GAME', () =>
-      clearTimeout(@timeout)
-      @gameState.reset()
-      @playerManagement.readyClear()
+      @resetGame()
+
+  resetGame: () ->
+    @timer.resetCountdown()
+    @timer.resetTimeout()
+    @gameState.reset()
+    @playerManagement.readyClear()
 
   newRound: () ->
+    @playerManagement.newRound()
     if @gameSettings.mode == 'gamble'
-      @io.emit('PLACE_BET', 10)
-      @timeout = setTimeout( () =>
-        @io.emit('CLOSE_BET')
-      , 10000)
+      @gameFlowGamble()
     else
-      @gameState.newSong()
+      @gameFlowMain()
+
+  gameFlowMain: () ->
+    @gameState.newSong()
+    @timer.startCountdown(5000, @playerManagement)
+    .then () =>
+      @io.emit('START_COUNTDOWN', @gameSettings.guessTime)
+      return @timer.startTimeout(@gameSettings.guessTime * 1000)
+    .then () =>
+      @io.emit('TIME_UP')
+      return @timer.startCountdown(5000, @playerManagement)
+    .then () =>
+      @playerManagement.songOver(@gameState.currentSong, @gameSettings.mode)
+      if @gameState.gameEnd()
+        @logObject.writeLog('GAME003')
+        @gameState.reset()
+        return @timer.newRound(false)
+      else
+        return @timer.newRound(true)
+    .then (newRound) =>
+      if newRound
+        @newRound()
+    .catch (err) =>
+      @logObject.writeLog('SERVER004', { msg: err })
+
+  gameFlowGamble: () ->
+    @io.emit('PLACE_BET', 10)
+    @timer.startTimeout(10000)
+    .then () =>
+      @io.emit('CLOSE_BET')
+      return @timer.startCountdown(5000, @playerManagement)
+    .then () =>
+      @gameFlowMain()
+    .catch (err) =>
+      @logObject.writeLog('SERVER004', { msg: err })
 
 module.exports = GameListener

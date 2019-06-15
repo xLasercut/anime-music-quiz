@@ -9,7 +9,6 @@ class Player
       anime: ''
     }
     @ready = false
-    @scoreGained = 0
     @admin = admin
     @bet = 1
     @color = 'error'
@@ -21,7 +20,6 @@ class Player
       avatar: @avatar,
       host: @host,
       guess: @guess,
-      scoreGained: @scoreGained,
       admin: @admin,
       color: @color
     }
@@ -38,16 +36,22 @@ class Player
   setGuess: (guess) ->
     @guess = guess
 
+  setBet: (bet) ->
+    @bet = bet
+
+  setColor: (color) ->
+    @color = color
+
   addPoint: (point) ->
     @score += point
-    @scoreGained = point
 
   changeName: (name) ->
     @username = name
 
-  changeBet: (bet) ->
-    @bet = bet
+  newRound: () ->
+    @guess = { song: '', anime: '' }
+    @color = 'error'
+    @bet = 1
 
-  changeColor: (color) ->
-    @color = color
+
 module.exports = Player

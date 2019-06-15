@@ -1,22 +1,21 @@
 class ScoreCalculator
-  constructor: (mode, currentSong, bet) ->
+  constructor: (mode, currentSong) ->
     @mode = mode
     @currentSong = currentSong
-    @bet = bet
 
-  calculateScore: (guess) ->
+  calculateScore: (guess, bet) ->
     if @mode == 'gamble'
-      return @pointScoredBet(guess)
+      return @pointScoredBet(guess, bet)
     else
       return @pointScoredNormal(guess)
 
-  pointScoredBet: (guess) ->
+  pointScoredBet: (guess, bet) ->
     score = @pointScoredNormal(guess)
 
     if score.point == 0
-      score['point'] -= @bet
+      score['point'] -= bet
     else
-      score['point'] = score.point * @bet
+      score['point'] = score.point * bet
 
     return score
 

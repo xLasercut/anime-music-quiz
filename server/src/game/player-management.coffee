@@ -1,5 +1,6 @@
 Player = require './player.coffee'
 Chat = require './chat.coffee'
+ScoreCalculator = require './score-calculator.coffee'
 
 class PlayerManagement
   constructor: (io, logObject) ->
@@ -11,6 +12,18 @@ class PlayerManagement
   listen: (socket) ->
     socket.on 'USER_MESSAGE', (message) =>
       @chat.user(message, @playerName(socket.id), socket.admin)
+
+    socket.on 'SONG_LOADED', () =>
+      @players[socket.id].setReady(true)
+
+    socket.on 'GUESS', (guess) =>
+      @players[socket.id].setGuess(guess)
+      @players[socket.id].setReady(true)
+      @logObject.writeLog('GAME007', { song: guess.song, anime: guess.anime })
+
+    socket.on 'SET_BET', (bet) =>
+      @players[socket.id].setBet(bet)
+      @players[socket.id].setReady(true)
 
   addPlayer: (player, id, admin) ->
     host = false
@@ -39,12 +52,6 @@ class PlayerManagement
     @players[id].changeName(name)
     @updateClient()
 
-  changeBet: (id, bet) ->
-    @players[id].changeBet(bet)
-
-  playerBet: (id) ->
-    return @players[id].bet
-
   playerName: (id) ->
     return @players[id].username
 
@@ -53,28 +60,31 @@ class PlayerManagement
       player.resetScore()
     @updateClient()
 
-  canProgress: (id) ->
-    @players[id].setReady(true)
-    if @isAllReady()
-      @readyClear()
-      return true
-    return false
+  checkAllReady: () ->
+    for _id, player of @players
+      if !player.ready
+        return false
+    @readyClear()
+    return true
 
-  songOver: (guess, score, id) ->
-    @players[id].setGuess(guess)
-    @players[id].addPoint(score.point)
-    @players[id].changeColor(score.color)
+  newRound: () ->
+    for _id, player of @players
+      player.newRound()
     @updateClient()
+
+  songOver: (currentSong, gameMode) ->
+    @logObject.writeLog('GAME006')
+    scoreCalculator = new ScoreCalculator(gameMode, currentSong)
+    for _id, player of @players
+      score = scoreCalculator.calculateScore(player.guess, player.bet)
+      player.addPoint(score.point)
+      player.setColor(score.color)
+    @updateClient()
+    @io.emit('SHOW_GUESS')
 
   readyClear: () ->
     for _id, player of @players
       player.setReady(false)
-
-  isAllReady: () ->
-    for _id, player of @players
-      if !player.ready
-        return false
-    return true
 
   isPlayer: (id) ->
     return (id of @players)

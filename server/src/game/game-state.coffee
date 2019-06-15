@@ -1,5 +1,4 @@
 { userLists, animeChoices, songChoices } = require '../shared-classes.coffee'
-ScoreCalculator = require './score-calculator.coffee'
 
 class GameState
   constructor: (io, logObject) ->
@@ -11,7 +10,6 @@ class GameState
     @currentSongCount = 0
     @currentSong = {}
     @startPosition = 0
-    @gameMode = 'normal'
 
   generateGameList: (songCount, lists) ->
     combinedList = userLists.combinedList(lists)
@@ -32,11 +30,11 @@ class GameState
     @playing = true
     @io.emit('SYNC_PLAYING', @playing)
     @maxSongCount = @gameList.length
-    @gameMode = mode
-    @logObject.writeLog('GAME002', { songCount: @maxSongCount, mode: @gameMode })
+    @logObject.writeLog('GAME002', { songCount: @maxSongCount, mode: mode })
 
   newSong: () ->
-    @randomSong()
+    @selectSong()
+    @syncSongCount()
     @logObject.writeLog('GAME005', {
       number: @currentSongCount,
       title: @currentSong.title,
@@ -47,12 +45,11 @@ class GameState
     @startPosition = Math.random()
     @io.emit('NEW_SONG', @currentSong, @startPosition)
 
-  randomSong: () ->
+  selectSong: () ->
     i = Math.floor(Math.random() * @gameList.length)
     @currentSong = @gameList[i]
     @gameList.splice(i, 1)
     @currentSongCount += 1
-    @syncSongCount()
 
   syncSongCount: () ->
     count = {
@@ -60,10 +57,6 @@ class GameState
       max: @maxSongCount
     }
     @io.emit('SYNC_SONG_COUNT', count)
-
-  getScore: (guess, bet) ->
-    scoreCalculator = new ScoreCalculator(@gameMode, @currentSong, bet)
-    return scoreCalculator.calculateScore(guess)
 
   gameEnd: () ->
     if @currentSongCount < @maxSongCount

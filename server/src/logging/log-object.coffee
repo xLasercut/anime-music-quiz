@@ -49,7 +49,7 @@ logger = winston.createLogger({
     errorLog,
     infoLog,
     debugLog,
-    new winston.transports.Console({ level: 'info' })
+    new winston.transports.Console({ level: 'debug' })
   ]
 })
 
