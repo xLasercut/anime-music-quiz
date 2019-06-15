@@ -35,5 +35,9 @@ module.exports = {
   },
   'MI_wWlz2Rck': {
     altName: ['Suzumiya Haruhi no Yuuutsu (2009)', 'The Melancholy of Haruhi Suzumiya (2009)']
+  },
+  'InitialDFirstStage-ED1': {
+    dupe: ['InitialDFinalStage-ED2'],
+    altName: ['Initial D Final Stage']
   }
 }
