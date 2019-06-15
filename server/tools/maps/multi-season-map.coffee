@@ -39,5 +39,9 @@ module.exports = {
   'InitialDFirstStage-ED1': {
     dupe: ['InitialDFinalStage-ED2'],
     altName: ['Initial D Final Stage']
+  },
+  'InitialDThirdStage-OP1': {
+    dupe: ['InitialDFinalStage-ED1'],
+    altName: ['Initial D Final Stage']
   }
 }
