@@ -4,7 +4,7 @@
       box clearable
       :items="items"
       :label="label"
-      v-model="model"
+      :search-input.sync="model"
     />
   </v-flex>
 </template>
