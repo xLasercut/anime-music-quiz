@@ -55,6 +55,7 @@ class GameListener
     @timer.resetTimeout()
     @gameState.reset()
     @playerManagement.readyClear()
+    songStats.write()
 
   newRound: () ->
     @playerManagement.newRound()
