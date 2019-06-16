@@ -8,7 +8,11 @@ class Player
       song: '',
       anime: ''
     }
-    @ready = false
+    @ready = {
+      song: false,
+      bet: false,
+      guess: false
+    }
     @admin = admin
     @bet = 1
     @color = 'error'
@@ -30,8 +34,8 @@ class Player
   resetScore: () ->
     @score = 0
 
-  setReady: (status) ->
-    @ready = status
+  setReady: (status, type) ->
+    @ready[type] = status
 
   setGuess: (guess) ->
     @guess = guess
@@ -52,6 +56,11 @@ class Player
     @guess = { song: '', anime: '' }
     @color = 'error'
     @bet = 1
+    @ready = {
+      bet: false,
+      song: false,
+      guess: false
+    }
 
 
 module.exports = Player

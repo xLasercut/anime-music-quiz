@@ -1,4 +1,4 @@
-PlayerManagement = require './player-management.coffee'
+Players = require './players.coffee'
 Settings = require './settings.coffee'
 GameState = require './game-state.coffee'
 Chat = require './chat.coffee'
@@ -10,7 +10,7 @@ class GameListener
   constructor: (io, logObject) ->
     @io = io
     @logObject = logObject
-    @playerManagement = new PlayerManagement(io, logObject)
+    @players = new Players(io, logObject)
     @settings = new Settings(io, logObject)
     @gameState = new GameState(io, logObject)
     @chat = new Chat(io, logObject)
@@ -21,25 +21,25 @@ class GameListener
     , 300000
 
   listen: (socket) ->
-    @playerManagement.listen(socket)
+    @players.listen(socket)
     @settings.listen(socket)
 
     socket.on 'disconnect', () =>
-      if @playerManagement.isPlayer(socket.id)
-        @playerManagement.removePlayer(socket.id)
-        if @playerManagement.isEmpty()
+      if @players.isPlayer(socket.id)
+        @players.removePlayer(socket.id)
+        if @players.isEmpty()
           @resetGame()
           @logObject.writeLog('GAME001')
 
     socket.on 'LOGIN_GAME', (player) =>
-      @playerManagement.addPlayer(player, socket.id, socket.admin)
+      @players.addPlayer(player, socket.id, socket.admin)
       socket.emit('SYNC_USER_LIST_FILES', userLists.files)
       socket.emit('SYNC_PLAYING', @gameState.playing)
       socket.emit('SYNC_CHOICES', @gameState.choices())
       socket.emit('SYNC_SETTINGS', @settings.serialize())
 
     socket.on 'START_GAME', () =>
-      @playerManagement.resetScore()
+      @players.resetScore()
       @gameState.generateGameList(@settings.songCount, @settings.lists)
       if @gameState.gameList.length > 0
         @gameState.startGame(@settings.mode)
@@ -54,11 +54,11 @@ class GameListener
     @timer.resetCountdown()
     @timer.resetTimeout()
     @gameState.reset()
-    @playerManagement.readyClear()
+    @players.readyClear()
     songStats.write()
 
   newRound: () ->
-    @playerManagement.newRound()
+    @players.newRound()
     if @settings.mode == 'gamble'
       @gameFlowGamble()
     else
@@ -66,15 +66,15 @@ class GameListener
 
   gameFlowMain: () ->
     @gameState.newSong()
-    @timer.startCountdown(5000, @playerManagement)
+    @timer.startCountdown(5000, @players, 'song')
     .then () =>
       @io.emit('START_COUNTDOWN', @settings.guessTime)
-      return @timer.startCountdown(@settings.guessTime * 1000, @playerManagement)
+      return @timer.startCountdown(@settings.guessTime * 1000, @players, 'guess')
     .then () =>
       @io.emit('TIME_UP')
-      return @timer.startCountdown(5000, @playerManagement)
+      return @timer.startCountdown(5000, @players, 'guess')
     .then () =>
-      @playerManagement.songOver(@gameState.currentSong, @settings.mode)
+      @players.songOver(@gameState.currentSong, @settings.mode)
       if @gameState.gameEnd()
         @logObject.writeLog('GAME003')
         @gameState.reset()
@@ -94,7 +94,7 @@ class GameListener
     @timer.startTimeout(10000)
     .then () =>
       @io.emit('CLOSE_BET')
-      return @timer.startCountdown(5000, @playerManagement)
+      return @timer.startCountdown(5000, @players, 'bet')
     .then () =>
       @gameFlowMain()
     .catch (err) =>

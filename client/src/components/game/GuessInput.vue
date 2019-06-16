@@ -20,6 +20,7 @@
       NEW_SONG: (_song, _position) ->
         this.guess.song = ''
         this.guess.anime = ''
+      START_COUNTDOWN: () ->
         this.locked = false
       TIME_UP: () ->
         if this.locked

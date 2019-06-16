@@ -59,15 +59,12 @@ class SongStats extends AbstractDatabase
       _writeFile(@filepath, {})
     @db = _readFile(@filepath)
 
-  update: (currentSong, score, username) ->
-    if !(currentSong.id of @db)
-      @db[currentSong.id] = {
-        total: 0,
-        user: {}
-      }
+  updateUser: (currentSong, score, username) ->
+    id = currentSong.id
+    @checkKey(id, username)
 
-    if !(username of @db[currentSong.id]['user'])
-      @db[currentSong.id]['user'][username] = {
+    if !(username of @db[id]['user'])
+      @db[id]['user'][username] = {
         total: 0,
         songCorrect: 0,
         songIncorrect: 0,
@@ -75,18 +72,32 @@ class SongStats extends AbstractDatabase
         animeIncorrect: 0
       }
 
-    @db[currentSong.id]['total'] += 1
-    @db[currentSong.id]['user'][username]['total'] += 1
+    @db[id]['user'][username]['total'] += 1
 
     if score.correctAnime
-      @db[currentSong.id]['user'][username]['animeCorrect'] += 1
+      @db[id]['user'][username]['animeCorrect'] += 1
     else
-      @db[currentSong.id]['user'][username]['animeIncorrect'] += 1
+      @db[id]['user'][username]['animeIncorrect'] += 1
 
     if score.correctSong
-      @db[currentSong.id]['user'][username]['songCorrect'] += 1
+      @db[id]['user'][username]['songCorrect'] += 1
     else
-      @db[currentSong.id]['user'][username]['songIncorrect'] += 1
+      @db[id]['user'][username]['songIncorrect'] += 1
+
+  updateSong: (currentSong) ->
+    id = currentSong.id
+    @checkKey(id)
+
+    @db[id]['total'] += 1
+
+  checkKey: (id, username) ->
+    if !(id of @db)
+      @db[id] = {
+        total: 0,
+        user: {}
+      }
+
+
 
   write: () ->
     _writeFile(@filepath, @db)

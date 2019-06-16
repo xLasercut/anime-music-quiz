@@ -6,18 +6,20 @@ class Timer
     @countdown = null
     @timeout = null
 
-  startCountdown: (time, playerManagement) ->
+  startCountdown: (time, playerManagement, type) ->
+    @resetCountdown()
     deferred = q.defer()
     @time = 0
     @countdown = setInterval () =>
       @time += 500
-      if playerManagement.checkAllReady() or @time >= time
+      if playerManagement.checkAllReady(type) or @time >= time
         @resetCountdown()
         deferred.resolve(true)
     , 500
     deferred.promise
 
   startTimeout: (time) ->
+    @resetTimeout()
     deferred = q.defer()
     @timeout = setTimeout () =>
       deferred.resolve(true)

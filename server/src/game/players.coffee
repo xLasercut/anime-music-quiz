@@ -3,7 +3,7 @@ Chat = require './chat.coffee'
 ScoreCalculator = require './score-calculator.coffee'
 { songStats } = require '../shared-classes.coffee'
 
-class PlayerManagement
+class Players
   constructor: (io, logObject) ->
     @io = io
     @logObject = logObject
@@ -15,19 +15,19 @@ class PlayerManagement
       @chat.user(message, @playerName(socket.id), socket.admin)
 
     socket.on 'SONG_LOADED', () =>
-      @players[socket.id].setReady(true)
+      @players[socket.id].setReady(true, 'song')
 
     socket.on 'GUESS', (guess) =>
       @players[socket.id].setGuess(guess)
-      @players[socket.id].setReady(true)
+      @players[socket.id].setReady(true, 'guess')
       @logObject.writeLog('GAME007', { song: guess.song, anime: guess.anime })
 
     socket.on 'SET_BET', (bet) =>
       @players[socket.id].setBet(bet)
-      @players[socket.id].setReady(true)
+      @players[socket.id].setReady(true, 'bet')
 
     socket.on 'PLAYER_READY', () =>
-      @players[socket.id].setReady(true)
+      @players[socket.id].setReady(true, 'guess')
 
   addPlayer: (player, id, admin) ->
     host = false
@@ -64,9 +64,9 @@ class PlayerManagement
       player.resetScore()
     @updateClient()
 
-  checkAllReady: () ->
+  checkAllReady: (type) ->
     for _id, player of @players
-      if !player.ready
+      if !player.ready[type]
         return false
     @readyClear()
     return true
@@ -79,17 +79,20 @@ class PlayerManagement
   songOver: (currentSong, gameMode) ->
     @logObject.writeLog('GAME006')
     scoreCalculator = new ScoreCalculator(gameMode, currentSong)
+    songStats.updateSong(currentSong)
     for _id, player of @players
       score = scoreCalculator.calculateScore(player.guess, player.bet)
       player.addPoint(score.point)
       player.setColor(score.color)
-      songStats.update(currentSong, score, player.username)
+      songStats.updateUser(currentSong, score, player.username)
     @updateClient()
     @io.emit('SHOW_GUESS')
 
   readyClear: () ->
     for _id, player of @players
-      player.setReady(false)
+      player.setReady(false, 'bet')
+      player.setReady(false, 'song')
+      player.setReady(false, 'guess')
 
   isPlayer: (id) ->
     return (id of @players)
@@ -109,4 +112,4 @@ class PlayerManagement
     @io.emit('SYNC_PLAYERS', @serialize())
 
 
-module.exports = PlayerManagement
+module.exports = Players
