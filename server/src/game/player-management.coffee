@@ -25,6 +25,9 @@ class PlayerManagement
       @players[socket.id].setBet(bet)
       @players[socket.id].setReady(true)
 
+    socket.on 'PLAYER_READY', () =>
+      @players[socket.id].setReady(true)
+
   addPlayer: (player, id, admin) ->
     host = false
     if Object.keys(@players).length == 0

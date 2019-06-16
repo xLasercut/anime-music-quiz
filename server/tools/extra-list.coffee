@@ -942,5 +942,21 @@ module.exports = [
     title: 'Kyoro-chan deshu',
     artist: '',
     type: 'OP2'
+  },
+  {
+    id: 'PZVxHAImp-s',
+    name: 'Shingeki no Kyojin',
+    src: 'https://www.youtube.com/watch?v=PZVxHAImp-s',
+    title: 'DOA',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'pFoc5XKkIIw',
+    name: 'Shingeki no Kyojin',
+    src: 'https://www.youtube.com/watch?v=pFoc5XKkIIw',
+    title: 'Call Your Name',
+    artist: '',
+    type: 'Insert'
   }
 ]

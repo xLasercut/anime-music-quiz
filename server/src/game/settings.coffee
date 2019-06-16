@@ -1,6 +1,6 @@
 Chat = require './chat.coffee'
 
-class GameSettings
+class Settings
   constructor: (io, logObject) ->
     @io = io
     @logObject = logObject
@@ -38,4 +38,4 @@ class GameSettings
       mode: @mode
     }
 
-module.exports = GameSettings
+module.exports = Settings
