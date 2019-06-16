@@ -1,6 +1,7 @@
 Player = require './player.coffee'
 Chat = require './chat.coffee'
 ScoreCalculator = require './score-calculator.coffee'
+{ songStats } = require '../shared-classes.coffee'
 
 class PlayerManagement
   constructor: (io, logObject) ->
@@ -82,6 +83,7 @@ class PlayerManagement
       score = scoreCalculator.calculateScore(player.guess, player.bet)
       player.addPoint(score.point)
       player.setColor(score.color)
+      songStats.update(currentSong, score, player.username)
     @updateClient()
     @io.emit('SHOW_GUESS')
 

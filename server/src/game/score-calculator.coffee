@@ -21,15 +21,21 @@ class ScoreCalculator
 
   pointScoredNormal: (guess) ->
     point = 0
+    correctAnime = false
+    correctSong = false
     if @animeCorrect(guess.anime)
       point += 1
+      correctAnime = true
 
     if @songCorrect(guess.song)
       point += 1
+      correctSong = true
 
     return {
       point: point,
-      color: @bannerColor(point)
+      color: @bannerColor(point),
+      correctAnime: correctAnime,
+      correctSong: correctSong
     }
 
   animeCorrect: (anime) ->

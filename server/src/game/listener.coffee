@@ -4,7 +4,7 @@ GameState = require './game-state.coffee'
 Chat = require './chat.coffee'
 Timer = require './timer.coffee'
 q = require 'q'
-{ userLists } = require '../shared-classes.coffee'
+{ userLists, songStats } = require '../shared-classes.coffee'
 
 class GameListener
   constructor: (io, logObject) ->
@@ -15,6 +15,10 @@ class GameListener
     @gameState = new GameState(io, logObject)
     @chat = new Chat(io, logObject)
     @timer = new Timer()
+    @statsSaver = setInterval () =>
+      if @gameState.playing
+        songStats.write()
+    , 300000
 
   listen: (socket) ->
     @playerManagement.listen(socket)
@@ -79,6 +83,8 @@ class GameListener
     .then (newRound) =>
       if newRound
         @newRound()
+      else
+        songStats.write()
     .catch (err) =>
       @logObject.writeLog('SERVER004', { msg: err })
 

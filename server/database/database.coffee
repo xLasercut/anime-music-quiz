@@ -50,6 +50,45 @@ class SongChoices extends AbstractDatabase
   constructor: () ->
     super(path.join(dbBasePath, 'song-choices.json'))
 
+class SongStats extends AbstractDatabase
+  constructor: () ->
+    super(path.join(dbBasePath, 'song-statistics.json'))
+
+  initDb: () ->
+    if !fs.existsSync(@filepath)
+      _writeFile(@filepath, {})
+    @db = _readFile(@filepath)
+
+  update: (currentSong, score, username) ->
+    if !(currentSong.id of @db)
+      @db[currentSong.id] = {
+        total: 0,
+        user: {}
+      }
+
+    if !(username of @db[currentSong.id]['user'])
+      @db[currentSong.id]['user'][username] = {
+        songCorrect: 0,
+        songIncorrect: 0,
+        animeCorrect: 0,
+        animeIncorrect: 0
+      }
+
+    @db[currentSong.id]['total'] += 1
+
+    if score.correctAnime
+      @db[currentSong.id]['user'][username]['animeCorrect'] += 1
+    else
+      @db[currentSong.id]['user'][username]['animeIncorrect'] += 1
+
+    if score.correctSong
+      @db[currentSong.id]['user'][username]['songCorrect'] += 1
+    else
+      @db[currentSong.id]['user'][username]['songIncorrect'] += 1
+
+  write: () ->
+    _writeFile(@filepath, @db)
+
 class UserList extends AbstractDatabase
   constructor: (filename) ->
     super(path.join(userDbBasePath, filename))
@@ -96,4 +135,4 @@ class UserLists
     for _key, userList of @lists
       userList.reload()
 
-module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists }
+module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists, SongStats }

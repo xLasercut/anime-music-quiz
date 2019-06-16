@@ -1078,5 +1078,29 @@ module.exports = [
     title: 'Hologram',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'EvYPo0IkTLs',
+    name: 'Soul Eater',
+    src: 'https://www.youtube.com/watch?v=EvYPo0IkTLs',
+    title: 'Psychidelic Souljam',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Y-204x6hk64',
+    name: 'Kyoukai no Kanata',
+    src: 'https://www.youtube.com/watch?v=Y-204x6hk64',
+    title: 'No Line',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ytvvUZYudb4',
+    name: 'Soul Eater',
+    src: 'https://www.youtube.com/watch?v=ytvvUZYudb4',
+    title: 'Step Up',
+    artist: '',
+    type: 'Insert'
   }
 ]
