@@ -79,5 +79,8 @@ module.exports = {
   'Kumo no Mukou, Yakusoku no Basho': ['The Place Promised in Our Early Days'],
   'Mitsubachi Maaya no Bouken': ['Maya the Bee'],
   'Girls und Panzer Gekijouban': ['Girls und Panzer Der Film'],
-  'Hai to Gensou no Grimgar': ['Grimgar: Ashes and Illusions']
+  'Hai to Gensou no Grimgar': ['Grimgar: Ashes and Illusions'],
+  'Boku no Hero Academia': ['My Hero Academia'],
+  'Boku no Hero Academia 2nd Season': ['My Hero Academia 2nd Season'],
+  'Boku no Hero Academia 3rd Season': ['My Hero Academia 3rd Season']
 }

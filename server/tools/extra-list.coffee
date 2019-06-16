@@ -1102,5 +1102,13 @@ module.exports = [
     title: 'Step Up',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'YGODuelMonstersDub-OP1',
+    name: 'Yu-Gi-Oh! Duel Monsters',
+    src: 'https://animethemes.moe/video/YGODuelMonstersDub-OP1.webm',
+    title: 'Yu-Gi-Oh! Theme',
+    artist: '',
+    type: 'OP'
   }
 ]
