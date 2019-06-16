@@ -68,6 +68,7 @@ class SongStats extends AbstractDatabase
 
     if !(username of @db[currentSong.id]['user'])
       @db[currentSong.id]['user'][username] = {
+        total: 0,
         songCorrect: 0,
         songIncorrect: 0,
         animeCorrect: 0,
@@ -75,6 +76,7 @@ class SongStats extends AbstractDatabase
       }
 
     @db[currentSong.id]['total'] += 1
+    @db[currentSong.id]['user'][username]['total'] += 1
 
     if score.correctAnime
       @db[currentSong.id]['user'][username]['animeCorrect'] += 1
