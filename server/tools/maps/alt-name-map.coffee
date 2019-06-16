@@ -77,5 +77,7 @@ module.exports = {
   'La Corda d\'Oro: Blue Sky': ['Kin\'iro no Chord: Blue Sky'],
   'Shoujo Shuumatsu Ryokou': ['Girl\'s Last Tour'],
   'Kumo no Mukou, Yakusoku no Basho': ['The Place Promised in Our Early Days'],
-  'Mitsubachi Maaya no Bouken': ['Maya the Bee']
+  'Mitsubachi Maaya no Bouken': ['Maya the Bee'],
+  'Girls und Panzer Gekijouban': ['Girls und Panzer Der Film'],
+  'Hai to Gensou no Grimgar': ['Grimgar: Ashes and Illusions']
 }

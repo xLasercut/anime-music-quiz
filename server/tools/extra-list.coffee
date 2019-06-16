@@ -958,5 +958,125 @@ module.exports = [
     title: 'Call Your Name',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: '0o-7-uQth4Q',
+    name: 'Shingeki no Kyojin Season 2',
+    src: 'https://www.youtube.com/watch?v=0o-7-uQth4Q',
+    title: 'Call of Silence',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ko-mjerzNlY',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=ko-mjerzNlY',
+    title: 'When The Sun Goes Down',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'AsbOOPkmEGw',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=AsbOOPkmEGw',
+    title: 'Beat of The Rising Sun',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'V_7FdXET23Q',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=V_7FdXET23Q',
+    title: 'Heartbeat',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'rqNWEdcKdlM',
+    name: 'Black Clover (TV)',
+    src: 'https://www.youtube.com/watch?v=rqNWEdcKdlM',
+    title: 'Kahono\'s Song',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'gMPR3rrxzxA',
+    name: 'Ao no Exorcist',
+    src: 'https://www.youtube.com/watch?v=gMPR3rrxzxA',
+    title: 'Me & Creed',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'KCm2PtSgzkA',
+    name: 'Girls und Panzer',
+    src: 'https://www.youtube.com/watch?v=KCm2PtSgzkA',
+    title: 'Sakkijarven Polkka',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'hFRhqUZxw94',
+    name: 'Girls und Panzer Gekijouban',
+    src: 'https://www.youtube.com/watch?v=hFRhqUZxw94',
+    title: 'Boko Song',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Ze0KaN-YAd8',
+    name: 'Hai to Gensou no Grimgar',
+    src: 'https://www.youtube.com/watch?v=Ze0KaN-YAd8',
+    title: 'Sudden Storm',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'OIkiqZzlRiQ',
+    name: 'Hai to Gensou no Grimgar',
+    src: 'https://www.youtube.com/watch?v=OIkiqZzlRiQ',
+    title: 'Swelling of Buds',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'icX2AL66dLE',
+    name: 'Hyouka',
+    src: 'https://www.youtube.com/watch?v=icX2AL66dLE',
+    title: 'Hitori',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'O7j7AVTf2kE',
+    name: 'Hyouka',
+    src: 'https://www.youtube.com/watch?v=O7j7AVTf2kE',
+    title: 'Ue wo Muite Arukou',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'SFiFZ7WK_Hg',
+    name: 'Boku no Hero Academia',
+    src: 'https://www.youtube.com/watch?v=SFiFZ7WK_Hg',
+    title: 'Hero A',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ehCT9UO9Je8',
+    name: 'Boku no Hero Academia 2nd Season',
+    src: 'https://www.youtube.com/watch?v=ehCT9UO9Je8',
+    title: 'Just Another Hero',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: '39PngUNwLoU',
+    name: 'Jitsu wa Watashi wa',
+    src: 'https://www.youtube.com/watch?v=39PngUNwLoU',
+    title: 'Hologram',
+    artist: '',
+    type: 'Insert'
   }
 ]
