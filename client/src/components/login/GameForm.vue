@@ -42,7 +42,7 @@
   import Notification from '../../assets/mixins/notification.coffee'
   import FormAvatar from './form/FormAvatar.vue'
 
-  avatars = ['zero_2', 'lelouch', 'horo', 'madoka', 'alphonse', 'miyu', 'taj']
+  avatars = ['zero_2', 'lelouch', 'horo', 'madoka', 'alphonse', 'misaka', 'miyu', 'taj']
 
   password = ''
   if process.env.NODE_ENV == 'development'
