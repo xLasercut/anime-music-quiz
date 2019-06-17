@@ -4,7 +4,7 @@
       <v-badge :color="badgeColor(player)" overlap left>
         <v-icon v-if="player.admin || player.host" color="white" slot="badge">mdi-crown</v-icon>
         <v-avatar tile size="100px">
-          <img :src="`img/avatar/${player.avatar}.png`" />
+          <v-img :src="`img/avatar/${player.avatar}.png`" aspect-ratio="1"/>
         </v-avatar>
       </v-badge>
     </v-flex>
@@ -23,7 +23,7 @@
 </script>
 
 <style scoped>
-  .v-avatar img {
+  .v-avatar .v-image {
     outline: 1px solid black;
     background-color: white;
   }

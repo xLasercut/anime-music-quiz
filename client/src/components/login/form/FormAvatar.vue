@@ -4,7 +4,7 @@
       <input :id="`avatar_${avatar}`" type="radio" :value="avatar" v-model="model">
       <label :for="`avatar_${avatar}`">
         <v-avatar tile size="100px">
-          <img :src="`img/avatar/${avatar}.png`">
+          <v-img :src="`img/avatar/${avatar}.png`" aspect-ratio="1"/>
         </v-avatar>
       </label>
     </v-flex>
@@ -24,14 +24,14 @@
     display: none;
   }
 
-  img {
+  .v-image {
     outline: 1px solid black;
     cursor: pointer;
     transition: all 0.1s;
     background-color: white;
   }
 
-  input:checked + label img {
+  input:checked + label .v-image {
     outline: 4px solid var(--v-success-base);
   }
 
