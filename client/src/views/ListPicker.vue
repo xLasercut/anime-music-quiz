@@ -18,10 +18,9 @@
   import Loading from '../components/shared/Loading.vue'
   import TableFilter from '../assets/mixins/table-filter.coffee'
   import Notification from '../assets/mixins/notification.coffee'
-  import RouteGuard from '../assets/mixins/route-guard.coffee'
 
   export default
-    mixins: [ TableFilter, Notification, RouteGuard ]
+    mixins: [ TableFilter, Notification ]
     components: { ListData, ListPagination, Loading }
     data: () ->
       pagination: {

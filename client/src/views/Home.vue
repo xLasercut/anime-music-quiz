@@ -11,10 +11,9 @@
   import Chat from '../components/Chat.vue'
   import Game from '../components/Game.vue'
   import Notification from '../assets/mixins/notification.coffee'
-  import RouteGuard from '../assets/mixins/route-guard.coffee'
 
   export default
-    mixins: [ Notification, RouteGuard ]
+    mixins: [ Notification ]
     components: { Chat, Game }
     sockets:
       SYNC_PLAYERS: (players) ->
@@ -25,6 +24,15 @@
         this.$store.commit('game/UPDATE_PLAYERS', data)
       disconnect: () ->
         this.$router.push('/')
+    beforeRouteLeave: (to, from, next) ->
+      if this.$store.state.game.playing
+        answer = window.confirm('You are about to leave this page. Continue?')
+        if answer
+          next()
+        else
+          next(false)
+      else
+        next()
     mounted: () ->
       if !this.$socket.connected
         this.$router.push('/')
