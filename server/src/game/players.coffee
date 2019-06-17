@@ -1,18 +1,17 @@
 Player = require './player.coffee'
-Chat = require './chat.coffee'
 ScoreCalculator = require './score-calculator.coffee'
 { songStats } = require '../shared-classes.coffee'
 
 class Players
-  constructor: (io, logObject) ->
+  constructor: (io, logObject, chat) ->
     @io = io
     @logObject = logObject
     @players = {}
-    @chat = new Chat(io, logObject)
+    @chat = chat
 
   listen: (socket) ->
     socket.on 'USER_MESSAGE', (message) =>
-      @chat.user(message, @playerName(socket.id), socket.admin)
+      @chat.userMsg(@players[socket.id], socket, message)
 
     socket.on 'SONG_LOADED', () =>
       @players[socket.id].setReady(true, 'song')
@@ -36,28 +35,27 @@ class Players
 
     @players[id] = new Player(player, host, admin)
     @updateClient()
-    @chat.system("#{@playerName(id)} has joined the room")
-    @logObject.writeLog('PLAYER001', { id: id, username: @playerName(id) })
+    name = @players[id].username
+    @chat.systemMsg("#{name} has joined the room")
+    @logObject.writeLog('PLAYER001', { id: id, username: name })
 
   removePlayer: (id) ->
-    @chat.system("#{@playerName(id)} has left the room")
-    @logObject.writeLog('PLAYER002', { id: id, username: @playerName(id) })
+    name = @players[id].username
+    @logObject.writeLog('PLAYER002', { id: id, username: name })
     delete @players[id]
     @moveHost()
     @updateClient()
+    @chat.systemMsg("#{name} has left the room")
 
   moveHost: () ->
     if !@isEmpty()
       id = Object.keys(@players)[0]
       @players[id].setHost()
-      @logObject.writeLog('PLAYER003', { id: id, username: @playerName(id) })
+      @logObject.writeLog('PLAYER003', { id: id, username: @players[id].username })
 
   changeName: (id, name) ->
     @players[id].changeName(name)
     @updateClient()
-
-  playerName: (id) ->
-    return @players[id].username
 
   resetScore: () ->
     for _id, player of @players

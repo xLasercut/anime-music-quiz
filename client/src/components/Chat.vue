@@ -1,12 +1,7 @@
 <template>
   <v-flex xs5 sm3 class="chat-container" :style="{ background: $store.getters.color }">
     <div class="message-container">
-      <ul>
-        <li v-for="(message, index) in messages" :key="`chat_${index}`">
-          <span v-if="message.user"><b :style="nameColor(message.admin)">{{message.user}}: </b>{{message.message}}</span>
-          <span v-if="!message.user"><b>{{message.message}}</b></span>
-        </li>
-      </ul>
+      <message v-for="(message, index) in messages" :key="`chat_${index}`" :message="message" />
     </div>
     <v-layout justify-center>
       <v-flex shrink class="input-container">
@@ -17,7 +12,10 @@
 </template>
 
 <script lang="coffee">
+  import Message from './chat/Message.vue'
+
   export default
+    components: { Message }
     data: () ->
       message: '',
       messages: [],
@@ -37,6 +35,10 @@
       addMessage: (data) ->
         if this.messages.length > 200
           this.messages.splice(0, 1)
+
+        if this.messages.length > 0
+          if data.id == this.messages[this.messages.length - 1].id
+            data['repeat'] = true
         this.messages.push(data)
       nameColor: (admin) ->
         if admin
@@ -72,5 +74,14 @@
   li {
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+
+  .v-list__tile__sub-title {
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  .v-list__tile {
+    height: 100px;
   }
 </style>

@@ -1,5 +1,4 @@
-{ animeChoices, userLists, songChoices, fullList } = require '../shared-classes.coffee'
-Chat = require '../game/chat.coffee'
+{ animeChoices, userLists, songChoices, fullList, chatBotList } = require '../shared-classes.coffee'
 Notification = require './notification.coffee'
 
 class AdminListener
@@ -8,7 +7,6 @@ class AdminListener
     @logObject = logObject
     @game = game
     @list = list
-    @chat = new Chat(io, logObject)
     @notification = new Notification(io)
 
   listen: (socket) ->
@@ -18,6 +16,7 @@ class AdminListener
         @updateChoices()
         fullList.reload()
         @io.emit('SYNC_FULL_LIST', fullList.read())
+        chatBotList.reload()
         @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
         @notification.all('success', 'Game database reloaded')
 
@@ -26,8 +25,8 @@ class AdminListener
         client = @io.nsps['/'].connected[id]
         if client
           client.emit('SYSTEM_NOTIFICATION', 'error', 'You have been kicked')
-          username = @game.players.playerName(id)
-          @chat.system("#{username} has been kicked")
+          username = @game.players.players[id].username
+          @game.chat.systemMsg("#{username} has been kicked")
           client.disconnect()
           @logObject.writeLog('ADMIN002', {
             id: socket.id,

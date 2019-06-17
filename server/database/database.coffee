@@ -97,10 +97,12 @@ class SongStats extends AbstractDatabase
         user: {}
       }
 
-
-
   write: () ->
     _writeFile(@filepath, @db)
+
+class ChatBotList extends AbstractDatabase
+  constructor: () ->
+    super(path.join(dbBasePath, 'chat-bot.json'))
 
 class UserList extends AbstractDatabase
   constructor: (filename) ->
@@ -148,4 +150,4 @@ class UserLists
     for _key, userList of @lists
       userList.reload()
 
-module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists, SongStats }
+module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists, SongStats, ChatBotList }

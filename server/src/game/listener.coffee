@@ -10,10 +10,10 @@ class GameListener
   constructor: (io, logObject) ->
     @io = io
     @logObject = logObject
-    @players = new Players(io, logObject)
-    @settings = new Settings(io, logObject)
-    @gameState = new GameState(io, logObject)
     @chat = new Chat(io, logObject)
+    @players = new Players(io, logObject, @chat)
+    @settings = new Settings(io, logObject, @chat)
+    @gameState = new GameState(io, logObject)
     @timer = new Timer()
     @statsSaver = setInterval () =>
       if @gameState.playing
@@ -45,7 +45,7 @@ class GameListener
         @gameState.startGame(@settings.mode)
         @newRound()
       else
-        @chat.system('Empty song list')
+        @chat.systemMsg('Empty song list')
 
     socket.on 'STOP_GAME', () =>
       @resetGame()

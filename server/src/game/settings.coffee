@@ -1,10 +1,8 @@
-Chat = require './chat.coffee'
-
 class Settings
-  constructor: (io, logObject) ->
+  constructor: (io, logObject, chat) ->
     @io = io
     @logObject = logObject
-    @chat = new Chat(io, logObject)
+    @chat = chat
     @songCount = 20
     @guessTime = 25
     @lists = []
@@ -28,7 +26,7 @@ class Settings
         lists: @lists.join('|')
       })
       @io.emit('SYNC_SETTINGS', @serialize())
-      @chat.system('Game settings updated')
+      @chat.systemMsg('Game settings updated')
 
   serialize: () ->
     return {

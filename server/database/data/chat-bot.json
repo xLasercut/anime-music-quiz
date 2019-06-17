@@ -1,0 +1,42 @@
+[
+  {
+    "regex": "^deja vu$",
+    "flag": "i",
+    "response": {
+      "user": "Toyota Sprinter Trueno AE86",
+      "text": "I've just been in this place before\nHigher on the street\nAnd I know it's my time to go",
+      "avatar": "initial_d_bot",
+      "id": "initial_d_bot"
+    }
+  },
+  {
+    "regex": "^calling you$",
+    "flag": "i",
+    "response": {
+      "user": "Toyota Sprinter Trueno AE86",
+      "text": "...and the search is mystery\nStanding on my feet\nIt's so hard when I try to be me uoooh!",
+      "avatar": "initial_d_bot",
+      "id": "initial_d_bot"
+    }
+  },
+  {
+    "regex": "^gas gas gas$",
+    "flag": "i",
+    "response": {
+      "user": "Toyota Sprinter Trueno AE86",
+      "text": "I'm gonna step on the gas\nTonight I'll fly and be your lover",
+      "avatar": "initial_d_bot",
+      "id": "initial_d_bot"
+    }
+  },
+  {
+    "regex": "^yeah yeah yeah$",
+    "flag": "i",
+    "response": {
+      "user": "Toyota Sprinter Trueno AE86",
+      "text": "I'll be so quick as a flash\nAnd I'll be your hero",
+      "avatar": "initial_d_bot",
+      "id": "initial_d_bot"
+    }
+  }
+]
