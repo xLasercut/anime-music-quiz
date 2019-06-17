@@ -8,7 +8,8 @@ map = {
   'horo': 'https://i.imgur.com/oOiDAFl.png',
   'madoka': 'https://i.imgur.com/iGPVIAN.png',
   'lelouch': 'https://i.imgur.com/mB0IKty.png',
-  'miyu': 'https://i.imgur.com/Jvi0FoN.png'
+  'miyu': 'https://i.imgur.com/Jvi0FoN.png',
+  'rawr': 'https://i.imgur.com/t03jCAX.png'
 }
 
 export default

@@ -48,5 +48,15 @@
       "avatar": "lelouch",
       "id": "lelouch"
     }
+  },
+  {
+    "regex": "^rawr$",
+    "flag": "i",
+    "response": {
+      "user": "Taiga",
+      "text": "RAWR",
+      "avatar": "rawr",
+      "id": "taiga"
+    }
   }
 ]
