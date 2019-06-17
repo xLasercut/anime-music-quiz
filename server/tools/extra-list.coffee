@@ -1110,5 +1110,13 @@ module.exports = [
     title: 'Yu-Gi-Oh! Theme',
     artist: '',
     type: 'OP'
+  },
+  {
+    id: 'dcyD5hK-HJQ',
+    name: 'SSSS.Gridman',
+    src: 'https://www.youtube.com/watch?v=dcyD5hK-HJQ',
+    title: 'Yume no Hero',
+    artist: '',
+    type: 'Insert'
   }
 ]
