@@ -3,7 +3,7 @@
     <v-tooltip v-model="show" :color="player.color" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
-          <img :src="`img/avatar/${player.avatar}.png`" :style="imgStyle(player)">
+          <player-avatar :player="player" />
           <v-layout column align-center>
             <v-sheet class="player-name" :color="$store.getters.color">
               {{player.username}}
@@ -20,7 +20,10 @@
 </template>
 
 <script lang="coffee">
+  import PlayerAvatar from './PlayerAvatar.vue'
+
   export default
+    components: { PlayerAvatar }
     props:
       player: {
         type: Object,
@@ -35,11 +38,6 @@
           this.show = false
         , 8000)
     methods:
-      imgStyle: (player) ->
-        if player.admin
-          return { outline: '4px solid #E65100' }
-        if player.host
-          return { outline: '4px solid #0277BD' }
       guess: (type) ->
         if !this.player.guess[type]
           return '...'
@@ -53,14 +51,6 @@
     margin: 5px;
   }
 
-  img {
-    width: 100px;
-    margin: 0;
-    padding: 0;
-    outline: 1px solid black;
-    background-color: white;
-  }
-
   .player-name {
     width: 100% ;
     max-width: 150px;
@@ -68,14 +58,15 @@
     background: #E4E7ED;
     border-radius: 5px;
     word-wrap: break-word;
+    padding: 2px;
   }
 
   .player-score {
     width: 100%;
-    max-width: 50px;
+    max-width: 70px;
     font-size: 12pt;
     background: #E4E7ED;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 25px 25px;
   }
 
   .v-tooltip__content {

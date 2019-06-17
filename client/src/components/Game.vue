@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs7 sm9 class="game-container">
+  <v-flex xs7 sm8 class="game-container">
     <answer></answer>
     <anime-information></anime-information>
     <guess-input></guess-input>
