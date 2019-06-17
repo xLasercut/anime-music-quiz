@@ -14,7 +14,7 @@ class Chat
     @logObject.writeLog('CHAT001', { username: player.username, message: message })
 
   systemMsg: (message) ->
-    @sendMsg('Eva Unit 1', message, 'eva_unit_1', true, 'eva_bot')
+    @sendMsg('Eva Unit-01', message, 'eva_unit_1', false, 'eva_bot')
 
   sendMsg: (user, text, avatar, admin, id) ->
     data = {
