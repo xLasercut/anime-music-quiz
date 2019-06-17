@@ -5,8 +5,8 @@
     "response": {
       "user": "Toyota Sprinter Trueno AE86",
       "text": "I've just been in this place before\nHigher on the street\nAnd I know it's my time to go",
-      "avatar": "initial_d_bot",
-      "id": "initial_d_bot"
+      "avatar": "initial_d",
+      "id": "initial_d"
     }
   },
   {
@@ -15,8 +15,8 @@
     "response": {
       "user": "Toyota Sprinter Trueno AE86",
       "text": "...and the search is mystery\nStanding on my feet\nIt's so hard when I try to be me uoooh!",
-      "avatar": "initial_d_bot",
-      "id": "initial_d_bot"
+      "avatar": "initial_d",
+      "id": "initial_d"
     }
   },
   {
@@ -25,8 +25,8 @@
     "response": {
       "user": "Toyota Sprinter Trueno AE86",
       "text": "I'm gonna step on the gas\nTonight I'll fly and be your lover",
-      "avatar": "initial_d_bot",
-      "id": "initial_d_bot"
+      "avatar": "initial_d",
+      "id": "initial_d"
     }
   },
   {
@@ -35,8 +35,18 @@
     "response": {
       "user": "Toyota Sprinter Trueno AE86",
       "text": "I'll be so quick as a flash\nAnd I'll be your hero",
-      "avatar": "initial_d_bot",
-      "id": "initial_d_bot"
+      "avatar": "initial_d",
+      "id": "initial_d"
+    }
+  },
+  {
+    "regex": "^i continue to (fly|fight)$",
+    "flag": "i",
+    "response": {
+      "user": "Lelouch Vi Britannia",
+      "text": "I CONTINUE TO FIGHT",
+      "avatar": "lelouch",
+      "id": "lelouch"
     }
   }
 ]

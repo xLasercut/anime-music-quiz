@@ -4,7 +4,7 @@
       <input :id="`avatar_${avatar}`" type="radio" :value="avatar" v-model="model">
       <label :for="`avatar_${avatar}`">
         <v-avatar tile size="100px">
-          <v-img :src="`img/avatar/${avatar}.png`" aspect-ratio="1"/>
+          <v-img :src="imageSrc(avatar)" aspect-ratio="1"/>
         </v-avatar>
       </label>
     </v-flex>
@@ -13,10 +13,11 @@
 
 <script lang="coffee">
   import VModel from '../../../assets/mixins/v-model.coffee'
+  import AvatarMap from '../../../assets/mixins/avatar-map.coffee'
 
   export default
     props: ['avatars']
-    mixins: [ VModel ]
+    mixins: [ VModel, AvatarMap ]
 </script>
 
 <style scoped>
@@ -34,6 +35,4 @@
   input:checked + label .v-image {
     outline: 4px solid var(--v-success-base);
   }
-
-
 </style>

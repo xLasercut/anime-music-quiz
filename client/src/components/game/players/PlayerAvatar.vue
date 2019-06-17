@@ -4,7 +4,7 @@
       <v-badge :color="badgeColor(player)" overlap left>
         <v-icon v-if="player.admin || player.host" color="white" slot="badge">mdi-crown</v-icon>
         <v-avatar tile size="100px">
-          <v-img :src="`img/avatar/${player.avatar}.png`" aspect-ratio="1"/>
+          <v-img :src="imageSrc(player.avatar)" aspect-ratio="1"/>
         </v-avatar>
       </v-badge>
     </v-flex>
@@ -12,7 +12,10 @@
 </template>
 
 <script lang="coffee">
+  import AvatarMap from '../../../assets/mixins/avatar-map.coffee'
+
   export default
+    mixins: [ AvatarMap ]
     props: [ 'player' ]
     methods:
       badgeColor: (player) ->

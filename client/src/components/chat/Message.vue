@@ -2,7 +2,7 @@
   <div class="message-line" :style="messageStyle">
     <div class="avatar-container">
       <v-avatar v-if="!message.repeat">
-        <img :src="`img/avatar/${message.avatar}.png`" />
+        <v-img :src="imageSrc(message.avatar)" aspect-ratio="1" />
       </v-avatar>
     </div>
     <div class="text-container">
@@ -16,7 +16,10 @@
 </template>
 
 <script lang="coffee">
+  import AvatarMap from '../../assets/mixins/avatar-map.coffee'
+
   export default
+    mixins: [ AvatarMap ]
     props: [ 'message' ]
     computed:
       messageStyle: () ->
