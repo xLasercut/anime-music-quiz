@@ -82,5 +82,6 @@ module.exports = {
   'Hai to Gensou no Grimgar': ['Grimgar: Ashes and Illusions'],
   'Boku no Hero Academia': ['My Hero Academia'],
   'Boku no Hero Academia 2nd Season': ['My Hero Academia 2nd Season'],
-  'Boku no Hero Academia 3rd Season': ['My Hero Academia 3rd Season']
+  'Boku no Hero Academia 3rd Season': ['My Hero Academia 3rd Season'],
+  'Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo?': ['Problem children are coming from another world, aren\'t they?']
 }
