@@ -1118,5 +1118,13 @@ module.exports = [
     title: 'Yume no Hero',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'rp-vhQ_-NSg',
+    name: 'Re:Creators',
+    src: 'https://www.youtube.com/watch?v=rp-vhQ_-NSg',
+    title: 'HERE I AM',
+    artist: '',
+    type: 'Insert'
   }
 ]
