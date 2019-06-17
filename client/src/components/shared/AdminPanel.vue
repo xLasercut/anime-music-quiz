@@ -16,7 +16,7 @@
         </v-layout>
         <kick-player :player-list="playerList"></kick-player>
         <name-changer :player-list="playerList"></name-changer>
-        <database-reload></database-reload>
+        <database-operations />
         <system-message></system-message>
         <song-answer></song-answer>
       </v-container>
@@ -26,14 +26,14 @@
 
 <script lang="coffee">
   import KickPlayer from './admin/KickPlayer.vue'
-  import DatabaseReload from './admin/DatabaseReload.vue'
+  import DatabaseOperations from './admin/DatabaseOperations.vue'
   import SystemMessage from './admin/SystemMessage.vue'
   import SongAnswer from './admin/SongAnswer.vue'
   import NavBtn from './NavBtn.vue'
   import NameChanger from './admin/NameChanger.vue'
 
   export default
-    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseReload, NavBtn, NameChanger }
+    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseOperations, NavBtn, NameChanger }
     data: () ->
       show: false,
       playerList: {}

@@ -1,4 +1,4 @@
-{ animeChoices, userLists, songChoices, fullList, chatBotList } = require '../shared-classes.coffee'
+{ animeChoices, userLists, songChoices, fullList, chatBotList, songStats } = require '../shared-classes.coffee'
 Notification = require './notification.coffee'
 
 class AdminListener
@@ -53,6 +53,10 @@ class AdminListener
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
       if @isAdmin(socket)
         callback(@game.players.serialize())
+
+    socket.on 'ADMIN_DOWNLOAD_SONG_STATS', (_data, callback) =>
+      if @isAdmin(socket)
+        callback(songStats.read())
 
   isAdmin: (socket) ->
     if socket.admin
