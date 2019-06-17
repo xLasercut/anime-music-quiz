@@ -1126,5 +1126,77 @@ module.exports = [
     title: 'HERE I AM',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'aqfopP4-osM',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=aqfopP4-osM',
+    title: 'Mirror Mirror',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'P9mQTmXxU8E',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=P9mQTmXxU8E',
+    title: 'I Burn',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Wwohhs3LvRQ',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=Wwohhs3LvRQ',
+    title: 'This Will Be The Day',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'euuxPokAeIA',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=euuxPokAeIA',
+    title: 'Red Like Roses Part II',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'VN9sZumHT7A',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=VN9sZumHT7A',
+    title: 'Red Like Roses Part I',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'RQXe22auYOw',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=RQXe22auYOw',
+    title: 'Time To Say Goodbye',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'QMQ4YnNt010',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=QMQ4YnNt010',
+    title: 'From Shadows',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'GFg8BP01F5Q',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=GFg8BP01F5Q',
+    title: 'I May Fall',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'NttqH_mBAa0',
+    name: 'RWBY',
+    src: 'https://www.youtube.com/watch?v=NttqH_mBAa0',
+    title: 'Wings',
+    artist: '',
+    type: 'Insert'
   }
 ]
