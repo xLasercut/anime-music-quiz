@@ -42,7 +42,7 @@
   import Notification from '../../assets/mixins/notification.coffee'
   import FormAvatar from './form/FormAvatar.vue'
 
-  avatars = ['0', '1', '2', '3', '4', '5', '6']
+  avatars = ['zero_2', 'lelouch', 'horo', 'madoka', 'alphonse', 'miyu', 'taj']
 
   password = ''
   if process.env.NODE_ENV == 'development'
@@ -55,7 +55,7 @@
       form: {
         username: '',
         password: password,
-        avatar: '0',
+        avatar: 'zero_2',
         score: 0
       },
       nameRules: [
@@ -95,7 +95,7 @@
           return name.length <= 20
         return false
     mounted: () ->
-      if localStorage.avatar
+      if localStorage.avatar and localStorage.avatar in avatars
         this.form.avatar = localStorage.avatar
 </script>
 
