@@ -11,9 +11,10 @@
   import Chat from '../components/Chat.vue'
   import Game from '../components/Game.vue'
   import Notification from '../assets/mixins/notification.coffee'
+  import RouteGuard from '../assets/mixins/route-guard.coffee'
 
   export default
-    mixins: [ Notification ]
+    mixins: [ Notification, RouteGuard ]
     components: { Chat, Game }
     sockets:
       SYNC_PLAYERS: (players) ->
