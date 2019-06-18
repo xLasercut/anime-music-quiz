@@ -126,23 +126,19 @@ Add emojis to `database/data/emoji.json`.
 For standard emojis, use the dec code as the source and `dec` as type.
 ```json
 {
-  ...
   "notes": {
     "src": "&#127926;",
     "type": "dec"
-  },
-  ...
+  }
 }
 ```
 
 For custom emojis, add the image source and `img` as type.
 ```json
 {
-  ...
   "worry": {
     "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
     "type": "img"
-  },
-  ...
+  }
 }
 ```
