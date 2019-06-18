@@ -10,7 +10,7 @@
         <b>{{message.user}}</b>
         <v-icon color="#E65100" v-if="message.admin">mdi-crown</v-icon>
       </div>
-      <div class="text" v-html="message.message" id="chat-text"></div>
+      <div class="text" v-html="message.message"></div>
     </div>
   </div>
 </template>

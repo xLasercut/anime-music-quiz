@@ -8,7 +8,7 @@
         @click:append="sendMsg()"
         label="Message"
         append-icon="mdi-send"
-        rows="3"
+        rows="3" id="chat-input"
       ></v-textarea>
     </v-flex>
   </v-layout>

@@ -4,11 +4,18 @@
       box clearable
       :items="items"
       :label="label"
-      :search-input.sync="model"
+      v-model="model"
       :disabled="disabled"
       :append-outer-icon="icon"
       @click:append-outer="$emit('click:append-outer')"
-    />
+      auto-select-first chips
+    >
+      <template #selection="data">
+        <v-chip color="success" text-color="white">
+          <v-icon left>mdi-check</v-icon>{{data.item}}
+        </v-chip>
+      </template>
+    </v-combobox>
   </v-flex>
 </template>
 
