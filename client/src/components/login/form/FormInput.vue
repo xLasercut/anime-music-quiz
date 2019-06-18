@@ -10,6 +10,7 @@
         @keydown.enter.native="$emit('enter')"
         :type="type"
         :counter="counter"
+        :id="id"
       ></v-text-field>
     </v-flex>
   </v-layout>
@@ -19,6 +20,6 @@
   import VModel from '../../../assets/mixins/v-model.coffee'
 
   export default
-    props: [ 'label', 'rules', 'appendIcon', 'type', 'counter' ]
+    props: [ 'label', 'rules', 'appendIcon', 'type', 'counter', 'id' ]
     mixins: [ VModel ]
 </script>

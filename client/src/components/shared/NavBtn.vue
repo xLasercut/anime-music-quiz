@@ -1,5 +1,5 @@
 <template>
-  <v-btn @click="$emit('click')" :color="color" v-on="activator" icon flat :disabled="disabled">
+  <v-btn @click="$emit('click')" :color="color" v-on="activator" icon flat :disabled="disabled" :id="id">
     <v-icon>
       {{icon}}
     </v-icon>
@@ -8,5 +8,5 @@
 
 <script lang="coffee">
   export default
-    props: [ 'color', 'icon', 'disabled', 'activator' ]
+    props: [ 'color', 'icon', 'disabled', 'activator', 'id' ]
 </script>

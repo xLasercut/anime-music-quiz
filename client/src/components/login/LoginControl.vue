@@ -1,9 +1,9 @@
 <template>
   <v-toolbar-items v-if="$route.path == '/'">
-    <nav-btn color="success" icon="mdi-gamepad-variant" @click="$store.commit('CHANGE_MODE', 'game')">
+    <nav-btn color="success" icon="mdi-gamepad-variant" @click="$store.commit('CHANGE_MODE', 'game')" id="game-btn">
       Game
     </nav-btn>
-    <nav-btn color="info" icon="mdi-playlist-music" @click="$store.commit('CHANGE_MODE', 'list')">
+    <nav-btn color="info" icon="mdi-playlist-music" @click="$store.commit('CHANGE_MODE', 'list')" id="list-btn">
       Song List
     </nav-btn>
   </v-toolbar-items>

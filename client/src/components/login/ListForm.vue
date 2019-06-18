@@ -7,6 +7,7 @@
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
+            id="login"
           >
             Connect
           </icon-btn>

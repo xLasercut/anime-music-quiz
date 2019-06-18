@@ -7,6 +7,7 @@
         :rules="nameRules"
         @enter="login()"
         counter="20"
+        id="username"
       />
       <form-input-password v-model.trim="form.password" @enter="login()" />
       <form-avatar :avatars="avatars" v-model="form.avatar" />
@@ -17,6 +18,7 @@
             v-model.number="form.score"
             :rules="scoreRules" type="number"
             box min="0" max="1000"
+            id="score"
           />
         </v-flex>
       </v-layout>
@@ -25,6 +27,7 @@
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
+            id="login"
           >
             Login
           </icon-btn>
