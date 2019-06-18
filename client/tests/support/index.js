@@ -14,6 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import './shared-commands'
 import './form-commands'
 import './commands'
 

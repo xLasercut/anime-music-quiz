@@ -1,10 +1,10 @@
 <template>
   <v-toolbar-items v-if="$route.path == '/home'">
     <admin-panel></admin-panel>
-    <nav-btn color="success" v-if="showPlay" @click="play()" icon="mdi-play">
+    <nav-btn color="success" v-if="showPlay" @click="play()" icon="mdi-play" id="game-play-btn">
       Start
     </nav-btn>
-    <nav-btn color="error" v-if="showStop" @click="stop()" icon="mdi-stop">
+    <nav-btn color="error" v-if="showStop" @click="stop()" icon="mdi-stop" id="game-stop-btn">
       Stop
     </nav-btn>
     <settings-panel></settings-panel>

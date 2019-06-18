@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on }">
       <nav-btn
         color="success" :activator="on" @click="syncUserList()"
-        icon="mdi-playlist-music"
+        icon="mdi-playlist-music" id="user-list-panel-btn"
       ></nav-btn>
     </template>
     <v-card>

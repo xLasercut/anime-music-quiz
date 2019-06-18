@@ -5,7 +5,7 @@
         <v-toolbar-items>
           <nav-btn icon="mdi-theme-light-dark" @click="$store.commit('TOGGLE_DARK_MODE')">
           </nav-btn>
-          <nav-btn color="primary" v-if="$route.path != '/'" icon="mdi-home" @click="disconnect()">
+          <nav-btn color="primary" v-if="$route.path != '/'" icon="mdi-home" @click="disconnect()" id="home-btn">
             Home
           </nav-btn>
         </v-toolbar-items>

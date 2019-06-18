@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on }">
       <nav-btn
         :activator="on" color="info" @click="syncSettings()"
-        icon="mdi-settings"
+        icon="mdi-settings" id="game-settings-btn"
       ></nav-btn>
     </template>
     <v-card>
