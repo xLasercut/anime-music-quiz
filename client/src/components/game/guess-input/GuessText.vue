@@ -5,16 +5,12 @@
       :items="items"
       :label="label"
       v-model="model"
+      :hint="hint()"
       :disabled="disabled"
       :append-outer-icon="icon"
       @click:append-outer="$emit('click:append-outer')"
-      auto-select-first chips
+      persistent-hint
     >
-      <template #selection="data">
-        <v-chip color="success" text-color="white">
-          <v-icon left>mdi-check</v-icon>{{data.item}}
-        </v-chip>
-      </template>
     </v-combobox>
   </v-flex>
 </template>
@@ -25,4 +21,10 @@
   export default
     props: [ 'items', 'label', 'disabled', 'icon' ]
     mixins: [ VModel ]
+    methods:
+      hint: () ->
+        choice = '...'
+        if this.model
+          choice = this.model
+        return "Selected #{this.label}: #{choice}"
 </script>
