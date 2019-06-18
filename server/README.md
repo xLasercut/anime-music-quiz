@@ -12,7 +12,7 @@ A websocket based anime music quiz server.
 - [cheerio](https://github.com/cheeriojs/cheerio)
 
 ## Quick Start
-1. Create a user list file `database/user/userlist.json` containing an empty array
+1. Create a user list file `database/data/user/userlist.json` containing an empty array
 
 2. Run the following commands to generate the anime database
 ```
@@ -25,7 +25,7 @@ npm run process
 ## Database Generation
 ### Step 1 - raw-list-generator.coffee
 Anime database information is obtained from [/r/AnimeThemes/wiki](https://www.reddit.com/r/AnimeThemes/wiki/index).
-The script uses axios to get all 'anime year' page html. Then these are parsed using cheerio. Each song is then saved in `database/data/raw-list.json` with a format:
+The script uses axios to get all 'anime year' page html. Then these are parsed using cheerio. Each song is then saved in `database/data/anime/raw-list.json` with a format:
 ```json
 {
   "id": "Clannad-OP1",
@@ -38,23 +38,23 @@ The script uses axios to get all 'anime year' page html. Then these are parsed u
 ```
 
 ### Step 2 - full-list-generator.coffee
-Reads `database/data/raw-list.json` produced in step 1. The do the following process:
-1. Combines songs from `database/data/raw-list.json` with `tools/extra-list.coffee`
+Reads `database/data/anime/raw-list.json` produced in step 1. The do the following process:
+1. Combines songs from `database/data/anime/raw-list.json` with `tools/extra-list.coffee`
 2. Groups some animes together by replacing names (e.g. Attack on Titan OVA -> Attack On Titan)
 3. Add alternative names for animes (e.g. A Certain Scientific Railgun for To Aru Kagaku no Railgun)
 4. Removes any duplicate songs
-This is then saved to `database/data/full-list.json`
+This is then saved to `database/data/anime/full-list.json`
 
 ### Step 3 - choices-generator.coffee
-Reads `database/data/full-list.json` and generates all possible user choices (for the game).
-Saves to `database/data/anime-choices.json` and `database/data/song-choices.json`
+Reads `database/data/anime/full-list.json` and generates all possible user choices (for the game).
+Saves to `database/data/anime/anime-choices.json` and `database/data/anime/song-choices.json`
 
 ## User Lists
 The game uses one or more user list to generate a pool of songs to choose from.
-User lists must first be initialised by creating a `.json` file in the `database/user` directory.
+User lists must first be initialised by creating a `.json` file in the `database/data/user` directory.
 The `.json` file must contain an empty array. example:
 
-`database/user/example.json`
+`database/data/user/example.json`
 content:
 ```
 []

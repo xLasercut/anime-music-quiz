@@ -3,6 +3,7 @@ path = require 'path'
 
 dbBasePath = path.join(__dirname, 'data')
 userDbBasePath = path.join(dbBasePath, 'user')
+animeDbBasePath = path.join(dbBasePath, 'anime')
 
 _readFile = (filepath) ->
   return JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
@@ -36,23 +37,23 @@ class AbstractDatabase
 
 class RawList extends AbstractDatabase
   constructor: () ->
-    super(path.join(dbBasePath, 'raw-list.json'))
+    super(path.join(animeDbBasePath, 'raw-list.json'))
 
 class FullList extends AbstractDatabase
   constructor: () ->
-    super(path.join(dbBasePath, 'full-list.json'))
+    super(path.join(animeDbBasePath, 'full-list.json'))
 
 class AnimeChoices extends AbstractDatabase
   constructor: () ->
-    super(path.join(dbBasePath, 'anime-choices.json'))
+    super(path.join(animeDbBasePath, 'anime-choices.json'))
 
 class SongChoices extends AbstractDatabase
   constructor: () ->
-    super(path.join(dbBasePath, 'song-choices.json'))
+    super(path.join(animeDbBasePath, 'song-choices.json'))
 
 class SongStats extends AbstractDatabase
   constructor: () ->
-    super(path.join(dbBasePath, 'song-statistics.json'))
+    super(path.join(animeDbBasePath, 'song-statistics.json'))
 
   initDb: () ->
     if !fs.existsSync(@filepath)
