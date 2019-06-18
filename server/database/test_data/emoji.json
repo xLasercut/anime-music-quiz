@@ -6,5 +6,9 @@
   "grinning": {
     "src": "&#128512;",
     "type": "dec"
+  },
+  "notes": {
+    "src": "&#127926;",
+    "type": "dec"
   }
 }
