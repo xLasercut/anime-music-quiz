@@ -1,1 +1,10 @@
-{}
+{
+  "worry": {
+    "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
+    "type": "img"
+  },
+  "grinning": {
+    "src": "&#128512;",
+    "type": "dec"
+  }
+}
