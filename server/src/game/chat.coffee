@@ -20,7 +20,7 @@ class Chat
 
   systemMsg: (message) ->
     sanitizedMsg = sanitizer(message)
-    @sendMsg('Eva Unit-01', sanitizedMsg, 'eva_unit_1', false, 'eva_bot')
+    @sendMsg('Eva Unit-01', @converter.addEmoji(sanitizedMsg), 'eva_unit_1', false, 'eva_bot')
 
   sendMsg: (user, text, avatar, admin, id) ->
     data = {
