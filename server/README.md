@@ -23,11 +23,12 @@ npm run process
 3. Run command `npm run start` to start server
 
 ## Database Generation
-### Step 1 - generate-anime-list.js
+### Step 1 - raw-list-generator.coffee
 Anime database information is obtained from [/r/AnimeThemes/wiki](https://www.reddit.com/r/AnimeThemes/wiki/index).
-The script uses axios to get all 'anime year' page html. Then these are parsed using cheerio. Each song is then saved in `database/raw-anime.json` with a format:
+The script uses axios to get all 'anime year' page html. Then these are parsed using cheerio. Each song is then saved in `database/data/raw-list.json` with a format:
 ```json
 {
+  "id": "Clannad-OP1",
   "name": "Clannad",
   "src": "https://animethemes.moe/video/Clannad-OP1.webm",
   "title": "Megumeru ~cuckool mix 2007~",
@@ -36,16 +37,17 @@ The script uses axios to get all 'anime year' page html. Then these are parsed u
 }
 ```
 
-### Step 2 - format-anime-list.js
-Reads `database/raw-anime.json` produced in step 1. The do the following process:
-1. Groups some animes together by replacing names (e.g. Attack on Titan OVA -> Attack On Titan)
-2. Add alternative names for animes (e.g. A Certain Scientific Railgun for To Aru Kagaku no Railgun)
-3. Removes any duplicate songs
-This is then saved to `database/anime.json`
+### Step 2 - full-list-generator.coffee
+Reads `database/data/raw-list.json` produced in step 1. The do the following process:
+1. Combines songs from `database/data/raw-list.json` with `tools/extra-list.coffee`
+2. Groups some animes together by replacing names (e.g. Attack on Titan OVA -> Attack On Titan)
+3. Add alternative names for animes (e.g. A Certain Scientific Railgun for To Aru Kagaku no Railgun)
+4. Removes any duplicate songs
+This is then saved to `database/data/full-list.json`
 
-### Step 3 - generate-choices.js
-Reads `database/anime.json` and generates all possible user choices (for the game).
-Saves to `database/chocies.json`
+### Step 3 - choices-generator.coffee
+Reads `database/data/full-list.json` and generates all possible user choices (for the game).
+Saves to `database/data/anime-choices.json` and `database/data/song-choices.json`
 
 ## User Lists
 The game uses one or more user list to generate a pool of songs to choose from.
@@ -60,10 +62,10 @@ content:
 
 All user lists will be picked up by the server when started. This will allow the client to add or remove songs to any user list.
 
-### Updating Anime Maps
-## Replacing Anime Name
+## Updating Anime Maps
+### Replacing Anime Name
 For some animes, it's better to replace name to a more easily typable one. e.g. Yu☆Gi☆Oh! -> Yu-Gi-Oh!.
-This is controlled by `tools/shared/name-swap.js`
+This is controlled by `tools/maps/swap-name-map.coffee`
 ```js
 module.exports = {
   // key is the name to convert from
@@ -73,9 +75,9 @@ module.exports = {
 }
 ```
 
-## Adding Alternative Answers
+### Adding Alternative Answers
 You can add alternative answer to animes. e.g. Attack on Titan will be flagged as correct for Shingeki no Kyojin.
-This is controlled by `tools/shared/alternate-name.js`
+This is controlled by `tools/maps/alt-name-map.coffee`
 ```js
 module.exports = {
   // key is the name of the anime
@@ -86,9 +88,9 @@ module.exports = {
 }
 ```
 
-## Anime OP/ED that applies to multiple seasons
+### Anime OP/ED that applies to multiple seasons
 Some songs applies to multiple seasons of anime. e.g. Database is correct for both Log Horizon and Log Horizon II.
-This is controlled by `tools/shared/multi-season-songs.js`
+This is controlled by `tools/maps/multi-season-map.coffee`
 ```js
 module.exports = {
   // Key is the song id to map (you can find this in the song list page of the client)
@@ -103,5 +105,44 @@ module.exports = {
 }
 ```
 
+### Replacing Anime Song Name
+Song song names are difficult to type. These can be replaced with better names by adding them to:
+`tools/maps/swap-title-map.coffee`
+```js
+module.exports = {
+  // key is the song name to replace
+  // value is the song name to convert to. In this case Black★Rock Shooter will be replaced by Black Rock Shooter
+  'Black★Rock Shooter': 'Black Rock Shooter',
+  ...
+}
+```
+
 After updating the anime maps. you must run `npm run process` again to regenerate the anime database.
 To update user lists, run `npm run convert`
+
+## Misc
+### Adding More Emojis
+Add emojis to `database/data/emoji.json`.
+For standard emojis, use the dec code as the source and `dec` as type.
+```json
+{
+  ...
+  "notes": {
+    "src": "&#127926;",
+    "type": "dec"
+  },
+  ...
+}
+```
+
+For custom emojis, add the image source and `img` as type.
+```json
+{
+  ...
+  "worry": {
+    "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
+    "type": "img"
+  },
+  ...
+}
+```
