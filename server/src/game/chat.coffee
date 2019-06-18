@@ -12,7 +12,7 @@ class Chat
   userMsg: (player, socket, message) ->
     sanitizedMsg = sanitizer(message)
     @sendMsg(player.username, @converter.addEmoji(sanitizedMsg), player.avatar, socket.admin, socket.id)
-    botResponse = @bot.respond(message)
+    botResponse = @bot.respond(sanitizedMsg)
     if botResponse
       botMsg = sanitizer(botResponse.text)
       @sendMsg(botResponse.user, botMsg, botResponse.avatar, false, botResponse.id)
