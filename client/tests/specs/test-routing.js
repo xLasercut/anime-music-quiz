@@ -16,7 +16,7 @@ describe('client routing tests', () => {
 
   it('test nav panel buttons', () => {
     var navBtnGame = [
-      'game-settings-btn', 'game-play-btn', 'admin-panel-btn', 'game-volume-slider'
+      'game-settings-btn', 'game-play-btn', 'game-volume-slider'
     ]
 
     var navBtnList = [

@@ -35,12 +35,14 @@ describe('login page tests', () => {
 
   it('test server admin auth', () => {
     cy.visit('/')
+    cy.elementNotExist('#admin-panel-btn')
     cy.get('#username').type('test user')
     cy.get('#password').type('server')
     cy.get('#login').click()
     cy.elementNotExist('#admin-panel-btn')
 
     cy.visit('/')
+    cy.elementNotExist('#admin-panel-btn')
     cy.get('#username').type('test user')
     cy.get('#password').type('password')
     cy.get('#login').click()

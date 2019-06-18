@@ -11,7 +11,7 @@
       <v-text-field
         class="mt-0" v-model.number="model"
         type="number" :min="min" :max="max"
-        :disabled="disabled"
+        :disabled="disabled" :id="id"
       ></v-text-field>
     </v-flex>
   </v-layout>
@@ -22,5 +22,5 @@
 
   export default
     mixins: [ VModel ]
-    props: [ 'min', 'max', 'label', 'disabled' ]
+    props: [ 'min', 'max', 'label', 'disabled', 'id' ]
 </script>

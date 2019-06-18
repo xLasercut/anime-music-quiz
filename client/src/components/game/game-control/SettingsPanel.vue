@@ -18,11 +18,13 @@
             label="Song Number"
             v-model.number="settings.songCount"
             min="1" max="100" :disabled="disabled"
+            id="song-count"
           ></settings-slider>
           <settings-slider
             label="Guess Time"
             v-model.number="settings.guessTime"
             min="1" max="50" :disabled="disabled"
+            id="guess-time"
           ></settings-slider>
           <settings-radio v-model="settings.mode" :disabled="disabled"></settings-radio>
           <settings-checkbox
@@ -31,10 +33,13 @@
           ></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">
-              <icon-btn color="error" icon="mdi-close" @click="show = false">Cancel</icon-btn>
+              <icon-btn
+                color="error" icon="mdi-close" @click="show = false"
+                id="settings-cancel-btn"
+              >Cancel</icon-btn>
               <icon-btn
                 color="success" icon="mdi-check" @click="updateSettings()"
-                :disabled="disabled"
+                :disabled="disabled" id="settings-confirm-btn"
               >
                 Confirm
               </icon-btn>

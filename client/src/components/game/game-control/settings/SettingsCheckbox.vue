@@ -5,6 +5,7 @@
         :label="item" :value="item"
         v-model="model"
         :disabled="disabled"
+        :id="`checkbox_${item}`"
       ></v-checkbox>
     </v-flex>
   </v-layout>
