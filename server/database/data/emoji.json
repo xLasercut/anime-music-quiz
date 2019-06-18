@@ -26,5 +26,17 @@
   "notes": {
     "src": "&#127926;",
     "type": "dec"
+  },
+  "worryeyes": {
+    "src": "https://cdn.discordapp.com/emojis/441791691813289985.gif",
+    "type": "img"
+  },
+  "worryWeird": {
+    "src": "https://cdn.discordapp.com/emojis/587729608028192790.png",
+    "type": "img"
+  },
+  "worrypoggers": {
+    "src": "https://cdn.discordapp.com/emojis/553703679392481311.png",
+    "type": "img"
   }
 }
