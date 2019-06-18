@@ -38,5 +38,13 @@
   "worrypoggers": {
     "src": "https://cdn.discordapp.com/emojis/553703679392481311.png",
     "type": "img"
+  },
+  "worryglasses": {
+    "src": "https://cdn.discordapp.com/emojis/437652757764112394.png",
+    "type": "img"
+  },
+  "worryDodge": {
+    "src": "https://cdn.discordapp.com/emojis/499282698238427166.png",
+    "type": "img"
   }
 }
