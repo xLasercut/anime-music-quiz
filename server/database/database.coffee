@@ -1,7 +1,11 @@
 fs = require 'fs'
 path = require 'path'
 
-dbBasePath = path.join(__dirname, 'data')
+if process.env.NODE_ENV == 'test'
+  dbBasePath = path.join(__dirname, 'test_data')
+else
+  dbBasePath = path.join(__dirname, 'data')
+
 userDbBasePath = path.join(dbBasePath, 'user')
 animeDbBasePath = path.join(dbBasePath, 'anime')
 

@@ -14,7 +14,7 @@ WORKDIR ${WRK_DIR}
 
 COPY package.json ${WRK_DIR}/package.json
 
-RUN npm install
+RUN npm install --production
 
 COPY . ${WRK_DIR}/.
 
