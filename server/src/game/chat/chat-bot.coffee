@@ -1,4 +1,4 @@
-{ chatBotList } = require '../shared-classes.coffee'
+{ chatBotList } = require '../../shared-classes.coffee'
 
 class ChatBot
   constructor: (io) ->

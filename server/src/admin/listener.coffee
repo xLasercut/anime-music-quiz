@@ -1,4 +1,4 @@
-{ animeChoices, userLists, songChoices, fullList, chatBotList, songStats } = require '../shared-classes.coffee'
+{ animeChoices, userLists, songChoices, fullList, chatBotList, songStats, emojiList } = require '../shared-classes.coffee'
 Notification = require './notification.coffee'
 
 class AdminListener
@@ -17,6 +17,7 @@ class AdminListener
         fullList.reload()
         @io.emit('SYNC_FULL_LIST', fullList.read())
         chatBotList.reload()
+        emojiList.reload()
         @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
         @notification.all('success', 'Game database reloaded')
 

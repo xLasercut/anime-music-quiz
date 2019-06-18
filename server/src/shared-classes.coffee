@@ -1,4 +1,5 @@
-{ UserLists, AnimeChoices, SongChoices, FullList, SongStats, ChatBotList } = require '../database/database.coffee'
+{ UserLists, AnimeChoices, SongChoices, FullList,
+  SongStats, ChatBotList, EmojiList } = require '../database/database.coffee'
 
 userLists = new UserLists()
 animeChoices = new AnimeChoices()
@@ -6,5 +7,6 @@ songChoices = new SongChoices()
 fullList = new FullList()
 songStats = new SongStats()
 chatBotList = new ChatBotList()
+emojiList = new EmojiList()
 
-module.exports = { userLists, animeChoices, songChoices, fullList, songStats, chatBotList }
+module.exports = { userLists, animeChoices, songChoices, fullList, songStats, chatBotList, emojiList }

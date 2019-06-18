@@ -1,20 +1,26 @@
-ChatBot =  require './chat-bot.coffee'
+ChatBot =  require './chat/chat-bot.coffee'
+sanitizer = require './chat/sanitizer.coffee'
+EmojiConverter = require './chat/emoji-converter.coffee'
 
 class Chat
   constructor: (io, logObject) ->
     @logObject = logObject
     @io = io
     @bot = new ChatBot(io)
+    @converter = new EmojiConverter(logObject)
 
   userMsg: (player, socket, message) ->
-    @sendMsg(player.username, message, player.avatar, socket.admin, socket.id)
+    sanitizedMsg = sanitizer(message)
+    @sendMsg(player.username, @converter.addEmoji(sanitizedMsg), player.avatar, socket.admin, socket.id)
     botResponse = @bot.respond(message)
     if botResponse
-      @sendMsg(botResponse.user, botResponse.text, botResponse.avatar, false, botResponse.id)
-    @logObject.writeLog('CHAT001', { username: player.username, message: message })
+      botMsg = sanitizer(botResponse.text)
+      @sendMsg(botResponse.user, botMsg, botResponse.avatar, false, botResponse.id)
+    @logObject.writeLog('CHAT001', { username: player.username, message: sanitizedMsg })
 
   systemMsg: (message) ->
-    @sendMsg('Eva Unit-01', message, 'eva_unit_1', false, 'eva_bot')
+    sanitizedMsg = sanitizer(message)
+    @sendMsg('Eva Unit-01', sanitizedMsg, 'eva_unit_1', false, 'eva_bot')
 
   sendMsg: (user, text, avatar, admin, id) ->
     data = {

@@ -1,0 +1,22 @@
+{
+  "worry": {
+    "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
+    "type": "img"
+  },
+  "grinning": {
+    "src": "&#128512;",
+    "type": "dec"
+  },
+  "worryLove": {
+    "src": "https://cdn.discordapp.com/emojis/411919283484885024.png",
+    "type": "img"
+  },
+  "WORREEE": {
+    "src": "https://cdn.discordapp.com/emojis/436979346704695306.png",
+    "type": "img"
+  },
+  "worryneat": {
+    "src": "https://cdn.discordapp.com/emojis/511581092139106316.png",
+    "type": "img"
+  }
+}

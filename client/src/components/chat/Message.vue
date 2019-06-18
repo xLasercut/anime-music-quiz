@@ -10,7 +10,7 @@
         <b>{{message.user}}</b>
         <v-icon color="#E65100" v-if="message.admin">mdi-crown</v-icon>
       </div>
-      <div class="text">{{message.message}}</div>
+      <div class="text" v-html="message.message"></div>
     </div>
   </div>
 </template>
@@ -66,4 +66,14 @@
     font-size: 12pt;
   }
 
+</style>
+
+<style>
+  .emoji {
+    padding: 0;
+    margin: 0;
+    width: 16pt;
+    position: relative;
+    top: 3px;
+  }
 </style>

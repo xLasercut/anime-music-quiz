@@ -29,6 +29,7 @@ server/logs/*.json
 server/database/data/*.json
 server/database/data/user/*.json
 !server/database/data/chat-bot.json
+!server/database/data/emoji.json
 
 #ngrok executable
 server/ngrok/ngrok

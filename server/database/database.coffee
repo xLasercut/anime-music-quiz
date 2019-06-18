@@ -104,6 +104,15 @@ class ChatBotList extends AbstractDatabase
   constructor: () ->
     super(path.join(dbBasePath, 'chat-bot.json'))
 
+class EmojiList extends AbstractDatabase
+  constructor: () ->
+    super(path.join(dbBasePath, 'emoji.json'))
+
+  initDb: () ->
+    if !fs.existsSync(@filepath)
+      _writeFile(@filepath, {})
+    @db = _readFile(@filepath)
+
 class UserList extends AbstractDatabase
   constructor: (filename) ->
     super(path.join(userDbBasePath, filename))
@@ -150,4 +159,4 @@ class UserLists
     for _key, userList of @lists
       userList.reload()
 
-module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists, SongStats, ChatBotList }
+module.exports = { RawList, FullList, AnimeChoices, SongChoices, UserLists, SongStats, ChatBotList, EmojiList }
