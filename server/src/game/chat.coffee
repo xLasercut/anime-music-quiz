@@ -14,8 +14,8 @@ class Chat
     @sendMsg(player.username, @converter.addEmoji(sanitizedMsg), player.avatar, socket.admin, socket.id)
     botResponse = @bot.respond(sanitizedMsg)
     if botResponse
-      botMsg = sanitizer(botResponse.text)
-      @sendMsg(botResponse.user, botMsg, botResponse.avatar, false, botResponse.id)
+      botMsg = ":notes: #{sanitizer(botResponse.text)} :notes:"
+      @sendMsg(botResponse.user, @converter.addEmoji(botMsg), botResponse.avatar, false, botResponse.id)
     @logObject.writeLog('CHAT001', { username: player.username, message: sanitizedMsg })
 
   systemMsg: (message) ->

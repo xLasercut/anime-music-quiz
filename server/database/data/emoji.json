@@ -22,5 +22,9 @@
   "worrydodgesel": {
     "src": "https://cdn.discordapp.com/emojis/499886898567970845.gif",
     "type": "img"
+  },
+  "notes": {
+    "src": "&#127926;",
+    "type": "dec"
   }
 }
