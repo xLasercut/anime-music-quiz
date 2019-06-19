@@ -32,4 +32,6 @@ server/database/data/user/*.json
 #ngrok executable
 server/ngrok/ngrok
 
+server/database/test_data/anime/song-statistics.json
+
 !.gitkeep

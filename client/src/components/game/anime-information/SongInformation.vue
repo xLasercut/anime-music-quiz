@@ -6,7 +6,7 @@
           <div>
             <b>Title</b>
           </div>
-          <div>
+          <div id="song-title">
             {{songInfo('title')}}
           </div>
         </div>
@@ -14,7 +14,7 @@
           <div>
             <b>Artist</b>
           </div>
-          <div>
+          <div id="song-artist">
             {{songInfo('artist')}}
           </div>
         </div>
@@ -22,7 +22,7 @@
           <div>
             <b>Type</b>
           </div>
-          <div>
+          <div id="song-type">
             {{songInfo('type')}}
           </div>
         </div>

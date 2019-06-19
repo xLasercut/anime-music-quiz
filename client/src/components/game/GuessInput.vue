@@ -1,7 +1,15 @@
 <template>
   <v-layout justify-center wrap>
-    <guess-text :items="$store.state.game.choices.anime" label="Anime" v-model="guess.anime" :disabled="disabled()" />
-    <guess-text :items="$store.state.game.choices.song" label="Song" v-model="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"/>
+    <guess-text
+      :items="$store.state.game.choices.anime" label="Anime"
+      v-model="guess.anime" :disabled="disabled()"
+      id="anime-guess"
+    />
+    <guess-text
+      :items="$store.state.game.choices.song" label="Song"
+      v-model="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"
+      id="song-guess"
+    />
   </v-layout>
 </template>
 

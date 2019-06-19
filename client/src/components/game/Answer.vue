@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-layout justify-center>
         <v-flex xs5 sm3 md2 class="text-xs-center">
-          <v-sheet class="song-num-container" :color="$store.getters.color">
+          <v-sheet class="song-num-container" :color="$store.getters.color" id="game-song-count">
             {{currentSong}} / {{maxSong}}
           </v-sheet>
         </v-flex>
@@ -11,7 +11,7 @@
       <v-layout justify-center>
         <v-flex xs12 sm8 md6 lg5 class="text-xs-center">
           <v-sheet class="answer-container" :color="$store.getters.color">
-            <b>{{answer()}}</b>
+            <b id="song-anime">{{answer()}}</b>
           </v-sheet>
         </v-flex>
       </v-layout>

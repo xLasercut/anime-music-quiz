@@ -1,3 +1,8 @@
+if process.env.NODE_ENV == 'test'
+  lists = [ 'test-user.json' ]
+else
+  lists = []
+
 class Settings
   constructor: (io, logObject, chat) ->
     @io = io
@@ -5,7 +10,7 @@ class Settings
     @chat = chat
     @songCount = 20
     @guessTime = 25
-    @lists = []
+    @lists = lists
     @mode = 'normal'
 
   listen: (socket) ->

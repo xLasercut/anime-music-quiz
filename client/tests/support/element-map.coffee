@@ -12,7 +12,14 @@ module.exports = {
     settingsSongCount: '#song-count-input',
     settingsGuessTime: '#guess-time-input',
     settingsGameModeNormal: '#game-mode-normal',
-    settingsGameModeGamble: '#game-mode-gamble'
+    settingsGameModeGamble: '#game-mode-gamble',
+    gameSongCount: '#game-song-count',
+    songTitle: '#song-title',
+    songArtist: '#song-artist',
+    songType: '#song-type',
+    songAnime: '#song-anime',
+    animeGuess: '#anime-guess',
+    songGuess: '#song-guess'
   },
   list: {
     userSelect: '#user-list-select',

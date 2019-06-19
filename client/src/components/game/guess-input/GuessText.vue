@@ -10,6 +10,7 @@
       :append-outer-icon="icon"
       @click:append-outer="$emit('click:append-outer')"
       persistent-hint
+      :id="id"
     >
     </v-combobox>
   </v-flex>
@@ -19,7 +20,7 @@
   import VModel from '../../../assets/mixins/v-model.coffee'
 
   export default
-    props: [ 'items', 'label', 'disabled', 'icon' ]
+    props: [ 'items', 'label', 'disabled', 'icon', 'id' ]
     mixins: [ VModel ]
     methods:
       hint: () ->

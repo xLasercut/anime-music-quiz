@@ -17,9 +17,6 @@ Cypress.Commands.add 'changeGameMode', (mode) =>
   else
     cy.get(map.game.settingsGameModeNormal).click({ force: true })
 
-Cypress.Commands.add 'changeGameList', () =>
-  cy.get('.v-label').contains('test-user.json').click()
-
 Cypress.Commands.add 'confirmSettings', () =>
   cy.get(map.game.settingsConfirm).click()
 
@@ -34,3 +31,20 @@ Cypress.Commands.add 'assertChatText', (text, status) =>
 
 Cypress.Commands.add 'sendChat', (text) =>
   cy.get(map.game.chatInput).clear().type("#{text}{enter}")
+
+Cypress.Commands.add 'assertSongInformation', (info) =>
+  cy.get(map.game.songAnime).contains(info.anime).should('exist')
+  cy.get(map.game.songTitle).contains(info.title).should('exist')
+  cy.get(map.game.songArtist).contains(info.artist).should('exist')
+  cy.get(map.game.songType).contains(info.type).should('exist')
+
+Cypress.Commands.add 'startGame', () =>
+  cy.get(map.game.play).click()
+  cy.isElement(map.game.stop)
+  cy.isNotElement(map.game.play)
+
+Cypress.Commands.add 'inputAnimeGuess', (text) =>
+  cy.get(map.game.animeGuess).clear().type("#{text}{enter}")
+
+Cypress.Commands.add 'inputSongGuess', (text) =>
+  cy.get(map.game.songGuess).clear().type("#{text}{enter}")
