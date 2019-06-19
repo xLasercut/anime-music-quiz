@@ -7,7 +7,7 @@
     @click:append="show = !show"
     @enter="$emit('enter')"
     :type="inputType"
-    id="password"
+    id="password-input"
   ></form-input>
 </template>
 

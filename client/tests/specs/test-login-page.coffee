@@ -1,36 +1,37 @@
-assertError = (error) ->
-  cy.get('.error--text').contains(error)
-
-inputText = (id, text) ->
-  cy.get("##{id}").clear().type(text)
+map = require '../support/element-map.coffee'
 
 describe 'login page tests', () ->
   it 'test form validation', () ->
     cy.visit('/')
+    cy.gameForm()
+    cy.login()
+    cy.assertLoginError('Server password required')
+    cy.assertLoginError('Username required')
 
-    cy.clickBtn('game-btn')
-    cy.clickBtn('login')
-    assertError('Server password required')
-    assertError('Username required')
+    cy.inputUsername('aaaaaaaaaaaaaaaaaaaaaa')
+    cy.inputScore('999')
+    cy.login()
+    cy.assertLoginError('Username must be under 20 characters')
+    cy.assertLoginError('Score must be between 0 and 100')
 
-    inputText('username', 'aaaaaaaaaaaaaaaaaaaaa')
-    inputText('score', '999')
-    cy.clickBtn('login')
-    assertError('Username must be under 20 characters')
-    assertError('Score must be between 0 and 100')
+    cy.inputUsername('...')
+    cy.login()
+    cy.assertLoginError('Username can only contain: 0-9, A-Z, a-z and space')
 
-    inputText('username', '...')
-    cy.clickBtn('login')
-    assertError('Username can only contain: 0-9, A-Z, a-z and space')
-
-    cy.clickBtn('list-btn')
-    cy.clickBtn('login')
-    assertError('Server password required')
+    cy.listForm()
+    cy.login()
+    cy.assertLoginError('Server password required')
 
   it 'test server auth fail', () ->
     cy.visit('/')
-
-    inputText('username', 'test user')
-    inputText('password', 'wrongpassword')
-    cy.clickBtn('login')
+    cy.gameForm()
+    cy.inputUsername('test user')
+    cy.inputPassword('wrong')
+    cy.login()
     cy.notificationMsg('Incorrect server password')
+
+  it 'test server auth admin', () ->
+    cy.loginList(false)
+    cy.isNotElement(map.shared.admin)
+    cy.loginList()
+    cy.isElement(map.shared.admin)

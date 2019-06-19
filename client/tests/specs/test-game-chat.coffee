@@ -1,32 +1,31 @@
-assertUsername = (username) ->
-  cy.get('.username').contains(username)
-
-assertMsg = (text) ->
-  cy.get('.text').contains(text)
-
-sendMsg = (text) ->
-  cy.get('#chat-input').clear().type("#{text}{enter}")
-
 describe 'game chat tests', () ->
   it 'test user chat', () ->
     cy.loginGame()
+    cy.assertChatUser('test user', 'not.exist')
     chatMsg = 'test chat message'
-    sendMsg(chatMsg)
-    assertUsername('test user')
-    assertMsg(chatMsg)
+    cy.sendChat(chatMsg)
+    cy.assertChatUser('test user', 'exist')
+    cy.assertChatText(chatMsg, 'exist')
 
   it 'test standard emoji', () ->
     cy.loginGame()
-    sendMsg(':grinning:')
-    assertMsg('😀')
+    cy.assertChatText('😀', 'not.exist')
+    cy.assertChatUser('test user', 'not.exist')
+    cy.sendChat(':grinning:')
+    cy.assertChatUser('test user', 'exist')
+    cy.assertChatText('😀', 'exist')
 
   it 'test custom emoji', () ->
     cy.loginGame()
-    sendMsg(':worry:')
+    cy.assertChatUser('test user', 'not.exist')
+    cy.get('.emoji').should('not.exist')
+    cy.sendChat(':worry:')
+    cy.assertChatUser('test user', 'exist')
     cy.get('.emoji').should('have.attr', 'src', 'https://cdn.discordapp.com/emojis/384946988770131970.png')
 
   it 'test chat bot response', () ->
     cy.loginGame()
-    sendMsg('deja vu')
-    assertUsername('Toyota Sprinter Trueno AE86')
-    assertMsg('🎶 I\'ve just been in this place before\nHigher on the street\nAnd I know it\'s my time to go 🎶')
+    cy.assertChatUser('Toyota Sprinter Trueno AE86', 'not.exist')
+    cy.sendChat('deja vu')
+    cy.assertChatUser('Toyota Sprinter Trueno AE86', 'exist')
+    cy.assertChatText('🎶 I\'ve just been in this place before\nHigher on the street\nAnd I know it\'s my time to go 🎶', 'exist')

@@ -1,13 +1,13 @@
 {
   "VHsG0_kKDG4": {
-    "total": 1,
+    "total": 2,
     "user": {
       "qewr": {
-        "total": 1,
+        "total": 2,
         "songCorrect": 0,
-        "songIncorrect": 1,
+        "songIncorrect": 2,
         "animeCorrect": 0,
-        "animeIncorrect": 1
+        "animeIncorrect": 2
       }
     }
   }

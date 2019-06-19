@@ -6,11 +6,11 @@
       </v-avatar>
     </div>
     <div class="text-container">
-      <div class="username" :style="nameColor(message.admin)" v-if="!message.repeat">
+      <div class="chat-username" :style="nameColor(message.admin)" v-if="!message.repeat">
         <b>{{message.user}}</b>
         <v-icon color="#E65100" v-if="message.admin">mdi-crown</v-icon>
       </div>
-      <div class="text" v-html="message.message"></div>
+      <div class="chat-text" v-html="message.message"></div>
     </div>
   </div>
 </template>
@@ -52,14 +52,14 @@
     white-space: pre-wrap;
   }
 
-  .username {
+  .chat-username {
     width: 100%;
     float: left;
     padding-left: 10px;
     font-size: 14pt;
   }
 
-  .text {
+  .chat-text {
     width: 100%;
     float: left;
     padding-left: 10px;

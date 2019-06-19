@@ -18,13 +18,13 @@
             label="Song Number"
             v-model.number="settings.songCount"
             min="1" max="100" :disabled="disabled"
-            id="song-count"
+            id="song-count-input"
           ></settings-slider>
           <settings-slider
             label="Guess Time"
             v-model.number="settings.guessTime"
             min="1" max="50" :disabled="disabled"
-            id="guess-time"
+            id="guess-time-input"
           ></settings-slider>
           <settings-radio v-model="settings.mode" :disabled="disabled"></settings-radio>
           <settings-checkbox
