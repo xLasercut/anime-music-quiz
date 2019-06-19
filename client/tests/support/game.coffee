@@ -11,6 +11,15 @@ Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime) =>
   cy.get(map.game.settingsSongCount).clear().type("{del}#{songCount}")
   cy.get(map.game.settingsGuessTime).clear().type("{del}#{guessTime}")
 
+Cypress.Commands.add 'changeGameMode', (mode) =>
+  if mode == 'gamble'
+    cy.get(map.game.settingsGameModeGamble).click({ force: true })
+  else
+    cy.get(map.game.settingsGameModeNormal).click({ force: true })
+
+Cypress.Commands.add 'changeGameList', () =>
+  cy.get('.v-label').contains('test-user.json').click()
+
 Cypress.Commands.add 'confirmSettings', () =>
   cy.get(map.game.settingsConfirm).click()
 

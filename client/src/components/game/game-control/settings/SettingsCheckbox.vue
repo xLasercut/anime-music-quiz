@@ -5,7 +5,7 @@
         :label="item" :value="item"
         v-model="model"
         :disabled="disabled"
-        :id="`checkbox_${item}`"
+        :id="`setting-user-list-${item}`"
       ></v-checkbox>
     </v-flex>
   </v-layout>
