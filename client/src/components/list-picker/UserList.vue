@@ -1,21 +1,23 @@
 <template>
-  <v-dialog v-if="$store.state.list.filename">
+  <v-dialog v-if="$store.state.list.filename" v-model="show">
     <template v-slot:activator="{ on }">
       <nav-btn
         color="success" :activator="on" @click="syncUserList()"
-        icon="mdi-playlist-music" id="user-list-panel-btn"
+        icon="mdi-playlist-music" id="user-list-btn"
       ></nav-btn>
     </template>
     <v-card>
+      <v-card-title>
+        <span>{{$store.state.list.filename}}</span>
+        <v-spacer></v-spacer>
+        <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
+        <v-spacer></v-spacer>
+        <v-btn icon flat small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
+      </v-card-title>
       <v-container fluid grid-list-lg>
-        <v-layout wrap>
-          <v-flex xs12 class="text-xs-center">
-            <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
-          </v-flex>
-        </v-layout>
-        <list-filter v-model="filter"></list-filter>
+        <list-filter v-model="filter" id="user"></list-filter>
         <list-data
-          :data="displayData()"
+          :data="displayData()" id="user"
           @remove-anime="removeAnime($event)"
         ></list-data>
         <list-pagination
@@ -42,6 +44,7 @@
         pageSize: 5
       }
       maxPage: 1
+      show: false
     methods:
       displayData: () ->
         filteredData = this.filteredData(this.$store.state.list.userList)

@@ -1,8 +1,8 @@
 <template>
   <v-container fluid grid-list-lg class="list-picker-container">
-    <list-filter v-model="filter"></list-filter>
+    <list-filter v-model="filter" id="main"></list-filter>
     <list-data
-      :data="displayData()"
+      :data="displayData()" id="main"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
       v-if="!$store.state.list.loading"

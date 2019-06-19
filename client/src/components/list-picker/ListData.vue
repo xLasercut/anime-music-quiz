@@ -12,6 +12,7 @@
             <item-action-btn
               color="success" @click="addAnime(props.item)"
               :disabled="!$store.state.list.filename || inUserList(props.item)"
+              :id="`add-${props.item.id}-${id}`"
             >
               mdi-plus
             </item-action-btn>
@@ -19,6 +20,7 @@
               color="error"
               @click="removeAnime(props.item)"
               :disabled="!$store.state.list.filename || !inUserList(props.item)"
+              :id="`remove-${props.item.id}-${id}`"
             >
               mdi-minus
             </item-action-btn>
@@ -35,7 +37,7 @@
 
   export default
     components: { ItemId, ItemActionBtn }
-    props: [ 'data' ]
+    props: [ 'data', 'id' ]
     data: () ->
       headers: [
         { text: 'ID', value: 'id', sortable: false },
