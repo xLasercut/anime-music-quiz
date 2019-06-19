@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center wrap>
-    <guess-text :items="$store.state.game.choices.anime" label="Anime" v-model="guess.anime" :disabled="locked" />
-    <guess-text :items="$store.state.game.choices.song" label="Song" v-model="guess.song" :disabled="locked" :icon="icon()" @click:append-outer="skipSong()"/>
+    <guess-text :items="$store.state.game.choices.anime" label="Anime" v-model="guess.anime" :disabled="disabled()" />
+    <guess-text :items="$store.state.game.choices.song" label="Song" v-model="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"/>
   </v-layout>
 </template>
 
@@ -36,6 +36,8 @@
         if !this.locked and this.$store.state.game.playing
           return 'mdi-lock'
         return ''
+      disabled: () ->
+        return this.locked or !this.$store.state.game.playing
 </script>
 
 <style scoped>
