@@ -45,6 +45,8 @@ Cypress.Commands.add 'startGame', () =>
 
 Cypress.Commands.add 'inputAnimeGuess', (text) =>
   cy.get(map.game.animeGuess).clear().type("#{text}{enter}")
+  cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'inputSongGuess', (text) =>
   cy.get(map.game.songGuess).clear().type("#{text}{enter}")
+  cy.get('.v-text-field__details').contains(text).should('exist')
