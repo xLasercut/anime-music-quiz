@@ -86,5 +86,7 @@ module.exports = {
   'Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo?': ['Problem children are coming from another world, aren\'t they?'],
   'Seitokai Yakuindomo': ['SYD'],
   'Youjo Senki': ['The Saga of Tanya the Evil'],
-  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou': ['Yuki Yuna is a Hero: The Washio Sumi Chapter']
+  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou': ['Yuki Yuna is a Hero: The Washio Sumi Chapter'],
+  'Gakusen Toshi Asterisk': ['The Asterisk War'],
+  'Gakusen Toshi Asterisk 2nd Season': ['The Asterisk War 2nd Season']
 }

@@ -4,6 +4,7 @@ module.exports = {
     altName: ['Log Horizon 2nd Season']
   },
   'MadokaMagicaHajimari-OP1': {
+    dupe: ['MadokaMagicaEien-OP1'],
     altName: ['Mahou Shoujo Madoka★Magica Movie 2: Eien no Monogatari']
   },
   'MGFiqGGVAuk': {

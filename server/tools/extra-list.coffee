@@ -1198,5 +1198,21 @@ module.exports = [
     title: 'Wings',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'mAqyUHe5zaQ',
+    name: 'Denpateki na Kanojo',
+    src: 'https://www.youtube.com/watch?v=mAqyUHe5zaQ',
+    title: 'Taiyou',
+    artist: '',
+    type: 'ED'
+  },
+  {
+    id: 'mxYqyWgYNyE',
+    name: 'Pokemon Movie 2: The Power of One',
+    src: 'https://www.youtube.com/watch?v=mxYqyWgYNyE',
+    title: 'The Power of One',
+    artist: '',
+    type: 'ED'
   }
 ]
