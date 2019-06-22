@@ -1214,5 +1214,13 @@ module.exports = [
     title: 'The Power of One',
     artist: '',
     type: 'ED'
+  },
+  {
+    id: 'zkdxY7ZEv3E',
+    name: 'Charlotte',
+    src: 'https://www.youtube.com/watch?v=zkdxY7ZEv3E',
+    title: 'Fallin\'',
+    artist: '',
+    type: 'Insert'
   }
 ]
