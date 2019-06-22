@@ -18,5 +18,6 @@ module.exports = {
   'Fly Me to the Moon (Yoko Takahashi Version)': 'Fly Me to the Moon',
   'Fly Me to the Moon -4 Beat Version (Off-Vocal)-': 'Fly Me to the Moon',
   'Fly Me to the Moon -4 Beat Version-': 'Fly Me to the Moon',
-  'Fly Me to the Moon -B22 (A-Type)-': 'Fly Me to the Moon'
+  'Fly Me to the Moon -B22 (A-Type)-': 'Fly Me to the Moon',
+  'Hello!My World!!': 'Hello! My World!!'
 }

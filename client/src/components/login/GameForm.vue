@@ -7,10 +7,10 @@
         :rules="nameRules"
         @enter="login()"
         counter="20"
-        id="username-input"
+        id="username-input" :disabled="loading"
       />
-      <form-input-password v-model.trim="form.password" @enter="login()" />
-      <form-avatar :avatars="avatars" v-model="form.avatar" />
+      <form-input-password v-model.trim="form.password" @enter="login()" :disabled="loading"/>
+      <form-avatar :avatars="avatars" v-model="form.avatar" :disabled="loading" />
       <v-layout justify-center>
         <v-flex xs6 sm3 md2>
           <v-text-field
@@ -18,7 +18,7 @@
             v-model.number="form.score"
             :rules="scoreRules" type="number"
             box min="0" max="1000"
-            id="score-input"
+            id="score-input" :disabled="loading"
           />
         </v-flex>
       </v-layout>
@@ -27,7 +27,7 @@
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
-            id="login-btn"
+            id="login-btn" :disabled="loading"
           >
             Login
           </icon-btn>
@@ -70,20 +70,25 @@
         (v) => v >= 0 and v <= 100 || 'Score must be between 0 and 100',
         (v) => Number.isInteger(v) || 'Score must be a number'
       ],
-      avatars: avatars
+      avatars: avatars,
+      loading: false
     methods:
       login: () ->
         valid = this.$refs['loginForm'].validate()
         if valid
+          this.loading = true
           localStorage.avatar = this.form.avatar
+          localStorage.username = this.form.username
           this.$socket.open()
           this.$socket.emit('AUTHENTICATE', this.form.password, (auth) =>
+            this.loading = false
             if auth
               player = {
                 username: this.form.username,
                 avatar: this.form.avatar,
                 score: this.form.score
               }
+
               this.$socket.emit('LOGIN_GAME', player)
               this.$router.push({ name: 'home' })
             else
@@ -100,6 +105,9 @@
     mounted: () ->
       if localStorage.avatar and localStorage.avatar in avatars
         this.form.avatar = localStorage.avatar
+
+      if localStorage.username
+        this.form.username = localStorage.username
 </script>
 
 <style scoped>

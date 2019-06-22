@@ -85,5 +85,6 @@ module.exports = {
   'Boku no Hero Academia 3rd Season': ['My Hero Academia 3rd Season'],
   'Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo?': ['Problem children are coming from another world, aren\'t they?'],
   'Seitokai Yakuindomo': ['SYD'],
-  'Youjo Senki': ['The Saga of Tanya the Evil']
+  'Youjo Senki': ['The Saga of Tanya the Evil'],
+  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou': ['Yuki Yuna is a Hero: The Washio Sumi Chapter']
 }

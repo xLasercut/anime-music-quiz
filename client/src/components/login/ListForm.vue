@@ -1,13 +1,13 @@
 <template>
   <v-form ref="listForm">
     <v-container fluid grid-list-lg>
-      <form-input-password v-model.trim="form.password" @enter="login()" />
+      <form-input-password v-model.trim="form.password" @enter="login()" :disabled="loading" />
       <v-layout justify-center wrap>
         <v-flex xs12 class="text-xs-center">
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
-            id="login-btn"
+            id="login-btn" :disabled="loading"
           >
             Connect
           </icon-btn>
@@ -32,14 +32,17 @@
     data: () ->
       form: {
         password: password
-      }
+      },
+      loading: false
     methods:
       login: () ->
         valid = this.$refs['listForm'].validate()
 
         if valid
+          this.loading = true
           this.$socket.open()
           this.$socket.emit('AUTHENTICATE', this.form.password, (auth) =>
+            this.loading = false
             if auth
               this.$socket.emit('LOGIN_LIST')
               this.$router.push({ name: 'list-picker' })

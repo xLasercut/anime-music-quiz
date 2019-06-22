@@ -13,5 +13,8 @@ module.exports = {
   'Digimon Adventure tri. 2: Ketsui': 'Digimon Adventure Tri.',
   'Digimon Adventure tri. 1: Saikai': 'Digimon Adventure Tri.',
   'Black★Rock Shooter (TV)': 'Black Rock Shooter (TV)',
-  'Lucky☆Star': 'Lucky Star'
+  'Lucky☆Star': 'Lucky Star',
+  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou Movie 1 - Tomodachi': 'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou',
+  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou Movie 2 - Tamashii': 'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou',
+  'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou Movie 3 - Yakusoku': 'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou'
 }
