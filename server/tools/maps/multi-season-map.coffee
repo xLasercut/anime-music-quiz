@@ -48,5 +48,12 @@ module.exports = {
   'KissxSisTV-ED1': {
     dupe: ['KissxSisTV-ED1v2'],
     altName: []
+  },
+  'BlackLagoon-OP1': {
+    dupe: ['BlackLagoonS2-OP1'],
+    altName: ['Black Lagoon: The Second Barrage']
+  },
+  'BlackLagoon-ED1': {
+    altName: ['Black Lagoon']
   }
 }
