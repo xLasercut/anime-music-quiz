@@ -1112,9 +1112,9 @@ module.exports = [
     type: 'OP'
   },
   {
-    id: 'dcyD5hK-HJQ',
+    id: 'uMxiAFSvFyo',
     name: 'SSSS.Gridman',
-    src: 'https://www.youtube.com/watch?v=dcyD5hK-HJQ',
+    src: 'https://www.youtube.com/watch?v=uMxiAFSvFyo',
     title: 'Yume no Hero',
     artist: '',
     type: 'Insert'
