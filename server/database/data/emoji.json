@@ -54,5 +54,9 @@
   "birbpeek": {
     "src": "https://cdn.discordapp.com/emojis/477804499290030091.png",
     "type": "img"
+  },
+  "birbhug": {
+    "src": "https://cdn.discordapp.com/emojis/477835313863983104.png",
+    "type": "img"
   }
 }
