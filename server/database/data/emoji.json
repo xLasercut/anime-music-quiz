@@ -46,5 +46,13 @@
   "worryDodge": {
     "src": "https://cdn.discordapp.com/emojis/499282698238427166.png",
     "type": "img"
+  },
+  "hailthetail": {
+    "src": "https://cdn.discordapp.com/emojis/282297723321843712.png",
+    "type": "img"
+  },
+  "birbpeek": {
+    "src": "https://cdn.discordapp.com/emojis/477804499290030091.png",
+    "type": "img"
   }
 }
