@@ -1222,5 +1222,13 @@ module.exports = [
     title: 'Fallin\'',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'j0I8cB20XX0',
+    name: 'Evangelion: 2.0 You Can (Not) Advance',
+    src: 'https://www.youtube.com/watch?v=j0I8cB20XX0',
+    title: 'Destiny',
+    artist: '',
+    type: 'Insert'
   }
 ]
