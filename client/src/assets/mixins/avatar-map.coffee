@@ -9,7 +9,11 @@ map = {
   'madoka': 'https://i.imgur.com/iGPVIAN.png',
   'lelouch': 'https://i.imgur.com/mB0IKty.png',
   'miyu': 'https://i.imgur.com/Jvi0FoN.png',
-  'rawr': 'https://i.imgur.com/t03jCAX.png'
+  'rawr': 'https://i.imgur.com/t03jCAX.png',
+  'pikachu': 'https://i.imgur.com/QoEzMPR.jpg',
+  'eren': 'https://i.imgur.com/5Dip9VY.jpg',
+  'jaden': 'https://i.imgur.com/emAT9yb.png',
+  'yugi': 'https://i.imgur.com/Gfb2pnD.png'
 }
 
 export default
