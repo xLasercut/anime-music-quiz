@@ -21,6 +21,8 @@
         this.addMessage(data)
         this.$nextTick () =>
           this.scrollChat()
+      SYNC_EMOJI_DATA: (list) ->
+        this.$store.commit('misc/UPDATE_EMOJI_LIST', list)
     methods:
       scrollChat: () ->
         element = document.querySelector('.message-container')
