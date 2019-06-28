@@ -113,5 +113,15 @@
     "command": "aworryhype",
     "src": "https://cdn.discordapp.com/emojis/425124209891475456.gif",
     "type": "img"
+  },
+  {
+    "command": "worryfoodtime",
+    "src": "https://cdn.discordapp.com/emojis/454350595692691468.png",
+    "type": "img"
+  },
+  {
+    "command": "birbwise",
+    "src": "https://cdn.discordapp.com/emojis/477804502544678912.png",
+    "type": "img"
   }
 ]
