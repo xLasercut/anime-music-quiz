@@ -4,8 +4,10 @@
       <v-data-table :items="data" :headers="headers" hide-actions>
         <template #items="props">
           <td>{{ `:${props.item.command}:` }}</td>
-          <td v-if="props.item.type === 'img'"><img :src="props.item.src" width="16pt"></td>
-          <td v-if="props.item.type === 'dec'">{{ props.item.src }}</td>
+          <td>
+            <v-img :src="props.item.src" width="20pt" v-if="props.item.type === 'img'" />
+            <span v-if="props.item.type === 'dec'" class="normal-emoji">{{ props.item.src }}</span>
+          </td>
           <td>{{ props.item.type }}</td>
           <td>{{ props.item.src }}</td>
           <td>
@@ -45,5 +47,9 @@
   .table-container {
     height: calc(100% - 70px - 70px);
     overflow: auto;
+  }
+
+  .normal-emoji {
+    font-size: 18pt;
   }
 </style>

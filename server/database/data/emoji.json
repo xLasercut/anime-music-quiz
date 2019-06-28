@@ -108,5 +108,10 @@
     "command": "feesh",
     "src": "https://cdn.discordapp.com/emojis/477804835748446209.png",
     "type": "img"
+  },
+  {
+    "command": "aworryhype",
+    "src": "https://cdn.discordapp.com/emojis/425124209891475456.gif",
+    "type": "img"
   }
 ]
