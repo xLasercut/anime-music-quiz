@@ -15,47 +15,45 @@
           ></v-textarea>
         </template>
 
-        <v-list>
-          <v-list-tile v-for="item in emojis" :key="item.command" @click="addEmoji(item.command)">
-            <v-list-tile-avatar tile>
-              <v-img :src="item.src" v-if="item.type == 'img'"/>
-              <span v-if="item.type == 'dec'">{{item.src}}</span>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              {{command(item.command)}}
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
+        <chat-emoji-list
+          :data="choices"
+          @add-emoji="addEmoji($event)"
+        ></chat-emoji-list>
       </v-menu>
     </v-flex>
   </v-layout>
 </template>
 
 <script lang="coffee">
+  import ChatEmojiList from './ChatEmojiList.vue'
+
   emoji = new RegExp(':(?:[^:]+)$', 'ig')
 
   export default
+    components: { ChatEmojiList }
     data: () ->
       message: ''
       show: false
-      emojis: []
+      choices: []
     watch:
       message: (val) ->
         match = this.match(val)
         if match
           this.show = false
-          this.emojis = this.$store.state.misc.emojiList.filter( (emoji) =>
+          this.choices = this.$store.state.misc.emojiList.filter( (emoji) =>
             if emoji and ":#{emoji.command.toLowerCase()}:".includes(match.toLowerCase())
               return emoji
           )
-          if this.emojis.length > 0
-            if this.emojis.length < 6
-              range = 5 - this.emojis.length
-              for i in [0..range]
-                this.emojis.push({})
+          if this.choices.length > 0
             this.show=true
         else
           this.show = false
+      choices: (val) ->
+        length = val.length
+        if length < 6
+          range = 5 - length
+          for i in [0..range]
+            val.push({})
     methods:
       sendMsg: () ->
         if this.message
