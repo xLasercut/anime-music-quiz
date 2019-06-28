@@ -1,66 +1,82 @@
-{
-  "worry": {
+[
+  {
+    "command": "worry",
     "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
     "type": "img"
   },
-  "grinning": {
-    "src": "&#128512;",
+  {
+    "command": "grinning",
+    "src": "😀",
     "type": "dec"
   },
-  "worryLove": {
+  {
+    "command": "worrylove",
     "src": "https://cdn.discordapp.com/emojis/411919283484885024.png",
     "type": "img"
   },
-  "worreee": {
-    "src": "https://cdn.discordapp.com/emojis/436979346704695306.png",
-    "type": "img"
-  },
-  "worryneat": {
+  {
+    "command": "worryneat",
     "src": "https://cdn.discordapp.com/emojis/511581092139106316.png",
     "type": "img"
   },
-  "worrydodgesel": {
+  {
+    "command": "worreee",
+    "src": "https://cdn.discordapp.com/emojis/436979346704695306.png",
+    "type": "img"
+  },
+  {
+    "command": "worrydodgesel",
     "src": "https://cdn.discordapp.com/emojis/499886898567970845.gif",
     "type": "img"
   },
-  "notes": {
-    "src": "&#127926;",
+  {
+    "command": "notes",
+    "src": "🎶",
     "type": "dec"
   },
-  "worryeyes": {
+  {
+    "command": "worryeyes",
     "src": "https://cdn.discordapp.com/emojis/441791691813289985.gif",
     "type": "img"
   },
-  "worryweird": {
+  {
+    "command": "worryweird",
     "src": "https://cdn.discordapp.com/emojis/587729608028192790.png",
     "type": "img"
   },
-  "worrypoggers": {
+  {
+    "command": "worrypoggers",
     "src": "https://cdn.discordapp.com/emojis/553703679392481311.png",
     "type": "img"
   },
-  "worryglasses": {
+  {
+    "command": "worryglasses",
     "src": "https://cdn.discordapp.com/emojis/437652757764112394.png",
     "type": "img"
   },
-  "worrydodge": {
+  {
+    "command": "worrydodge",
     "src": "https://cdn.discordapp.com/emojis/499282698238427166.png",
     "type": "img"
   },
-  "hailthetail": {
+  {
+    "command": "hailthetail",
     "src": "https://cdn.discordapp.com/emojis/282297723321843712.png",
     "type": "img"
   },
-  "birbpeek": {
+  {
+    "command": "birbpeek",
     "src": "https://cdn.discordapp.com/emojis/477804499290030091.png",
     "type": "img"
   },
-  "birbhug": {
+  {
+    "command": "birbhug",
     "src": "https://cdn.discordapp.com/emojis/477835313863983104.png",
     "type": "img"
   },
-  "kannawant": {
+  {
+    "command": "kannawant",
     "src": "https://cdn.discordapp.com/emojis/499439260706013194.png",
     "type": "img"
   }
-}
+]

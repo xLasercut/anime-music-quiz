@@ -8,20 +8,20 @@
       v-if="!$store.state.list.loading"
     ></list-data>
     <loading v-if="$store.state.list.loading"></loading>
-    <list-pagination v-model="pagination" :length="maxPage"></list-pagination>
+    <pagination v-model="pagination" :length="maxPage"></pagination>
   </v-container>
 </template>
 
 <script lang="coffee">
   import ListData from '../components/list-picker/ListData.vue'
-  import ListPagination from '../components/list-picker/ListPagination.vue'
+  import Pagination from '../components/shared/Pagination.vue'
   import Loading from '../components/shared/Loading.vue'
   import TableFilter from '../assets/mixins/table-filter.coffee'
   import Notification from '../assets/mixins/notification.coffee'
 
   export default
     mixins: [ TableFilter, Notification ]
-    components: { ListData, ListPagination, Loading }
+    components: { ListData, Pagination, Loading }
     data: () ->
       pagination: {
         currentPage: 1,

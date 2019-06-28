@@ -1,9 +1,9 @@
 <template>
-  <v-form ref="listForm">
+  <v-form ref="miscForm">
     <v-container fluid grid-list-lg>
       <v-layout justify-center>
         <v-flex shrink>
-          <h2>User List</h2>
+          <h2>Miscellaneous</h2>
         </v-flex>
       </v-layout>
       <form-input-password v-model.trim="form.password" @enter="login()" :disabled="loading" />
@@ -41,7 +41,7 @@
       loading: false
     methods:
       login: () ->
-        valid = this.$refs['listForm'].validate()
+        valid = this.$refs['miscForm'].validate()
 
         if valid
           this.loading = true
@@ -49,11 +49,9 @@
           this.$socket.emit('AUTHENTICATE', this.form.password, (auth) =>
             this.loading = false
             if auth
-              this.$socket.emit('LOGIN_LIST')
-              this.$router.push({ name: 'list-picker' })
+              this.$socket.emit('LOGIN_MISC')
+              this.$router.push({ name: 'misc' })
             else
               this.notifyError('Incorrect server password')
           )
-
-
 </script>

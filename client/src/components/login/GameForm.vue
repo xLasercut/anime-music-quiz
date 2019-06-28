@@ -1,6 +1,11 @@
 <template>
   <v-form ref="loginForm">
     <v-container fluid grid-list-lg>
+      <v-layout justify-center>
+        <v-flex shrink>
+          <h2>Game</h2>
+        </v-flex>
+      </v-layout>
       <form-input
         label="Username"
         v-model.trim="form.username"

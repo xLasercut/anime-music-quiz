@@ -13,6 +13,7 @@
         <game-control></game-control>
         <list-picker-control></list-picker-control>
         <login-control></login-control>
+        <misc-control></misc-control>
       </v-toolbar>
     </v-flex>
   </v-layout>
@@ -22,10 +23,11 @@
   import GameControl from '../game/GameControl.vue'
   import ListPickerControl from '../list-picker/ListPickerControl.vue'
   import LoginControl from '../login/LoginControl.vue'
+  import MiscControl from '../misc/MiscControl.vue'
   import NavBtn from './NavBtn.vue'
 
   export default
-    components: { GameControl, NavBtn, ListPickerControl, LoginControl }
+    components: { GameControl, NavBtn, ListPickerControl, LoginControl, MiscControl }
     methods:
       disconnect: () ->
         this.$socket.close()

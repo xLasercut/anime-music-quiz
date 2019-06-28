@@ -4,6 +4,7 @@ LogObject = require './src/logging/log-object.coffee'
 GameListener = require './src/game/listener.coffee'
 ListListener = require './src/list/listener.coffee'
 AdminListener = require './src/admin/listener.coffee'
+MiscListener = require './src/misc/listener.coffee'
 config = require './src/config.coffee'
 
 app = express()
@@ -18,6 +19,7 @@ io = socketio(server)
 gameListener = new GameListener(io, logObject)
 listListener = new ListListener(io, logObject)
 adminListener = new AdminListener(io, logObject, gameListener, listListener)
+miscListenter = new MiscListener(io, logObject)
 
 checkPassword = (socket, password) ->
   if password == config.adminPassword or password == config.serverPassword
@@ -31,6 +33,7 @@ startListeners = (socket, callback) ->
     socket.emit('SYNC_ADMIN', socket.admin)
     gameListener.listen(socket)
     listListener.listen(socket)
+    miscListenter.listen(socket)
     if socket.admin
       adminListener.listen(socket)
   callback(socket.auth, socket.admin)

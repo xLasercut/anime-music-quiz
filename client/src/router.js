@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import ListPicker from './views/ListPicker.vue'
+import MiscOperations from './views/MiscOperations.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/list-picker',
       name: 'list-picker',
       component: ListPicker
+    },
+    {
+      path: '/misc',
+      name: 'misc',
+      component: MiscOperations
     },
     {
       path: '*',

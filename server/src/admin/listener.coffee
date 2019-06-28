@@ -18,6 +18,7 @@ class AdminListener
         @io.emit('SYNC_FULL_LIST', fullList.read())
         chatBotList.reload()
         emojiList.reload()
+        @io.emit('SYNC_EMOJI_DATA', emojiList.read())
         @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
         @notification.all('success', 'Game database reloaded')
 

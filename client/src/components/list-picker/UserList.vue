@@ -20,9 +20,9 @@
           :data="displayData()" id="user"
           @remove-anime="removeAnime($event)"
         ></list-data>
-        <list-pagination
+        <pagination
           v-model="pagination" :length="maxPage"
-        ></list-pagination>
+        ></pagination>
       </v-container>
     </v-card>
   </v-dialog>
@@ -31,13 +31,13 @@
 <script lang="coffee">
   import ListData from './ListData.vue'
   import IconBtn from '../shared/IconBtn.vue'
-  import ListPagination from './ListPagination.vue'
+  import Pagination from '../shared/Pagination.vue'
   import NavBtn from '../shared/NavBtn.vue'
   import TableFilter from '../../assets/mixins/table-filter.coffee'
 
   export default
     mixins: [ TableFilter ]
-    components: { ListData, IconBtn, ListPagination, NavBtn }
+    components: { ListData, IconBtn, Pagination, NavBtn }
     data: () ->
       pagination: {
         currentPage: 1,

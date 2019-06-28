@@ -113,11 +113,6 @@ class EmojiList extends AbstractDatabase
   constructor: () ->
     super(path.join(dbBasePath, 'emoji.json'))
 
-  initDb: () ->
-    if !fs.existsSync(@filepath)
-      _writeFile(@filepath, {})
-    @db = _readFile(@filepath)
-
 class UserList extends AbstractDatabase
   constructor: (filename) ->
     super(path.join(userDbBasePath, filename))
