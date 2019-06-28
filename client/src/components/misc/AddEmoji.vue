@@ -38,8 +38,8 @@
             </v-flex>
             <v-flex xs12 class="text-xs-center">
               <span>Preview: </span>
-              <img :src="form.src" width="16pt" v-if="emojiType == 'img'" />
-              <span v-if="emojiType == 'dec'">{{ form.src }}</span>
+              <img :src="form.src" width="25px" v-if="emojiType == 'img'" />
+              <span v-if="emojiType == 'dec'" class="normal-emoji">{{ form.src }}</span>
             </v-flex>
           </v-layout>
           <v-layout>
@@ -110,3 +110,10 @@
         this.form.src = ''
         this.form.command = ''
 </script>
+
+
+<style scoped>
+  .normal-emoji {
+    font-size: 16pt;
+  }
+</style>
