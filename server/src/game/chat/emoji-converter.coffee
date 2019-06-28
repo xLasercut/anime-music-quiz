@@ -7,12 +7,12 @@ class EmojiConverter
   addEmoji: (message) ->
     output = message
     emojis = emojiList.read()
-    for key, emojiObj of emojis
-      emoji = new RegExp(":#{key}:", 'gi')
-      if emojiObj.type == "img"
-        output = output.replace(emoji, "<img src=\"#{emojiObj.src}\" class=\"emoji\" />")
-      else if emojiObj.type == "dec"
-        output = output.replace(emoji, emojiObj.src)
+    for item in emojis
+      emoji = new RegExp(":#{item.command}:", 'gi')
+      if item.type == "img"
+        output = output.replace(emoji, "<img src=\"#{item.src}\" class=\"emoji\" />")
+      else if item.type == "dec"
+        output = output.replace(emoji, item.src)
     return output
 
 
