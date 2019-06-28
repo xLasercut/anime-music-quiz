@@ -22,7 +22,7 @@
               <span v-if="item.type == 'dec'">{{item.src}}</span>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              {{`:${item.command}:`}}
+              {{command(item.command)}}
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -45,7 +45,7 @@
         if match
           this.show = false
           this.emojis = this.$store.state.misc.emojiList.filter( (emoji) =>
-            if ":#{emoji.command}:".includes(match)
+            if emoji and ":#{emoji.command.toLowerCase()}:".includes(match.toLowerCase())
               return emoji
           )
           if this.emojis.length > 0
@@ -70,7 +70,10 @@
         if match
           return match[0]
         return null
-
+      command: (val) ->
+        if val
+          return ":#{val}:"
+        return ''
 </script>
 
 <style scoped>
