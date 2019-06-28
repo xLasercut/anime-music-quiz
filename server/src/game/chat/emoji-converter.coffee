@@ -8,12 +8,11 @@ class EmojiConverter
     output = message
     emojis = emojiList.read()
     for key, emojiObj of emojis
-      emoji = ":#{key}:"
-      if output.includes(emoji)
-        if emojiObj.type == "img"
-          output = output.split(emoji).join("<img src=\"#{emojiObj.src}\" class=\"emoji\" />")
-        else if emojiObj.type == "dec"
-          output = output.split(emoji).join(emojiObj.src)
+      emoji = new RegExp(":#{key}:", 'gi')
+      if emojiObj.type == "img"
+        output = output.replace(emoji, "<img src=\"#{emojiObj.src}\" class=\"emoji\" />")
+      else if emojiObj.type == "dec"
+        output = output.replace(emoji, emojiObj.src)
     return output
 
 
