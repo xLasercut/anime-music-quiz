@@ -39,13 +39,14 @@
       message: (val) ->
         match = this.match(val)
         if match
-          this.show = false
           this.choices = this.$store.state.misc.emojiList.filter( (emoji) =>
             if emoji and ":#{emoji.command.toLowerCase()}:".includes(match.toLowerCase())
               return emoji
           )
           if this.choices.length > 0
             this.show=true
+          else
+            this.show = false
         else
           this.show = false
       choices: (val) ->
