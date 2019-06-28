@@ -13,8 +13,9 @@ RUN apk update && apk upgrade \
 WORKDIR ${WRK_DIR}
 
 COPY package.json ${WRK_DIR}/package.json
+COPY package-lock.json ${WRK_DIR}/package-lock.json
 
-RUN npm install --production
+RUN npm ci --production
 
 COPY . ${WRK_DIR}/.
 
