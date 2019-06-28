@@ -78,5 +78,35 @@
     "command": "kannawant",
     "src": "https://cdn.discordapp.com/emojis/499439260706013194.png",
     "type": "img"
+  },
+  {
+    "command": "birb",
+    "src": "https://cdn.discordapp.com/emojis/477804762029621250.png",
+    "type": "img"
+  },
+  {
+    "command": "birbsob",
+    "src": "https://cdn.discordapp.com/emojis/477804499474579457.png",
+    "type": "img"
+  },
+  {
+    "command": "birblove",
+    "src": "https://cdn.discordapp.com/emojis/477804497998184448.png",
+    "type": "img"
+  },
+  {
+    "command": "notlikebirb",
+    "src": "https://cdn.discordapp.com/emojis/477804500166508544.png",
+    "type": "img"
+  },
+  {
+    "command": "awoo",
+    "src": "https://cdn.discordapp.com/emojis/281645268376485888.png",
+    "type": "img"
+  },
+  {
+    "command": "feesh",
+    "src": "https://cdn.discordapp.com/emojis/477804835748446209.png",
+    "type": "img"
   }
 ]
