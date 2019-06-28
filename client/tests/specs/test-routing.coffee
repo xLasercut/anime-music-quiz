@@ -5,3 +5,6 @@ describe 'client routing tests', () ->
 
     cy.visit('#/list')
     cy.url().should('eq', "#{Cypress.config().baseUrl}/#/")
+
+    cy.visit('#/misc')
+    cy.url().should('eq', "#{Cypress.config().baseUrl}/#/")

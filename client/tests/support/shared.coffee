@@ -8,3 +8,6 @@ Cypress.Commands.add 'isElement', (element) =>
 
 Cypress.Commands.add 'isNotElement', (element) =>
   cy.get(element).should('not.exist')
+
+Cypress.Commands.add 'assertInputError', (error) =>
+  cy.get('.error--text').contains(error).should('exist')

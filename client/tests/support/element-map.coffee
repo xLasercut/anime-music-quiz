@@ -36,12 +36,22 @@ module.exports = {
     username: '#username-input',
     password: '#password-input',
     score: '#score-input',
-    login: '#login-btn'
+    login: '#login-btn',
+    misc: '#misc-btn'
   },
   shared: {
     home: '#home-btn',
     notification: '#game-notification',
     selectItem: '.v-list__tile__title',
     admin: '#admin-btn'
+  },
+  misc: {
+    addEmoji: '#add-emoji-btn',
+    emojiFilter: '#filter-emoji',
+    emojiCommand: '#add-emoji-command',
+    emojiSrc: '#add-emoji-source',
+    emojiType: '#add-emoji-type',
+    emojiCancel: '#add-emoji-cancel',
+    emojiConfirm: '#add-emoji-confirm'
   }
 }

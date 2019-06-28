@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on }">
       <icon-btn
         :activator="on" color="success"
-        icon="mdi-plus"
+        icon="mdi-plus" id="add-emoji-btn"
       >
         Add Emoji
       </icon-btn>
@@ -21,19 +21,20 @@
               <v-text-field
                 label="Command"
                 v-model.trim="form.command"
-                clearable
+                clearable id="add-emoji-command"
                 :rules="rulesCommand"
+                counter="20"
               ></v-text-field>
             </v-flex>
             <v-flex xs10>
               <v-text-field
                 label="Source"
                 v-model.trim="form.src"
-                clearable
+                clearable id="add-emoji-source"
                 :rules="rulesSrc"
               ></v-text-field>
             </v-flex>
-            <v-flex xs12 class="text-xs-center">
+            <v-flex xs12 class="text-xs-center" id="add-emoji-type">
               Type: {{ emojiType }}
             </v-flex>
             <v-flex xs12 class="text-xs-center">
@@ -46,9 +47,11 @@
             <v-flex xs12 class="text-xs-center">
               <icon-btn
                 color="error" icon="mdi-close" @click="show = false"
+                id="add-emoji-cancel"
               >Cancel</icon-btn>
               <icon-btn
                 color="success" icon="mdi-check" @click="addEmoji()"
+                id="add-emoji-confirm"
               >
                 Confirm
               </icon-btn>
@@ -74,7 +77,8 @@
       },
       rulesCommand: [
         (v) => !this.isDuplicate(v) || 'Duplicate command',
-        (v) => this.isValidCommand(v) || 'Command only accepts: a-z, A-Z, 0-9'
+        (v) => this.isValidCommand(v) || 'Command only accepts: a-z, A-Z, 0-9',
+        (v) => v.length <= 20 || 'Command must be between 1-20 characters'
       ],
       rulesSrc: [
         (v) => !!v || 'Source cannot be empty'

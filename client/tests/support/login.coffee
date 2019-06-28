@@ -18,6 +18,9 @@ Cypress.Commands.add 'gameForm', () =>
 Cypress.Commands.add 'listForm', () =>
   cy.get(map.login.list).click()
 
+Cypress.Commands.add 'miscForm', () =>
+  cy.get(map.login.misc).click()
+
 Cypress.Commands.add 'loginGame', (admin=true) =>
   if admin
     password = 'password'
@@ -39,5 +42,12 @@ Cypress.Commands.add 'loginList', (admin=true) =>
   cy.inputPassword(password)
   cy.login()
 
-Cypress.Commands.add 'assertLoginError', (error) =>
-  cy.get('.error--text').contains(error).should('exist')
+Cypress.Commands.add 'loginMisc', (admin=true) =>
+  if admin
+    password = 'password'
+  else
+    password = 'server'
+  cy.visit('/')
+  cy.miscForm()
+  cy.inputPassword(password)
+  cy.login()

@@ -15,6 +15,7 @@
               :disabled="!$store.state.admin.admin"
               depressed color="error" small
               @click="deleteEmoji(props.item)"
+              :id="`${props.item.command}-delete`"
             >
               delete
             </v-btn>
@@ -27,7 +28,7 @@
 
 <script lang="coffee">
   export default
-    props: [ 'data', 'id' ]
+    props: [ 'data' ]
     data: () ->
       headers: [
         { text: 'Command', value: 'command', sortable: false },

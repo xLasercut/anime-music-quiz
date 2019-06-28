@@ -5,22 +5,26 @@ describe 'login page tests', () ->
     cy.visit('/')
     cy.gameForm()
     cy.login()
-    cy.assertLoginError('Server password required')
-    cy.assertLoginError('Username required')
+    cy.assertInputError('Server password required')
+    cy.assertInputError('Username required')
 
     cy.inputUsername('aaaaaaaaaaaaaaaaaaaaaa')
     cy.inputScore('999')
     cy.login()
-    cy.assertLoginError('Username must be under 20 characters')
-    cy.assertLoginError('Score must be between 0 and 100')
+    cy.assertInputError('Username must be under 20 characters')
+    cy.assertInputError('Score must be between 0 and 100')
 
     cy.inputUsername('...')
     cy.login()
-    cy.assertLoginError('Username can only contain: 0-9, A-Z, a-z and space')
+    cy.assertInputError('Username can only contain: 0-9, A-Z, a-z and space')
 
     cy.listForm()
     cy.login()
-    cy.assertLoginError('Server password required')
+    cy.assertInputError('Server password required')
+
+    cy.miscForm()
+    cy.login()
+    cy.assertInputError('Server password required')
 
   it 'test server auth fail', () ->
     cy.visit('/')
