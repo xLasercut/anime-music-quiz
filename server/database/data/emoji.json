@@ -123,5 +123,30 @@
     "command": "birbwise",
     "src": "https://cdn.discordapp.com/emojis/477804502544678912.png",
     "type": "img"
+  },
+  {
+    "command": "worryhands",
+    "src": "https://cdn.discordapp.com/emojis/416637655846092803.png",
+    "type": "img"
+  },
+  {
+    "command": "aworryninja",
+    "src": "https://cdn.discordapp.com/emojis/419506568728543263.gif",
+    "type": "img"
+  },
+  {
+    "command": "worryKMSwTears",
+    "src": "https://cdn.discordapp.com/emojis/395547800336859146.png",
+    "type": "img"
+  },
+  {
+    "command": "aworrywave",
+    "src": "https://cdn.discordapp.com/emojis/438794906798915584.gif",
+    "type": "img"
+  },
+  {
+    "command": "birbnight",
+    "src": "https://cdn.discordapp.com/emojis/477804499151486977.png",
+    "type": "img"
   }
 ]
