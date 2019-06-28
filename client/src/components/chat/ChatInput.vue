@@ -22,7 +22,7 @@
               <span v-if="item.type == 'dec'">{{item.src}}</span>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              {{item.command}}
+              {{`:${item.command}:`}}
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -50,7 +50,7 @@
           )
           if this.emojis.length > 0
             if this.emojis.length < 6
-              range = (5-this.emojis.length)
+              range = 5 - this.emojis.length
               for i in [0..range]
                 this.emojis.push({})
             this.show=true
