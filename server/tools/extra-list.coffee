@@ -1230,5 +1230,53 @@ module.exports = [
     title: 'Destiny',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'sk1Q-BFgnPM',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=sk1Q-BFgnPM',
+    title: 'The Top',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'LSVQ1L0GuoQ',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=LSVQ1L0GuoQ',
+    title: 'Black Out',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'cXg1Y3utm4E',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=cXg1Y3utm4E',
+    title: 'Limousine',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ivhqJrcl-V8',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=ivhqJrcl-V8',
+    title: 'A Perfect Hero',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'nSOx1iEUnhY',
+    name: 'Dinosaur King',
+    src: 'https://www.youtube.com/watch?v=nSOx1iEUnhY',
+    title: 'Kyouryuu Muscle',
+    artist: '',
+    type: 'ED'
+  },
+  {
+    id: 'A9njBNqRCss',
+    name: 'Makura no Danshi',
+    src: 'https://www.youtube.com/watch?v=A9njBNqRCss',
+    title: 'Makura no Danshi',
+    artist: '',
+    type: 'OP'
   }
 ]
