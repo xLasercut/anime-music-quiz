@@ -488,9 +488,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: '81D8CCguW4g',
+    id: 'j01g8DYULO4',
     name: 'Death Note',
-    src: 'https://www.youtube.com/watch?v=81D8CCguW4g',
+    src: 'https://www.youtube.com/watch?v=j01g8DYULO4',
     title: 'Low of Solipsism',
     artist: '',
     type: 'Insert'
