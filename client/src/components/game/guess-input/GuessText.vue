@@ -4,7 +4,7 @@
       box clearable
       :items="items"
       :label="label"
-      v-model="model"
+      v-model.trim="model"
       :hint="hint()"
       :disabled="disabled"
       :append-outer-icon="icon"
