@@ -63,7 +63,7 @@ if [[ -z $serverpass && ( $container == "server" || -z $container ) ]]; then
   exit 1
 fi
 
-if [[ -z $adminpass && $container == "server" || -z $container ]]; then
+if [[ -z $adminpass && ( $container == "server" || -z $container ) ]]; then
   echo "Did not supply admin password"
   exit 1
 fi
