@@ -1,6 +1,21 @@
 #!/bin/bash
 
-while getopts ":t: :p: :a: :hrd" opt; do
+validContainerNames=("server" "ngrok")
+
+function checkContainerName () {
+  for name in ${validContainerNames[@]}
+  do
+    if [[ $name == $1 ]]; then
+      return 0
+    fi
+  done
+
+  echo "Invalid container name (valid name: server or ngrok)"
+  exit 1
+}
+
+
+while getopts ":t: :p: :a: :s: :hrd" opt; do
   case ${opt} in
     h )
       echo "Usage:"
@@ -10,6 +25,7 @@ while getopts ":t: :p: :a: :hrd" opt; do
       echo "    -t        ngrok auth token"
       echo "    -r        Force recreate containers"
       echo "    -d        Start in debug mode"
+      echo "    -s        Name of container for running single container"
       exit 0
       ;;
     t )
@@ -27,6 +43,9 @@ while getopts ":t: :p: :a: :hrd" opt; do
     a )
       adminpass=$OPTARG
       ;;
+    s )
+      container=$OPTARG
+      ;;
     \? )
       echo -e "${red}Invalid option: $OPTARG${end}" 1>&2
       exit 1
@@ -39,12 +58,12 @@ esac
 done
 shift $((OPTIND -1))
 
-if [[ -z $serverpass ]]; then
+if [[ -z $serverpass && ( $container == "server" || -z $container ) ]]; then
   echo "Did not supply server password"
   exit 1
 fi
 
-if [[ -z $adminpass ]]; then
+if [[ -z $adminpass && $container == "server" || -z $container ]]; then
   echo "Did not supply admin password"
   exit 1
 fi
@@ -60,6 +79,11 @@ cmd="sudo -E docker-compose up"
 
 if [[ $recreate = true ]]; then
   cmd+=" --force-recreate"
+fi
+
+if [[ ! -z $container ]]; then
+  checkContainerName $container
+  cmd+=" $container"
 fi
 
 if [[ ! $debug = true ]]; then

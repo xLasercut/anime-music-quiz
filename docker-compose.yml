@@ -6,14 +6,24 @@ services:
             context: './server/'
         ports:
             - 3001:3001
-            - 4040:4040
         volumes:
             - ./server/database/data/:/home/amq_server/database/data
             - ./server/logs/:/home/amq_server/logs
         environment:
-            - NGROK_TOKEN
             - SERVER_PASSWORD
             - ADMIN_PASSWORD
+        logging:
+            options:
+                max-size: 50m
+
+    ngrok:
+        restart: unless-stopped
+        build:
+            context: './ngrok/'
+        ports:
+            - 4040:4040
+        environment:
+            - NGROK_TOKEN
         logging:
             options:
                 max-size: 50m

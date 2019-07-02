@@ -30,7 +30,7 @@ server/database/data/anime/*.json
 server/database/data/user/*.json
 
 #ngrok executable
-server/ngrok/ngrok
+ngrok/ngrok
 
 server/database/test_data/anime/song-statistics.json
 

@@ -20,6 +20,5 @@ RUN npm ci --production
 COPY . ${WRK_DIR}/.
 
 EXPOSE 3001
-EXPOSE 4040
 
-CMD ["/bin/bash", "start.sh"]
+CMD ["npm", "run", "start"]

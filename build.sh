@@ -1,5 +1,19 @@
 #!/bin/bash
 
+validContainerNames=("server" "ngrok")
+
+function checkContainerName () {
+  for name in ${validContainerNames[@]}
+  do
+    if [[ $name == $1 ]]; then
+      return 0
+    fi
+  done
+
+  echo "Invalid container name (valid name: server or ngrok)"
+  exit 1
+}
+
 while getopts ":s: :hn" opt; do
   case ${opt} in
     h )
@@ -36,5 +50,6 @@ fi
 if [[ -z $container ]]; then
   $command
 else
+  checkContainerName $container
   $command $container
 fi
