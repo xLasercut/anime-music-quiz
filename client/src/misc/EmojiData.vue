@@ -39,8 +39,7 @@
       ]
     methods:
       deleteEmoji: (emoji) ->
-        this.$store.commit('emoji/DELETE_EMOJI', emoji)
-        this.$socket.emit('UPDATE_EMOJI_DATA', this.$store.state.emoji.emojiList)
+        this.$socket.emit('REMOVE_EMOJI', emoji)
 </script>
 
 

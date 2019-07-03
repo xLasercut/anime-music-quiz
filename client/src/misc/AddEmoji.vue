@@ -97,8 +97,7 @@
             src: this.form.src,
             type: this.emojiType
           }
-          this.$store.commit('emoji/ADD_EMOJI', emoji)
-          this.$socket.emit('UPDATE_EMOJI_DATA', this.$store.state.emoji.emojiList)
+          this.$socket.emit('ADD_EMOJI', emoji)
           this.resetForm()
           this.show = false
       isDuplicate: (value) ->

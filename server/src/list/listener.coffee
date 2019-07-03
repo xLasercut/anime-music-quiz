@@ -15,11 +15,38 @@ class ListListener
 
     socket.on 'SYNC_USER_LIST', (file) =>
       @logObject.writeLog('LIST003', { id: socket.id, filename: file })
-      socket.emit('SYNC_USER_LIST', userLists.singleList(file), file)
+      @syncUserList(file, socket, true)
 
-    socket.on 'UPDATE_USER_LIST', (list, file) =>
-      userLists.write(file, list)
-      @logObject.writeLog('LIST004', { id: socket.id, filename: file })
-      @io.emit('SYNC_USER_LIST', userLists.singleList(file), file)
+    socket.on 'ADD_ANIME', (anime, file) =>
+      @logObject.writeLost('LIST004', {
+        id: socket.id,
+        name: anime.name,
+        title: anime.title,
+        songId: anime.id,
+        filename: file
+      })
+      userLists.add(anime, file)
+      @syncUserList(file, socket)
+
+    socket.on 'REMOVE_ANIME', (anime, file) =>
+      @logObject.writeLost('LIST005', {
+        id: socket.id,
+        name: anime.name,
+        title: anime.title,
+        songId: anime.id,
+        filename: file
+      })
+      userLists.remove(anime, file)
+      @syncUserList(file, socket)
+
+  syncUserList: (file, socket, single=false) ->
+    data = {
+      list: userLists.singleList(file),
+      file: file
+    }
+    if single
+      socket.emit('SYNC_USER_LIST', data)
+    else
+      @io.emit('SYNC_USER_LIST', data)
 
 module.exports = ListListener

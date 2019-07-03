@@ -64,6 +64,5 @@
       syncUserList: () ->
         this.$socket.emit('SYNC_USER_LIST', this.$store.state.list.filename)
       removeAnime: (anime) ->
-        this.$store.commit('list/REMOVE_ANIME', anime)
-        this.$socket.emit('UPDATE_USER_LIST', this.$store.state.list.userList, this.$store.state.list.filename)
+        this.$socket.emit('REMOVE_ANIME', anime, this.$store.state.list.filename)
 </script>

@@ -11,24 +11,57 @@ class UserList extends AbstractDatabase
   constructor: (filename) ->
     super(path.join(userDir, filename))
 
+  _isValid: (song) ->
+    mandatoryFields = ['id', 'name', 'title', 'type', 'src']
+    for field in mandatoryFields
+      if !song[field]
+        return false
+    return true
+
+  _isDuplicate: (song) ->
+    for item in @db
+      if song.id == item.id
+        return true
+    return false
+
+  add: (song) ->
+    if @_isValid(song) and !@_isDuplicate(song)
+      @db.push(song)
+      @write()
+
+  remove: (song) ->
+    if @_isValid(song)
+      for item, i in @db
+        if item.id == song.id
+          @db.splice(i, 1)
+      @write()
+
 class UserLists
   constructor: () ->
     @lists = {}
     @files = []
-    @init()
+    @_init()
 
-  init: () ->
-    @initFiles()
-    @initLists()
+  _init: () ->
+    @_initFiles()
+    @_initLists()
 
-  initFiles: () ->
+  _initFiles: () ->
     for file in fs.readdirSync(userDir)
       if file.match(jsonFile)
         @files.push(file)
 
-  initLists: () ->
+  _initLists: () ->
     for file in @files
       @lists[file] = new UserList(file)
+
+  add: (song, filename) ->
+    if @_isValidFilename(filename)
+      @lists[filename].add(song)
+
+  remove: (song, filename) ->
+    if @_isValidFilename(filename)
+      @lists[filename].remove(song)
 
   write: (filename, data) ->
     @lists[filename].update(data)
@@ -51,7 +84,15 @@ class UserLists
     return combinedList
 
   reload: () ->
+    @lists = {}
+    @files = []
+    @_init()
     for _key, userList of @lists
       userList.reload()
+
+  _isValidFilename: (filename) ->
+    if filename not in @files
+      return false
+    return true
 
 module.exports = { UserLists }

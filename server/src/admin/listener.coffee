@@ -11,19 +11,17 @@ class AdminListener
 
   listen: (socket) ->
     socket.on 'ADMIN_RELOAD_DATABASE', () =>
-      if @isAdmin(socket)
-        @updateUserLists()
-        @updateChoices()
-        fullList.reload()
-        @io.emit('SYNC_FULL_LIST', fullList.read())
+      if @_isAdmin(socket)
+        @_reloadUserLists(socket)
+        @_reloadChoices()
+        @_reloadFullList()
+        @_reloadEmojiList()
         chatBotList.reload()
-        emojiList.reload()
-        @io.emit('SYNC_EMOJI_DATA', emojiList.read())
         @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
         @notification.all('success', 'Game database reloaded')
 
     socket.on 'ADMIN_KICK_PLAYER', (id) =>
-      if @isAdmin(socket)
+      if @_isAdmin(socket)
         client = @io.nsps['/'].connected[id]
         if client
           client.emit('SYSTEM_NOTIFICATION', 'error', 'You have been kicked')
@@ -38,11 +36,11 @@ class AdminListener
           })
 
     socket.on 'ADMIN_SYSTEM_MESSAGE', (type, message) =>
-      if @isAdmin(socket)
+      if @_isAdmin(socket)
         @notification.all(type, message)
 
     socket.on 'ADMIN_CHANGE_PLAYER_NAME', (id, username) =>
-      if @isAdmin(socket)
+      if @_isAdmin(socket)
         @game.players.changeName(id, username)
         @logObject.writeLog('ADMIN004', {
           id: socket.id,
@@ -53,32 +51,36 @@ class AdminListener
         @notification.client(id, 'warning', "Your username has been changed to: #{username}")
 
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
-      if @isAdmin(socket)
+      if @_isAdmin(socket)
         callback(@game.players.serialize())
 
     socket.on 'ADMIN_DOWNLOAD_SONG_STATS', (_data, callback) =>
-      if @isAdmin(socket)
+      if @_isAdmin(socket)
         callback(songStats.read())
 
-  isAdmin: (socket) ->
+  _isAdmin: (socket) ->
     if socket.admin
       return true
     socket.disconnect()
     @logObject.writeLog('ADMIN003', { id: socket.id })
     return false
 
-  updateChoices: () ->
+  _reloadChoices: () ->
     animeChoices.reload()
     songChoices.reload()
-    choices = {
-      anime: animeChoices.read(),
-      song: songChoices.read()
-    }
-    @io.emit('SYNC_CHOICES', choices)
+    @io.emit('SYNC_CHOICES', @game.gameState.choices())
 
-  updateUserLists: () ->
+  _reloadUserLists: (socket) ->
     userLists.reload()
     for file of userLists.lists
-      @io.emit('SYNC_USER_LIST', userLists.singleList(file), file)
+      @list.syncUserList(file, socket)
+
+  _reloadEmojiList: () ->
+    emojiList.reload()
+    @io.emit('SYNC_EMOJI_DATA', emojiList.read())
+
+  _reloadFullList: () ->
+    fullList.reload()
+    @io.emit('SYNC_FULL_LIST', fullList.read())
 
 module.exports = AdminListener

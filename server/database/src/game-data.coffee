@@ -12,17 +12,29 @@ class EmojiList extends AbstractDatabase
   constructor: () ->
     super(path.join(baseDir, 'emoji.json'))
 
-  add: (emoji) ->
-    for item in @db
-      if emoji.command.toLowerCase() == item.command.toLowerCase()
+  _isValid: (emoji) ->
+    mandatoryFields = ['command', 'src', 'type']
+    for field in mandatoryFields
+      if !emoji[field]
         return false
-    @db.push(emoji)
     return true
 
+  _isDuplicate: (emoji) ->
+    for item in @db
+      if emoji.command.toLowerCase() == item.command.toLowerCase()
+        return true
+    return false
+
+  add: (emoji) ->
+    if @_isValid(emoji) and !@_isDuplicate(emoji)
+      @db.push(emoji)
+      @write()
+
   remove: (emoji) ->
-    for i in [0..@db.length - 1]
-      if @db[i].command == emoji.command
-        @db.splice(i, 1)
-        break
+    if @_isValid(emoji)
+      for item, i in @db
+        if item.command.toLowerCase() == emoji.command.toLowerCase()
+          @db.splice(i, 1)
+      @write()
 
 module.exports = { ChatBotList, EmojiList }

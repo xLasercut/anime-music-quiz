@@ -130,7 +130,7 @@
     }
   },
   {
-    "regex": "^it's a whole new world we live in$",
+    "regex": "^its a whole new world we live in$",
     "flag": "i",
     "response": {
       "user": "Pikachu",
