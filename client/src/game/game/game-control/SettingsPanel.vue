@@ -29,7 +29,7 @@
           <settings-radio v-model="settings.mode" :disabled="disabled"></settings-radio>
           <settings-checkbox
             :disabled="disabled" v-model="settings.lists"
-            :items="$store.state.userListFiles"
+            :items="$store.state.list.userListFiles"
           ></settings-checkbox>
           <v-layout>
             <v-flex xs12 class="text-xs-center">

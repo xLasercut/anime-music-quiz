@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '../store/store.js'
+import store from '../store/store.coffee'
 import VueSocketio from 'vue-socket.io-extended'
 import io from 'socket.io-client'
 
