@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import game from './game/index.coffee'
 import list from './list/index.coffee'
 import admin from './admin/index.coffee'
-import misc from './misc/misc-store.js'
+import emoji from './emoji/index.coffee'
 
 Vue.use(Vuex)
 
@@ -27,5 +27,5 @@ export default new Vuex.Store(
     game: game,
     list: list,
     admin: admin,
-    misc: misc
+    emoji: emoji
 )

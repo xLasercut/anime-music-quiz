@@ -13,6 +13,5 @@
     components: { NavBtn }
     methods:
       reload: () ->
-        this.$store.commit('misc/UPDATE_LOADING', true)
         this.$socket.emit('SYNC_EMOJI_DATA')
 </script>

@@ -4,10 +4,6 @@ export default
     state.host = state.players[data.id].host
   UPDATE_CURRENT_SONG: (state, song) ->
     state.currentSong = song
-  SOCKET_SYNC_PLAYING: (state, playing) ->
-    state.playing = playing
-  SOCKET_SYNC_CHOICES: (state, choices) ->
-    state.choices = choices
   DISCONNECT: (state) ->
     state.currentSong = {
       name: '',
@@ -22,3 +18,7 @@ export default
     state.volume = volume
   UPDATE_SETTINGS: (state, settings) ->
     state.settings = settings
+  SOCKET_SYNC_PLAYING: (state, playing) ->
+    state.playing = playing
+  SOCKET_SYNC_CHOICES: (state, choices) ->
+    state.choices = choices

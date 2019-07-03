@@ -1,11 +1,7 @@
 <template>
   <v-container fluid grid-list-lg>
     <emoji-filter v-model="filter"></emoji-filter>
-    <emoji-data
-      :data="displayData()"
-      v-if="!$store.state.misc.loading"
-    ></emoji-data>
-    <loading v-if="$store.state.misc.loading"></loading>
+    <emoji-data :data="displayData()"></emoji-data>
     <pagination v-model="pagination" :length="maxPage"></pagination>
   </v-container>
 </template>
@@ -13,11 +9,10 @@
 <script lang="coffee">
   import EmojiData from '../misc/EmojiData.vue'
   import EmojiFilter from '../misc/EmojiFilter.vue'
-  import Loading from '../components/Loading.vue'
   import Pagination from '../components/Pagination.vue'
 
   export default
-    components: { EmojiData, EmojiFilter, Loading, Pagination }
+    components: { EmojiData, EmojiFilter, Pagination }
     data: () ->
       filter: {
         command: ''
@@ -28,8 +23,6 @@
       },
       maxPage: 1
     sockets:
-      SYNC_EMOJI_DATA: (list) ->
-        this.$store.commit('misc/UPDATE_EMOJI_LIST', list)
       disconnect: () ->
         this.$router.push('/')
     methods:
@@ -43,7 +36,7 @@
         commandfilter = ''
         if this.filter.command
           commandfilter = this.filter.command.trim().toLowerCase()
-        return this.$store.state.misc.emojiList.filter( (emoji) =>
+        return this.$store.state.emoji.emojiList.filter( (emoji) =>
           command = emoji.command.toLowerCase()
           if command.includes(commandfilter)
             return emoji

@@ -1,7 +1,7 @@
 <template>
   <div class="selector-container">
     <v-select
-      :items="$store.state.userListFiles"
+      :items="$store.state.list.userListFiles"
       label="List"
       @change="updateFileName($event)"
       class="mt-2" height="30px" id="user-list-select"

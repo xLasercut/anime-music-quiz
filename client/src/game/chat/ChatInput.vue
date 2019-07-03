@@ -39,7 +39,7 @@
       message: (val) ->
         match = this.match(val)
         if match
-          this.choices = this.$store.state.misc.emojiList.filter( (emoji) =>
+          this.choices = this.$store.state.emoji.emojiList.filter( (emoji) =>
             if emoji and ":#{emoji.command.toLowerCase()}:".includes(match.toLowerCase())
               return emoji
           )

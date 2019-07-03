@@ -97,12 +97,12 @@
             src: this.form.src,
             type: this.emojiType
           }
-          this.$store.commit('misc/ADD_EMOJI', emoji)
-          this.$socket.emit('UPDATE_EMOJI_DATA', this.$store.state.misc.emojiList)
+          this.$store.commit('emoji/ADD_EMOJI', emoji)
+          this.$socket.emit('UPDATE_EMOJI_DATA', this.$store.state.emoji.emojiList)
           this.resetForm()
           this.show = false
       isDuplicate: (value) ->
-        for item in this.$store.state.misc.emojiList
+        for item in this.$store.state.emoji.emojiList
           if value and item.command.toLowerCase() == value.toLowerCase()
             return true
         return false
