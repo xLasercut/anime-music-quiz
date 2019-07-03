@@ -82,7 +82,8 @@ axios.all(queries)
               songs.push(song)
 
   rawList = new RawList()
-  rawList.write(songs)
+  rawList.update(songs)
+  rawList.write()
 
   processTime = timer.end()
   console.log("Generation complete. Time Taken: #{processTime} seconds")

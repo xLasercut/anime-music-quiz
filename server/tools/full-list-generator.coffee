@@ -36,6 +36,7 @@ for song in extraList
   else
     console.log(song)
 
-fullList.write(songs)
+fullList.update(songs)
+fullList.write()
 processTime = timer.end()
 console.log("Generation complete. Time Taken: #{processTime} seconds")

@@ -14,7 +14,8 @@ class MiscListener
 
     socket.on 'UPDATE_EMOJI_DATA', (data) =>
       @logObject.writeLog('EMOJI001', { id: socket.id })
-      emojiList.write(data)
+      emojiList.update(data)
+      emojiList.write()
       @io.emit('SYNC_EMOJI_DATA', emojiList.read())
 
 module.exports = MiscListener
