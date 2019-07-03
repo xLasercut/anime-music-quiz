@@ -7,8 +7,8 @@
 </template>
 
 <script lang="coffee">
-  import NavPanel from './components/shared/NavPanel.vue'
-  import GameNotification from './components/shared/GameNotification.vue'
+  import NavPanel from './components/nav-panel/NavPanel.vue'
+  import GameNotification from './components/GameNotification.vue'
   import Notification from './assets/mixins/notification.coffee'
 
   export default

@@ -11,10 +11,10 @@
 </template>
 
 <script lang="coffee">
-  import EmojiData from '../components/misc/EmojiData.vue'
-  import EmojiFilter from '../components/misc/EmojiFilter.vue'
-  import Loading from '../components/shared/Loading.vue'
-  import Pagination from '../components/shared/Pagination.vue'
+  import EmojiData from '../misc/EmojiData.vue'
+  import EmojiFilter from '../misc/EmojiFilter.vue'
+  import Loading from '../components/Loading.vue'
+  import Pagination from '../components/Pagination.vue'
 
   export default
     components: { EmojiData, EmojiFilter, Loading, Pagination }

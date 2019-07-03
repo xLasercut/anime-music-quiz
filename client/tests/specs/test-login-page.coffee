@@ -36,6 +36,6 @@ describe 'login page tests', () ->
 
   it 'test server auth admin', () ->
     cy.loginList(false)
-    cy.isNotElement(map.shared.admin)
+    cy.get(map.shared.admin).should('not.be.visible')
     cy.loginList()
-    cy.isElement(map.shared.admin)
+    cy.get(map.shared.admin).should('be.visible')

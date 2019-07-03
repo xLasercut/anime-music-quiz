@@ -7,9 +7,9 @@
 </template>
 
 <script lang="coffee">
-  import GameForm from '../components/login/GameForm.vue'
-  import ListForm from '../components/login/ListForm.vue'
-  import MiscForm from '../components/login/MiscForm.vue'
+  import GameForm from '../login/GameForm.vue'
+  import ListForm from '../login/ListForm.vue'
+  import MiscForm from '../login/MiscForm.vue'
 
   export default
     components: { GameForm, ListForm, MiscForm }
@@ -21,7 +21,7 @@
     mounted: () ->
       if this.$socket.connected
         this.$socket.close()
-        this.$store.commit('list/DISCONNECT')
-        this.$store.commit('game/DISCONNECT')
-        this.$store.commit('admin/DISCONNECT')
+      this.$store.commit('list/DISCONNECT')
+      this.$store.commit('game/DISCONNECT')
+      this.$store.commit('admin/DISCONNECT')
 </script>

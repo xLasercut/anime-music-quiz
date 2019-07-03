@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import './plugins/vuetify'
+import './plugins/vuetify.coffee'
 import App from './App.vue'
-import router from './router'
+import router from './router.coffee'
 import store from './store/store.js'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
-import './socket/socket.js'
+import './plugins/socket.coffee'
 import VueYoutubeEmbed from 'vue-youtube-embed'
 
 Vue.use(VueYoutubeEmbed)

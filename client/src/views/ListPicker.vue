@@ -13,10 +13,10 @@
 </template>
 
 <script lang="coffee">
-  import ListData from '../components/list-picker/ListData.vue'
-  import Pagination from '../components/shared/Pagination.vue'
-  import Loading from '../components/shared/Loading.vue'
-  import TableFilter from '../assets/mixins/table-filter.coffee'
+  import ListData from '../list-picker/ListData.vue'
+  import Pagination from '../components/Pagination.vue'
+  import Loading from '../components/Loading.vue'
+  import TableFilter from '../list-picker/mixins/table-filter.coffee'
   import Notification from '../assets/mixins/notification.coffee'
 
   export default
