@@ -34,6 +34,7 @@ class UserList extends AbstractDatabase
       for item, i in @db
         if item.id == song.id
           @db.splice(i, 1)
+          break
       @write()
 
 class UserLists

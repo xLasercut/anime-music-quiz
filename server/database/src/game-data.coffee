@@ -35,6 +35,7 @@ class EmojiList extends AbstractDatabase
       for item, i in @db
         if item.command.toLowerCase() == emoji.command.toLowerCase()
           @db.splice(i, 1)
+          break
       @write()
 
 module.exports = { ChatBotList, EmojiList }
