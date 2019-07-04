@@ -18,7 +18,7 @@ class ListListener
       @syncUserList(file, socket, true)
 
     socket.on 'ADD_ANIME', (anime, file) =>
-      @logObject.writeLost('LIST004', {
+      @logObject.writeLog('LIST004', {
         id: socket.id,
         name: anime.name,
         title: anime.title,
@@ -29,7 +29,7 @@ class ListListener
       @syncUserList(file, socket)
 
     socket.on 'REMOVE_ANIME', (anime, file) =>
-      @logObject.writeLost('LIST005', {
+      @logObject.writeLog('LIST005', {
         id: socket.id,
         name: anime.name,
         title: anime.title,
