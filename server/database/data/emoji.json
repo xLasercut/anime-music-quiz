@@ -148,5 +148,10 @@
     "command": "birbnight",
     "src": "https://cdn.discordapp.com/emojis/477804499151486977.png",
     "type": "img"
+  },
+  {
+    "command": "worrypeekhammer",
+    "src": "https://cdn.discordapp.com/emojis/567799409035837440.png",
+    "type": "img"
   }
 ]
