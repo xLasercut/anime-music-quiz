@@ -7,30 +7,45 @@ class MiscListener
 
   listen: (socket) ->
     socket.on 'LOGIN_MISC', () =>
-      socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      try
+        socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'SYNC_EMOJI_DATA', () =>
-      socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      try
+        socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADD_EMOJI', (emoji) =>
-      @logObject.writeLog('EMOJI001', {
-        command: emoji.command,
-        src: emoji.src,
-        type: emoji.type
-      })
-      emojiList.add(emoji)
-      @_syncEmojiData()
+      try
+        @logObject.writeLog('EMOJI001', {
+          command: emoji.command,
+          src: emoji.src,
+          type: emoji.type
+        })
+        emojiList.add(emoji)
+        @_syncEmojiData()
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'REMOVE_EMOJI', (emoji) =>
-      @logObject.writeLog('EMOJI002', {
-        command: emoji.command,
-        src: emoji.src,
-        type: emoji.type
-      })
-      emojiList.remove(emoji)
-      @_syncEmojiData()
+      try
+        @logObject.writeLog('EMOJI002', {
+          command: emoji.command,
+          src: emoji.src,
+          type: emoji.type
+        })
+        emojiList.remove(emoji)
+        @_syncEmojiData()
+      catch e
+        @_logUnhandledError(e)
 
   _syncEmojiData: () ->
     @io.emit('SYNC_EMOJI_DATA', emojiList.read())
+
+  _logUnhandledError: (e) ->
+    @logObject.writeLog('SERVER004', { msg: e.message })
 
 module.exports = MiscListener

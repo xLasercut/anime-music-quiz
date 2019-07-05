@@ -25,31 +25,43 @@ class GameListener
     @settings.listen(socket)
 
     socket.on 'disconnect', () =>
-      if @players.isPlayer(socket.id)
-        @players.removePlayer(socket.id)
-        if @players.isEmpty()
-          @resetGame()
-          @logObject.writeLog('GAME001')
+      try
+        if @players.isPlayer(socket.id)
+          @players.removePlayer(socket.id)
+          if @players.isEmpty()
+            @resetGame()
+            @logObject.writeLog('GAME001')
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'LOGIN_GAME', (player) =>
-      @players.addPlayer(player, socket.id, socket.admin)
-      socket.emit('SYNC_USER_LIST_FILES', userLists.files)
-      socket.emit('SYNC_PLAYING', @gameState.playing)
-      socket.emit('SYNC_CHOICES', @gameState.choices())
-      socket.emit('SYNC_SETTINGS', @settings.serialize())
-      socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      try
+        @players.addPlayer(player, socket.id, socket.admin)
+        socket.emit('SYNC_USER_LIST_FILES', userLists.files)
+        socket.emit('SYNC_PLAYING', @gameState.playing)
+        socket.emit('SYNC_CHOICES', @gameState.choices())
+        socket.emit('SYNC_SETTINGS', @settings.serialize())
+        socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'START_GAME', () =>
-      @players.resetScore()
-      @gameState.generateGameList(@settings.songCount, @settings.lists)
-      if @gameState.gameList.length > 0
-        @gameState.startGame(@settings.mode)
-        @newRound()
-      else
-        @chat.systemMsg('Empty song list')
+      try
+        @players.resetScore()
+        @gameState.generateGameList(@settings.songCount, @settings.lists)
+        if @gameState.gameList.length > 0
+          @gameState.startGame(@settings.mode)
+          @newRound()
+        else
+          @chat.systemMsg('Empty song list')
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'STOP_GAME', () =>
-      @resetGame()
+      try
+        @resetGame()
+      catch e
+        @_logUnhandledError(e)
 
   resetGame: () ->
     @timer.resetCountdown()
@@ -100,5 +112,8 @@ class GameListener
       @gameFlowMain()
     .catch (err) =>
       @logObject.writeLog('SERVER004', { msg: err })
+
+  _logUnhandledError: (e) ->
+    @logObject.writeLog('SERVER004', { msg: e.message })
 
 module.exports = GameListener

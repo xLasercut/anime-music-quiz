@@ -11,52 +11,70 @@ class AdminListener
 
   listen: (socket) ->
     socket.on 'ADMIN_RELOAD_DATABASE', () =>
-      if @_isAdmin(socket)
-        @_reloadUserLists(socket)
-        @_reloadChoices()
-        @_reloadFullList()
-        @_reloadEmojiList()
-        chatBotList.reload()
-        @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
-        @notification.all('success', 'Game database reloaded')
+      try
+        if @_isAdmin(socket)
+          @_reloadUserLists(socket)
+          @_reloadChoices()
+          @_reloadFullList()
+          @_reloadEmojiList()
+          chatBotList.reload()
+          @logObject.writeLog('ADMIN001', { id: socket.id, admin: socket.admin })
+          @notification.all('success', 'Game database reloaded')
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADMIN_KICK_PLAYER', (id) =>
-      if @_isAdmin(socket)
-        client = @io.nsps['/'].connected[id]
-        if client
-          client.emit('SYSTEM_NOTIFICATION', 'error', 'You have been kicked')
-          username = @game.players.players[id].username
-          @game.chat.systemMsg("#{username} has been kicked")
-          client.disconnect()
-          @logObject.writeLog('ADMIN002', {
-            id: socket.id,
-            admin: socket.admin,
-            idKicked: id,
-            username: username
-          })
+      try
+        if @_isAdmin(socket)
+          client = @io.nsps['/'].connected[id]
+          if client
+            client.emit('SYSTEM_NOTIFICATION', 'error', 'You have been kicked')
+            username = @game.players.players[id].username
+            @game.chat.systemMsg("#{username} has been kicked")
+            client.disconnect()
+            @logObject.writeLog('ADMIN002', {
+              id: socket.id,
+              admin: socket.admin,
+              idKicked: id,
+              username: username
+            })
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADMIN_SYSTEM_MESSAGE', (type, message) =>
-      if @_isAdmin(socket)
-        @notification.all(type, message)
+      try
+        if @_isAdmin(socket)
+          @notification.all(type, message)
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADMIN_CHANGE_PLAYER_NAME', (id, username) =>
-      if @_isAdmin(socket)
-        @game.players.changeName(id, username)
-        @logObject.writeLog('ADMIN004', {
-          id: socket.id,
-          admin: socket.admin,
-          idChanged: id,
-          newName: username
-        })
-        @notification.client(id, 'warning', "Your username has been changed to: #{username}")
+      try
+        if @_isAdmin(socket)
+          @game.players.changeName(id, username)
+          @logObject.writeLog('ADMIN004', {
+            id: socket.id,
+            admin: socket.admin,
+            idChanged: id,
+            newName: username
+          })
+          @notification.client(id, 'warning', "Your username has been changed to: #{username}")
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADMIN_SYNC_PLAYER_LIST', (_data, callback) =>
-      if @_isAdmin(socket)
-        callback(@game.players.serialize())
+      try
+        if @_isAdmin(socket)
+          callback(@game.players.serialize())
+      catch e
+        @_logUnhandledError(e)
 
     socket.on 'ADMIN_DOWNLOAD_SONG_STATS', (_data, callback) =>
-      if @_isAdmin(socket)
-        callback(songStats.read())
+      try
+        if @_isAdmin(socket)
+          callback(songStats.read())
+      catch e
+        @_logUnhandledError(e)
 
   _isAdmin: (socket) ->
     if socket.admin
@@ -82,5 +100,8 @@ class AdminListener
   _reloadFullList: () ->
     fullList.reload()
     @io.emit('SYNC_FULL_LIST', fullList.read())
+
+  _logUnhandledError: (e) ->
+    @logObject.writeLog('SERVER004', { msg: e.message })
 
 module.exports = AdminListener
