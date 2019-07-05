@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "lts/*"
+before_install:
+  - cd server & npm ci & cd ../client & npm ci & cd ../
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+  stages:
+    - tests
+
+jobs:
+  include:
+    - stage: tests
+      name: Integration
+      script:
+        - echo "test"
