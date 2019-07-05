@@ -19,5 +19,7 @@ jobs:
   include:
     - stage: tests
       name: Integration
+      before_script:
+        - pushd server & npm run start:test &
       script:
-        - echo "test"
+        - pushd client & npm run test -- --headless
