@@ -1,6 +1,6 @@
 {
   "name": "anime-music-quiz-server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Server for anime music quiz game",
   "repository": "https://github.com/xLasercut/anime-music-quiz",
   "main": "index.coffee",

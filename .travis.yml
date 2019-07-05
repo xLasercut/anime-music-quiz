@@ -20,6 +20,6 @@ jobs:
     - stage: tests
       name: Integration
       before_script:
-        - pushd server & npm run start:test &
+        - npm run start:server:test &
       script:
-        - pushd client & npm run test -- --headless
+        - npm run test:headless

@@ -1,0 +1,14 @@
+{
+  "name": "anime-music-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:server": "cd server && npm run start",
+    "start:client": "cd client && npm run serve",
+    "start:server:test": "cd server && npm run start:test",
+    "test": "cd client && npm run test",
+    "test:headless": "cd client && npm run test -- --headless"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
