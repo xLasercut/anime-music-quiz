@@ -9,13 +9,19 @@ describe 'game flow tests', () ->
     cy.confirmSettings()
     cy.assertChatText('Game settings updated', 'exist')
     cy.startGame()
+    cy.assertPlayerScore('0')
     cy.wait(5000)
     cy.inputAnimeGuess('Sword Art Online Alternative: Gun Gale Online')
     cy.inputSongGuess('REA(S)ON')
-    cy.wait(30000)
+    cy.openSettings()
+    cy.assertSettingsDisabled()
+    cy.cancelSettings()
+    cy.wait(26000)
     cy.assertSongInformation({
       anime: 'Sword Art Online Alternative: Gun Gale Online',
       title: 'REA(S)ON',
       artist: 'ReoNa',
       type: 'Insert'
     })
+    cy.assertPlayerGuess('Sword Art Online Alternative: Gun Gale Online - REA(S)ON')
+    cy.assertPlayerScore('2')

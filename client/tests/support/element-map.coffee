@@ -19,7 +19,9 @@ module.exports = {
     songType: '#song-type',
     songAnime: '#song-anime',
     animeGuess: '#anime-guess',
-    songGuess: '#song-guess'
+    songGuess: '#song-guess',
+    playerScore: '.player-score',
+    playerGuess: '.v-tooltip__content'
   },
   list: {
     userSelect: '#user-list-select',

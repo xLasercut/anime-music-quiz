@@ -38,15 +38,27 @@ Cypress.Commands.add 'assertSongInformation', (info) =>
   cy.get(map.game.songArtist).contains(info.artist).should('exist')
   cy.get(map.game.songType).contains(info.type).should('exist')
 
+Cypress.Commands.add 'assertPlayerScore', (score) =>
+  cy.get(map.game.playerScore).contains(score).should('exist')
+
+Cypress.Commands.add 'assertPlayerGuess', (guess) =>
+  cy.get(map.game.playerGuess).contains(guess).should('be.visible')
+
 Cypress.Commands.add 'startGame', () =>
   cy.get(map.game.play).click()
   cy.isElement(map.game.stop)
   cy.isNotElement(map.game.play)
 
 Cypress.Commands.add 'inputAnimeGuess', (text) =>
-  cy.get(map.game.animeGuess).clear().type("#{text}{enter}")
+  cy.get(map.game.animeGuess).clear().type(text)
+  cy.get('.v-list__tile').contains(text).click()
   cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'inputSongGuess', (text) =>
-  cy.get(map.game.songGuess).clear().type("#{text}{enter}")
+  cy.get(map.game.songGuess).clear().type(text)
+  cy.get('.v-list__tile').contains(text).click()
   cy.get('.v-text-field__details').contains(text).should('exist')
+
+Cypress.Commands.add 'assertSettingsDisabled', () =>
+  cy.get(map.game.settingsSongCount).should('be.disabled')
+  cy.get(map.game.settingsGuessTime).should('be.disabled')
