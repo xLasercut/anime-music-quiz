@@ -1278,5 +1278,13 @@ module.exports = [
     title: 'Makura no Danshi',
     artist: '',
     type: 'OP'
+  },
+  {
+    id: '5TyZ9pF9daQ',
+    name: 'Island',
+    src: 'https://www.youtube.com/watch?v=5TyZ9pF9daQ',
+    title: 'Lasting Memories',
+    artist: '',
+    type: 'Insert'
   }
 ]
