@@ -48,7 +48,7 @@ class GameListener
     socket.on 'START_GAME', () =>
       try
         @players.resetScore()
-        @gameState.generateGameList(@settings.songCount, @settings.lists)
+        @gameState.generateGameList(@settings)
         if @gameState.gameList.length > 0
           @gameState.startGame(@settings.mode)
           @newRound()

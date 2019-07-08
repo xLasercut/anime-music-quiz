@@ -13,6 +13,8 @@ module.exports = {
     settingsGuessTime: '#guess-time-input',
     settingsGameModeNormal: '#game-mode-normal',
     settingsGameModeGamble: '#game-mode-gamble',
+    settingsDuplicateTrue: '#duplicate-true',
+    settingsDuplicateFalse: '#duplicate-false',
     gameSongCount: '#game-song-count',
     songTitle: '#song-title',
     songArtist: '#song-artist',

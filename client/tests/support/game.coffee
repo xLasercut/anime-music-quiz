@@ -3,13 +3,36 @@ map = require './element-map.coffee'
 Cypress.Commands.add 'openSettings', () =>
   cy.get(map.game.settings).click()
 
-Cypress.Commands.add 'assertSettingsValues', (songCount, guessTime) =>
+Cypress.Commands.add 'assertSettingsValues', (songCount, guessTime, duplicate, mode, lists) =>
   cy.get(map.game.settingsSongCount).should('have.value', songCount)
   cy.get(map.game.settingsGuessTime).should('have.value', guessTime)
 
-Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime) =>
+  if duplicate == 'true'
+    cy.get(map.game.settingsDuplicateTrue).should('have.attr', 'aria-checked', 'true')
+    cy.get(map.game.settingsDuplicateFalse).should('have.attr', 'aria-checked', 'false')
+  else
+    cy.get(map.game.settingsDuplicateTrue).should('have.attr', 'aria-checked', 'false')
+    cy.get(map.game.settingsDuplicateFalse).should('have.attr', 'aria-checked', 'true')
+
+  if mode == 'normal'
+    cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'true')
+    cy.get(map.game.settingsGameModeGamble).should('have.attr', 'aria-checked', 'false')
+  else
+    cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'false')
+    cy.get(map.game.settingsGameModeGamble).should('have.attr', 'aria-checked', 'true')
+
+  cy.wrap(lists)
+  .each (item) =>
+    cy.get("#setting-user-list-#{item.replace('.json', '')}").should('have.attr', 'aria-checked', 'true')
+
+Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime, duplicate, mode, lists) =>
   cy.get(map.game.settingsSongCount).clear().type("{del}#{songCount}")
   cy.get(map.game.settingsGuessTime).clear().type("{del}#{guessTime}")
+  cy.get('[type="radio"]').check([duplicate, mode], { force: true })
+  cy.get('[type="checkbox"]').uncheck({ force: true })
+  cy.wrap(lists)
+  .each (item) =>
+    cy.get("#setting-user-list-#{item.replace('.json', '')}").check({ force: true })
 
 Cypress.Commands.add 'changeGameMode', (mode) =>
   if mode == 'gamble'
@@ -43,6 +66,9 @@ Cypress.Commands.add 'assertPlayerScore', (score) =>
 
 Cypress.Commands.add 'assertPlayerGuess', (guess) =>
   cy.get(map.game.playerGuess).contains(guess).should('be.visible')
+
+Cypress.Commands.add 'assertSongCount', (count) =>
+  cy.get(map.game.gameSongCount).should('contain', count)
 
 Cypress.Commands.add 'startGame', () =>
   cy.get(map.game.play).click()

@@ -1,5 +1,5 @@
 if process.env.NODE_ENV == 'test'
-  lists = [ 'test-user.json' ]
+  lists = [ 'test-user.json', 'test-user2.json' ]
 else
   lists = []
 
@@ -12,6 +12,7 @@ class Settings
     @guessTime = 25
     @lists = lists
     @mode = 'normal'
+    @duplicate = false
 
   listen: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>
@@ -23,12 +24,14 @@ class Settings
       @guessTime = settings.guessTime
       @lists = settings.lists
       @mode = settings.mode
+      @duplicate = settings.duplicate
 
       @logObject.writeLog('SETTING002', {
         songCount: @songCount,
         guessTime: @guessTime,
         mode: @mode,
-        lists: @lists.join('|')
+        lists: @lists.join('|'),
+        duplicate: @duplicate
       })
       @io.emit('SYNC_SETTINGS', @serialize())
       @chat.systemMsg('Game settings updated')
@@ -38,7 +41,8 @@ class Settings
       songCount: @songCount,
       guessTime: @guessTime,
       lists: @lists,
-      mode: @mode
+      mode: @mode,
+      duplicate: @duplicate
     }
 
 module.exports = Settings

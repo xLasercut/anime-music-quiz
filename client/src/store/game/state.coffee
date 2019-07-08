@@ -7,6 +7,7 @@ export default
     guessTime: 25
     lists: []
     mode: 'normal'
+    duplicate: false
   players: {}
   currentSong:
     name: ''

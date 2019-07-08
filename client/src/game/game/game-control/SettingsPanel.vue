@@ -26,7 +26,16 @@
             min="1" max="50" :disabled="disabled"
             id="guess-time-input"
           ></settings-slider>
-          <settings-radio v-model="settings.mode" :disabled="disabled"></settings-radio>
+          <settings-radio
+            v-model="settings.duplicate" :disabled="disabled"
+            label="Duplicate" :options="songDuplicate"
+            id="duplicate"
+          ></settings-radio>
+          <settings-radio
+            v-model="settings.mode" :disabled="disabled"
+            label="Game Mode" :options="gameModes"
+            id="game-mode"
+          ></settings-radio>
           <settings-checkbox
             :disabled="disabled" v-model="settings.lists"
             :items="$store.state.list.userListFiles"
@@ -62,6 +71,14 @@
     components: { IconBtn, SettingsSlider, SettingsCheckbox, NavBtn, SettingsRadio }
     data: () ->
       show: false
+      gameModes: [
+        { label: 'Normal', value: 'normal' },
+        { label: 'Gamble', value: 'gamble' }
+      ]
+      songDuplicate: [
+        { label: 'Yes', value: true },
+        { label: 'No', value: false }
+      ]
     sockets:
       SYNC_SETTINGS: (settings) ->
         this.$store.commit('game/UPDATE_SETTINGS', settings)

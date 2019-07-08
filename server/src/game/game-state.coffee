@@ -11,7 +11,10 @@ class GameState
     @currentSong = {}
     @startPosition = 0
 
-  generateGameList: (songCount, lists) ->
+  generateGameList: (settings) ->
+    lists = settings.lists
+    songCount = settings.songCount
+    duplicate = settings.duplicate
     combinedList = userLists.combinedList(lists)
     @gameList = []
     dupe = []
@@ -19,7 +22,7 @@ class GameState
     while @gameList.length < songCount and combinedList.length > 0
       i = Math.floor(Math.random() * combinedList.length)
       name = combinedList[i].name
-      if !dupe.includes(name)
+      if !dupe.includes(name) or duplicate
         @gameList.push(combinedList[i])
         dupe.push(name)
       combinedList.splice(i, 1)

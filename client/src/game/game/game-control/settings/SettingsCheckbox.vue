@@ -5,7 +5,7 @@
         :label="item" :value="item"
         v-model="model"
         :disabled="disabled"
-        :id="`setting-user-list-${item}`"
+        :id="checkboxId(item)"
       ></v-checkbox>
     </v-flex>
   </v-layout>
@@ -17,4 +17,7 @@
   export default
     props: [ 'items', 'disabled' ]
     mixins: [ VModel ]
+    methods:
+      checkboxId: (item) ->
+        return "setting-user-list-#{item.replace('.json', '')}"
 </script>
