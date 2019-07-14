@@ -1241,7 +1241,7 @@ module.exports = [
   },
   {
     id: 'LSVQ1L0GuoQ',
-    name: 'Initial D Fifth Stage',
+    name: 'Initial D First Stage',
     src: 'https://www.youtube.com/watch?v=LSVQ1L0GuoQ',
     title: 'Black Out',
     artist: '',
