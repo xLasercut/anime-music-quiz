@@ -153,5 +153,25 @@
     "command": "worrypeekhammer",
     "src": "https://cdn.discordapp.com/emojis/567799409035837440.png",
     "type": "img"
+  },
+  {
+    "command": "worrysmile",
+    "src": "https://cdn.discordapp.com/emojis/454356289040941079.png",
+    "type": "img"
+  },
+  {
+    "command": "worrysad",
+    "src": "https://cdn.discordapp.com/emojis/391253501067526144.png",
+    "type": "img"
+  },
+  {
+    "command": "worrypoggerswoke",
+    "src": "https://cdn.discordapp.com/emojis/586902243899342870.png",
+    "type": "img"
+  },
+  {
+    "command": "birbsadhug",
+    "src": "https://cdn.discordapp.com/emojis/452163544599887913.png",
+    "type": "img"
   }
 ]
