@@ -1286,5 +1286,37 @@ module.exports = [
     title: 'Lasting Memories',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'Q-klPc3JWDE',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=Q-klPc3JWDE',
+    title: 'Full Metal Cars',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'ZbuXJvvjBi4',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=ZbuXJvvjBi4',
+    title: 'Speedy Runner',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'N_YGYq0vSco',
+    name: 'Initial D First Stage',
+    src: 'https://www.youtube.com/watch?v=N_YGYq0vSco',
+    title: 'Dancing',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'y6g5oOPN9To',
+    name: 'Initial D Fifth Stage',
+    src: 'https://www.youtube.com/watch?v=y6g5oOPN9To',
+    title: 'Wheel Power & Go',
+    artist: '',
+    type: 'Insert'
   }
 ]
