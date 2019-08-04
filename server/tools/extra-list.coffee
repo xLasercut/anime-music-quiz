@@ -1264,9 +1264,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'nSOx1iEUnhY',
+    id: 'm118QJn-v60',
     name: 'Dinosaur King',
-    src: 'https://www.youtube.com/watch?v=nSOx1iEUnhY',
+    src: 'https://www.youtube.com/watch?v=m118QJn-v60',
     title: 'Kyouryuu Muscle',
     artist: '',
     type: 'ED'
