@@ -7,12 +7,12 @@
       ></nav-btn>
     </template>
     <v-card>
-      <v-container grid-list-lg>
-        <v-layout>
-          <v-flex xs12 class="text-xs-center">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="auto">
             Settings
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <v-form>
           <settings-slider
             label="Song Number"
@@ -40,20 +40,22 @@
             :disabled="disabled" v-model="settings.lists"
             :items="$store.state.list.userListFiles"
           ></settings-checkbox>
-          <v-layout>
-            <v-flex xs12 class="text-xs-center">
+          <v-row justify="center">
+            <v-col cols="auto">
               <icon-btn
                 color="error" icon="mdi-close" @click="show = false"
                 id="settings-cancel-btn"
               >Cancel</icon-btn>
+            </v-col>
+            <v-col cols="auto">
               <icon-btn
                 color="success" icon="mdi-check" @click="updateSettings()"
                 :disabled="disabled" id="settings-confirm-btn"
               >
                 Confirm
               </icon-btn>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-form>
       </v-container>
     </v-card>

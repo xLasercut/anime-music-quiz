@@ -1,10 +1,10 @@
 <template>
-  <v-flex xs12 sm6 md5>
+  <v-col cols="12" sm="6" md="5">
     <v-combobox
-      box clearable
+      filled clearable full-width
       :items="items"
       :label="label"
-      v-model.trim="model"
+      :search-input.sync="model"
       :hint="hint()"
       :disabled="disabled"
       :append-outer-icon="icon"
@@ -13,7 +13,7 @@
       :id="id"
     >
     </v-combobox>
-  </v-flex>
+  </v-col>
 </template>
 
 <script lang="coffee">

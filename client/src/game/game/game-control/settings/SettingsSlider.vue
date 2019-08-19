@@ -1,20 +1,20 @@
 <template>
-  <v-layout justify-center>
-    <v-flex xs10>
+  <v-row justify="center">
+    <v-col cols="10">
       <v-slider :label="label"
         v-model.number="model"
         :min="min" :max="max"
         :disabled="disabled"
       ></v-slider>
-    </v-flex>
-    <v-flex shrink xs2>
+    </v-col>
+    <v-col cols="2">
       <v-text-field
-        class="mt-0" v-model.number="model"
+        class="mt-0 pt-0" v-model.number="model"
         type="number" :min="min" :max="max"
         :disabled="disabled" :id="id"
       ></v-text-field>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

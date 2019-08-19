@@ -1,22 +1,22 @@
 <template>
-  <v-flex shrink>
+  <v-col cols="auto">
     <v-tooltip v-model="show" :color="player.color" min-width="160" max-width="160" top>
       <template #activator="{ on }">
         <div class="player-card">
           <player-avatar :player="player" />
-          <v-layout column align-center>
-            <v-sheet class="player-name" :color="$store.getters.color">
+          <v-row justify="center">
+            <v-sheet class="player-name" :color="theme">
               {{player.username}}
             </v-sheet>
-            <v-sheet class="player-score" :color="$store.getters.color">
+            <v-sheet class="player-score" :color="theme">
               {{player.score}}
             </v-sheet>
-          </v-layout>
+          </v-row>
         </div>
       </template>
       {{guess('anime')}} - {{guess('song')}}
     </v-tooltip>
-  </v-flex>
+  </v-col>
 </template>
 
 <script lang="coffee">
@@ -42,6 +42,11 @@
         if !this.player.guess[type]
           return '...'
         return this.player.guess[type]
+    computed:
+      theme: () ->
+        if this.$vuetify.theme.dark
+          return 'rgb(33, 33, 33)'
+        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>

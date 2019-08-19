@@ -1,7 +1,7 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex xs5>
-      <v-select box
+  <v-row justify="center">
+    <v-col cols="5">
+      <v-select filled
         :items="items()"
         item-text="username"
         item-value="id"
@@ -9,14 +9,14 @@
         v-model="id"
       >
       </v-select>
-    </v-flex>
-    <v-flex xs4>
-      <v-text-field v-model="newName"></v-text-field>
-    </v-flex>
-    <v-flex xs3 class="text-xs-center">
+    </v-col>
+    <v-col cols="4">
+      <v-text-field label="New Name" v-model="newName"></v-text-field>
+    </v-col>
+    <v-col cols="3">
       <v-btn block depressed color="warning" @click="changeName()">Change Name</v-btn>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

@@ -1,5 +1,5 @@
 <template>
-  <v-layout justify-center wrap>
+  <v-row justify="center">
     <guess-text
       :items="$store.state.game.choices.anime" label="Anime"
       v-model="guess.anime" :disabled="disabled()"
@@ -10,7 +10,7 @@
       v-model="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"
       id="song-guess"
     />
-  </v-layout>
+  </v-row>
 </template>
 
 <script lang="coffee">

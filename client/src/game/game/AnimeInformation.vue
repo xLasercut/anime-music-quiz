@@ -1,9 +1,9 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 sm3></v-flex>
+  <v-row>
+    <v-col xs="12" sm="3"></v-col>
     <video-window :volume="$store.state.game.volume"></video-window>
     <song-information></song-information>
-  </v-layout>
+  </v-row>
 </template>
 
 <script lang="coffee">

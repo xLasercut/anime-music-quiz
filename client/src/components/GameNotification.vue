@@ -2,7 +2,7 @@
   <v-snackbar :timeout="6000" :color="color" top v-model="show" id="game-notification">
     {{text}}
     <v-btn
-      flat
+      text
       @click="show = false"
     >
       <v-icon>mdi-close</v-icon>

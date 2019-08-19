@@ -9,15 +9,15 @@
       </icon-btn>
     </template>
     <v-card>
-      <v-container grid-list-lg>
-        <v-layout>
-          <v-flex xs12 class="text-xs-center">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="auto">
             Add Emoji
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <v-form ref="emojiForm">
-          <v-layout justify-center wrap>
-            <v-flex xs10>
+          <v-row justify="center">
+            <v-col cols="10">
               <v-text-field
                 label="Command"
                 v-model.trim="form.command"
@@ -25,38 +25,42 @@
                 :rules="rulesCommand"
                 counter="20"
               ></v-text-field>
-            </v-flex>
-            <v-flex xs10>
+            </v-col>
+            <v-col cols="10">
               <v-text-field
                 label="Source"
                 v-model.trim="form.src"
                 clearable id="add-emoji-source"
                 :rules="rulesSrc"
               ></v-text-field>
-            </v-flex>
-            <v-flex xs12 class="text-xs-center" id="add-emoji-type">
+            </v-col>
+            <v-col cols="12" id="add-emoji-type" class="emoji-preview">
               Type: {{ emojiType }}
-            </v-flex>
-            <v-flex xs12 class="text-xs-center">
+            </v-col>
+            <v-col cols="12" class="emoji-preview">
               <span>Preview: </span>
               <img :src="form.src" width="25px" v-if="emojiType == 'img'" />
               <span v-if="emojiType == 'dec'" class="normal-emoji">{{ form.src }}</span>
-            </v-flex>
-          </v-layout>
-          <v-layout>
-            <v-flex xs12 class="text-xs-center">
+            </v-col>
+          </v-row>
+          <v-row justify="center">
+            <v-col cols="auto">
               <icon-btn
                 color="error" icon="mdi-close" @click="show = false"
                 id="add-emoji-cancel"
-              >Cancel</icon-btn>
+              >
+                Cancel
+              </icon-btn>
+            </v-col>
+            <v-col cols="auto">
               <icon-btn
                 color="success" icon="mdi-check" @click="addEmoji()"
                 id="add-emoji-confirm"
               >
                 Confirm
               </icon-btn>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-form>
       </v-container>
     </v-card>
@@ -118,5 +122,9 @@
 <style scoped>
   .normal-emoji {
     font-size: 16pt;
+  }
+
+  .emoji-preview {
+    text-align: center;
   }
 </style>

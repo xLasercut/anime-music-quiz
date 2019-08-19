@@ -1,16 +1,16 @@
 <template>
-  <v-flex xs12 sm6>
-    <v-layout justify-center>
-      <v-flex xs12 class="video-container">
+  <v-col cols="12" sm="6">
+    <v-row justify="center">
+      <v-col cols="12" class="video-container">
         <youtube-video ref="youtube" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.youtube">
         </youtube-video>
         <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal">
         </normal-video>
         <countdown></countdown>
         <loading v-if="loading"></loading>
-      </v-flex>
-    </v-layout>
-  </v-flex>
+      </v-col>
+    </v-row>
+  </v-col>
 </template>
 
 <script lang="coffee">

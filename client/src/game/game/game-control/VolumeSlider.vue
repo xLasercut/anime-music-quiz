@@ -1,7 +1,9 @@
 <template>
-  <div class="slider-container">
-    <v-slider prepend-icon="mdi-volume-medium" v-model.number="volume" id="game-volume-slider"></v-slider>
-  </div>
+  <v-toolbar-items>
+    <div class="slider-container">
+      <v-slider prepend-icon="mdi-volume-medium" v-model.number="volume" id="game-volume-slider"></v-slider>
+    </div>
+  </v-toolbar-items>
 </template>
 
 <script lang="coffee">

@@ -1,7 +1,7 @@
 <template>
-  <v-flex xs12 sm3 class="info-container">
-    <v-card elevation="0" :color="$store.getters.color">
-      <v-card-title>
+  <v-col cols="12" sm="3" class="info-container">
+    <v-card elevation="0" :color="theme">
+      <v-card-text>
         <div class="song-container">
           <div>
             <b>Title</b>
@@ -26,9 +26,9 @@
             {{songInfo('type')}}
           </div>
         </div>
-      </v-card-title>
+      </v-card-text>
     </v-card>
-  </v-flex>
+  </v-col>
 </template>
 
 <script lang="coffee">
@@ -47,6 +47,11 @@
             return this.$store.state.game.currentSong[key]
           return '...'
         return '?'
+    computed:
+      theme: () ->
+        if this.$vuetify.theme.dark
+          return 'rgb(33, 33, 33)'
+        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>

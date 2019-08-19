@@ -1,9 +1,9 @@
 <template>
-  <v-container class="main-container" fluid grid-list-md>
-    <v-layout wrap>
+  <v-container class="main-container" fluid>
+    <v-row wrap>
       <game></game>
       <chat></chat>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 

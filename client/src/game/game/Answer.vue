@@ -1,22 +1,22 @@
 <template>
-  <v-layout>
-    <v-flex xs12>
-      <v-layout justify-center>
-        <v-flex xs5 sm3 md2 class="text-xs-center">
-          <v-sheet class="song-num-container" :color="$store.getters.color" id="game-song-count">
+  <v-row no-gutters>
+    <v-col cols="12">
+      <v-row justify="center" align="start" no-gutters>
+        <v-col cols="5" sm="3" md="2">
+          <v-sheet class="song-num-container" :color="theme" id="game-song-count">
             {{currentSong}} / {{maxSong}}
           </v-sheet>
-        </v-flex>
-      </v-layout>
-      <v-layout justify-center>
-        <v-flex xs12 sm8 md6 lg5 class="text-xs-center">
-          <v-sheet class="answer-container" :color="$store.getters.color">
+        </v-col>
+      </v-row>
+      <v-row justify="center" align="start" no-gutters>
+        <v-col cols="12" sm="8" md="6" lg="5">
+          <v-sheet class="answer-container" :color="theme">
             <b id="song-anime">{{answer()}}</b>
           </v-sheet>
-        </v-flex>
-      </v-layout>
-    </v-flex>
-  </v-layout>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">
@@ -39,6 +39,11 @@
           return this.$store.state.game.currentSong.name
 
         return '?'
+    computed:
+      theme: () ->
+        if this.$vuetify.theme.dark
+          return 'rgb(33, 33, 33)'
+        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>
@@ -46,6 +51,7 @@
     border-radius: 30px 30px 0 0;
     padding: 2px;
     background: #E4E7ED;
+    text-align: center;
   }
 
   .answer-container {
@@ -53,5 +59,6 @@
     font-size: 16pt;
     padding: 5px;
     border-radius: 5px;
+    text-align: center;
   }
 </style>

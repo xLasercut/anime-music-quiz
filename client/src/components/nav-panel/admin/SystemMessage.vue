@@ -1,16 +1,16 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex>
-      <v-text-field box outline
+  <v-row justify="center">
+    <v-col>
+      <v-text-field filled
         v-model="message"
         label="System Message"
         @keydown.enter.native="sendMsg()"
       ></v-text-field>
-    </v-flex>
-    <v-flex shrink :style="{ width: '120px' }">
+    </v-col>
+    <v-col cols="auto" :style="{ width: '120px' }">
       <v-select :items="types" v-model="type"></v-select>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

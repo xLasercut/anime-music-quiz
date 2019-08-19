@@ -1,19 +1,21 @@
 <template>
   <v-dialog width="800" v-model="show">
     <template v-slot:activator="{ on }">
-      <nav-btn
-        color="warning" @click="syncAdminInfo()"
-        v-show="$store.state.admin.admin" :activator="on"
-        icon="mdi-shield-account" id="admin-btn"
-      ></nav-btn>
+      <v-toolbar-items>
+        <nav-btn
+          color="warning" @click="syncAdminInfo()"
+          v-show="$store.state.admin.admin" :activator="on"
+          icon="mdi-shield-account" id="admin-btn"
+        ></nav-btn>
+      </v-toolbar-items>
     </template>
     <v-card>
-      <v-container grid-list-lg>
-        <v-layout>
-          <v-flex xs12 class="text-xs-center">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="auto">
             Admin
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <kick-player :player-list="playerList"></kick-player>
         <name-changer :player-list="playerList"></name-changer>
         <database-operations />

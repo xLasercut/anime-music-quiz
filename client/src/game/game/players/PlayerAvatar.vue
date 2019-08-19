@@ -1,14 +1,14 @@
 <template>
-  <v-layout justify-center>
-    <v-flex shrink>
+  <v-row justify="center">
+    <v-col cols="auto">
       <v-badge :color="badgeColor(player)" overlap left>
         <v-icon v-if="player.admin || player.host" color="white" slot="badge">mdi-crown</v-icon>
         <v-avatar tile size="100px">
           <v-img :src="imageSrc(player.avatar)" aspect-ratio="1"/>
         </v-avatar>
       </v-badge>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">
