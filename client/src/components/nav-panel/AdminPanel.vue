@@ -20,6 +20,7 @@
         <name-changer :player-list="playerList"></name-changer>
         <database-operations />
         <system-message></system-message>
+        <song-selector></song-selector>
         <song-answer></song-answer>
       </v-container>
     </v-card>
@@ -33,9 +34,13 @@
   import SongAnswer from './admin/SongAnswer.vue'
   import NavBtn from '../buttons/NavBtn.vue'
   import NameChanger from './admin/NameChanger.vue'
+  import SongSelector from './admin/SongSelector.vue'
 
   export default
-    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseOperations, NavBtn, NameChanger }
+    components: {
+      KickPlayer, SystemMessage, SongAnswer, DatabaseOperations, NavBtn, NameChanger,
+      SongSelector
+    }
     data: () ->
       show: false,
       playerList: {}
@@ -44,4 +49,5 @@
         this.$socket.emit('ADMIN_SYNC_PLAYER_LIST', null, (playerList) =>
           @playerList = playerList
         )
+        this.$socket.emit('SYNC_FULL_LIST')
 </script>
