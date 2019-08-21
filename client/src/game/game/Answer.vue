@@ -52,6 +52,7 @@
     padding: 2px;
     background: #E4E7ED;
     text-align: center;
+    z-index: 3;
   }
 
   .answer-container {
@@ -60,5 +61,6 @@
     padding: 5px;
     border-radius: 5px;
     text-align: center;
+    z-index: 3;
   }
 </style>

@@ -21,7 +21,7 @@
 
 <style scoped>
   .game-container {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 60px);
     overflow: auto;
   }
 </style>

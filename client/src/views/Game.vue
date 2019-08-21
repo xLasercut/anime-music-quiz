@@ -1,6 +1,6 @@
 <template>
   <v-container class="main-container" fluid>
-    <v-row wrap>
+    <v-row justify="center">
       <game></game>
       <chat></chat>
     </v-row>
@@ -40,6 +40,7 @@
 
 <style scoped>
   .main-container {
-    padding: 10px;
+    padding: 0;
+    margin: 0;
   }
 </style>

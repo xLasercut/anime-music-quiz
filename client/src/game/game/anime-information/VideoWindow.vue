@@ -6,8 +6,10 @@
         </youtube-video>
         <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal">
         </normal-video>
-        <countdown></countdown>
-        <loading v-if="loading"></loading>
+        <video-overlay v-show="overlay">
+          <countdown></countdown>
+          <loading v-if="loading"></loading>
+        </video-overlay>
       </v-col>
     </v-row>
   </v-col>
@@ -18,9 +20,10 @@
   import NormalVideo from './video-window/NormalVideo.vue'
   import Countdown from './video-window/Countdown.vue'
   import Loading from '../../../components/Loading.vue'
+  import VideoOverlay from './video-window/VideoOverlay.vue'
 
   export default
-    components: { YoutubeVideo, NormalVideo, Countdown, Loading }
+    components: { YoutubeVideo, NormalVideo, Countdown, Loading, VideoOverlay }
     props:
       volume: {
         type: Number
@@ -31,19 +34,22 @@
         normal: false
       },
       start: 0,
-      loading: false
+      loading: false,
+      overlay: false
     sockets:
       NEW_SONG: (song, position) ->
         this.loading = true
         this.resetVideo()
         this.$store.commit('game/UPDATE_CURRENT_SONG', song)
         this.start = position
+        this.overlay = true
+        this.show[this.playerType()] = true
         this.$refs[this.playerType()].load()
       START_COUNTDOWN: () ->
         this.loading = false
         this.$refs[this.playerType()].play()
       TIME_UP: () ->
-        this.show[this.playerType()] = true
+        this.overlay = false
       RESET: () ->
         this.$refs[this.playerType()].pause()
       PLACE_BET: () ->
