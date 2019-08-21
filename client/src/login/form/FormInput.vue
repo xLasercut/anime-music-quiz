@@ -6,6 +6,7 @@
         v-model.trim="model"
         @click:append="$emit('click:append')"
         @keydown.enter.native="$emit('enter')"
+        :id="id"
         v-bind="$attrs"
       ></v-text-field>
     </v-col>
@@ -16,5 +17,6 @@
   import VModel from '../../assets/mixins/v-model.coffee'
 
   export default
+    props: [ 'id' ]
     mixins: [ VModel ]
 </script>

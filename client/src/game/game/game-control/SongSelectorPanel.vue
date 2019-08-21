@@ -4,6 +4,7 @@
       <nav-btn
         color="primary" :activator="on"
         icon="mdi-playlist-music"
+        id="game-song-select-btn"
       ></nav-btn>
     </template>
     <v-card>

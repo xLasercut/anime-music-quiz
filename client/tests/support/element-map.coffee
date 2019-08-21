@@ -23,7 +23,8 @@ module.exports = {
     animeGuess: '#anime-guess',
     songGuess: '#song-guess',
     playerScore: '.player-score',
-    playerGuess: '.v-tooltip__content'
+    playerGuess: '.v-tooltip__content',
+    songSelect: '#game-song-select-btn'
   },
   list: {
     userSelect: '#user-list-select',

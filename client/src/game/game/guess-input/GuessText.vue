@@ -7,6 +7,7 @@
       @click:append-outer="$emit('click:append-outer')"
       persistent-hint
       auto-select-first
+      :id="id"
       v-bind="$attrs"
     >
     </v-combobox>
@@ -17,6 +18,7 @@
   import VModel from '../../../assets/mixins/v-model.coffee'
 
   export default
+    props: [ 'id' ]
     mixins: [ VModel ]
     methods:
       hint: () ->

@@ -1,7 +1,7 @@
 map = require '../support/element-map.coffee'
 
 loginBtns = [ map.login.game, map.login.list ]
-gameBtns = [ map.game.settings, map.game.play, map.game.volume ]
+gameBtns = [ map.game.settings, map.game.play, map.game.volume, map.game.songSelect ]
 listBtns = [ map.list.reload, map.list.userSelect ]
 
 assertNavBarBtnsExist = (btns) ->
