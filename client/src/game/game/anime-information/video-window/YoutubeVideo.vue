@@ -1,8 +1,8 @@
 <template>
   <youtube
     @ready="ready($event)" :video-id="videoId()"
-    player-width="100%" player-height="100%" :player-vars="playerVars"
-    :style="{ height: '100%' }"
+    player-width="95%" player-height="95%" :player-vars="playerVars"
+    :style="{ height: '95%' }"
   />
 </template>
 

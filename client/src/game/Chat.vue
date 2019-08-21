@@ -50,7 +50,7 @@
   }
 
   .message-container {
-    height: calc(100% - 140px);
+    height: calc(100% - 165px);
     width: 100%;
     overflow: auto;
     word-wrap: break-word;

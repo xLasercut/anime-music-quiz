@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" no-gutters>
+  <v-row justify="center">
     <v-col cols="auto" class="input-container">
       <v-menu v-model="show" top offset-y max-height="304px">
         <template #activator="{ on }">
@@ -51,8 +51,8 @@
           this.show = false
       choices: (val) ->
         length = val.length
-        if length < 6
-          range = 5 - length
+        if length < 5
+          range = 4 - length
           for i in [0..range]
             val.push({})
     methods:
