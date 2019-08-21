@@ -4,7 +4,7 @@ export default
     song: []
   settings:
     songCount: 20
-    guessTime: 25
+    guessTime: 30
     lists: []
     mode: 'normal'
     duplicate: false

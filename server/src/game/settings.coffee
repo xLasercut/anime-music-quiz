@@ -9,7 +9,7 @@ class Settings
     @logObject = logObject
     @chat = chat
     @songCount = 20
-    @guessTime = 25
+    @guessTime = 30
     @lists = lists
     @mode = 'normal'
     @duplicate = false
