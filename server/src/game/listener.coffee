@@ -23,6 +23,7 @@ class GameListener
   listen: (socket) ->
     @players.listen(socket)
     @settings.listen(socket)
+    @gameState.listen(socket)
 
     socket.on 'disconnect', () =>
       try

@@ -34,9 +34,10 @@
   import NavBtn from '../../../components/buttons/NavBtn.vue'
   import TableFilter from '../../../list-picker/mixins/table-filter.coffee'
   import SongSelectorData from './song-selector/SongSelectorData.vue'
+  import Notification from '../../../assets/mixins/notification.coffee'
 
   export default
-    mixins: [ TableFilter ]
+    mixins: [ TableFilter, Notification ]
     components: { IconBtn, Pagination, NavBtn, SongSelectorData }
     data: () ->
       pagination: {
@@ -56,5 +57,7 @@
       syncFullList: () ->
         this.$socket.emit('SYNC_FULL_LIST')
       selectSong: (song) ->
-        console.log(song)
+        this.$socket.emit('SONG_OVERRIDE', song, (data) =>
+          this.notifySuccess("Song selected: #{data.name} - #{data.title}")
+        )
 </script>

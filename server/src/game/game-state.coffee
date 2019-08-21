@@ -9,7 +9,13 @@ class GameState
     @maxSongCount = 0
     @currentSongCount = 0
     @currentSong = {}
+    @songOverride = null
     @startPosition = 0
+
+  listen: (socket) ->
+    socket.on 'SONG_OVERRIDE', (song, callback) =>
+      @songOverride = song
+      callback(song)
 
   generateGameList: (settings) ->
     lists = settings.lists
@@ -53,6 +59,9 @@ class GameState
     @currentSong = @gameList[i]
     @gameList.splice(i, 1)
     @currentSongCount += 1
+    if @songOverride
+      @currentSong = @songOverride
+      @songOverride = null
 
   syncSongCount: () ->
     count = {
@@ -68,6 +77,7 @@ class GameState
 
   reset: () ->
     @currentSong = {}
+    @songOverride = null
     @currentSongCount = 0
     @playing = false
     @io.emit('SYNC_PLAYING', @playing)
