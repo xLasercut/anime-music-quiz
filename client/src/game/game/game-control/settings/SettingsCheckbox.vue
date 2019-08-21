@@ -1,14 +1,14 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex shrink v-for="(item, index) in items" :key="`checkbox_${index}`">
+  <v-row justify="center">
+    <v-col cols="auto" v-for="(item, index) in items" :key="`checkbox_${index}`">
       <v-checkbox
         :label="item" :value="item"
         v-model="model"
         :disabled="disabled"
         :id="checkboxId(item)"
       ></v-checkbox>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

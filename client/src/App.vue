@@ -1,8 +1,10 @@
 <template>
-  <v-app :dark="$store.state.dark">
+  <v-app>
     <game-notification></game-notification>
     <nav-panel></nav-panel>
-    <router-view></router-view>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 

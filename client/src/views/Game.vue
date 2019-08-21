@@ -1,9 +1,9 @@
 <template>
-  <v-container class="main-container" fluid grid-list-md>
-    <v-layout wrap>
+  <v-container class="main-container" fluid>
+    <v-row justify="center">
       <game></game>
       <chat></chat>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
@@ -40,6 +40,7 @@
 
 <style scoped>
   .main-container {
-    padding: 10px;
+    padding: 0;
+    margin: 0;
   }
 </style>

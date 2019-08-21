@@ -1,34 +1,35 @@
 <template>
-  <v-layout class="table-container">
-    <v-flex xs12>
-      <v-data-table :items="data" :headers="headers" hide-actions>
-        <template #items="props">
-          <td><item-id :id="props.item.id" /></td>
-          <td>{{ props.item.name }}</td>
-          <td>{{ props.item.title }}</td>
-          <td>{{ props.item.type }}</td>
-          <td><a :href="props.item.src" target="_blank">View</a></td>
-          <td>
-            <item-action-btn
-              color="success" @click="addAnime(props.item)"
-              :disabled="!$store.state.list.filename || inUserList(props.item)"
-              :id="`add-${props.item.id}-${id}`"
+  <v-row class="table-container">
+    <v-col cols="12">
+      <v-data-table :items="data" :headers="headers" hide-default-footer>
+        <template #item.id="{ item }" >
+          <item-id :id="item.id" />
+        </template>
+
+        <template #item.src="{ item }">
+          <a :href="item.src" target="_blank">View</a>
+        </template>
+
+        <template #item.action="{ item }">
+          <item-action-btn
+              color="success" @click="addAnime(item)"
+              :disabled="!$store.state.list.filename || inUserList(item)"
+              :id="`add-${item.id}-${id}`"
             >
               mdi-plus
             </item-action-btn>
             <item-action-btn
               color="error"
-              @click="removeAnime(props.item)"
-              :disabled="!$store.state.list.filename || !inUserList(props.item)"
-              :id="`remove-${props.item.id}-${id}`"
+              @click="removeAnime(item)"
+              :disabled="!$store.state.list.filename || !inUserList(item)"
+              :id="`remove-${item.id}-${id}`"
             >
               mdi-minus
             </item-action-btn>
-          </td>
         </template>
       </v-data-table>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

@@ -1,12 +1,12 @@
 <template>
-   <v-layout justify-center>
-      <v-flex shrink>
-        <icon-btn color="warning" icon="mdi-sync" @click="reloadDb()">Reload Database</icon-btn>
-      </v-flex>
-      <v-flex shrink>
-        <icon-btn color="success" icon="mdi-download" @click="downloadSongStats()">Download Song Stats</icon-btn>
-      </v-flex>
-    </v-layout>
+  <v-row justify="center">
+    <v-col cols="auto">
+      <icon-btn color="warning" icon="mdi-sync" @click="reloadDb()">Reload Database</icon-btn>
+    </v-col>
+    <v-col cols="auto">
+      <icon-btn color="success" icon="mdi-download" @click="downloadSongStats()">Download Song Stats</icon-btn>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

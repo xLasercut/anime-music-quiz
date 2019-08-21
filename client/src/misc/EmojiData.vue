@@ -1,29 +1,29 @@
 <template>
-  <v-layout class="table-container">
-    <v-flex xs12>
-      <v-data-table :items="data" :headers="headers" hide-actions>
-        <template #items="props">
-          <td>{{ `:${props.item.command}:` }}</td>
-          <td>
-            <v-img :src="props.item.src" width="20pt" v-if="props.item.type === 'img'" />
-            <span v-if="props.item.type === 'dec'" class="normal-emoji">{{ props.item.src }}</span>
-          </td>
-          <td>{{ props.item.type }}</td>
-          <td>{{ props.item.src }}</td>
-          <td>
-            <v-btn
-              :disabled="!$store.state.admin.admin"
-              depressed color="error" small
-              @click="deleteEmoji(props.item)"
-              :id="`${props.item.command}-delete`"
-            >
-              delete
-            </v-btn>
-          </td>
+  <v-row class="table-container">
+    <v-col cols="12">
+      <v-data-table :items="data" :headers="headers" hide-default-footer>
+        <template #item.command="{ item }">
+          {{ `:${item.command}:` }}
+        </template>
+
+        <template #item.emoji="{ item }">
+          <v-img :src="item.src" width="20pt" v-if="item.type === 'img'" />
+          <span v-if="item.type === 'dec'" class="normal-emoji">{{ item.src }}</span>
+        </template>
+
+        <template #item.action="{ item }">
+          <v-btn
+            :disabled="!$store.state.admin.admin"
+            depressed color="error" small
+            @click="deleteEmoji(item)"
+            :id="`${item.command}-delete`"
+          >
+            delete
+          </v-btn>
         </template>
       </v-data-table>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

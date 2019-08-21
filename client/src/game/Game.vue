@@ -1,11 +1,11 @@
 <template>
-  <v-flex xs7 sm8 class="game-container">
+  <v-col cols="7" sm="8" class="game-container">
     <answer></answer>
     <anime-information></anime-information>
     <guess-input></guess-input>
     <players></players>
     <bet-window></bet-window>
-  </v-flex>
+  </v-col>
 </template>
 
 <script lang="coffee">
@@ -21,7 +21,7 @@
 
 <style scoped>
   .game-container {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 60px);
     overflow: auto;
   }
 </style>

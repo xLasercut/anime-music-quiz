@@ -1,10 +1,10 @@
 <template>
-  <v-flex xs5 sm4 class="chat-container" :style="{ background: $store.getters.color }">
+  <v-col cols="5" sm="4" class="chat-container" :style="theme">
     <div class="message-container">
       <message v-for="(message, index) in messages" :key="`chat_${index}`" :message="message" />
     </div>
     <chat-input />
-  </v-flex>
+  </v-col>
 </template>
 
 <script lang="coffee">
@@ -37,16 +37,20 @@
         if admin
           return { color: '#E65100' }
         return {}
+    computed:
+      theme: () ->
+        if this.$vuetify.theme.dark
+          return { background: 'rgb(33, 33, 33)' }
+        return { background: 'rgb(224, 224, 224)' }
 </script>
 
 <style scoped>
   .chat-container {
-    height: calc(100vh - 80px);
-    border-radius: 4px;
+    height: calc(100vh - 60px);
   }
 
   .message-container {
-    height: calc(100% - 120px);
+    height: calc(100% - 165px);
     width: 100%;
     overflow: auto;
     word-wrap: break-word;

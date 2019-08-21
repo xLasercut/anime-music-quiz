@@ -3,12 +3,10 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
-Vue.use(Vuetify, {
-  theme: {
+Vue.use(Vuetify)
 
+export default new Vuetify({
+  icons: {
+    iconfont: 'mdi',
   },
-  options: {
-    customProperties: true
-  },
-  iconfont: 'mdi'
 })

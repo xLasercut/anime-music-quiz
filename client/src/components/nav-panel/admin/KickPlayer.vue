@@ -1,7 +1,7 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex>
-      <v-select box
+  <v-row justify="center">
+    <v-col>
+      <v-select filled
         :items="items()"
         item-text="username"
         item-value="id"
@@ -9,11 +9,11 @@
         v-model="id"
       >
       </v-select>
-    </v-flex>
-    <v-flex shrink>
+    </v-col>
+    <v-col cols="auto">
       <v-btn depressed color="error" @click="kickPlayer()">Kick</v-btn>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

@@ -15,7 +15,7 @@
 
 <style scoped>
   .slider-container {
-    max-width: 120px;
+    width: 100px;
     padding-top: 15px;
     padding-left: 10px;
   }

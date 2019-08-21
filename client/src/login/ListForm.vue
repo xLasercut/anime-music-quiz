@@ -1,14 +1,14 @@
 <template>
   <v-form ref="listForm">
-    <v-container fluid grid-list-lg>
-      <v-layout justify-center>
-        <v-flex shrink>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col cols="auto">
           <h2>User List</h2>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
       <form-input-password v-model.trim="form.password" @enter="login()" :disabled="loading" />
-      <v-layout justify-center wrap>
-        <v-flex xs12 class="text-xs-center">
+      <v-row justify="center">
+        <v-col cols="auto">
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
@@ -16,8 +16,8 @@
           >
             Connect
           </icon-btn>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </v-form>
 </template>

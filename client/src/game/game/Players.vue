@@ -1,10 +1,10 @@
 <template>
-  <v-layout justify-center wrap>
+  <v-row justify="center">
     <player-card
       v-for="(player, key) in $store.state.game.players" :key="`${key}`"
       :player="player"
     ></player-card>
-  </v-layout>
+  </v-row>
 </template>
 
 <script lang="coffee">

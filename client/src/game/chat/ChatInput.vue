@@ -1,6 +1,6 @@
 <template>
-  <v-layout justify-center>
-    <v-flex shrink class="input-container">
+  <v-row justify="center">
+    <v-col cols="auto" class="input-container">
       <v-menu v-model="show" top offset-y max-height="304px">
         <template #activator="{ on }">
           <v-textarea
@@ -20,8 +20,8 @@
           @add-emoji="addEmoji($event)"
         ></chat-emoji-list>
       </v-menu>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">
@@ -51,8 +51,8 @@
           this.show = false
       choices: (val) ->
         length = val.length
-        if length < 6
-          range = 5 - length
+        if length < 5
+          range = 4 - length
           for i in [0..range]
             val.push({})
     methods:

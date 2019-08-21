@@ -1,5 +1,5 @@
 <template>
-  <v-btn @click="$emit('click')" :color="color" v-on="activator" icon flat :disabled="disabled" :id="id">
+  <v-btn @click="$emit('click')" :color="color" v-on="activator" text :disabled="disabled" :id="id">
     <v-icon>
       {{icon}}
     </v-icon>

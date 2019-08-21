@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import './plugins/vuetify.coffee'
+import vuetify from './plugins/vuetify.coffee'
 import App from './App.vue'
 import router from './router.coffee'
 import store from './store/store.coffee'
@@ -14,5 +14,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  vuetify,
   render: function (h) { return h(App) }
 }).$mount('#app')

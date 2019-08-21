@@ -1,14 +1,14 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex shrink v-for="avatar in avatars" :key="`avatar_${avatar}`">
+  <v-row justify="center">
+    <v-col cols="auto" v-for="avatar in avatars" :key="`avatar_${avatar}`">
       <input :id="`avatar_${avatar}`" type="radio" :value="avatar" v-model="model" :disabled="disabled">
       <label :for="`avatar_${avatar}`">
         <v-avatar tile size="100px">
           <v-img :src="imageSrc(avatar)" aspect-ratio="1"/>
         </v-avatar>
       </label>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">
@@ -33,6 +33,6 @@
   }
 
   input:checked + label .v-image {
-    outline: 4px solid var(--v-success-base);
+    outline: 4px solid #4caf50;
   }
 </style>

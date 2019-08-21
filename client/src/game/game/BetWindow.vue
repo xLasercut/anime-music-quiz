@@ -1,15 +1,15 @@
 <template>
   <v-dialog width="500" v-model="show" persistent no-click-animation>
     <v-card>
-      <v-container grid-list-lg>
-        <v-layout>
-          <v-flex xs12 class="text-xs-center">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="auto">
             Place your bets
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         <timer-circle :time="time" :maxTime="betTime"></timer-circle>
-        <v-layout justify-center>
-          <v-flex xs10>
+        <v-row justify="center">
+          <v-col cols="10">
             <v-slider
               v-model.number="bet" label="Bet"
               :min="1" :max="10"
@@ -17,8 +17,8 @@
               thumb-size="24"
             >
             </v-slider>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-container>
     </v-card>
   </v-dialog>

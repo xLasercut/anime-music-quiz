@@ -12,7 +12,7 @@
         <v-spacer></v-spacer>
         <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
         <v-spacer></v-spacer>
-        <v-btn icon flat small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
+        <v-btn icon text small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
       </v-card-title>
       <v-container fluid grid-list-lg>
         <list-filter v-model="filter" id="user"></list-filter>

@@ -1,11 +1,11 @@
 <template>
   <v-form ref="loginForm">
-    <v-container fluid grid-list-lg>
-      <v-layout justify-center>
-        <v-flex shrink>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col cols="auto">
           <h2>Game</h2>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
       <form-input
         label="Username"
         v-model.trim="form.username"
@@ -16,19 +16,19 @@
       />
       <form-input-password v-model.trim="form.password" @enter="login()" :disabled="loading"/>
       <form-avatar :avatars="avatars" v-model="form.avatar" :disabled="loading" />
-      <v-layout justify-center>
-        <v-flex xs6 sm3 md2>
+      <v-row justify="center">
+        <v-col xs="6" sm="3" md="2">
           <v-text-field
             label="Score"
             v-model.number="form.score"
             :rules="scoreRules" type="number"
-            box min="0" max="1000"
+            filled min="0" max="1000"
             id="score-input" :disabled="loading"
           />
-        </v-flex>
-      </v-layout>
-      <v-layout>
-        <v-flex xs12 class="text-xs-center">
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="auto">
           <icon-btn
             color="success" icon="mdi-login"
             @click="login()"
@@ -36,8 +36,8 @@
           >
             Login
           </icon-btn>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </v-form>
 </template>
@@ -114,9 +114,3 @@
       if localStorage.username
         this.form.username = localStorage.username
 </script>
-
-<style scoped>
-  .accent--text label img {
-    outline: 5px solid #4caf50;
-  }
-</style>

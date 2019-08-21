@@ -46,7 +46,7 @@ module.exports = {
   shared: {
     home: '#home-btn',
     notification: '#game-notification',
-    selectItem: '.v-list__tile__title',
+    selectItem: '.v-list-item__title',
     admin: '#admin-btn'
   },
   misc: {

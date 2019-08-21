@@ -29,7 +29,9 @@
 
 <style scoped>
   video {
-    max-width: 100%;
-    max-height: 100%;
+    max-height: 95%;
+    max-width: 95%;
+    margin: 0;
+    padding: 0;
   }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <v-layout justify-center class="filter-container">
-    <v-flex xs4>
+  <v-row justify="center" class="filter-container">
+    <v-col cols="4">
       <v-text-field label="Emoji" v-model="model.command" clearable id="filter-emoji"></v-text-field>
-    </v-flex>
-    <v-flex shrink>
+    </v-col>
+    <v-col cols="auto">
       <add-emoji></add-emoji>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">

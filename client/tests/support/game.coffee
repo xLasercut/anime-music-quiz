@@ -77,12 +77,12 @@ Cypress.Commands.add 'startGame', () =>
 
 Cypress.Commands.add 'inputAnimeGuess', (text) =>
   cy.get(map.game.animeGuess).clear().type(text)
-  cy.get('.v-list__tile').contains(text).click()
+  cy.get('.v-list-item__title').contains(text).click()
   cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'inputSongGuess', (text) =>
   cy.get(map.game.songGuess).clear().type(text)
-  cy.get('.v-list__tile').contains(text).click()
+  cy.get('.v-list-item__title').contains(text).click()
   cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'assertSettingsDisabled', () =>

@@ -1,17 +1,17 @@
 <template>
-  <v-layout justify-center wrap class="pagination-container">
-    <v-flex shrink>
+  <v-row justify="center" class="pagination-container" no-gutters>
+    <v-col cols="8">
       <v-pagination
         v-model="model.currentPage"
         :length="maxPage()"
         total-visible="10"
       >
       </v-pagination>
-    </v-flex>
-    <v-flex shrink>
+    </v-col>
+    <v-col cols="2">
       <v-select height="22px" label="Page Size" :items="pageSizes" v-model="model.pageSize"></v-select>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="coffee">
