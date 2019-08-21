@@ -3,14 +3,14 @@
     <v-col cols="12">
       <v-row justify="center" align="start" no-gutters>
         <v-col cols="5" sm="3" md="2">
-          <v-sheet class="song-num-container" :color="theme" id="game-song-count">
+          <v-sheet :class="themeClass('song-num-container')" id="game-song-count">
             {{currentSong}} / {{maxSong}}
           </v-sheet>
         </v-col>
       </v-row>
       <v-row justify="center" align="start" no-gutters>
         <v-col cols="12" sm="8" md="6" lg="5">
-          <v-sheet class="answer-container" :color="theme">
+          <v-sheet :class="themeClass('answer-container')">
             <b id="song-anime">{{answer()}}</b>
           </v-sheet>
         </v-col>
@@ -20,7 +20,10 @@
 </template>
 
 <script lang="coffee">
+  import ThemeHelper from '../../assets/mixins/theme-helper.coffee'
+
   export default
+    mixins: [ ThemeHelper ]
     data: () ->
       show: false,
       currentSong: 0,
@@ -39,11 +42,6 @@
           return this.$store.state.game.currentSong.name
 
         return '?'
-    computed:
-      theme: () ->
-        if this.$vuetify.theme.dark
-          return 'rgb(33, 33, 33)'
-        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>

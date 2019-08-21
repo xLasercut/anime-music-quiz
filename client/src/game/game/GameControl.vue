@@ -1,5 +1,6 @@
 <template>
   <v-toolbar-items v-if="$route.path == '/game'">
+    <song-selector-panel></song-selector-panel>
     <nav-btn color="success" v-if="showPlay" @click="play()" icon="mdi-play" id="game-play-btn">
       Start
     </nav-btn>
@@ -15,9 +16,10 @@
   import NavBtn from '../../components/buttons/NavBtn.vue'
   import SettingsPanel from './game-control/SettingsPanel.vue'
   import VolumeSlider from './game-control/VolumeSlider.vue'
+  import SongSelectorPanel from './game-control/SongSelectorPanel.vue'
 
   export default
-    components: { SettingsPanel, VolumeSlider, NavBtn }
+    components: { SettingsPanel, VolumeSlider, NavBtn, SongSelectorPanel }
     computed:
       showPlay: () ->
         return (!this.$store.state.game.playing and (this.$store.state.game.host or this.$store.state.admin.admin))

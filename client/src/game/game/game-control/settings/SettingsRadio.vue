@@ -2,7 +2,10 @@
   <v-row justify="center">
     <v-col cols="12">
       <v-radio-group :label="label" row v-model="model" :disabled="disabled">
-        <v-radio v-for="item in options" :key="`${label}_${item.value}`" :label="item.label" :value="item.value" :id="radioId(item.value)">
+        <v-radio
+          v-for="item in options" :key="`${label}_${item.value}`"
+          :label="item.label" :value="item.value" :id="radioId(item.value)"
+        >
         </v-radio>
       </v-radio-group>
     </v-col>

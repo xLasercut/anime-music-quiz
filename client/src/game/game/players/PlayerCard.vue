@@ -8,10 +8,10 @@
         <div class="player-card">
           <player-avatar :player="player" />
           <v-row justify="center">
-            <v-sheet class="player-name" :color="theme">
+            <v-sheet :class="themeClass('player-name')">
               {{player.username}}
             </v-sheet>
-            <v-sheet class="player-score" :color="theme">
+            <v-sheet :class="themeClass('player-score')">
               {{player.score}}
             </v-sheet>
           </v-row>
@@ -24,8 +24,10 @@
 
 <script lang="coffee">
   import PlayerAvatar from './PlayerAvatar.vue'
+  import ThemeHelper from '../../../assets/mixins/theme-helper.coffee'
 
   export default
+    mixins: [ ThemeHelper ]
     components: { PlayerAvatar }
     props:
       player: {
@@ -45,11 +47,6 @@
         if !this.player.guess[type]
           return '...'
         return this.player.guess[type]
-    computed:
-      theme: () ->
-        if this.$vuetify.theme.dark
-          return 'rgb(33, 33, 33)'
-        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>

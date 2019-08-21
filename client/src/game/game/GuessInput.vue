@@ -7,7 +7,7 @@
     />
     <guess-text
       :items="$store.state.game.choices.song" label="Song"
-      v-model.trim="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"
+      v-model.trim="guess.song" :disabled="disabled()" :append-outer-icon="icon()" @click:append-outer="skipSong()"
       id="song-guess"
     />
   </v-row>

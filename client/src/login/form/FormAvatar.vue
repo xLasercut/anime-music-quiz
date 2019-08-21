@@ -33,6 +33,6 @@
   }
 
   input:checked + label .v-image {
-    outline: 4px solid #4caf50;
+    outline: 4px solid var(--v-success-base);
   }
 </style>

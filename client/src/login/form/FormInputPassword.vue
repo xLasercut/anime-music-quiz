@@ -7,7 +7,8 @@
     @click:append="show = !show"
     @enter="$emit('enter')"
     :type="inputType"
-    id="password-input" :disabled="disabled"
+    id="password-input"
+    v-bind="$attrs"
   ></form-input>
 </template>
 
@@ -16,7 +17,6 @@
   import FormInput from './FormInput.vue'
 
   export default
-    props: [ 'disabled' ]
     components: { FormInput }
     mixins: [ VModel ]
     data: () ->

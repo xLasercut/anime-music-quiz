@@ -4,8 +4,8 @@
       <v-checkbox
         :label="item" :value="item"
         v-model="model"
-        :disabled="disabled"
         :id="checkboxId(item)"
+        v-bind="$attrs"
       ></v-checkbox>
     </v-col>
   </v-row>
@@ -15,7 +15,7 @@
   import VModel from '../../../../assets/mixins/v-model.coffee'
 
   export default
-    props: [ 'items', 'disabled' ]
+    props: [ 'items' ]
     mixins: [ VModel ]
     methods:
       checkboxId: (item) ->

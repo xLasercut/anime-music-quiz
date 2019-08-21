@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="5" sm="4" class="chat-container" :style="theme">
+  <v-col cols="5" sm="4" :class="themeClass('chat-container')">
     <div class="message-container">
       <message v-for="(message, index) in messages" :key="`chat_${index}`" :message="message" />
     </div>
@@ -10,8 +10,10 @@
 <script lang="coffee">
   import Message from './chat/Message.vue'
   import ChatInput from './chat/ChatInput.vue'
+  import ThemeHelper from '../assets/mixins/theme-helper.coffee'
 
   export default
+    mixins: [ ThemeHelper ]
     components: { Message, ChatInput }
     data: () ->
       message: '',
@@ -37,11 +39,6 @@
         if admin
           return { color: '#E65100' }
         return {}
-    computed:
-      theme: () ->
-        if this.$vuetify.theme.dark
-          return { background: 'rgb(33, 33, 33)' }
-        return { background: 'rgb(224, 224, 224)' }
 </script>
 
 <style scoped>

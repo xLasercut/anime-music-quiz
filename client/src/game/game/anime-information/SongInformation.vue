@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" sm="3" class="info-container">
-    <v-card elevation="0" :color="theme">
+    <v-card elevation="0" :class="themeClass()">
       <v-card-text>
         <div class="song-container">
           <div>
@@ -32,7 +32,10 @@
 </template>
 
 <script lang="coffee">
+  import ThemeHelper from '../../../assets/mixins/theme-helper.coffee'
+
   export default
+    mixins: [ ThemeHelper ]
     data: () ->
       show: false
     sockets:
@@ -47,11 +50,6 @@
             return this.$store.state.game.currentSong[key]
           return '...'
         return '?'
-    computed:
-      theme: () ->
-        if this.$vuetify.theme.dark
-          return 'rgb(33, 33, 33)'
-        return 'rgb(224, 224, 224)'
 </script>
 
 <style scoped>

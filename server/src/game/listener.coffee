@@ -4,7 +4,7 @@ GameState = require './game-state.coffee'
 Chat = require './chat.coffee'
 Timer = require './timer.coffee'
 q = require 'q'
-{ userLists, songStats, emojiList } = require '../shared-classes.coffee'
+{ userLists, songStats, emojiList, fullList } = require '../shared-classes.coffee'
 
 class GameListener
   constructor: (io, logObject) ->
@@ -42,6 +42,7 @@ class GameListener
         socket.emit('SYNC_CHOICES', @gameState.choices())
         socket.emit('SYNC_SETTINGS', @settings.serialize())
         socket.emit('SYNC_EMOJI_DATA', emojiList.read())
+        socket.emit('SYNC_FULL_LIST', fullList.read())
       catch e
         @_logUnhandledError(e)
 
