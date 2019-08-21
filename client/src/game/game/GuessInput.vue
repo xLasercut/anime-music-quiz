@@ -2,12 +2,12 @@
   <v-row justify="center">
     <guess-text
       :items="$store.state.game.choices.anime" label="Anime"
-      v-model="guess.anime" :disabled="disabled()"
+      v-model.trim="guess.anime" :disabled="disabled()"
       id="anime-guess"
     />
     <guess-text
       :items="$store.state.game.choices.song" label="Song"
-      v-model="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"
+      v-model.trim="guess.song" :disabled="disabled()" :icon="icon()" @click:append-outer="skipSong()"
       id="song-guess"
     />
   </v-row>

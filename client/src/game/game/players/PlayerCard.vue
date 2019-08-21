@@ -1,6 +1,9 @@
 <template>
   <v-col cols="auto">
-    <v-tooltip v-model="show" :color="player.color" min-width="160" max-width="160" top>
+    <v-tooltip
+      v-model="show" :color="player.color" min-width="160" max-width="160"
+      top transition="slide-y-reverse-transition"
+    >
       <template #activator="{ on }">
         <div class="player-card">
           <player-avatar :player="player" />

@@ -10,6 +10,7 @@
       :append-outer-icon="icon"
       @click:append-outer="$emit('click:append-outer')"
       persistent-hint
+      auto-select-first
       :id="id"
     >
     </v-combobox>
