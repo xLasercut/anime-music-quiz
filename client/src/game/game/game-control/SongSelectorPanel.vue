@@ -10,13 +10,13 @@
     </template>
     <v-card>
       <v-card-title>
-        <v-spacer></v-spacer>
         <span>Song Select</span>
+        <v-spacer></v-spacer>
+        <timer-line :time="time" :max-time="maxTime" v-show="showTimer"></timer-line>
         <v-spacer></v-spacer>
         <icon-btn color="warning" icon="mdi-sync" @click="syncFullList()">Reload List</icon-btn>
       </v-card-title>
       <v-container fluid>
-        <timer-line :time="time" :max-time="maxTime"></timer-line>
         <list-filter v-model="filter" id="user"></list-filter>
         <song-selector-data
           :data="displayData()"
@@ -53,6 +53,7 @@
       countdown: null
       time: 10000
       maxTime: 10000
+      showTimer: false
     sockets:
       SELECT_SONG: () ->
         this.show = true
@@ -77,6 +78,7 @@
           this.notifySuccess("Song selected: #{data.name} - #{data.title}")
         )
       startCountdown: () ->
+        this.showTimer = true
         this.countdown = setInterval( () =>
           this.time -= 200
           if this.time <= 0
@@ -84,4 +86,5 @@
         , 200)
       stopCountdown: () ->
         clearInterval(this.countdown)
+        this.showTimer = false
 </script>

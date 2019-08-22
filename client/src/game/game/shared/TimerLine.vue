@@ -1,12 +1,15 @@
 <template>
   <v-row justify="center">
-    <v-col cols="8">
+    <v-col cols="10">
       <v-progress-linear
         :value="percentage()"
         :color="color()"
         striped
-        height="8"
-      ></v-progress-linear>
+        height="20"
+        rounded
+      >
+        <strong>{{ Math.round(this.time / 1000) }}</strong>
+      </v-progress-linear>
     </v-col>
   </v-row>
 </template>
