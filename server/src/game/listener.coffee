@@ -64,7 +64,6 @@ class GameListener
         @resetGame()
       catch e
         @_logUnhandledError(e)
-
   resetGame: () ->
     @timer.resetCountdown()
     @timer.resetTimeout()
@@ -74,12 +73,13 @@ class GameListener
 
   newRound: () ->
     @players.newRound()
-    if @settings.mode == 'gamble'
-      @gameFlowGamble()
+    @io.emit('RESET_SELECTOR')
+    if @settings.mode == 'selector'
+      @_gameFlowSelector()
     else
-      @gameFlowMain()
+      @_gameFlowMain()
 
-  gameFlowMain: () ->
+  _gameFlowMain: () ->
     @gameState.newSong()
     @timer.startCountdown(5000, @players, 'song')
     .then () =>
@@ -104,14 +104,14 @@ class GameListener
     .catch (err) =>
       @logObject.writeLog('SERVER004', { msg: err })
 
-  gameFlowGamble: () ->
-    @io.emit('PLACE_BET', 10)
-    @timer.startTimeout(10000)
+  _gameFlowSelector: () ->
+    id = @players.randomId()
+    client = @io.nsps['/'].connected[id]
+    client.emit('SELECT_SONG')
+    @timer.startCountdownSingle(10000, @players, id, 'select')
     .then () =>
-      @io.emit('CLOSE_BET')
-      return @timer.startCountdown(5000, @players, 'bet')
-    .then () =>
-      @gameFlowMain()
+      client.emit('SELECT_SONG_OVER')
+      @_gameFlowMain()
     .catch (err) =>
       @logObject.writeLog('SERVER004', { msg: err })
 

@@ -10,11 +10,10 @@ class Player
     }
     @ready = {
       song: false,
-      bet: false,
+      select: false,
       guess: false
     }
     @admin = admin
-    @bet = 1
     @color = 'error'
 
   serialize: () ->
@@ -40,9 +39,6 @@ class Player
   setGuess: (guess) ->
     @guess = guess
 
-  setBet: (bet) ->
-    @bet = bet
-
   setColor: (color) ->
     @color = color
 
@@ -55,9 +51,8 @@ class Player
   newRound: () ->
     @guess = { song: '', anime: '' }
     @color = 'error'
-    @bet = 1
     @ready = {
-      bet: false,
+      select: false,
       song: false,
       guess: false
     }

@@ -15,6 +15,13 @@ class GameState
   listen: (socket) ->
     socket.on 'SONG_OVERRIDE', (song, callback) =>
       @songOverride = song
+      @logObject.writeLog('GAME008', {
+        title: song.title,
+        artist: song.artist,
+        anime: song.name,
+        type: song.type,
+        id: socket.id
+      })
       callback(song)
 
   generateGameList: (settings) ->

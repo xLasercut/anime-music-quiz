@@ -75,7 +75,7 @@
       show: false
       gameModes: [
         { label: 'Normal', value: 'normal' },
-        { label: 'Gamble', value: 'gamble' }
+        { label: 'Selector', value: 'selector' }
       ]
       songDuplicate: [
         { label: 'Yes', value: true },

@@ -1,44 +1,27 @@
 class ScoreCalculator
-  constructor: (mode, currentSong) ->
-    @mode = mode
+  constructor: (currentSong) ->
     @currentSong = currentSong
 
-  calculateScore: (guess, bet) ->
-    if @mode == 'gamble'
-      return @pointScoredBet(guess, bet)
-    else
-      return @pointScoredNormal(guess)
-
-  pointScoredBet: (guess, bet) ->
-    score = @pointScoredNormal(guess)
-
-    if score.point == 0
-      score['point'] -= bet
-    else
-      score['point'] = score.point * bet
-
-    return score
-
-  pointScoredNormal: (guess) ->
+  calculateScore: (guess) ->
     point = 0
     correctAnime = false
     correctSong = false
-    if @animeCorrect(guess.anime)
+    if @_animeCorrect(guess.anime)
       point += 1
       correctAnime = true
 
-    if @songCorrect(guess.song)
+    if @_songCorrect(guess.song)
       point += 1
       correctSong = true
 
     return {
       point: point,
-      color: @bannerColor(point),
+      color: @_bannerColor(point),
       correctAnime: correctAnime,
       correctSong: correctSong
     }
 
-  animeCorrect: (anime) ->
+  _animeCorrect: (anime) ->
     if anime
       if anime.toLowerCase() == @currentSong.name.toLowerCase()
         return true
@@ -48,13 +31,13 @@ class ScoreCalculator
           return true
     return false
 
-  songCorrect: (song) ->
+  _songCorrect: (song) ->
     if song
       if song.toLowerCase() == @currentSong.title.toLowerCase()
         return true
     return false
 
-  bannerColor: (point) ->
+  _bannerColor: (point) ->
     if point == 2
       return 'success'
     else if point == 1

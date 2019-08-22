@@ -26,6 +26,18 @@ class Timer
     , time
     deferred.promise
 
+  startCountdownSingle: (time, playerManagement, id, type) ->
+    @resetCountdown()
+    deferred = q.defer()
+    @time = 0
+    @countdown = setInterval () =>
+      @time += 500
+      if playerManagement.checkSingleReady(id, type) or @time >= time
+        @resetCountdown()
+        deferred.resolve(true)
+    , 500
+    deferred.promise
+
   newRound: (newRound) ->
     deferred = q.defer()
     if newRound

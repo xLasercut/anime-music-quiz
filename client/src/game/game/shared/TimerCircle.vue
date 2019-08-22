@@ -1,5 +1,5 @@
 <template>
-  <v-layout fill-height align-center justify-center>
+  <v-row class="countdown-container" justify="center" align="center">
     <v-progress-circular
       :rotate="270"
       :size="100"
@@ -9,7 +9,7 @@
     >
       {{ Math.ceil(time / 1000) }}
     </v-progress-circular>
-  </v-layout>
+  </v-row>
 </template>
 
 <script lang="coffee">
@@ -26,3 +26,9 @@
           return 'warning'
         return 'success'
 </script>
+
+<style scoped>
+  .countdown-container {
+    height: 100%;
+  }
+</style>

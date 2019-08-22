@@ -1,21 +1,22 @@
 <template>
-  <v-dialog v-model="show">
+  <v-dialog v-model="show" :persistent="!$store.state.admin.admin">
     <template v-slot:activator="{ on }">
       <nav-btn
         color="primary" :activator="on"
         icon="mdi-playlist-music"
         id="game-song-select-btn"
+        v-show="$store.state.admin.admin"
       ></nav-btn>
     </template>
     <v-card>
       <v-card-title>
+        <v-spacer></v-spacer>
         <span>Song Select</span>
         <v-spacer></v-spacer>
         <icon-btn color="warning" icon="mdi-sync" @click="syncFullList()">Reload List</icon-btn>
-        <v-spacer></v-spacer>
-        <v-btn icon text small @click="show = false"><v-icon>mdi-close</v-icon></v-btn>
       </v-card-title>
       <v-container fluid>
+        <timer-line :time="time" :max-time="maxTime"></timer-line>
         <list-filter v-model="filter" id="user"></list-filter>
         <song-selector-data
           :data="displayData()"
@@ -36,10 +37,11 @@
   import TableFilter from '../../../list-picker/mixins/table-filter.coffee'
   import SongSelectorData from './song-selector/SongSelectorData.vue'
   import Notification from '../../../assets/mixins/notification.coffee'
+  import TimerLine from '../shared/TimerLine.vue'
 
   export default
     mixins: [ TableFilter, Notification ]
-    components: { IconBtn, Pagination, NavBtn, SongSelectorData }
+    components: { IconBtn, Pagination, NavBtn, SongSelectorData, TimerLine }
     data: () ->
       pagination: {
         currentPage: 1,
@@ -48,6 +50,19 @@
       maxPage: 1
       show: false
       songList: []
+      countdown: null
+      time: 10000
+      maxTime: 10000
+    sockets:
+      SELECT_SONG: () ->
+        this.show = true
+        this.time = this.maxTime
+        this.startCountdown()
+      SELECT_SONG_OVER: () ->
+        this.show = false
+        this.stopCountdown()
+      RESET: () ->
+        this.stopCountdown()
     methods:
       displayData: () ->
         filteredData = this.filteredData(this.$store.state.list.fullList)
@@ -61,4 +76,12 @@
         this.$socket.emit('SONG_OVERRIDE', song, (data) =>
           this.notifySuccess("Song selected: #{data.name} - #{data.title}")
         )
+      startCountdown: () ->
+        this.countdown = setInterval( () =>
+          this.time -= 200
+          if this.time <= 0
+            this.stopCountdown()
+        , 200)
+      stopCountdown: () ->
+        clearInterval(this.countdown)
 </script>

@@ -22,3 +22,7 @@ export default
     state.playing = playing
   SOCKET_SYNC_CHOICES: (state, choices) ->
     state.choices = choices
+  SOCKET_RESET_SELECTOR: (state) ->
+    state.selector = false
+  SOCKET_SELECT_SONG: (state) ->
+    state.selector = true

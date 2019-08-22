@@ -45,7 +45,7 @@
           return 'mdi-lock'
         return ''
       disabled: () ->
-        return this.locked or !this.$store.state.game.playing
+        return this.locked or !this.$store.state.game.playing or this.$store.state.game.selector
 </script>
 
 <style scoped>

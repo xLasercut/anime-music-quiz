@@ -20,3 +20,4 @@ export default
   host: false
   playing: false
   volume: 50
+  selector: false

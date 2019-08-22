@@ -21,9 +21,8 @@ class Players
       @players[socket.id].setReady(true, 'guess')
       @logObject.writeLog('GAME007', { song: guess.song, anime: guess.anime })
 
-    socket.on 'SET_BET', (bet) =>
-      @players[socket.id].setBet(bet)
-      @players[socket.id].setReady(true, 'bet')
+    socket.on 'SONG_OVERRIDE', (song, _callback) =>
+      @players[socket.id].setReady(true, 'select')
 
     socket.on 'PLAYER_READY', () =>
       @players[socket.id].setReady(true, 'guess')
@@ -69,17 +68,23 @@ class Players
     @readyClear()
     return true
 
+  checkSingleReady: (id, type) ->
+    if @players[id] && @players[id].ready[type]
+      @readyClear()
+      return true
+    return false
+
   newRound: () ->
     for _id, player of @players
       player.newRound()
     @updateClient()
 
-  songOver: (currentSong, gameMode) ->
+  songOver: (currentSong) ->
     @logObject.writeLog('GAME006')
-    scoreCalculator = new ScoreCalculator(gameMode, currentSong)
+    scoreCalculator = new ScoreCalculator(currentSong)
     songStats.updateSong(currentSong)
     for _id, player of @players
-      score = scoreCalculator.calculateScore(player.guess, player.bet)
+      score = scoreCalculator.calculateScore(player.guess)
       player.addPoint(score.point)
       player.setColor(score.color)
       songStats.updateUser(currentSong, score, player.username)
@@ -108,6 +113,10 @@ class Players
 
   updateClient: () ->
     @io.emit('SYNC_PLAYERS', @serialize())
+
+  randomId: () ->
+    keys = Object.keys(@players)
+    return keys[Math.floor(Math.random() * keys.length)]
 
 
 module.exports = Players
