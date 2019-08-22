@@ -11,7 +11,7 @@
         </template>
 
         <template #item.action="{ item }">
-          <icon-btn color="success" icon="mdi-plus" small @click="selectSong(item)">Select</icon-btn>
+          <icon-btn color="success" icon="mdi-plus" small @click="selectSong(item)" :id="`${item.id}-select-btn`">Select</icon-btn>
         </template>
       </v-data-table>
     </v-col>

@@ -1,11 +1,30 @@
 map = require '../support/element-map.coffee'
 
 describe 'game flow tests', () ->
+  it 'test happy path selector mode', () ->
+    cy.loginGame()
+    cy.openSettings()
+    cy.changeSettingsValues('20', '25', 'false', 'selector', ['test-user.json'])
+    cy.confirmSettings()
+    cy.wait(1000)
+    cy.assertChatText('Game settings updated', 'exist')
+    cy.startGame()
+    cy.selectSong('FullmetalAlchemistBrotherhood-OP1')
+    cy.notificationMsg('Song selected: Fullmetal Alchemist: Brotherhood - again')
+    cy.wait(10000)
+    cy.assertSongGuessLock()
+    cy.wait(16000)
+    cy.assertSongInformation({
+      anime: 'Fullmetal Alchemist: Brotherhood',
+      title: 'again',
+      artist: '...',
+      type: 'OP1'
+    })
+
   it 'test happy path normal mode', () ->
     cy.loginGame()
     cy.openSettings()
     cy.changeSettingsValues('20', '25', 'false', 'normal', ['test-user.json'])
-    cy.changeGameMode('normal')
     cy.confirmSettings()
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')
@@ -33,7 +52,6 @@ describe 'game flow tests', () ->
     cy.loginGame()
     cy.openSettings()
     cy.changeSettingsValues('20', '25', 'true', 'normal', ['test-user.json', 'test-user2.json'])
-    cy.changeGameMode('normal')
     cy.confirmSettings()
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')

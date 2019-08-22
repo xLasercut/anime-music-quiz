@@ -34,12 +34,6 @@ Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime, duplicate, m
   .each (item) =>
     cy.get("#setting-user-list-#{item.replace('.json', '')}").check({ force: true })
 
-Cypress.Commands.add 'changeGameMode', (mode) =>
-  if mode == 'selector'
-    cy.get(map.game.settingsGameModeSelector).click({ force: true })
-  else
-    cy.get(map.game.settingsGameModeNormal).click({ force: true })
-
 Cypress.Commands.add 'confirmSettings', () =>
   cy.get(map.game.settingsConfirm).click()
 
@@ -86,3 +80,10 @@ Cypress.Commands.add 'inputSongGuess', (text) =>
 Cypress.Commands.add 'assertSettingsDisabled', () =>
   cy.get(map.game.settingsSongCount).should('be.disabled')
   cy.get(map.game.settingsGuessTime).should('be.disabled')
+
+Cypress.Commands.add 'selectSong', (id) =>
+  cy.get("##{id}-select-btn").click()
+
+Cypress.Commands.add 'assertSongGuessLock', () =>
+  cy.get(map.game.songGuess).should('be.disabled')
+  cy.get(map.game.animeGuess).should('be.disabled')
