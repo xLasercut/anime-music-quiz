@@ -16,10 +16,10 @@ Cypress.Commands.add 'assertSettingsValues', (songCount, guessTime, duplicate, m
 
   if mode == 'normal'
     cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'true')
-    cy.get(map.game.settingsGameModeGamble).should('have.attr', 'aria-checked', 'false')
+    cy.get(map.game.settingsGameModeSelector).should('have.attr', 'aria-checked', 'false')
   else
     cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'false')
-    cy.get(map.game.settingsGameModeGamble).should('have.attr', 'aria-checked', 'true')
+    cy.get(map.game.settingsGameModeSelector).should('have.attr', 'aria-checked', 'true')
 
   cy.wrap(lists)
   .each (item) =>
@@ -35,8 +35,8 @@ Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime, duplicate, m
     cy.get("#setting-user-list-#{item.replace('.json', '')}").check({ force: true })
 
 Cypress.Commands.add 'changeGameMode', (mode) =>
-  if mode == 'gamble'
-    cy.get(map.game.settingsGameModeGamble).click({ force: true })
+  if mode == 'selector'
+    cy.get(map.game.settingsGameModeSelector).click({ force: true })
   else
     cy.get(map.game.settingsGameModeNormal).click({ force: true })
 
@@ -78,12 +78,10 @@ Cypress.Commands.add 'startGame', () =>
 Cypress.Commands.add 'inputAnimeGuess', (text) =>
   cy.get(map.game.animeGuess).clear().type(text)
   cy.get('.v-list-item__title').contains(text).click()
-  cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'inputSongGuess', (text) =>
   cy.get(map.game.songGuess).clear().type(text)
   cy.get('.v-list-item__title').contains(text).click()
-  cy.get('.v-text-field__details').contains(text).should('exist')
 
 Cypress.Commands.add 'assertSettingsDisabled', () =>
   cy.get(map.game.settingsSongCount).should('be.disabled')
