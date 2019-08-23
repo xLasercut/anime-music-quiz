@@ -5,6 +5,7 @@
         v-model.number="model"
         :min="min" :max="max"
         :disabled="disabled"
+        hide-details
       ></v-slider>
     </v-col>
     <v-col cols="2">
@@ -12,6 +13,7 @@
         class="mt-0 pt-0" v-model.number="model"
         type="number" :min="min" :max="max"
         :disabled="disabled" :id="id"
+        hide-details
       ></v-text-field>
     </v-col>
   </v-row>

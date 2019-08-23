@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" no-gutters>
     <v-col cols="12">
-      <v-radio-group :label="label" row v-model="model" :disabled="disabled">
+      <v-radio-group :label="label" row v-model="model" :disabled="disabled" hide-details>
         <v-radio
           v-for="item in options" :key="`${label}_${item.value}`"
           :label="item.label" :value="item.value" :id="radioId(item.value)"
