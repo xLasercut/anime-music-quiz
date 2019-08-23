@@ -8,7 +8,7 @@
     </template>
     <v-card>
       <v-container>
-        <v-row justify="center">
+        <v-row justify="center" no-gutters>
           <v-col cols="auto">
             Settings
           </v-col>
@@ -25,6 +25,10 @@
             v-model.number="settings.guessTime"
             min="1" max="50" :disabled="disabled"
             id="guess-time-input"
+          ></settings-slider>
+          <settings-slider
+            label="Song Select Time" v-model.number="settings.selectTime"
+            min="10" max="30" :disabled="disabled"
           ></settings-slider>
           <settings-radio
             v-model="settings.duplicate" :disabled="disabled"

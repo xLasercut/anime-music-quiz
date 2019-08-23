@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" no-gutters>
     <v-col cols="12">
       <v-radio-group :label="label" row v-model="model" :disabled="disabled">
         <v-radio

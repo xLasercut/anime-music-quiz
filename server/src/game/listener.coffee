@@ -107,8 +107,8 @@ class GameListener
   _gameFlowSelector: () ->
     id = @players.randomId()
     client = @io.nsps['/'].connected[id]
-    client.emit('SELECT_SONG')
-    @timer.startCountdownSingle(10000, @players, id, 'select')
+    client.emit('SELECT_SONG', @settings.selectTime)
+    @timer.startCountdownSingle(@settings.selectTime * 1000, @players, id, 'select')
     .then () =>
       client.emit('SELECT_SONG_OVER')
       @_gameFlowMain()

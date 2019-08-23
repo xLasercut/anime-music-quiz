@@ -8,6 +8,7 @@ export default
     lists: []
     mode: 'normal'
     duplicate: false
+    selectTime: 20
   players: {}
   currentSong:
     name: ''

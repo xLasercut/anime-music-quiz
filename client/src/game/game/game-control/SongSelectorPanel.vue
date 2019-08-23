@@ -51,13 +51,14 @@
       show: false
       songList: []
       countdown: null
-      time: 10000
-      maxTime: 10000
+      time: 15000
+      maxTime: 15000
       showTimer: false
     sockets:
-      SELECT_SONG: () ->
+      SELECT_SONG: (time) ->
         this.show = true
-        this.time = this.maxTime
+        this.time = time * 1000
+        this.maxTime = time * 1000
         this.startCountdown()
       SELECT_SONG_OVER: () ->
         this.show = false

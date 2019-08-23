@@ -13,6 +13,7 @@ class Settings
     @lists = lists
     @mode = 'normal'
     @duplicate = false
+    @selectTime = 20
 
   listen: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>
@@ -25,13 +26,15 @@ class Settings
       @lists = settings.lists
       @mode = settings.mode
       @duplicate = settings.duplicate
+      @selectTime = settings.selectTime
 
       @logObject.writeLog('SETTING002', {
         songCount: @songCount,
         guessTime: @guessTime,
         mode: @mode,
         lists: @lists.join('|'),
-        duplicate: @duplicate
+        duplicate: @duplicate,
+        selectTime: @selectTime
       })
       @io.emit('SYNC_SETTINGS', @serialize())
       @chat.systemMsg('Game settings updated')
@@ -42,7 +45,8 @@ class Settings
       guessTime: @guessTime,
       lists: @lists,
       mode: @mode,
-      duplicate: @duplicate
+      duplicate: @duplicate,
+      selectTime: @selectTime
     }
 
 module.exports = Settings

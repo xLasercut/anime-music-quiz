@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" no-gutters>
     <v-col cols="auto" v-for="(item, index) in items" :key="`checkbox_${index}`">
       <v-checkbox
         :label="item" :value="item"
