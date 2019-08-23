@@ -5,6 +5,7 @@
       label="List"
       @change="updateFileName($event)"
       class="mt-5" height="30px" id="user-list-select"
+      hide-details
     ></v-select>
   </div>
 </template>

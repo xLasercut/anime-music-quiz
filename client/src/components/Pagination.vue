@@ -9,7 +9,7 @@
       </v-pagination>
     </v-col>
     <v-col cols="2">
-      <v-select height="22px" label="Page Size" :items="pageSizes" v-model="model.pageSize"></v-select>
+      <v-select height="22px" label="Page Size" :items="pageSizes" v-model="model.pageSize" hide-details></v-select>
     </v-col>
   </v-row>
 </template>
