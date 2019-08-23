@@ -2,17 +2,42 @@ describe 'game setting panel tests', () ->
   it 'test change settings', () ->
     cy.loginGame()
     cy.openSettings()
-    cy.changeSettingsValues('20', '25', 'false', 'normal', ['test-user.json', 'test-user2.json'])
+    settings = {
+      songCount: '20',
+      guessTime: '25',
+      songSelectTime: '15',
+      duplicate: 'false',
+      mode:'normal',
+      lists: ['test-user.json', 'test-user2.json']
+    }
+
+    cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.openSettings()
-    cy.assertSettingsValues('20', '25', 'false', 'normal', ['test-user.json', 'test-user2.json'])
+    cy.assertSettingsValues(settings)
 
   it 'test not change settings', () ->
     cy.loginGame()
     cy.openSettings()
-    cy.assertSettingsValues('20', '25', 'false', 'normal', ['test-user.json', 'test-user2.json'])
-    cy.changeSettingsValues('30', '30', 'true', 'selector', [])
-    cy.assertSettingsValues('30', '30', 'true', 'selector', [])
+    oldSettings = {
+      songCount: '20',
+      guessTime: '25',
+      songSelectTime: '15',
+      duplicate: 'false',
+      mode:'normal',
+      lists: ['test-user.json', 'test-user2.json']
+    }
+    newSettings = {
+      songCount: '30',
+      guessTime: '30',
+      songSelectTime: '20',
+      duplicate: 'true',
+      mode:'selector',
+      lists: []
+    }
+    cy.assertSettingsValues(oldSettings)
+    cy.changeSettingsValues(newSettings)
+    cy.assertSettingsValues(newSettings)
     cy.cancelSettings()
     cy.openSettings()
-    cy.assertSettingsValues('20', '25', 'false', 'normal', ['test-user.json', 'test-user2.json'])
+    cy.assertSettingsValues(oldSettings)

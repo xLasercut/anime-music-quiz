@@ -3,34 +3,36 @@ map = require './element-map.coffee'
 Cypress.Commands.add 'openSettings', () =>
   cy.get(map.game.settings).click()
 
-Cypress.Commands.add 'assertSettingsValues', (songCount, guessTime, duplicate, mode, lists) =>
-  cy.get(map.game.settingsSongCount).should('have.value', songCount)
-  cy.get(map.game.settingsGuessTime).should('have.value', guessTime)
+Cypress.Commands.add 'assertSettingsValues', (settings) =>
+  cy.get(map.game.settingsSongCount).should('have.value', settings.songCount)
+  cy.get(map.game.settingsGuessTime).should('have.value', settings.guessTime)
+  cy.get(map.game.settingsSongSelectTime).should('have.value', settings.songSelectTime)
 
-  if duplicate == 'true'
+  if settings.duplicate == 'true'
     cy.get(map.game.settingsDuplicateTrue).should('have.attr', 'aria-checked', 'true')
     cy.get(map.game.settingsDuplicateFalse).should('have.attr', 'aria-checked', 'false')
   else
     cy.get(map.game.settingsDuplicateTrue).should('have.attr', 'aria-checked', 'false')
     cy.get(map.game.settingsDuplicateFalse).should('have.attr', 'aria-checked', 'true')
 
-  if mode == 'normal'
+  if settings.mode == 'normal'
     cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'true')
     cy.get(map.game.settingsGameModeSelector).should('have.attr', 'aria-checked', 'false')
   else
     cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'false')
     cy.get(map.game.settingsGameModeSelector).should('have.attr', 'aria-checked', 'true')
 
-  cy.wrap(lists)
+  cy.wrap(settings.lists)
   .each (item) =>
     cy.get("#setting-user-list-#{item.replace('.json', '')}").should('have.attr', 'aria-checked', 'true')
 
-Cypress.Commands.add 'changeSettingsValues', (songCount, guessTime, duplicate, mode, lists) =>
-  cy.get(map.game.settingsSongCount).clear().type("{del}#{songCount}")
-  cy.get(map.game.settingsGuessTime).clear().type("{del}#{guessTime}")
-  cy.get('[type="radio"]').check([duplicate, mode], { force: true })
+Cypress.Commands.add 'changeSettingsValues', (settings) =>
+  cy.get(map.game.settingsSongCount).clear().type("{del}#{settings.songCount}")
+  cy.get(map.game.settingsGuessTime).clear().type("{del}#{settings.guessTime}")
+  cy.get(map.game.settingsSongSelectTime).clear().type("{del}{del}#{settings.songSelectTime}")
+  cy.get('[type="radio"]').check([settings.duplicate, settings.mode], { force: true })
   cy.get('[type="checkbox"]').uncheck({ force: true })
-  cy.wrap(lists)
+  cy.wrap(settings.lists)
   .each (item) =>
     cy.get("#setting-user-list-#{item.replace('.json', '')}").check({ force: true })
 

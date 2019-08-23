@@ -2,9 +2,18 @@ map = require '../support/element-map.coffee'
 
 describe 'game flow tests', () ->
   it 'test happy path selector mode', () ->
+    settings = {
+      songCount: '20',
+      guessTime: '25',
+      songSelectTime: '10',
+      duplicate: 'false',
+      mode:'selector',
+      lists: ['test-user.json']
+    }
+
     cy.loginGame()
     cy.openSettings()
-    cy.changeSettingsValues('20', '25', 'false', 'selector', ['test-user.json'])
+    cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')
@@ -22,9 +31,18 @@ describe 'game flow tests', () ->
     })
 
   it 'test happy path normal mode', () ->
+    settings = {
+      songCount: '20',
+      guessTime: '25',
+      songSelectTime: '15',
+      duplicate: 'false',
+      mode:'normal',
+      lists: ['test-user.json']
+    }
+
     cy.loginGame()
     cy.openSettings()
-    cy.changeSettingsValues('20', '25', 'false', 'normal', ['test-user.json'])
+    cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')
@@ -49,9 +67,18 @@ describe 'game flow tests', () ->
 
 
   it 'test happy path duplicate songs', () ->
+    settings = {
+      songCount: '20',
+      guessTime: '25',
+      songSelectTime: '15',
+      duplicate: 'true',
+      mode:'normal',
+      lists: ['test-user.json', 'test-user2.json']
+    }
+
     cy.loginGame()
     cy.openSettings()
-    cy.changeSettingsValues('20', '25', 'true', 'normal', ['test-user.json', 'test-user2.json'])
+    cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')

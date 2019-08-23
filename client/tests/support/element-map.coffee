@@ -11,6 +11,7 @@ module.exports = {
     chatInput: '#chat-input',
     settingsSongCount: '#song-count-input',
     settingsGuessTime: '#guess-time-input',
+    settingsSongSelectTime: '#song-select-time-input',
     settingsGameModeNormal: '#game-mode-normal',
     settingsGameModeSelector: '#game-mode-selector',
     settingsDuplicateTrue: '#duplicate-true',

@@ -29,6 +29,7 @@
           <settings-slider
             label="Song Select Time" v-model.number="settings.selectTime"
             min="10" max="30" :disabled="disabled"
+            id="song-select-time-input"
           ></settings-slider>
           <settings-radio
             v-model="settings.duplicate" :disabled="disabled"

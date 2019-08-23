@@ -1,7 +1,11 @@
 <template>
-  <v-row justify="center" no-gutters>
+  <v-row justify="center">
     <v-col cols="10">
-      <v-slider v-model.number="model" v-bind="$attrs"></v-slider>
+      <v-slider :label="label"
+        v-model.number="model"
+        :min="min" :max="max"
+        :disabled="disabled"
+      ></v-slider>
     </v-col>
     <v-col cols="2">
       <v-text-field
@@ -18,5 +22,5 @@
 
   export default
     mixins: [ VModel ]
-    props: [ 'id' ]
+    props: [ 'min', 'max', 'label', 'disabled', 'id' ]
 </script>
