@@ -8,7 +8,7 @@
         v-show="$store.state.admin.admin"
       ></nav-btn>
     </template>
-    <v-card>
+    <v-card outlined>
       <v-card-title>
         <span>Song Select</span>
         <v-spacer></v-spacer>
@@ -17,14 +17,13 @@
         <icon-btn color="warning" icon="mdi-sync" @click="syncFullList()">Reload List</icon-btn>
       </v-card-title>
       <v-container fluid>
-        <list-filter v-model="filter" id="user"></list-filter>
         <song-selector-data
           :data="displayData()"
           @select-song="selectSong($event)"
-        ></song-selector-data>
-        <pagination
-          v-model="pagination" :length="maxPage"
-        ></pagination>
+        >
+          <list-filter v-model="filter" id="user" slot="filter"></list-filter>
+          <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
+        </song-selector-data>
       </v-container>
     </v-card>
   </v-dialog>

@@ -1,33 +1,43 @@
 <template>
-  <v-row class="table-container">
+  <v-row>
     <v-col cols="12">
-      <v-data-table :items="data" :headers="headers" hide-default-footer>
-        <template #item.id="{ item }" >
-          <item-id :id="item.id" />
-        </template>
+      <v-card outlined>
+        <v-card-title>
+          <slot name="filter"></slot>
+        </v-card-title>
+        <v-card-text>
+          <v-data-table :items="data" :headers="headers" disable-filtering disable-pagination hide-default-footer>
+            <template #item.id="{ item }" >
+              <item-id :id="item.id" />
+            </template>
 
-        <template #item.src="{ item }">
-          <a :href="item.src" target="_blank">View</a>
-        </template>
+            <template #item.src="{ item }">
+              <a :href="item.src" target="_blank">View</a>
+            </template>
 
-        <template #item.action="{ item }">
-          <item-action-btn
-              color="success" @click="addAnime(item)"
-              :disabled="!$store.state.list.filename || inUserList(item)"
-              :id="`add-${item.id}-${id}`"
-            >
-              mdi-plus
-            </item-action-btn>
-            <item-action-btn
-              color="error"
-              @click="removeAnime(item)"
-              :disabled="!$store.state.list.filename || !inUserList(item)"
-              :id="`remove-${item.id}-${id}`"
-            >
-              mdi-minus
-            </item-action-btn>
-        </template>
-      </v-data-table>
+            <template #item.action="{ item }">
+              <item-action-btn
+                  color="success" @click="addAnime(item)"
+                  :disabled="!$store.state.list.filename || inUserList(item)"
+                  :id="`add-${item.id}-${id}`"
+                >
+                  mdi-plus
+                </item-action-btn>
+                <item-action-btn
+                  color="error"
+                  @click="removeAnime(item)"
+                  :disabled="!$store.state.list.filename || !inUserList(item)"
+                  :id="`remove-${item.id}-${id}`"
+                >
+                  mdi-minus
+                </item-action-btn>
+            </template>
+          </v-data-table>
+        </v-card-text>
+        <v-card-title>
+          <slot name="pagination"></slot>
+        </v-card-title>
+      </v-card>
     </v-col>
   </v-row>
 </template>
@@ -60,12 +70,3 @@
       removeAnime: (anime) ->
         this.$emit('remove-anime', anime)
 </script>
-
-
-<style scoped>
-  .table-container {
-    height: calc(100% - 70px - 70px);
-    overflow: auto;
-  }
-
-</style>

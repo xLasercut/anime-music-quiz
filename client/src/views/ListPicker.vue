@@ -1,12 +1,13 @@
 <template>
-  <v-container fluid grid-list-lg class="list-picker-container">
-    <list-filter v-model="filter" id="main"></list-filter>
+  <v-container fluid class="list-picker-container">
     <list-data
       :data="displayData()" id="main"
       @add-anime="addAnime($event)"
       @remove-anime="removeAnime($event)"
-    ></list-data>
-    <pagination v-model="pagination" :length="maxPage"></pagination>
+    >
+      <list-filter v-model="filter" id="main" slot="filter"></list-filter>
+      <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
+    </list-data>
   </v-container>
 </template>
 
@@ -48,7 +49,7 @@
 
 <style scoped>
   .list-picker-container {
-    height: calc(100vh - 60px);
-    padding: 10px;
+    height: calc(100vh - 65px);
+    overflow: auto;
   }
 </style>

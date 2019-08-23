@@ -37,9 +37,3 @@
       if !this.$socket.connected
         this.$router.push('/')
 </script>
-
-<style scoped>
-  .main-container {
-    margin: 0;
-  }
-</style>

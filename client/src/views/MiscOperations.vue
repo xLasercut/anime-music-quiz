@@ -1,8 +1,9 @@
 <template>
-  <v-container fluid grid-list-lg>
-    <emoji-filter v-model="filter"></emoji-filter>
-    <emoji-data :data="displayData()"></emoji-data>
-    <pagination v-model="pagination" :length="maxPage"></pagination>
+  <v-container fluid class="emoji-container">
+    <emoji-data :data="displayData()">
+      <emoji-filter v-model="filter" slot="filter"></emoji-filter>
+      <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
+    </emoji-data>
   </v-container>
 </template>
 
@@ -50,3 +51,10 @@
       if !this.$socket.connected
         this.$router.push('/')
 </script>
+
+<style scoped>
+  .emoji-container {
+    height: calc(100vh - 65px);
+    overflow: auto;
+  }
+</style>

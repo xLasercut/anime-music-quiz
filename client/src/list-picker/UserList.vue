@@ -6,7 +6,7 @@
         icon="mdi-playlist-music" id="user-list-btn"
       ></nav-btn>
     </template>
-    <v-card>
+    <v-card outlined>
       <v-card-title>
         <span>{{$store.state.list.filename}}</span>
         <v-spacer></v-spacer>
@@ -15,14 +15,13 @@
         <v-btn icon text small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
       </v-card-title>
       <v-container fluid grid-list-lg>
-        <list-filter v-model="filter" id="user"></list-filter>
         <list-data
           :data="displayData()" id="user"
           @remove-anime="removeAnime($event)"
-        ></list-data>
-        <pagination
-          v-model="pagination" :length="maxPage"
-        ></pagination>
+        >
+          <list-filter v-model="filter" id="user" slot="filter"></list-filter>
+          <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
+        </list-data>
       </v-container>
     </v-card>
   </v-dialog>

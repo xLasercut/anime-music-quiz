@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
-Game = () => import('./views/Game.vue')
+import Game from './views/Game.vue'
 ListPicker = () => import('./views/ListPicker.vue')
 MiscOperations = () => import('./views/MiscOperations.vue')
 

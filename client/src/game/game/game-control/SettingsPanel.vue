@@ -6,7 +6,7 @@
         icon="mdi-settings" id="game-settings-btn"
       ></nav-btn>
     </template>
-    <v-card>
+    <v-card outlined>
       <v-container>
         <v-row justify="center" no-gutters>
           <v-col cols="auto">

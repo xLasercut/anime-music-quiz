@@ -31,9 +31,6 @@
 
 
 <style scoped>
-  .pagination-container {
-    height: 70px;
-  }
 
   i {
     font-size: 5pt;

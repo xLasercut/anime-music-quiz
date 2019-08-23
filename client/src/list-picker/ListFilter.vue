@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="filter-container">
+  <v-row justify="center">
     <v-col cols="4">
       <v-text-field label="Anime" v-model="model.anime" clearable :id="`filter-anime-${id}`" hide-details></v-text-field>
     </v-col>
@@ -21,10 +21,3 @@
     data: () ->
       items: ['All', 'OP', 'ED', 'Insert']
 </script>
-
-
-<style scoped>
-  .filter-container {
-    height: 70px;
-  }
-</style>

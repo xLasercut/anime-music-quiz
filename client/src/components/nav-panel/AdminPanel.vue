@@ -9,7 +9,7 @@
         ></nav-btn>
       </v-toolbar-items>
     </template>
-    <v-card>
+    <v-card outlined>
       <v-container>
         <v-row justify="center">
           <v-col cols="auto">
