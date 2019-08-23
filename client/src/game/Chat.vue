@@ -43,11 +43,12 @@
 
 <style scoped>
   .chat-container {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 119px);
+    border-radius: 5px;
   }
 
   .message-container {
-    height: calc(100% - 165px);
+    height: calc(100% - 140px);
     width: 100%;
     overflow: auto;
     word-wrap: break-word;

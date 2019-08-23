@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" no-gutters>
     <player-card
       v-for="(player, key) in $store.state.game.players" :key="`${key}`"
       :player="player"

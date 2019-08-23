@@ -47,7 +47,6 @@
 <style scoped>
   .song-num-container {
     border-radius: 30px 30px 0 0;
-    padding: 2px;
     background: #E4E7ED;
     text-align: center;
     z-index: 3;
@@ -56,7 +55,6 @@
   .answer-container {
     background: #E4E7ED;
     font-size: 16pt;
-    padding: 5px;
     border-radius: 5px;
     text-align: center;
     z-index: 3;

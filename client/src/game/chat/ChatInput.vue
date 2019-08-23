@@ -1,10 +1,10 @@
 <template>
   <v-row justify="center">
-    <v-col cols="auto" class="input-container">
-      <v-menu v-model="show" top offset-y max-height="304px">
+    <v-col>
+      <v-menu v-model="show" top offset-y max-height="304px" :transition="false">
         <template #activator="{ on }">
           <v-textarea
-            no-resize solo flat clearable
+            no-resize solo flat clearable hide-details
             v-model.trim="message"
             @keydown.enter.exact.prevent="sendMsg()"
             @click:append="sendMsg()"
@@ -35,6 +35,7 @@
       message: ''
       show: false
       choices: []
+      choicesOldLength: 0
     watch:
       message: (val) ->
         match = this.match(val)
@@ -44,17 +45,16 @@
               return emoji
           )
           if this.choices.length > 0
-            this.show=true
+            if this.choices.length != this.choicesOldLength
+              this.choicesOldLength = this.choices.length
+              this.show = false
+            setTimeout () =>
+              this.show = true
+            , 1
           else
             this.show = false
         else
           this.show = false
-      choices: (val) ->
-        length = val.length
-        if length < 5
-          range = 4 - length
-          for i in [0..range]
-            val.push({})
     methods:
       sendMsg: () ->
         if this.message

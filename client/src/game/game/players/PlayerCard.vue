@@ -2,12 +2,12 @@
   <v-col cols="auto">
     <v-tooltip
       v-model="show" :color="player.color" min-width="160" max-width="160"
-      top transition="slide-y-reverse-transition"
+      top transition="slide-y-reverse-transition" z-index="1"
     >
       <template #activator="{ on }">
         <div class="player-card">
           <player-avatar :player="player" />
-          <v-row justify="center">
+          <v-row justify="center" no-gutters>
             <v-sheet :class="themeClass('player-name')">
               {{player.username}}
             </v-sheet>
@@ -63,7 +63,6 @@
     background: #E4E7ED;
     border-radius: 5px;
     word-wrap: break-word;
-    padding: 2px;
   }
 
   .player-score {

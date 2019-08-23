@@ -39,7 +39,7 @@
     data: () ->
       show: false
     sockets:
-      NEW_SONG: (_song, _positiong) ->
+      NEW_SONG: (_song, _position) ->
         this.show = false
       TIME_UP: () ->
         this.show = true
@@ -60,10 +60,5 @@
   .song-container {
     width: 100%;
     text-align: center;
-  }
-
-  .song-information {
-    text-align: center;
-    background: #E4E7ED;
   }
 </style>
