@@ -43,7 +43,7 @@
 
 <style scoped>
   .chat-container {
-    height: calc(100vh - 119px);
+    height: calc(100vh - 85px);
     border-radius: 5px;
   }
 

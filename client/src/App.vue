@@ -5,10 +5,6 @@
     <v-content>
       <router-view></router-view>
     </v-content>
-    <v-footer height="35">
-      <div class="flex-grow-1"></div>
-      <div>&copy; {{ new Date().getFullYear() }} Lasercut</div>
-    </v-footer>
   </v-app>
 </template>
 
