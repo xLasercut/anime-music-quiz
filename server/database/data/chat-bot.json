@@ -110,7 +110,7 @@
     }
   },
   {
-    "regex": "^flugel der feiheit$",
+    "regex": "^flugel der freiheit$",
     "flag": "i",
     "response": {
       "user": "Eren Yeager",
