@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    small icon
+    depressed x-small
     @click="$emit('click')"
     v-bind="$attrs"
   >
