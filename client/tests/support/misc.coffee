@@ -17,3 +17,6 @@ Cypress.Commands.add 'addEmoji', (command, src) =>
   cy.inputEmojiCommand(command)
   cy.inputEmojiSource(src)
   cy.confirmEmoji()
+
+Cypress.Commands.add 'filterEmoji', (command) =>
+  cy.get(map.misc.emojiFilter).clear().type(command)

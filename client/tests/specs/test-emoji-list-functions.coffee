@@ -2,6 +2,18 @@ deleteBtn = (command) ->
   return cy.get("##{command}-delete")
 
 describe 'emoji add page tests', () ->
+  it 'test emoji filter', () ->
+    cy.loginMisc()
+    cy.filterEmoji('grin')
+    deleteBtn('grinning').should('exist')
+    deleteBtn('notes').should('not.exist')
+    deleteBtn('worry').should('not.exist')
+
+    cy.filterEmoji('notes')
+    deleteBtn('grinning').should('not.exist')
+    deleteBtn('notes').should('exist')
+    deleteBtn('worry').should('not.exist')
+
   it 'test emoji input error', () ->
     cy.loginMisc()
     cy.openAddEmoji()
