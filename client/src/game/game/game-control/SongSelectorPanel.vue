@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="show" :persistent="!$store.state.admin.admin">
+  <v-dialog v-model="show" :persistent="!$store.state.admin.admin" :transition="false">
     <template v-slot:activator="{ on }">
       <nav-btn
         color="primary" :activator="on"

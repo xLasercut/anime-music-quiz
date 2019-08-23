@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-if="$store.state.list.filename" v-model="show">
+  <v-dialog v-if="$store.state.list.filename" v-model="show" :transition="false">
     <template v-slot:activator="{ on }">
       <nav-btn
         color="success" :activator="on" @click="syncUserList()"

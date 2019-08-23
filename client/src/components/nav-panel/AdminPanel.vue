@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="800" v-model="show">
+  <v-dialog width="800" v-model="show" :transition="false">
     <template v-slot:activator="{ on }">
       <v-toolbar-items>
         <nav-btn

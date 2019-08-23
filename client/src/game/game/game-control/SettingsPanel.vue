@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="500" v-model="show">
+  <v-dialog width="500" v-model="show" :transition="false">
     <template v-slot:activator="{ on }">
       <nav-btn
         :activator="on" color="info" @click="syncSettings()"
