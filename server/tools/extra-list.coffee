@@ -1358,5 +1358,13 @@ module.exports = [
     title: 'We Have To Defeat It',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: '4vP8AB3EtyU',
+    name: 'Mahoutsukai no Yome',
+    src: 'https://www.youtube.com/watch?v=4vP8AB3EtyU',
+    title: 'Lindel\'s Song',
+    artist: '',
+    type: 'Insert'
   }
 ]
