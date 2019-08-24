@@ -1345,7 +1345,7 @@ module.exports = [
   },
   {
     id: 'VQYS9wRxfE8',
-    name: 'Sword Art Online: Ordinal Scale',
+    name: 'Sword Art Online Movie: Ordinal Scale',
     src: 'https://www.youtube.com/watch?v=VQYS9wRxfE8',
     title: 'Delete',
     artist: '',
