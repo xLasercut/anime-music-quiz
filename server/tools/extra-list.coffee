@@ -1318,5 +1318,45 @@ module.exports = [
     title: 'Wheel Power & Go',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'gpoPoKqpBNY',
+    name: 'Cardfight!! Vanguard',
+    src: 'https://www.youtube.com/watch?v=gpoPoKqpBNY',
+    title: 'Vanguard',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'PBvAEASX2GI',
+    name: 'Elsword: El-ui Yeoin',
+    src: 'https://www.youtube.com/watch?v=PBvAEASX2GI',
+    title: 'Runner\'s High',
+    artist: '',
+    type: 'OP'
+  },
+  {
+    id: 'nGMJW5IC7tA',
+    name: 'Tokyo Ghoul √A',
+    src: 'https://www.youtube.com/watch?v=nGMJW5IC7tA',
+    title: 'unravel',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'VQYS9wRxfE8',
+    name: 'Sword Art Online: Ordinal Scale',
+    src: 'https://www.youtube.com/watch?v=VQYS9wRxfE8',
+    title: 'Delete',
+    artist: '',
+    type: 'Insert'
+  },
+  {
+    id: 'Mp6uzqMNTeU',
+    name: 'Sword Art Online',
+    src: 'https://www.youtube.com/watch?v=Mp6uzqMNTeU',
+    title: 'We Have To Defeat It',
+    artist: '',
+    type: 'Insert'
   }
 ]
