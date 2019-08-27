@@ -58,6 +58,11 @@
         this.show = true
         this.time = time * 1000
         this.maxTime = time * 1000
+        this.filter = {
+          song: '',
+          anime: '',
+          type: 'All'
+        }
         this.startCountdown()
       SELECT_SONG_OVER: () ->
         this.show = false
