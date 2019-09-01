@@ -88,9 +88,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'VHsG0_kKDG4',
+    id: '5slaDHrCERQ',
     name: 'Sword Art Online Alternative: Gun Gale Online',
-    src: 'https://www.youtube.com/watch?v=VHsG0_kKDG4',
+    src: 'https://www.youtube.com/watch?v=5slaDHrCERQ',
     title: 'REA(S)ON',
     artist: 'ReoNa',
     type: 'Insert'
