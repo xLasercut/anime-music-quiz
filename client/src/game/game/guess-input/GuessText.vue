@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" sm="6" md="5">
     <v-combobox
-      filled clearable full-width hide-details
+      filled clearable hide-details
       :search-input.sync="model"
       @click:append-outer="$emit('click:append-outer')"
       auto-select-first

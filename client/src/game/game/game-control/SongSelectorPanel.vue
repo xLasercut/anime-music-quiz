@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="show" :persistent="!$store.state.admin.admin" :transition="false">
+  <v-dialog v-model="show" :persistent="!$store.state.admin.admin" :transition="false" >
     <template v-slot:activator="{ on }">
       <nav-btn
         color="primary" :activator="on"
@@ -85,10 +85,10 @@
       startCountdown: () ->
         this.showTimer = true
         this.countdown = setInterval( () =>
-          this.time -= 200
+          this.time -= 1000
           if this.time <= 0
             this.stopCountdown()
-        , 200)
+        , 1000)
       stopCountdown: () ->
         clearInterval(this.countdown)
         this.showTimer = false

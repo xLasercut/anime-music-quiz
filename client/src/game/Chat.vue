@@ -28,7 +28,7 @@
         element = document.querySelector('.message-container')
         element.scrollTop = element.scrollHeight - element.clientHeight
       addMessage: (data) ->
-        if this.messages.length > 200
+        if this.messages.length > 100
           this.messages.splice(0, 1)
 
         if this.messages.length > 0

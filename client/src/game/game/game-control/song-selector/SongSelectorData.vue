@@ -7,10 +7,6 @@
         </v-card-title>
         <v-card-text>
           <v-data-table :items="data" :headers="headers" hide-default-footer disable-pagination disable-filtering>
-            <template #item.id="{ item }" >
-              <item-id :id="item.id" />
-            </template>
-
             <template #item.src="{ item }">
               <a :href="item.src" target="_blank">View</a>
             </template>
@@ -37,7 +33,6 @@
     props: [ 'data', 'id' ]
     data: () ->
       headers: [
-        { text: 'ID', value: 'id', sortable: false },
         { text: 'Anime', value: 'name', sortable: false },
         { text: 'Song', value: 'title', sortable: false },
         { text: 'Type', value: 'type', sortable: false, width: 100 },

@@ -4,7 +4,6 @@
       <v-progress-linear
         :value="percentage()"
         :color="color()"
-        striped
         height="20"
         rounded
       >
