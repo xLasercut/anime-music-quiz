@@ -88,5 +88,6 @@ module.exports = {
   'Youjo Senki': ['The Saga of Tanya the Evil'],
   'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou': ['Yuki Yuna is a Hero: The Washio Sumi Chapter'],
   'Gakusen Toshi Asterisk': ['The Asterisk War'],
-  'Gakusen Toshi Asterisk 2nd Season': ['The Asterisk War 2nd Season']
+  'Gakusen Toshi Asterisk 2nd Season': ['The Asterisk War 2nd Season'],
+  'Houseki no Kuni': ['Land of the Lustrous']
 }
