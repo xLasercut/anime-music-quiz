@@ -1,95 +1,63 @@
 <template>
-  <v-dialog v-model="show" :persistent="!$store.state.admin.admin" :transition="false" >
-    <template v-slot:activator="{ on }">
-      <nav-btn
-        color="primary" :activator="on"
-        icon="mdi-playlist-music"
-        id="game-song-select-btn"
-        v-show="$store.state.admin.admin"
-      ></nav-btn>
-    </template>
-    <v-card outlined>
-      <v-card-title>
-        <span>Song Select</span>
-        <v-spacer></v-spacer>
-        <timer-line :time="time" :max-time="maxTime" v-show="showTimer"></timer-line>
-        <v-spacer></v-spacer>
+  <nav-dialog
+    v-model="show" :persistent="!$store.state.admin.admin"
+    color="primary" icon="mdi-playlist-music" id="game-song-select-btn"
+    :show-btn="$store.state.admin.admin"
+  >
+    <v-row justify="space-between" no-gutters>
+      <v-col cols="auto">
+        Song Select
+      </v-col>
+      <v-col cols="4">
+        <timer linear :max-time="maxTime" ref="timer"></timer>
+      </v-col>
+      <v-col cols="auto">
         <icon-btn color="warning" icon="mdi-sync" @click="syncFullList()">Reload List</icon-btn>
-      </v-card-title>
-      <v-container fluid>
-        <song-selector-data
-          :data="displayData()"
-          @select-song="selectSong($event)"
-        >
-          <list-filter v-model="filter" id="user" slot="filter"></list-filter>
-          <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
-        </song-selector-data>
-      </v-container>
-    </v-card>
-  </v-dialog>
+      </v-col>
+    </v-row>
+    <list-data :data="$store.state.list.fullList">
+      <template #action="action">
+        <icon-btn
+          icon="mdi-plus" color="success" small @click="selectSong(action.props)"
+          :id="`${action.props.id}-select-btn`"
+        >select</icon-btn>
+      </template>
+    </list-data>
+  </nav-dialog>
 </template>
 
 <script lang="coffee">
   import IconBtn from '../../../components/buttons/IconBtn.vue'
-  import Pagination from '../../../components/Pagination.vue'
-  import NavBtn from '../../../components/buttons/NavBtn.vue'
-  import TableFilter from '../../../list-picker/mixins/table-filter.coffee'
-  import SongSelectorData from './song-selector/SongSelectorData.vue'
   import Notification from '../../../assets/mixins/notification.coffee'
-  import TimerLine from '../shared/TimerLine.vue'
+  import Timer from '../shared/Timer.vue'
+  import ListData from '../../../list-picker/ListData.vue'
+  import NavDialog from '../../../components/buttons/NavDialog.vue'
 
   export default
-    mixins: [ TableFilter, Notification ]
-    components: { IconBtn, Pagination, NavBtn, SongSelectorData, TimerLine }
+    mixins: [ Notification ]
+    components: { IconBtn, NavDialog, ListData, Timer }
     data: () ->
-      pagination: {
-        currentPage: 1,
-        pageSize: 5
-      }
-      maxPage: 1
       show: false
       songList: []
-      countdown: null
-      time: 15000
-      maxTime: 15000
-      showTimer: false
+      maxTime: 20
     sockets:
       SELECT_SONG: (time) ->
         this.show = true
-        this.time = time * 1000
-        this.maxTime = time * 1000
-        this.filter = {
-          song: '',
-          anime: '',
-          type: 'All'
-        }
-        this.startCountdown()
+        this.maxTime = time
+        setTimeout () =>
+          this.$refs.timer.startCountdown()
+        , 1
       SELECT_SONG_OVER: () ->
+        this.$refs.timer.stopCountdown()
         this.show = false
-        this.stopCountdown()
       RESET: () ->
-        this.stopCountdown()
+        if this.$refs.timer
+          this.$refs.timer.stopCountdown()
     methods:
-      displayData: () ->
-        filteredData = this.filteredData(this.$store.state.list.fullList)
-        start = (this.pagination.currentPage - 1) * this.pagination.pageSize
-        end = start + this.pagination.pageSize
-        this.maxPage = Math.ceil(filteredData.length / this.pagination.pageSize)
-        return filteredData.slice(start, end)
       syncFullList: () ->
         this.$socket.emit('SYNC_FULL_LIST')
       selectSong: (song) ->
         this.$socket.emit('SONG_OVERRIDE', song, (data) =>
           this.notifySuccess("Song selected: #{data.name} - #{data.title}")
         )
-      startCountdown: () ->
-        this.showTimer = true
-        this.countdown = setInterval( () =>
-          this.time -= 1000
-          if this.time <= 0
-            this.stopCountdown()
-        , 1000)
-      stopCountdown: () ->
-        clearInterval(this.countdown)
-        this.showTimer = false
 </script>

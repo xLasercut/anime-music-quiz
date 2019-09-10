@@ -1,12 +1,8 @@
 <template>
-  <v-toolbar-items v-if="$route.path == '/game'">
+  <v-toolbar-items>
     <song-selector-panel></song-selector-panel>
-    <nav-btn color="success" v-if="showPlay" @click="play()" icon="mdi-play" id="game-play-btn">
-      Start
-    </nav-btn>
-    <nav-btn color="error" v-if="showStop" @click="stop()" icon="mdi-stop" id="game-stop-btn">
-      Stop
-    </nav-btn>
+    <nav-btn color="success" v-if="showPlay" @click="play()" icon="mdi-play" id="game-play-btn"></nav-btn>
+    <nav-btn color="error" v-if="showStop" @click="stop()" icon="mdi-stop" id="game-stop-btn"></nav-btn>
     <settings-panel></settings-panel>
     <volume-slider></volume-slider>
   </v-toolbar-items>

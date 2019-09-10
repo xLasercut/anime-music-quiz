@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" sm="3" class="info-container">
-    <v-card elevation="0" :class="themeClass()">
+    <v-card tile flat :class="themeClass()">
       <v-card-text>
         <div class="song-container">
           <div>

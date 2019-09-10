@@ -1,6 +1,6 @@
 <template>
-  <v-row justify="center">
-    <v-col xs="12" sm="6">
+  <v-row justify="center" no-gutters>
+    <v-col cols="12" sm="6">
       <v-text-field
         filled clearable
         v-model.trim="model"

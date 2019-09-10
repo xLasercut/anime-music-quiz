@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    depressed x-small
+    depressed x-small tile
     @click="$emit('click')"
     v-bind="$attrs"
   >

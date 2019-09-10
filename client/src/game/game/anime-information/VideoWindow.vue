@@ -7,7 +7,7 @@
         <normal-video ref="normal" @loaded="confirmLoad()" :volume="volume" :start="start" v-show="show.normal">
         </normal-video>
         <video-overlay v-show="overlay">
-          <countdown></countdown>
+          <timer :maxTime="guessTime" ref="timer" v-show="!loading"></timer>
           <loading v-if="loading"></loading>
         </video-overlay>
       </v-col>
@@ -18,12 +18,12 @@
 <script lang="coffee">
   import YoutubeVideo from './video-window/YoutubeVideo.vue'
   import NormalVideo from './video-window/NormalVideo.vue'
-  import Countdown from './video-window/Countdown.vue'
   import Loading from '../../../components/Loading.vue'
   import VideoOverlay from './video-window/VideoOverlay.vue'
+  import Timer from '../shared/Timer.vue'
 
   export default
-    components: { YoutubeVideo, NormalVideo, Countdown, Loading, VideoOverlay }
+    components: { YoutubeVideo, NormalVideo, Timer, Loading, VideoOverlay }
     props:
       volume: {
         type: Number
@@ -35,7 +35,8 @@
       },
       start: 0,
       loading: false,
-      overlay: false
+      overlay: false,
+      guessTime: 30
     sockets:
       NEW_SONG: (song, position) ->
         this.loading = true
@@ -45,16 +46,20 @@
         this.overlay = true
         this.show[this.playerType()] = true
         this.$refs[this.playerType()].load()
-      START_COUNTDOWN: () ->
+      START_COUNTDOWN: (guessTime) ->
+        this.guessTime = guessTime
         this.loading = false
+        setTimeout () =>
+          this.$refs.timer.startCountdown()
+        , 1
         this.$refs[this.playerType()].play()
       TIME_UP: () ->
+        this.$refs.timer.stopCountdown()
         this.overlay = false
       RESET: () ->
+        this.$refs.timer.stopCountdown()
+        this.loading = false
         this.$refs[this.playerType()].pause()
-      PLACE_BET: () ->
-        this.$refs[this.playerType()].pause()
-        this.show[this.playerType()] = false
     methods:
       confirmLoad: () ->
         this.$refs[this.playerType()].setPosition()

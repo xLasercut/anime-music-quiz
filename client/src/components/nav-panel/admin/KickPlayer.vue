@@ -11,7 +11,7 @@
       </v-select>
     </v-col>
     <v-col cols="auto">
-      <v-btn depressed color="error" @click="kickPlayer()">Kick</v-btn>
+      <v-btn depressed tile color="error" @click="kickPlayer()">Kick</v-btn>
     </v-col>
   </v-row>
 </template>

@@ -9,7 +9,7 @@
 </template>
 
 <script lang="coffee">
-  import NavPanel from './components/nav-panel/NavPanel.vue'
+  import NavPanel from './components/NavPanel.vue'
   import GameNotification from './components/GameNotification.vue'
   import Notification from './assets/mixins/notification.coffee'
 

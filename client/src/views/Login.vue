@@ -1,8 +1,6 @@
 <template>
-  <v-container fluid grid-list-lg>
-    <game-form v-if="displayForm('game')"></game-form>
-    <list-form v-if="displayForm('list')"></list-form>
-    <misc-form v-if="displayForm('misc')"></misc-form>
+  <v-container>
+    <component :is="component"></component>
   </v-container>
 </template>
 
@@ -11,6 +9,12 @@
   import ListForm from '../login/ListForm.vue'
   import MiscForm from '../login/MiscForm.vue'
 
+  components = {
+    'game': GameForm,
+    'list': ListForm,
+    'misc': MiscForm
+  }
+
   export default
     components: { GameForm, ListForm, MiscForm }
     methods:
@@ -18,6 +22,9 @@
         if this.$store.state.mode == type
           return true
         return false
+    computed:
+      component: () ->
+        return components[this.$store.state.mode]
     mounted: () ->
       if this.$socket.connected
         this.$socket.close()

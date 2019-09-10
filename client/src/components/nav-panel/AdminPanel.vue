@@ -1,29 +1,18 @@
 <template>
-  <v-dialog width="800" v-model="show" :transition="false">
-    <template v-slot:activator="{ on }">
-      <v-toolbar-items>
-        <nav-btn
-          color="warning" @click="syncAdminInfo()"
-          v-show="$store.state.admin.admin" :activator="on"
-          icon="mdi-shield-account" id="admin-btn"
-        ></nav-btn>
-      </v-toolbar-items>
-    </template>
-    <v-card outlined>
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="auto">
-            Admin
-          </v-col>
-        </v-row>
-        <kick-player :player-list="playerList"></kick-player>
-        <name-changer :player-list="playerList"></name-changer>
-        <database-operations />
-        <system-message></system-message>
-        <song-answer></song-answer>
-      </v-container>
-    </v-card>
-  </v-dialog>
+  <v-toolbar-items>
+    <nav-dialog :show-btn="$store.state.admin.admin" color="warning" icon="mdi-shield-account" id="admin-btn" @click="syncAdminInfo()">
+      <v-row justify="center" no-gutters>
+        <v-col cols="auto">
+          Admin
+        </v-col>
+      </v-row>
+      <kick-player :player-list="playerList"></kick-player>
+      <name-changer :player-list="playerList"></name-changer>
+      <database-operations />
+      <system-message></system-message>
+      <song-answer></song-answer>
+    </nav-dialog>
+  </v-toolbar-items>
 </template>
 
 <script lang="coffee">
@@ -31,13 +20,12 @@
   import DatabaseOperations from './admin/DatabaseOperations.vue'
   import SystemMessage from './admin/SystemMessage.vue'
   import SongAnswer from './admin/SongAnswer.vue'
-  import NavBtn from '../buttons/NavBtn.vue'
   import NameChanger from './admin/NameChanger.vue'
+  import NavDialog from '../buttons/NavDialog.vue'
 
   export default
-    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseOperations, NavBtn, NameChanger }
+    components: { KickPlayer, SystemMessage, SongAnswer, DatabaseOperations, NameChanger, NavDialog }
     data: () ->
-      show: false,
       playerList: {}
     methods:
       syncAdminInfo: () ->

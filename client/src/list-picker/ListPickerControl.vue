@@ -1,9 +1,7 @@
 <template>
-  <v-toolbar-items v-if="$route.path == '/list-picker'">
+  <v-toolbar-items>
     <list-selector></list-selector>
-    <nav-btn color="warning" @click="reload()" icon="mdi-sync" id="full-list-reload-btn">
-      Reload
-    </nav-btn>
+    <nav-btn color="warning" @click="reload()" icon="mdi-sync" id="full-list-reload-btn"></nav-btn>
     <user-list></user-list>
   </v-toolbar-items>
 </template>

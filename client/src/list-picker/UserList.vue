@@ -1,56 +1,35 @@
 <template>
-  <v-dialog v-if="$store.state.list.filename" v-model="show" :transition="false">
-    <template v-slot:activator="{ on }">
-      <nav-btn
-        color="success" :activator="on" @click="syncUserList()"
-        icon="mdi-playlist-music" id="user-list-btn"
-      ></nav-btn>
-    </template>
-    <v-card outlined>
-      <v-card-title>
-        <span>{{$store.state.list.filename}}</span>
-        <v-spacer></v-spacer>
+  <nav-dialog
+    v-if="$store.state.list.filename" v-model="show"
+    color="success" icon="mdi-playlist-music" id="user-list-btn"
+    @click="syncUserList()"
+  >
+    <v-row justify="space-between" no-gutters>
+      <v-col cols="auto">
+        {{$store.state.list.filename}}
+      </v-col>
+      <v-col cols="auto">
         <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
-        <v-spacer></v-spacer>
+      </v-col>
+      <v-col cols="auto">
         <v-btn icon text small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
-      </v-card-title>
-      <v-container fluid grid-list-lg>
-        <list-data
-          :data="displayData()" id="user"
-          @remove-anime="removeAnime($event)"
-        >
-          <list-filter v-model="filter" id="user" slot="filter"></list-filter>
-          <pagination v-model="pagination" :length="maxPage" slot="pagination"></pagination>
-        </list-data>
-      </v-container>
-    </v-card>
-  </v-dialog>
+      </v-col>
+    </v-row>
+    <list-data :data="$store.state.list.userList" id="user" @remove-anime="removeAnime($event)"></list-data>
+  </nav-dialog>
 </template>
 
 <script lang="coffee">
   import ListData from './ListData.vue'
   import IconBtn from '../components/buttons/IconBtn.vue'
-  import Pagination from '../components/Pagination.vue'
   import NavBtn from '../components/buttons/NavBtn.vue'
-  import TableFilter from './mixins/table-filter.coffee'
+  import NavDialog from '../components/buttons/NavDialog.vue'
 
   export default
-    mixins: [ TableFilter ]
-    components: { ListData, IconBtn, Pagination, NavBtn }
+    components: { ListData, IconBtn, NavDialog }
     data: () ->
-      pagination: {
-        currentPage: 1,
-        pageSize: 5
-      }
-      maxPage: 1
       show: false
     methods:
-      displayData: () ->
-        filteredData = this.filteredData(this.$store.state.list.userList)
-        start = (this.pagination.currentPage - 1) * this.pagination.pageSize
-        end = start + this.pagination.pageSize
-        this.maxPage = Math.ceil(filteredData.length / this.pagination.pageSize)
-        return filteredData.slice(start, end)
       download: () ->
         jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)
         blob = new Blob([jsonstring], {type: 'text/plain'})

@@ -8,7 +8,7 @@
         Add Emoji
       </icon-btn>
     </template>
-    <v-card outlined>
+    <v-card flat>
       <v-container>
         <v-row justify="center">
           <v-col cols="auto">
@@ -16,7 +16,7 @@
           </v-col>
         </v-row>
         <v-form ref="emojiForm">
-          <v-row justify="center">
+          <v-row justify="center" no-gutters>
             <v-col cols="10">
               <v-text-field
                 label="Command"

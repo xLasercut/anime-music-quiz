@@ -1,6 +1,6 @@
 <template>
   <v-form ref="loginForm">
-    <v-container fluid>
+    <v-container>
       <v-row justify="center">
         <v-col cols="auto">
           <h2>Game</h2>
@@ -22,22 +22,12 @@
             label="Score"
             v-model.number="form.score"
             :rules="scoreRules" type="number"
-            filled min="0" max="1000"
+            filled min="0" max="200"
             id="score-input" :disabled="loading"
           />
         </v-col>
       </v-row>
-      <v-row justify="center">
-        <v-col cols="auto">
-          <icon-btn
-            color="success" icon="mdi-login"
-            @click="login()"
-            id="login-btn" :disabled="loading"
-          >
-            Login
-          </icon-btn>
-        </v-col>
-      </v-row>
+      <login-btn @click="login()" :disabled="loading" />
     </v-container>
   </v-form>
 </template>
@@ -49,6 +39,7 @@
   import FormInputPassword from './form/FormInputPassword.vue'
   import Notification from '../assets/mixins/notification.coffee'
   import FormAvatar from './form/FormAvatar.vue'
+  import LoginBtn from './form/LoginBtn.vue'
 
   avatars = ['zero_2', 'lelouch', 'horo', 'madoka', 'alphonse', 'misaka', 'miyu', 'taj']
 
@@ -57,7 +48,7 @@
     password = 'password'
 
   export default
-    components: { IconBtn, FormInput, FormInputPassword, FormAvatar }
+    components: { IconBtn, FormInput, FormInputPassword, FormAvatar, LoginBtn }
     mixins: [ Notification ]
     data: () ->
       form: {
@@ -72,7 +63,7 @@
         (v) => this.isValidNameLength(v) || 'Username must be under 20 characters'
       ],
       scoreRules: [
-        (v) => v >= 0 and v <= 100 || 'Score must be between 0 and 100',
+        (v) => v >= 0 and v <= 200 || 'Score must be between 0 and 100',
         (v) => Number.isInteger(v) || 'Score must be a number'
       ],
       avatars: avatars,

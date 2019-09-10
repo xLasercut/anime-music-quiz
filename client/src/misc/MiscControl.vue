@@ -1,8 +1,6 @@
 <template>
-  <v-toolbar-items v-if="$route.path == '/misc'">
-    <nav-btn color="warning" @click="reload()" icon="mdi-sync">
-      Reload
-    </nav-btn>
+  <v-toolbar-items>
+    <nav-btn color="warning" @click="reload()" icon="mdi-sync"></nav-btn>
   </v-toolbar-items>
 </template>
 

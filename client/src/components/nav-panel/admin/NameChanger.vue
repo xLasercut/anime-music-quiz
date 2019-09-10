@@ -13,8 +13,8 @@
     <v-col cols="4">
       <v-text-field label="New Name" v-model="newName"></v-text-field>
     </v-col>
-    <v-col cols="3">
-      <v-btn block depressed color="warning" @click="changeName()">Change Name</v-btn>
+    <v-col cols="auto">
+      <v-btn depressed tile color="warning" @click="changeName()">Change Name</v-btn>
     </v-col>
   </v-row>
 </template>
