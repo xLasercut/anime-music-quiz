@@ -744,22 +744,6 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'KWZfnlYUB_4',
-    name: 'Brother Conflict',
-    src: 'https://www.youtube.com/watch?v=KWZfnlYUB_4',
-    title: 'Beloved x Survival',
-    artist: '',
-    type: 'OP'
-  },
-  {
-    id: 'q01-PJDxdMw',
-    name: 'Brother Conflict',
-    src: 'https://www.youtube.com/watch?v=q01-PJDxdMw',
-    title: '14 To 1',
-    artist: '',
-    type: 'ED'
-  },
-  {
     id: 'TwNbMVhRfgs',
     name: 'La Corda d\'Oro: Blue Sky',
     src: 'https://www.youtube.com/watch?v=TwNbMVhRfgs',
