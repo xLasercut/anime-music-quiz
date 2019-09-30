@@ -1342,5 +1342,13 @@ module.exports = [
     title: 'Lindel\'s Song',
     artist: '',
     type: 'Insert'
+  },
+  {
+    id: 'Dmew2CzifxU',
+    name: 'Initial D Third Stage',
+    src: 'https://www.youtube.com/watch?v=Dmew2CzifxU',
+    title: 'Strike On',
+    artist: '',
+    type: 'Insert'
   }
 ]
