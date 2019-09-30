@@ -55,5 +55,8 @@ module.exports = {
   },
   'BlackLagoon-ED1': {
     altName: ['Black Lagoon']
+  },
+  'Dmew2CzifxU': {
+    altName: ['Initial D Final Stage']
   }
 }
