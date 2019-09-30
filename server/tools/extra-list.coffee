@@ -384,14 +384,6 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'jmKRgqWGrWc',
-    name: 'Evangelion: 1.0 You Are (Not) Alone',
-    src: 'https://www.youtube.com/watch?v=jmKRgqWGrWc',
-    title: 'Beautiful World',
-    artist: '',
-    type: 'ED'
-  },
-  {
     id: 'r-gLMkLuhtE',
     name: 'Evangelion: 2.0 You Can (Not) Advance',
     src: 'https://www.youtube.com/watch?v=r-gLMkLuhtE',
