@@ -1272,9 +1272,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'Q-klPc3JWDE',
+    id: 'bfcBzCLuchY',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=Q-klPc3JWDE',
+    src: 'https://www.youtube.com/watch?v=bfcBzCLuchY',
     title: 'Full Metal Cars',
     artist: '',
     type: 'Insert'
