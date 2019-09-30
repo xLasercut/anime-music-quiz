@@ -952,9 +952,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'ko-mjerzNlY',
+    id: 'ZvGx8T0Vmnc',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=ko-mjerzNlY',
+    src: 'https://www.youtube.com/watch?v=ZvGx8T0Vmnc',
     title: 'When The Sun Goes Down',
     artist: '',
     type: 'Insert'
@@ -1216,9 +1216,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'sk1Q-BFgnPM',
+    id: 'up6Nxg17opQ',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=sk1Q-BFgnPM',
+    src: 'https://www.youtube.com/watch?v=up6Nxg17opQ',
     title: 'The Top',
     artist: '',
     type: 'Insert'
@@ -1232,17 +1232,17 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'cXg1Y3utm4E',
+    id: '_3GxZ4iLv9o',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=cXg1Y3utm4E',
+    src: 'https://www.youtube.com/watch?v=_3GxZ4iLv9o',
     title: 'Limousine',
     artist: '',
     type: 'Insert'
   },
   {
-    id: 'ivhqJrcl-V8',
+    id: 'GU7AORVjU_8',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=ivhqJrcl-V8',
+    src: 'https://www.youtube.com/watch?v=GU7AORVjU_8',
     title: 'A Perfect Hero',
     artist: '',
     type: 'Insert'
@@ -1280,9 +1280,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'ZbuXJvvjBi4',
+    id: 'TkXHh7AYLtA',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=ZbuXJvvjBi4',
+    src: 'https://www.youtube.com/watch?v=TkXHh7AYLtA',
     title: 'Speedy Runner',
     artist: '',
     type: 'Insert'
@@ -1296,9 +1296,9 @@ module.exports = [
     type: 'Insert'
   },
   {
-    id: 'y6g5oOPN9To',
+    id: 'ZxkuNuTwdlk',
     name: 'Initial D Fifth Stage',
-    src: 'https://www.youtube.com/watch?v=y6g5oOPN9To',
+    src: 'https://www.youtube.com/watch?v=ZxkuNuTwdlk',
     title: 'Wheel Power & Go',
     artist: '',
     type: 'Insert'
