@@ -19,7 +19,7 @@
       timeout: null
     sockets:
       RESET: () ->
-        clearInterval(this.timeout)
+        this.clearTimeout()
         this.endLoad()
     computed:
       playerVars: () ->
@@ -34,6 +34,8 @@
       ready: (event) ->
         this.player = event.target
       getId: (url) ->
+        if !url:
+          return ''
         return this.$youtube.getIdFromURL(url)
       videoId: () ->
         if this.$store.state.game.currentSong.src and this.$store.state.game.currentSong.src.includes('youtube')
@@ -53,7 +55,7 @@
               this.endLoad()
               this.videoDuration = duration
               this.$emit('loaded')
-              clearInterval(this.timeout)
+              this.clearTimeout()
         , 500)
       startLoad: () ->
         if !this.playing
@@ -67,7 +69,10 @@
       setPosition: () ->
         this.player.seekTo(this.getStartPosition(), true)
       play: () ->
+        this.clearTimeout()
         this.player.playVideo()
       pause: () ->
         this.player.pauseVideo()
+      clearTimeout: () ->
+        clearInterval(this.timeout)
 </script>
