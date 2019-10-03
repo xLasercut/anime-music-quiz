@@ -34,7 +34,7 @@
       ready: (event) ->
         this.player = event.target
       getId: (url) ->
-        if !url:
+        if !url
           return ''
         return this.$youtube.getIdFromURL(url)
       videoId: () ->
