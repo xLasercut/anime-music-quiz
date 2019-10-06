@@ -69,6 +69,7 @@
       setPosition: () ->
         this.player.seekTo(this.getStartPosition(), true)
       play: () ->
+        this.endLoad()
         this.clearTimeout()
         this.player.playVideo()
       pause: () ->
