@@ -2,38 +2,38 @@ q = require 'q'
 
 class Timer
   constructor: () ->
-    @time = 0
-    @countdown = null
-    @timeout = null
+    this.time = 0
+    this.countdown = null
+    this.timeout = null
 
   startCountdown: (time, playerManagement, type) ->
-    @resetCountdown()
+    this.resetCountdown()
     deferred = q.defer()
-    @time = 0
-    @countdown = setInterval () =>
-      @time += 500
-      if playerManagement.checkAllReady(type) or @time >= time
-        @resetCountdown()
+    this.time = 0
+    this.countdown = setInterval () =>
+      this.time += 500
+      if playerManagement.checkAllReady(type) or this.time >= time
+        this.resetCountdown()
         deferred.resolve(true)
     , 500
     deferred.promise
 
   startTimeout: (time) ->
-    @resetTimeout()
+    this.resetTimeout()
     deferred = q.defer()
-    @timeout = setTimeout () =>
+    this.timeout = setTimeout () =>
       deferred.resolve(true)
     , time
     deferred.promise
 
   startCountdownSingle: (time, playerManagement, id, type) ->
-    @resetCountdown()
+    this.resetCountdown()
     deferred = q.defer()
-    @time = 0
-    @countdown = setInterval () =>
-      @time += 500
-      if playerManagement.checkSingleReady(id, type) or @time >= time
-        @resetCountdown()
+    this.time = 0
+    this.countdown = setInterval () =>
+      this.time += 500
+      if playerManagement.checkSingleReady(id, type) or this.time >= time
+        this.resetCountdown()
         deferred.resolve(true)
     , 500
     deferred.promise
@@ -41,7 +41,7 @@ class Timer
   newRound: (newRound) ->
     deferred = q.defer()
     if newRound
-      @timeout = setTimeout () =>
+      this.timeout = setTimeout () =>
         deferred.resolve(true)
       , 10000
     else
@@ -49,10 +49,10 @@ class Timer
     deferred.promise
 
   resetCountdown: () ->
-    clearInterval(@countdown)
+    clearInterval(this.countdown)
 
   resetTimeout: () ->
-    clearTimeout(@timeout)
+    clearTimeout(this.timeout)
 
 
 module.exports = Timer

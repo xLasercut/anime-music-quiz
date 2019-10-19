@@ -1,52 +1,52 @@
 if process.env.NODE_ENV == 'test'
-  lists = [ 'test-user.json', 'test-user2.json' ]
+  lists = [ 'test-user', 'test-user2' ]
 else
   lists = []
 
 class Settings
-  constructor: (io, logObject, chat) ->
-    @io = io
-    @logObject = logObject
-    @chat = chat
-    @songCount = 20
-    @guessTime = 30
-    @lists = lists
-    @mode = 'normal'
-    @duplicate = false
-    @selectTime = 20
+  constructor: (io, logger, chat) ->
+    this.io = io
+    this.logger = logger
+    this.chat = chat
+    this.songCount = 20
+    this.guessTime = 30
+    this.lists = lists
+    this.mode = 'normal'
+    this.duplicate = false
+    this.selectTime = 20
 
-  listen: (socket) ->
+  startListeners: (socket) ->
     socket.on 'SYNC_SETTINGS', () =>
-      @logObject.writeLog('SETTING001', { id: socket.id })
-      socket.emit('SYNC_SETTINGS', @serialize())
+      this.logger.writeLog('SETTING001', { id: socket.id })
+      socket.emit('SYNC_SETTINGS', this.serialize())
 
     socket.on 'UPDATE_SETTINGS', (settings) =>
-      @songCount = settings.songCount
-      @guessTime = settings.guessTime
-      @lists = settings.lists
-      @mode = settings.mode
-      @duplicate = settings.duplicate
-      @selectTime = settings.selectTime
+      this.songCount = settings.songCount
+      this.guessTime = settings.guessTime
+      this.lists = settings.lists
+      this.mode = settings.mode
+      this.duplicate = settings.duplicate
+      this.selectTime = settings.selectTime
 
-      @logObject.writeLog('SETTING002', {
-        songCount: @songCount,
-        guessTime: @guessTime,
-        mode: @mode,
-        lists: @lists.join('|'),
-        duplicate: @duplicate,
-        selectTime: @selectTime
+      this.logger.writeLog('SETTING002', {
+        songCount: this.songCount,
+        guessTime: this.guessTime,
+        mode: this.mode,
+        lists: this.lists.join('|'),
+        duplicate: this.duplicate,
+        selectTime: this.selectTime
       })
-      @io.emit('SYNC_SETTINGS', @serialize())
-      @chat.systemMsg('Game settings updated')
+      this.io.emit('SYNC_SETTINGS', this.serialize())
+      this.chat.systemMsg('Game settings updated')
 
   serialize: () ->
     return {
-      songCount: @songCount,
-      guessTime: @guessTime,
-      lists: @lists,
-      mode: @mode,
-      duplicate: @duplicate,
-      selectTime: @selectTime
+      songCount: this.songCount,
+      guessTime: this.guessTime,
+      lists: this.lists,
+      mode: this.mode,
+      duplicate: this.duplicate,
+      selectTime: this.selectTime
     }
 
 module.exports = Settings

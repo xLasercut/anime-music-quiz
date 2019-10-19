@@ -1,3 +1,8 @@
+fmaId = 'd77c3248-2986-495e-b5c9-ab21151ae501'
+aotId = 'e7096454-f0b1-4041-b21d-478dc9c9d253'
+ggoReasonId = '15eeddb9-0800-4d87-adf8-1df8e7662011'
+ggoPilgrimId = '81ced164-9d4f-403e-b3f6-9e495f4a2509'
+
 getActionBtn = (id, type) ->
   return cy.get("##{type}-#{id}")
 
@@ -36,94 +41,94 @@ describe 'test song list functions', () ->
 
     # Add Anime
     cy.loginList()
-    cy.selectUserList('test-user.json')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'be.enabled', 'be.disabled')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'be.enabled', 'be.disabled')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
-    cy.addAnime('ShingekiNoKyojin-OP1', type)
+    cy.selectUserList('test-user')
+    cy.assertActionBtns(fmaId, type, 'be.enabled', 'be.disabled')
+    cy.assertActionBtns(aotId, type, 'be.enabled', 'be.disabled')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
+    cy.addAnime(aotId, type)
 
     # Remove Anime
     cy.loginList()
-    cy.selectUserList('test-user.json')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'be.enabled', 'be.disabled')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'be.disabled', 'be.enabled')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
-    cy.removeAnime('ShingekiNoKyojin-OP1', type)
+    cy.selectUserList('test-user')
+    cy.assertActionBtns(fmaId, type, 'be.enabled', 'be.disabled')
+    cy.assertActionBtns(aotId, type, 'be.disabled', 'be.enabled')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
+    cy.removeAnime(aotId, type)
 
     # Check Removed
     cy.loginList()
-    cy.selectUserList('test-user.json')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'be.enabled', 'be.disabled')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'be.enabled', 'be.disabled')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
+    cy.selectUserList('test-user')
+    cy.assertActionBtns(fmaId, type, 'be.enabled', 'be.disabled')
+    cy.assertActionBtns(aotId, type, 'be.enabled', 'be.disabled')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
 
   it 'test remove anime user list', () ->
     type = 'user'
     cy.loginList()
-    cy.selectUserList('test-user.json')
+    cy.selectUserList('test-user')
     cy.openUserList()
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
     cy.closeUserList()
-    cy.addAnime('ShingekiNoKyojin-OP1', 'main')
+    cy.addAnime(aotId, 'main')
 
     cy.loginList()
-    cy.selectUserList('test-user.json')
+    cy.selectUserList('test-user')
     cy.openUserList()
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'be.disabled', 'be.enabled')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
-    cy.removeAnime('ShingekiNoKyojin-OP1', type)
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'be.disabled', 'be.enabled')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
+    cy.removeAnime(aotId, type)
 
     cy.loginList()
-    cy.selectUserList('test-user.json')
+    cy.selectUserList('test-user')
     cy.openUserList()
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'be.disabled', 'be.enabled')
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'be.disabled', 'be.enabled')
 
   it 'test anime filter', () ->
     type = 'main'
     cy.loginList()
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'exist', 'exist')
+    cy.assertActionBtns(fmaId, type, 'exist', 'exist')
+    cy.assertActionBtns(aotId, type, 'exist', 'exist')
+    cy.assertActionBtns(ggoReasonId, type, 'exist', 'exist')
 
     # Standard name
     cy.animeFilter(type).clear().type('fullmetal')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'exist', 'exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
     cy.animeFilter(type).clear().type('FULLMETAL')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'exist', 'exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
 
     # Alt name
     cy.animeFilter(type).clear().type('attack on')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'exist', 'exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
     cy.animeFilter(type).clear().type('ATTACK ON')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'exist', 'exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
 
     # Song
     cy.animeFilter(type).clear()
     cy.songFilter(type).clear().type('again')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'exist', 'exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
     cy.songFilter(type).clear().type('AGAIN')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'exist', 'exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(fmaId, type, 'exist', 'exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'not.exist', 'not.exist')
 
     # Type
     cy.songFilter(type).clear()
     cy.selectTypeFilter(type, 'Insert')
-    cy.assertActionBtns('FullmetalAlchemistBrotherhood-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('ShingekiNoKyojin-OP1', type, 'not.exist', 'not.exist')
-    cy.assertActionBtns('VHsG0_kKDG4', type, 'exist', 'exist')
+    cy.assertActionBtns(fmaId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(aotId, type, 'not.exist', 'not.exist')
+    cy.assertActionBtns(ggoReasonId, type, 'exist', 'exist')

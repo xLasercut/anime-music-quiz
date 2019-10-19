@@ -1,25 +1,26 @@
 express = require 'express'
 socketio = require 'socket.io'
-LogObject = require './src/logging/log-object.coffee'
-GameListener = require './src/game/listener.coffee'
-ListListener = require './src/list/listener.coffee'
-AdminListener = require './src/admin/listener.coffee'
-MiscListener = require './src/misc/listener.coffee'
+Logger = require './src/logging/logging.coffee'
+AMQDatabase = require './database/database.coffee'
+ListManager = require './src/list/index.coffee'
+GameManager = require './src/game/index.coffee'
+MiscManager = require './src/misc/index.coffee'
+AdminManager = require './src/admin/index.coffee'
 config = require './src/config.coffee'
 
 app = express()
-logObject = new LogObject()
+logger = new Logger()
 
-port = 3001
-server = app.listen port, () ->
-  logObject.writeLog('SERVER001', { port: port })
+server = app.listen config.serverPort, () ->
+  logger.writeLog('SERVER001', { port: config.serverPort })
 
 io = socketio(server)
 
-gameListener = new GameListener(io, logObject)
-listListener = new ListListener(io, logObject)
-adminListener = new AdminListener(io, logObject, gameListener, listListener)
-miscListenter = new MiscListener(io, logObject)
+db = new AMQDatabase()
+listManager = new ListManager(io, logger, db)
+gameManager = new GameManager(io, logger, db)
+miscManager = new MiscManager(io, logger, db)
+adminManager = new AdminManager(io, logger, gameManager, listManager, db)
 
 checkPassword = (socket, password) ->
   if password == config.adminPassword or password == config.serverPassword
@@ -29,17 +30,17 @@ checkPassword = (socket, password) ->
 
 startListeners = (socket, callback) ->
   if socket.auth
-    logObject.writeLog('AUTH001', { id: socket.id, admin: socket.admin })
+    logger.writeLog('AUTH001', { id: socket.id, admin: socket.admin })
     socket.emit('SYNC_ADMIN', socket.admin)
-    gameListener.listen(socket)
-    listListener.listen(socket)
-    miscListenter.listen(socket)
+    listManager.startListeners(socket)
+    gameManager.startListeners(socket)
+    miscManager.startListeners(socket)
     if socket.admin
-      adminListener.listen(socket)
+      adminManager.startListeners(socket)
   callback(socket.auth, socket.admin)
 
 io.on 'connection', (socket) ->
-  logObject.writeLog('SERVER002', { id: socket.id })
+  logger.writeLog('SERVER002', { id: socket.id })
   socket.auth = false
   socket.admin = false
 
@@ -49,9 +50,9 @@ io.on 'connection', (socket) ->
 
   setTimeout( () =>
     if !socket.auth
-      logObject.writeLog('AUTH002', { id: socket.id })
+      logger.writeLog('AUTH002', { id: socket.id })
       socket.disconnect('unauthorized')
   , 1000)
 
   socket.on 'disconnect', () =>
-    logObject.writeLog('SERVER003', { id: socket.id })
+    logger.writeLog('SERVER003', { id: socket.id })

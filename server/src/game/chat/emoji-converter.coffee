@@ -1,12 +1,12 @@
-{ emojiList } = require '../../shared-classes.coffee'
 
 class EmojiConverter
-  constructor: (logObject) ->
-    @logObject = logObject
+  constructor: (logger, db) ->
+    this.logger = logger
+    this.db = db
 
   addEmoji: (message) ->
     output = message
-    emojis = emojiList.read()
+    emojis = this.db.emojiList
     for item in emojis
       emoji = new RegExp(":#{item.command}:", 'gi')
       if item.type == "img"

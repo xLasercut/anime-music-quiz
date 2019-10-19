@@ -1,12 +1,11 @@
-{ chatBotList } = require '../../shared-classes.coffee'
-
 class ChatBot
-  constructor: (io) ->
-    @io = io
+  constructor: (io, db) ->
+    this.io = io
+    this.db = db
 
 
   respond: (message) ->
-    for item in chatBotList.read()
+    for item in this.db.botList
       pattern = new RegExp(item.regex, item.flag)
       if message.match(pattern)
         return item.response

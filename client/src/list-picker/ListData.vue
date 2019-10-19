@@ -7,12 +7,12 @@
           <v-row no-gutters>
             <v-col>
               <v-data-table
-                :items="filteredData()" :headers="headers"
-                disable-filtering :items-per-page="5"
-                :footer-props="footerProps"
+                :items="displayData()" :headers="headers"
+                disable-filtering disable-pagination
+                hide-default-footer dense
               >
-                <template #item.id="{ item }" >
-                  <item-id :id="item.id" />
+                <template #item.anime="{ item }">
+                  {{item.anime[0]}}
                 </template>
 
                 <template #item.src="{ item }">
@@ -22,23 +22,31 @@
                 <template #item.action="{ item }">
                   <slot name="action" :props="item">
                     <item-action-btn
-                      color="success" @click="addAnime(item)"
+                      color="success" @click="addSong(item)"
                       :disabled="!$store.state.list.filename || inUserList(item)"
-                      :id="`add-${item.id}-${id}`"
+                      :id="`add-${item.songId}-${id}`"
                     >
                       mdi-plus
                     </item-action-btn>
                     <item-action-btn
                       color="error"
-                      @click="removeAnime(item)"
+                      @click="removeSong(item)"
                       :disabled="!$store.state.list.filename || !inUserList(item)"
-                      :id="`remove-${item.id}-${id}`"
+                      :id="`remove-${item.songId}-${id}`"
                     >
                       mdi-minus
                     </item-action-btn>
                   </slot>
                 </template>
               </v-data-table>
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="10">
+              <v-pagination :length="maxPage" v-model="currentPage" total-visible="10"></v-pagination>
+            </v-col>
+            <v-col cols="2">
+              <v-select v-model="itemsPerPage" :items="itemOptions"></v-select>
             </v-col>
           </v-row>
         </v-container>
@@ -57,8 +65,7 @@
     props: [ 'data', 'id' ]
     data: () ->
       headers: [
-        { text: 'ID', value: 'id', sortable: false },
-        { text: 'Anime', value: 'name', sortable: false },
+        { text: 'Anime', value: 'anime', sortable: false },
         { text: 'Song', value: 'title', sortable: false },
         { text: 'Type', value: 'type', sortable: false, width: 100 },
         { text: 'Link', value: 'src', sortable: false, width: 80 },
@@ -69,9 +76,10 @@
         song: '',
         type: 'All'
       },
-      footerProps: {
-        'items-per-page-options': [5, 10, 15, 20]
-      }
+      itemOptions: [5, 10, 15, 20],
+      itemsPerPage: 10,
+      maxPage: 1,
+      currentPage: 1
     methods:
       filteredData: () ->
         songfilter = ''
@@ -83,32 +91,27 @@
           animefilter = this.filter.anime.trim().toLowerCase()
         if this.filter.type and this.filter.type != 'All'
           typefilter = this.filter.type.trim().toLowerCase()
-        return this.data.filter( (anime) =>
-          names = "#{anime.name},#{anime.altName.join(',')}".toLowerCase()
-          songName = anime.title.toLowerCase()
-          type = anime.type.toLowerCase()
-          if names.includes(animefilter) and songName.includes(songfilter) and type.includes(typefilter)
-            return anime
-        ).sort( (a, b) =>
-          if a.name == b.name
-            if a.title > b.title
-              return 1
-            else if a.title < b.title
-              return -1
-            return 0
-          else
-            if a.name > b.name
-              return 1
-            return -1
+        return this.data.filter( (song) =>
+          animes = "#{song.anime.join(',')}".toLowerCase()
+          songName = song.title.toLowerCase()
+          type = song.type.toLowerCase()
+          if animes.includes(animefilter) and songName.includes(songfilter) and type.includes(typefilter)
+            return song
         )
+      displayData: () ->
+        filteredData = this.filteredData()
+        this.maxPage = Math.ceil(filteredData.length / this.itemsPerPage)
+        if this.currentPage > this.maxPage
+          this.currentPage = 1
+        startIndex = (this.currentPage - 1) * this.itemsPerPage
+        endIndex = startIndex + this.itemsPerPage
+        return filteredData.slice(startIndex, endIndex)
       inUserList: (anime) ->
-        for item in this.$store.state.list.userList
-          if anime.id == item.id
-            return true
+        if anime.songId in this.$store.state.list.userList
+          return true
         return false
-
-      addAnime: (anime) ->
-        this.$emit('add-anime', anime)
-      removeAnime: (anime) ->
-        this.$emit('remove-anime', anime)
+      addSong: (song) ->
+        this.$emit('add-song', song)
+      removeSong: (song) ->
+        this.$emit('remove-song', song)
 </script>

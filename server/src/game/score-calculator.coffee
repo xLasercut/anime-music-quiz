@@ -1,39 +1,31 @@
 class ScoreCalculator
   constructor: (currentSong) ->
-    @currentSong = currentSong
+    this.currentSong = currentSong
 
   calculateScore: (guess) ->
     point = 0
-    correctAnime = false
-    correctSong = false
-    if @_animeCorrect(guess.anime)
+    if this._animeCorrect(guess.anime)
       point += 1
-      correctAnime = true
 
-    if @_songCorrect(guess.song)
+    if this._songCorrect(guess.song)
       point += 1
       correctSong = true
 
     return {
       point: point,
-      color: @_bannerColor(point),
-      correctAnime: correctAnime,
-      correctSong: correctSong
+      color: this._bannerColor(point)
     }
 
-  _animeCorrect: (anime) ->
-    if anime
-      if anime.toLowerCase() == @currentSong.name.toLowerCase()
-        return true
-
-      for altName in @currentSong.altName
-        if anime.toLowerCase() == altName.toLowerCase()
+  _animeCorrect: (animeGuess) ->
+    if animeGuess
+      for anime in this.currentSong.anime
+        if animeGuess.toLowerCase() == anime.toLowerCase()
           return true
     return false
 
-  _songCorrect: (song) ->
-    if song
-      if song.toLowerCase() == @currentSong.title.toLowerCase()
+  _songCorrect: (songGuess) ->
+    if songGuess
+      if songGuess.toLowerCase() == this.currentSong.title.toLowerCase()
         return true
     return false
 

@@ -1,57 +1,60 @@
 class Player
   constructor: (player, host, admin) ->
-    @username = player.username
-    @score = player.score
-    @avatar = player.avatar
-    @host = host
-    @guess = {
+    #user info
+    this.username = player.username
+    this.score = player.score
+    this.avatar = player.avatar
+    this.color = 'error'
+    #permissions
+    this.host = host
+    this.admin = admin
+
+    this.guess = {
       song: '',
       anime: ''
     }
-    @ready = {
+    this.ready = {
       song: false,
       select: false,
       guess: false
     }
-    @admin = admin
-    @color = 'error'
 
   serialize: () ->
     return {
-      username: @username,
-      score: @score,
-      avatar: @avatar,
-      host: @host,
-      guess: @guess,
-      admin: @admin,
-      color: @color
+      username: this.username,
+      score: this.score,
+      avatar: this.avatar,
+      host: this.host,
+      guess: this.guess,
+      admin: this.admin,
+      color: this.color
     }
 
   setHost: () ->
-    @host = true
+    this.host = true
 
   resetScore: () ->
-    @score = 0
+    this.score = 0
 
   setReady: (status, type) ->
-    @ready[type] = status
+    this.ready[type] = status
 
   setGuess: (guess) ->
-    @guess = guess
+    this.guess = guess
 
   setColor: (color) ->
-    @color = color
+    this.color = color
 
   addPoint: (point) ->
-    @score += point
+    this.score += point
 
   changeName: (name) ->
-    @username = name
+    this.username = name
 
   newRound: () ->
-    @guess = { song: '', anime: '' }
-    @color = 'error'
-    @ready = {
+    this.guess = { song: '', anime: '' }
+    this.color = 'error'
+    this.ready = {
       select: false,
       song: false,
       guess: false

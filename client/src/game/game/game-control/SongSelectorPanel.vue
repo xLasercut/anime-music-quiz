@@ -19,7 +19,7 @@
       <template #action="action">
         <icon-btn
           icon="mdi-plus" color="success" small @click="selectSong(action.props)"
-          :id="`${action.props.id}-select-btn`"
+          :id="`${action.props.songId}-select-btn`"
         >select</icon-btn>
       </template>
     </list-data>
@@ -58,6 +58,6 @@
         this.$socket.emit('SYNC_FULL_LIST')
       selectSong: (song) ->
         this.$socket.emit('SONG_OVERRIDE', song, (data) =>
-          this.notifySuccess("Song selected: #{data.name} - #{data.title}")
+          this.notifySuccess("Song selected: #{data.anime[0]} - #{data.title}")
         )
 </script>

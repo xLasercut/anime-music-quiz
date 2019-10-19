@@ -1,94 +1,90 @@
-{ userLists, animeChoices, songChoices } = require '../shared-classes.coffee'
-
 class GameState
-  constructor: (io, logObject) ->
-    @io = io
-    @logObject = logObject
-    @playing = false
-    @gameList = []
-    @maxSongCount = 0
-    @currentSongCount = 0
-    @currentSong = {}
-    @songOverride = null
-    @startPosition = 0
+  constructor: (io, logger, db) ->
+    this.io = io
+    this.logger = logger
+    this.db = db
+    this.playing = false
+    this.gameList = []
+    this.maxSongCount = 0
+    this.currentSongCount = 0
+    this.currentSong = {}
+    this.songOverride = null
+    this.startPosition = 0
 
-  listen: (socket) ->
+  startListeners: (socket) ->
     socket.on 'SONG_OVERRIDE', (song, callback) =>
-      @songOverride = song
-      @logObject.writeLog('GAME008', {
+      this.songOverride = song
+      this.logger.writeLog('GAME008', {
         title: song.title,
         artist: song.artist,
-        anime: song.name,
+        anime: song.anime[0],
         type: song.type,
         id: socket.id
       })
       callback(song)
 
   generateGameList: (settings) ->
-    lists = settings.lists
-    songCount = settings.songCount
-    duplicate = settings.duplicate
-    combinedList = userLists.combinedList(lists)
-    @gameList = []
-    dupe = []
+    combinedList = this.db.getCombinedList(settings.lists)
+    dupes = []
+    this.gameList = []
+    while this.gameList.length < settings.songCount and combinedList.length > 0
+      index = Math.floor(Math.random() * combinedList.length)
+      anime = combinedList[index].anime[0]
+      if anime not in dupes or settings.duplicate
+        this.gameList.push(combinedList[index])
+        dupes.push(anime)
+      combinedList.splice(index, 1)
 
-    while @gameList.length < songCount and combinedList.length > 0
-      i = Math.floor(Math.random() * combinedList.length)
-      name = combinedList[i].name
-      if !dupe.includes(name) or duplicate
-        @gameList.push(combinedList[i])
-        dupe.push(name)
-      combinedList.splice(i, 1)
+    this.logger.writeLog('GAME004', { size: this.gameList.length })
 
-    @logObject.writeLog('GAME004', { size: @gameList.length })
 
   startGame: (mode) ->
-    @playing = true
-    @io.emit('SYNC_PLAYING', @playing)
-    @maxSongCount = @gameList.length
-    @logObject.writeLog('GAME002', { songCount: @maxSongCount, mode: mode })
+    this.playing = true
+    this.io.emit('SYNC_PLAYING', this.playing)
+    this.maxSongCount = this.gameList.length
+    this.logger.writeLog('GAME002', { songCount: this.maxSongCount, mode: mode })
 
   newSong: () ->
-    @selectSong()
-    @syncSongCount()
-    @logObject.writeLog('GAME005', {
-      number: @currentSongCount,
-      title: @currentSong.title,
-      anime: @currentSong.name,
-      type: @currentSong.type,
-      artist: @currentSong.artist
+    this.selectSong()
+    this.syncSongCount()
+    this.logger.writeLog('GAME005', {
+      number: this.currentSongCount,
+      title: this.currentSong.title,
+      anime: this.currentSong.name,
+      type: this.currentSong.type,
+      artist: this.currentSong.artist
     })
-    @startPosition = Math.random()
-    @io.emit('NEW_SONG', @currentSong, @startPosition)
+    this.startPosition = Math.random()
+    this.io.emit('NEW_SONG', this.currentSong, this.startPosition)
 
   selectSong: () ->
-    i = Math.floor(Math.random() * @gameList.length)
-    @currentSong = @gameList[i]
-    @gameList.splice(i, 1)
-    @currentSongCount += 1
-    if @songOverride
-      @currentSong = @songOverride
-      @songOverride = null
+    i = Math.floor(Math.random() * this.gameList.length)
+    this.currentSong = this.gameList[i]
+    this.gameList.splice(i, 1)
+    this.currentSongCount += 1
+    if this.songOverride
+      this.currentSong = this.songOverride
+      this.songOverride = null
 
   syncSongCount: () ->
     count = {
-      current: @currentSongCount,
-      max: @maxSongCount
+      current: this.currentSongCount,
+      max: this.maxSongCount
     }
-    @io.emit('SYNC_SONG_COUNT', count)
+    this.io.emit('SYNC_SONG_COUNT', count)
 
   gameEnd: () ->
-    if @currentSongCount < @maxSongCount
+    if this.currentSongCount < this.maxSongCount
       return false
     return true
 
   reset: () ->
-    @currentSong = {}
-    @songOverride = null
-    @currentSongCount = 0
-    @playing = false
-    @io.emit('SYNC_PLAYING', @playing)
-    @io.emit('RESET')
+    this.currentSong = {}
+    this.songOverride = null
+    this.currentSongCount = 0
+    this.playing = false
+    this.io.emit('SYNC_PLAYING', this.playing)
+    this.io.emit('RESET')
 
   choices: () ->
     return {

@@ -54,7 +54,7 @@ logger = winston.createLogger({
 })
 
 
-class LogObject
+class Logger
   constructor: () ->
     @config = ini.parse(fs.readFileSync(configPath, { encoding: 'utf-8' }))
 
@@ -81,4 +81,4 @@ class LogObject
     else
       @writeLog('LOG001', { logReference: logReference })
 
-module.exports = LogObject
+module.exports = Logger

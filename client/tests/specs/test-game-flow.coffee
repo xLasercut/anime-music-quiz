@@ -1,5 +1,7 @@
 map = require '../support/element-map.coffee'
 
+fmaId = 'd77c3248-2986-495e-b5c9-ab21151ae501'
+
 describe 'game flow tests', () ->
   it 'test happy path selector mode', () ->
     settings = {
@@ -18,7 +20,7 @@ describe 'game flow tests', () ->
     cy.wait(1000)
     cy.assertChatText('Game settings updated', 'exist')
     cy.startGame()
-    cy.selectSong('FullmetalAlchemistBrotherhood-OP1')
+    cy.selectSong(fmaId)
     cy.notificationMsg('Song selected: Fullmetal Alchemist: Brotherhood - again')
     cy.wait(10000)
     cy.assertSongGuessLock()

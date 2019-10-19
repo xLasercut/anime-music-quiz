@@ -15,7 +15,7 @@
         <v-btn icon text small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
       </v-col>
     </v-row>
-    <list-data :data="$store.state.list.userList" id="user" @remove-anime="removeAnime($event)"></list-data>
+    <list-data :data="userList()" id="user" @remove-song="removeSong($event)"></list-data>
   </nav-dialog>
 </template>
 
@@ -30,8 +30,13 @@
     data: () ->
       show: false
     methods:
+      userList: () ->
+        return this.$store.state.list.fullList.filter( (song) =>
+          if song.songId in this.$store.state.list.userList
+            return song
+        )
       download: () ->
-        jsonstring = JSON.stringify(this.$store.state.list.userList, null, 2)
+        jsonstring = JSON.stringify(this.userList(), null, 2)
         blob = new Blob([jsonstring], {type: 'text/plain'})
         link = document.createElement('a')
         document.body.appendChild(link)
@@ -41,6 +46,6 @@
         link.click()
       syncUserList: () ->
         this.$socket.emit('SYNC_USER_LIST', this.$store.state.list.filename)
-      removeAnime: (anime) ->
-        this.$socket.emit('REMOVE_ANIME', anime, this.$store.state.list.filename)
+      removeSong: (song) ->
+        this.$socket.emit('REMOVE_SONG', song, this.$store.state.list.filename)
 </script>

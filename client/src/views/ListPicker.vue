@@ -2,8 +2,8 @@
   <v-container fluid class="list-picker-container">
     <list-data
       :data="$store.state.list.fullList" id="main"
-      @add-anime="addAnime($event)"
-      @remove-anime="removeAnime($event)"
+      @add-song="addSong($event)"
+      @remove-song="removeSong($event)"
     >
     </list-data>
   </v-container>
@@ -17,10 +17,10 @@
     mixins: [ Notification ]
     components: { ListData }
     methods:
-      addAnime: (anime) ->
-        this.$socket.emit('ADD_ANIME', anime, this.$store.state.list.filename)
-      removeAnime: (anime) ->
-        this.$socket.emit('REMOVE_ANIME', anime, this.$store.state.list.filename)
+      addSong: (song) ->
+        this.$socket.emit('ADD_SONG', song, this.$store.state.list.filename)
+      removeSong: (song) ->
+        this.$socket.emit('REMOVE_SONG', song, this.$store.state.list.filename)
       syncFullList: () ->
         this.$socket.emit('SYNC_FULL_LIST')
     mounted: () ->

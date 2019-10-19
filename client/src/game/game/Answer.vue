@@ -39,7 +39,7 @@
     methods:
       answer: () ->
         if this.show
-          return this.$store.state.game.currentSong.name
+          return this.$store.state.game.currentSong.anime[0]
 
         return '?'
 </script>

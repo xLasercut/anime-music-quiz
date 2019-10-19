@@ -28,8 +28,6 @@ server/logs/*.log
 server/logs/*.json
 
 # server data
-server/database/test_data/anime/song-statistics.json
-server/database/data/anime/*.json
 server/database/data/user/*.json
 
 #ngrok executable
