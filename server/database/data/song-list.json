@@ -29419,7 +29419,7 @@
     "anime": [
       "Angel Beats!"
     ],
-    "src": "https://animethemes.moe/video/AngelBeats-ED2.webm",
+    "src": "https://www.youtube.com/watch?v=tm7Xf9818FM",
     "title": "Ichiban no Takaramono ~Yui final ver.~",
     "artist": "",
     "type": "ED2"
@@ -29429,7 +29429,7 @@
     "anime": [
       "Angel Beats!"
     ],
-    "src": "https://animethemes.moe/video/AngelBeats-ED3.webm",
+    "src": "https://www.youtube.com/watch?v=o5SSGhmTvr0",
     "title": "Ichiban no Takaramono",
     "artist": "",
     "type": "ED3"
@@ -56834,7 +56834,7 @@
     "anime": [
       "Rewrite"
     ],
-    "src": "https://animethemes.moe/video/Rewrite-ED2.webm",
+    "src": "https://www.youtube.com/watch?v=2Wlrl7_q4w0",
     "title": "Koibumi",
     "artist": "",
     "type": "ED2"
@@ -56864,7 +56864,7 @@
     "anime": [
       "Rewrite"
     ],
-    "src": "https://animethemes.moe/video/Rewrite-ED5.webm",
+    "src": "https://www.youtube.com/watch?v=vbC82uV5xx8",
     "title": "Itsuwaranai Kimi e",
     "artist": "",
     "type": "ED5"
@@ -65974,7 +65974,7 @@
     "anime": [
       "Rewrite 2nd Season"
     ],
-    "src": "https://animethemes.moe/video/RewriteS2-ED3.webm",
+    "src": "https://www.youtube.com/watch?v=o-SB-4b0DEc",
     "title": "Watari no Uta",
     "artist": "",
     "type": "ED3"
@@ -79796,6 +79796,26 @@
     ],
     "src": "https://www.youtube.com/watch?v=Dmew2CzifxU",
     "title": "Strike On",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "c2d40998-fc8b-45ff-8410-5fde17caedbb",
+    "anime": [
+      "Charlotte"
+    ],
+    "src": "https://www.youtube.com/watch?v=1lVjI6H6sLU",
+    "title": "Fallin' (Japanese ver.)",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "6d1e6fe4-6863-43c4-ba3a-999b11a30cb9",
+    "anime": [
+      "Rewrite"
+    ],
+    "src": "https://www.youtube.com/watch?v=6covWlIzcAw",
+    "title": "Psychic Lover",
     "artist": "",
     "type": "Insert"
   }
