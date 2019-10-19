@@ -6,13 +6,12 @@ export default
     state.currentSong = song
   DISCONNECT: (state) ->
     state.currentSong = {
-      name: '',
-      altName: [],
+      anime: [],
       title: '',
       src: '',
       artist: '',
       type: '',
-      id: ''
+      songId: ''
     }
   UPDATE_VOLUME: (state, volume) ->
     state.volume = volume

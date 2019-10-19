@@ -36,6 +36,15 @@
                     >
                       mdi-minus
                     </item-action-btn>
+
+                    <item-action-btn
+                      color="warning"
+                      v-if="$store.state.admin.admin"
+                      @click="editSong(item)"
+                      :id="`edit-${item.songId}-${id}`"
+                    >
+                      mdi-pencil-plus
+                    </item-action-btn>
                   </slot>
                 </template>
               </v-data-table>
@@ -114,4 +123,6 @@
         this.$emit('add-song', song)
       removeSong: (song) ->
         this.$emit('remove-song', song)
+      editSong: (song) ->
+        this.$emit('edit-song', song)
 </script>

@@ -6,7 +6,7 @@
           <v-expansion-panel-header>Answer</v-expansion-panel-header>
           <v-expansion-panel-content>
             <p>
-              Anime: <b>{{$store.state.game.currentSong.name}}</b>
+              Anime: <b>{{$store.state.game.currentSong.anime[0]}}</b>
             </p>
             <p>
               Title: <b>{{$store.state.game.currentSong.title}}</b>

@@ -53,6 +53,9 @@ class FileHandler
   writeEmojiList: (data) ->
     this._writeFile(this.emojiListPath, data)
 
+  writeSongList: (data) ->
+    this._writeFile(this.songListPath, data)
+
   _readFile: (filepath) ->
     return JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 

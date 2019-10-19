@@ -1,3 +1,5 @@
+uuid = require 'uuid/v4'
+
 FileHandler = require './src/file-handler.coffee'
 
 fileHandler = new FileHandler()
@@ -66,6 +68,19 @@ class AMQDatabase
       return Math.random() - 0.5
     )
 
+  editSongList: (song) ->
+    for item, index in this.songList
+      if item.songId == song.songId
+        this.songList[index] = song
+        fileHandler.writeSongList(this.songList)
+        return true
+    return false
+
+  addSongToSongList: (song) ->
+    song['songId'] = uuid()
+    this.songList.push(song)
+    fileHandler.writeSongList(this.songList)
+
   _getCombinedSongIds: (users) ->
     combinedSongIds = []
     for user in users
@@ -75,31 +90,38 @@ class AMQDatabase
     return combinedSongIds
 
   _generateSecondaryDb: () ->
-    this.songIds = []
-    this.choices = {
-      song: [],
-      anime: []
-    }
+    animeChoices = []
+    songChoices = []
+    songIds = []
     for song in this.songList
-      this._addSongIds(song)
-      this._addChoices(song)
+      songId = song.songId
+      title = song.title
 
+      if songId in songIds
+        throw new Error("DUPLICATE SONG ID: #{songId}")
+      else
+        songIds.push(songId)
 
-  _addSongIds: (song) ->
-    songId = song.songId
-    if songId in this.songIds
-      throw new Error("DUPLICATE SONG ID: #{songId}")
-    else
-      this.songIds.push(songId)
+      if title not in songChoices
+        songChoices.push(title)
 
-  _addChoices: (song) ->
-    title = song.title
-    if title not in this.choices.song
-      this.choices.song.push(title)
+      for anime in song.anime
+        if anime not in animeChoices
+          animeChoices.push(anime)
 
-    for anime in song.anime
-      if anime not in this.choices.anime
-        this.choices.anime.push(anime)
+    this.songIds = songIds
+    this.choices = {
+      anime: animeChoices.sort((a, b) =>
+        if a > b
+          return 1
+        return -1
+      ),
+      song: songChoices.sort((a, b) =>
+        if a > b
+          return 1
+        return -1
+      )
+    }
 
   _generateUserDb: () ->
     this.userLists = {}

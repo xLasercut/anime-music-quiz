@@ -11,13 +11,12 @@ export default
     selectTime: 20
   players: {}
   currentSong:
-    name: ''
-    altName: []
+    anime: []
     title: ''
     src: ''
     artist: ''
     type: ''
-    id: ''
+    songId: ''
   host: false
   playing: false
   volume: 50

@@ -74,6 +74,43 @@ class AdminManager
       catch e
         this._logUnhandledError(e)
 
+    socket.on 'ADMIN_EDIT_SONG_LIST', (song) =>
+      try
+        if this._isAdmin(socket)
+          success = this.db.editSongList(song)
+          if success
+            this.logger.writeLog('ADMIN005', {
+              id: socket.id,
+              admin: socket.admin,
+              songId: song.songId,
+              anime: song.anime.join('|'),
+              src: song.src,
+              title: song.title,
+              artist: song.artist,
+              type: song.type
+            })
+            this.notification.client(socket.id, 'success', "#{song.anime[0]}: #{song.title} edited")
+      catch e
+        this._logUnhandledError(e)
+
+    socket.on 'ADMIN_ADD_SONG_TO_LIST', (song) =>
+      try
+        if this._isAdmin(socket)
+          this.db.addSongToSongList(song)
+          this.logger.writeLog('ADMIN006', {
+            id: socket.id,
+            admin: socket.admin,
+            songId: song.songId,
+            anime: song.anime.join('|'),
+            src: song.src,
+            title: song.title,
+            artist: song.artist,
+            type: song.type
+          })
+          this.notification.client(socket.id, 'success', "#{song.anime[0]}: #{song.title} added")
+      catch e
+        this._logUnhandledError(e)
+
   _isAdmin: (socket) ->
     if socket.admin
       return true
