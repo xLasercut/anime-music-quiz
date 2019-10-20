@@ -38181,7 +38181,7 @@
       "Kubikiri Cycle: Aoiro Savant to Zaregototsukai"
     ],
     "src": "https://animethemes.moe/video/KubikiriCycle-ED1.webm",
-    "title": "Märchen",
+    "title": "Marchen",
     "artist": "",
     "type": "ED V1"
   },
@@ -79831,5 +79831,15 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "bcbb1f1c-bd22-4932-b95b-bdad893952d1",
+    "src": "https://www.youtube.com/watch?v=WlQwL7vSM1o",
+    "anime": [
+      "Granbelm"
+    ],
+    "title": "Utakata",
+    "artist": "",
+    "type": "Insert"
   }
 ]
