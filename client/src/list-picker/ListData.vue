@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters>
     <v-col cols="12">
-      <v-card tile flat>
+      <v-card flat>
         <v-container fluid>
           <list-filter :id="id" v-model="filter"></list-filter>
           <v-row no-gutters>
@@ -12,11 +12,19 @@
                 hide-default-footer dense
               >
                 <template #item.anime="{ item }">
-                  {{item.anime[0]}}
+                  <span :id="`name-${item.songId}-${id}`">{{item.anime[0]}}</span>
                 </template>
 
                 <template #item.src="{ item }">
                   <a :href="item.src" target="_blank">View</a>
+                </template>
+
+                <template #item.title="{ item }">
+                  <span :id="`title-${item.songId}-${id}`">{{ item.title }}</span>
+                </template>
+
+                <template #item.type="{ item }">
+                  <span :id="`type-${item.songId}-${id}`">{{ item.type }}</span>
                 </template>
 
                 <template #item.action="{ item }">
@@ -28,6 +36,7 @@
                     >
                       mdi-plus
                     </item-action-btn>
+
                     <item-action-btn
                       color="error"
                       @click="removeSong(item)"
@@ -44,6 +53,15 @@
                       :id="`edit-${item.songId}-${id}`"
                     >
                       mdi-pencil-plus
+                    </item-action-btn>
+
+                    <item-action-btn
+                      color="error"
+                      v-if="$store.state.admin.admin"
+                      @click="deleteSong(item)"
+                      :id="`delete-${item.songId}-${id}`"
+                    >
+                      mdi-delete
                     </item-action-btn>
                   </slot>
                 </template>
@@ -78,7 +96,7 @@
         { text: 'Song', value: 'title', sortable: false },
         { text: 'Type', value: 'type', sortable: false, width: 100 },
         { text: 'Link', value: 'src', sortable: false, width: 80 },
-        { text: 'Action', value: 'action', sortable: false, width: 140 }
+        { text: 'Action', value: 'action', sortable: false }
       ],
       filter: {
         anime: '',
@@ -125,4 +143,6 @@
         this.$emit('remove-song', song)
       editSong: (song) ->
         this.$emit('edit-song', song)
+      deleteSong: (song) ->
+        this.$emit('delete-song', song)
 </script>

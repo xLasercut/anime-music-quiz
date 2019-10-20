@@ -2,7 +2,7 @@
   <v-container fluid class="list-picker-container">
     <v-row justify="center" v-if="$store.state.admin.admin">
       <v-col cols="auto">
-        <icon-btn icon="mdi-plus" color="success" small @click="addSongToList()">Add Song</icon-btn>
+        <icon-btn icon="mdi-plus" color="success" small @click="addSongToList()" id="add-song-to-list-btn">Add Song</icon-btn>
       </v-col>
     </v-row>
     <list-data
@@ -10,6 +10,7 @@
       @add-song="addSong($event)"
       @remove-song="removeSong($event)"
       @edit-song="editSong($event)"
+      @delete-song="deleteSongFromList($event)"
     >
     </list-data>
     <v-dialog v-model="showEdit">
@@ -70,6 +71,9 @@
           type: ''
         }
         this.showEdit = true
+      deleteSongFromList: (song) ->
+        console.log(song)
+        this.$socket.emit('ADMIN_REMOVE_SONG_FROM_LIST', song)
     mounted: () ->
       if !this.$socket.connected
         this.$router.push('/')

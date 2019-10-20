@@ -75274,6 +75274,17 @@
     "type": "ED"
   },
   {
+    "songId": "34ea8c85-9cb9-4f51-880e-c0190ca1da3d",
+    "src": "https://animethemes.moe/video/Noukin-OP1.webm",
+    "anime": [
+      "Watashi, Nouryoku wa Heikinchi de tte Itta yo ne!",
+      "Didn't I Say to Make My Abilities Average in the Next Life?!"
+    ],
+    "title": "Smile Skill = Suki Skill",
+    "artist": "",
+    "type": "OP"
+  },
+  {
     "songId": "f69a33f2-a311-48a9-b428-51c68632c15f",
     "anime": [
       "White Album"
@@ -79818,17 +79829,6 @@
     ],
     "src": "https://animethemes.moe/video/Eldlive-OP1.webm",
     "title": "Our sympathy",
-    "artist": "",
-    "type": "OP"
-  },
-  {
-    "songId": "34ea8c85-9cb9-4f51-880e-c0190ca1da3d",
-    "src": "https://animethemes.moe/video/Noukin-OP1.webm",
-    "anime": [
-      "Watashi, Nouryoku wa Heikinchi de tte Itta yo ne!",
-      "Didn't I Say to Make My Abilities Average in the Next Life?!"
-    ],
-    "title": "Smile Skill = Suki Skill",
     "artist": "",
     "type": "OP"
   }

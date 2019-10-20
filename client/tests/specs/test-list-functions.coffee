@@ -2,6 +2,7 @@ fmaId = 'd77c3248-2986-495e-b5c9-ab21151ae501'
 aotId = 'e7096454-f0b1-4041-b21d-478dc9c9d253'
 ggoReasonId = '15eeddb9-0800-4d87-adf8-1df8e7662011'
 ggoPilgrimId = '81ced164-9d4f-403e-b3f6-9e495f4a2509'
+testSongId = 'a22c2206-b504-4f11-a380-e787f2d8e449'
 
 getActionBtn = (id, type) ->
   return cy.get("##{type}-#{id}")
@@ -36,6 +37,34 @@ clearFilter = (id) ->
   getFilter(id).clear()
 
 describe 'test song list functions', () ->
+  it 'test admin add, delete, edit songs', () ->
+    type = 'main'
+    cy.loginList()
+    cy.addSongToList('test-anime', 'test-src', 'test-title', 'test-artist', 'test-type')
+    cy.wait(300)
+    cy.notificationMsg('test-anime: test-title added')
+    cy.assertAdminActionBtns(testSongId, type, 'not.exist', 'not.exist')
+    cy.reloadSongList()
+    cy.assertAdminActionBtns(testSongId, type, 'exist', 'exist')
+    cy.assertSongInfo(testSongId, 'test-title', 'test-type')
+    cy.editSongInList(testSongId, 'test-src2', 'test-title2', 'test-artist2', 'test-type2')
+    cy.wait(300)
+    cy.notificationMsg('test-anime: test-title2 edited')
+    cy.wait(300)
+    cy.deleteSongFromList(testSongId, type)
+    cy.wait(300)
+    cy.notificationMsg('test-anime: test-title deleted')
+    cy.assertAdminActionBtns(testSongId, type, 'exist', 'exist')
+    cy.reloadSongList()
+    cy.assertAdminActionBtns(testSongId, type, 'not.exist', 'not.exist')
+
+  it 'test admin action button permission', () ->
+    cy.loginList(false)
+    cy.selectUserList('test-user')
+    cy.assertAdminActionBtns(fmaId, 'main', 'not.exist', 'not.exist')
+    cy.openUserList()
+    cy.assertAdminActionBtns(ggoReasonId, 'user', 'not.exist', 'not.exist')
+
   it 'test add and remove anime main list', () ->
     type = 'main'
 

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog :max-width="width" v-model="model" :transition="false" no-click-animation :persistent="persistent">
+  <v-dialog :max-width="width" v-model="model" no-click-animation :persistent="persistent">
     <template v-slot:activator="{ on }">
       <nav-btn
         @click="$emit('click')"

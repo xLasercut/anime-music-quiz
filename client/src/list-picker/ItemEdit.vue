@@ -17,25 +17,35 @@
       <item-edit-row
         v-model.trim="model['src']"
         label="Source"
+        id="add-song-to-list-src"
       ></item-edit-row>
       <item-edit-row
         v-model.trim="model['title']"
         label="Title"
+        id="add-song-to-list-title"
       ></item-edit-row>
       <item-edit-row
         v-model.trim="model['artist']"
         label="Artist"
+        id="add-song-to-list-artist"
       ></item-edit-row>
       <item-edit-row
         v-model.trim="model['type']"
         label="Type"
+        id="add-song-to-list-type"
       ></item-edit-row>
       <v-row justify="center">
         <v-col cols="auto">
-          <icon-btn color="error" icon="mdi-close" @click="$emit('cancel-edit')">Cancel</icon-btn>
+          <icon-btn
+            color="error" icon="mdi-close" @click="$emit('cancel-edit')"
+            id="add-song-to-list-cancel"
+          >Cancel</icon-btn>
         </v-col>
         <v-col cols="auto">
-          <icon-btn color="success" icon="mdi-check" @click="$emit('confirm-edit')">Confirm</icon-btn>
+          <icon-btn
+            color="success" icon="mdi-check" @click="$emit('confirm-edit')"
+            id="add-song-to-list-confirm"
+          >Confirm</icon-btn>
         </v-col>
       </v-row>
     </v-container>

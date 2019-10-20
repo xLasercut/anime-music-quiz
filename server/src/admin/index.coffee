@@ -111,6 +111,25 @@ class AdminManager
       catch e
         this._logUnhandledError(e)
 
+    socket.on 'ADMIN_REMOVE_SONG_FROM_LIST', (song) =>
+      try
+        if this._isAdmin(socket)
+          success = this.db.removeSongFromSongList(song)
+          if success
+            this.logger.writeLog('ADMIN007', {
+              id: socket.id,
+              admin: socket.admin,
+              songId: song.songId,
+              anime: song.anime.join('|'),
+              src: song.src,
+              title: song.title,
+              artist: song.artist,
+              type: song.type
+            })
+            this.notification.client(socket.id, 'success', "#{song.anime[0]}: #{song.title} deleted")
+      catch e
+        this._logUnhandledError(e)
+
   _isAdmin: (socket) ->
     if socket.admin
       return true

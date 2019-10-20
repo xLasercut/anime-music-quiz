@@ -77,9 +77,20 @@ class AMQDatabase
     return false
 
   addSongToSongList: (song) ->
-    song['songId'] = uuid()
+    if process.env.NODE_ENV == 'test'
+      song['songId'] = 'a22c2206-b504-4f11-a380-e787f2d8e449'
+    else
+      song['songId'] = uuid()
     this.songList.push(song)
     fileHandler.writeSongList(this.songList)
+
+  removeSongFromSongList: (song) ->
+    for item, index in this.songList
+      if item.songId == song.songId
+        this.songList.splice(index, 1)
+        fileHandler.writeSongList(this.songList)
+        return true
+    return false
 
   _getCombinedSongIds: (users) ->
     combinedSongIds = []

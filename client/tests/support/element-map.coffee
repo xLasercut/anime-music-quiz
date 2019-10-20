@@ -34,7 +34,8 @@ module.exports = {
     filterSong: '#filter-song',
     filterAnime: '#filter-anime',
     filterType: '#filter-type',
-    reload: '#full-list-reload-btn'
+    reload: '#full-list-reload-btn',
+    addSongToList: '#add-song-to-list-btn'
   },
   login: {
     game: '#game-btn',

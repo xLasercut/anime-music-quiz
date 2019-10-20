@@ -6,6 +6,7 @@
         v-bind="$attrs"
         clearable filled
         hide-details
+        :id="id"
       ></v-text-field>
     </v-col>
   </v-row>
@@ -16,5 +17,5 @@
 
   export default
     mixins: [ VModel ]
-
+    props: [ 'id' ]
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-btn @click="$emit('click')" depressed tile v-on="activator" v-bind="$attrs">
+  <v-btn @click="$emit('click')" depressed v-on="activator" v-bind="$attrs">
     <slot></slot>
     <v-icon right>
       {{icon}}
