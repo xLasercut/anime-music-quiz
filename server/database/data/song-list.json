@@ -11276,6 +11276,17 @@
     "type": "OP"
   },
   {
+    "songId": "04fd5067-a977-44f8-8a7c-5228955df4ef",
+    "src": "https://www.youtube.com/watch?v=9ZrWOSiYJjg",
+    "anime": [
+      "Clannad",
+      "Clannad: After Story"
+    ],
+    "title": "Nagisa: Parting at the Foot of the Hill",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "fc12ddc5-bfdb-403e-beed-27c55dc867a0",
     "anime": [
       "Clannad",
@@ -20028,6 +20039,16 @@
     "title": "Shunkan Sentimental",
     "artist": "",
     "type": "ED4"
+  },
+  {
+    "songId": "3ad266f2-b4db-4b6b-8d1c-f2fa149d9d76",
+    "src": "https://www.youtube.com/watch?v=l2kwie-gs2o",
+    "anime": [
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "title": "Trisha's Lullaby",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "02115e32-1437-4fe6-b447-09d83cbb1d4a",
@@ -79862,23 +79883,13 @@
     "type": "OP"
   },
   {
-    "songId": "04fd5067-a977-44f8-8a7c-5228955df4ef",
-    "src": "https://www.youtube.com/watch?v=9ZrWOSiYJjg",
+    "songId": "097c5d2f-efbc-46c2-ac83-67f84e2a0aef",
+    "src": "https://www.youtube.com/watch?v=tb-Oa7P4ubI",
     "anime": [
-      "Clannad",
-      "Clannad: After Story"
+      "Mahou Shoujo Madoka★Magica",
+      "Puella Magi Madoka★Magica"
     ],
-    "title": "Nagisa: Parting at the Foot of the Hill",
-    "artist": "",
-    "type": "Insert"
-  },
-  {
-    "songId": "3ad266f2-b4db-4b6b-8d1c-f2fa149d9d76",
-    "src": "https://www.youtube.com/watch?v=l2kwie-gs2o",
-    "anime": [
-      "Fullmetal Alchemist: Brotherhood"
-    ],
-    "title": "Trisha's Lullaby",
+    "title": "Ave Maria",
     "artist": "",
     "type": "Insert"
   }
