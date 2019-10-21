@@ -8,8 +8,7 @@
     "generate": "coffee tools/raw-list-generator.coffee",
     "process": "coffee tools/full-list-generator.coffee && coffee tools/choices-generator.coffee",
     "update": "coffee tools/user-list-updater.coffee",
-    "start:test": "cross-env NODE_ENV=test npm run start",
-    "test": "coffee ./database/database.coffee"
+    "start:test": "cross-env NODE_ENV=test npm run start"
   },
   "repository": {
     "type": "git",
