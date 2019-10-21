@@ -1,5 +1,15 @@
 [
   {
+    "songId": "dde7cefe-673c-4b6e-b8bd-fc49cbcbbb11",
+    "src": "https://files.catbox.moe/tzgfva.mp4",
+    "anime": [
+      "Fuuka"
+    ],
+    "title": "For You",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "3204e7b3-9454-43b0-8970-ec088a528a53",
     "anime": [
       ".hack//Liminality"
@@ -20581,6 +20591,16 @@
     "type": "ED3"
   },
   {
+    "songId": "e696d61d-652b-47cf-81e0-367e4f0768f5",
+    "src": "https://files.catbox.moe/56oscb.mp4",
+    "anime": [
+      "Fuuka"
+    ],
+    "title": "Hoshi no Furu Machi",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "a1f79d41-a2b7-43be-a31d-8048ccadf67b",
     "anime": [
       "Fuuka"
@@ -24085,6 +24105,16 @@
     "title": "Tsuki wo Ou Mayonaka",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "bcbb1f1c-bd22-4932-b95b-bdad893952d1",
+    "src": "https://www.youtube.com/watch?v=WlQwL7vSM1o",
+    "anime": [
+      "Granbelm"
+    ],
+    "title": "Utakata",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "c9ee680b-dae1-463d-97b0-e07f9a92c5cb",
@@ -38210,7 +38240,7 @@
     "anime": [
       "Kujira no Kora wa Sajou ni Utau"
     ],
-    "src": "https://animethemes.moe/video/Kujisuna-ED1.webm",
+    "src": "https://www.youtube.com/watch?v=An5WbMlITUI",
     "title": "Hashitairo",
     "artist": "",
     "type": "ED"
@@ -65581,7 +65611,7 @@
     "anime": [
       "Sora no Method"
     ],
-    "src": "https://animethemes.moe/video/SoraNoMethod-ED2.webm",
+    "src": "https://www.youtube.com/watch?v=q5hhOnr9JtA",
     "title": "Hoshi no Kakera",
     "artist": "",
     "type": "ED2"
@@ -65611,7 +65641,7 @@
     "anime": [
       "Sora no Method"
     ],
-    "src": "https://animethemes.moe/video/SoraNoMethod-ED3.webm",
+    "src": "https://www.youtube.com/watch?v=yG_NeLCKjQs",
     "title": "Sora no Method",
     "artist": "",
     "type": "ED3"
@@ -74781,7 +74811,7 @@
     "anime": [
       "Violet Evergarden"
     ],
-    "src": "https://animethemes.moe/video/VioletEvergarden-ED2.webm",
+    "src": "https://www.youtube.com/watch?v=r6QKSKOFYsg",
     "title": "Believe in...",
     "artist": "",
     "type": "ED2"
@@ -74791,10 +74821,10 @@
     "anime": [
       "Violet Evergarden"
     ],
-    "src": "https://animethemes.moe/video/VioletEvergarden-ED1.webm",
+    "src": "https://animethemes.moe/video/VioletEvergarden-ED1v2.webm",
     "title": "Michishirube",
     "artist": "",
-    "type": "ED1 V1"
+    "type": "ED1"
   },
   {
     "songId": "43cae317-ad2f-40cd-812a-ef8da7edaffc",
@@ -79831,15 +79861,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "bcbb1f1c-bd22-4932-b95b-bdad893952d1",
-    "src": "https://www.youtube.com/watch?v=WlQwL7vSM1o",
-    "anime": [
-      "Granbelm"
-    ],
-    "title": "Utakata",
-    "artist": "",
-    "type": "Insert"
   }
 ]
