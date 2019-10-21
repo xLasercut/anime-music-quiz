@@ -1,15 +1,5 @@
 [
   {
-    "songId": "dde7cefe-673c-4b6e-b8bd-fc49cbcbbb11",
-    "src": "https://files.catbox.moe/tzgfva.mp4",
-    "anime": [
-      "Fuuka"
-    ],
-    "title": "For You",
-    "artist": "",
-    "type": "Insert"
-  },
-  {
     "songId": "3204e7b3-9454-43b0-8970-ec088a528a53",
     "anime": [
       ".hack//Liminality"
@@ -11289,8 +11279,7 @@
     "songId": "fc12ddc5-bfdb-403e-beed-27c55dc867a0",
     "anime": [
       "Clannad",
-      "Clannad: After Story",
-      "Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen"
+      "Clannad: After Story"
     ],
     "src": "https://www.youtube.com/watch?v=vdk_76z38bA",
     "title": "Roaring Tides",
@@ -20589,6 +20578,16 @@
     "title": "Fair Wind",
     "artist": "",
     "type": "ED3"
+  },
+  {
+    "songId": "dde7cefe-673c-4b6e-b8bd-fc49cbcbbb11",
+    "src": "https://files.catbox.moe/tzgfva.mp4",
+    "anime": [
+      "Fuuka"
+    ],
+    "title": "For You",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "e696d61d-652b-47cf-81e0-367e4f0768f5",
@@ -79861,5 +79860,26 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "04fd5067-a977-44f8-8a7c-5228955df4ef",
+    "src": "https://www.youtube.com/watch?v=9ZrWOSiYJjg",
+    "anime": [
+      "Clannad",
+      "Clannad: After Story"
+    ],
+    "title": "Nagisa: Parting at the Foot of the Hill",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "3ad266f2-b4db-4b6b-8d1c-f2fa149d9d76",
+    "src": "https://www.youtube.com/watch?v=l2kwie-gs2o",
+    "anime": [
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "title": "Trisha's Lullaby",
+    "artist": "",
+    "type": "Insert"
   }
 ]
