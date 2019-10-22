@@ -1,0 +1,446 @@
+2019-10-22 09:57:10,083 | ERROR | [LOG003]: invalid log text - logReference="TEST001" text="None"
+2019-10-22 09:58:04,415 | ERROR | [LOG003]: invalid log text - logReference="TEST001" text="None"
+2019-10-22 09:58:04,417 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 09:58:24,305 | ERROR | [LOG003]: invalid log text - logReference="TEST001" text="None"
+2019-10-22 09:58:24,307 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 09:58:48,070 | ERROR | [LOG003]: invalid log text - logReference="TEST001" text="None"
+2019-10-22 09:58:48,072 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 09:59:10,889 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 09:59:23,471 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 09:59:39,135 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:05:19,282 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:05:43,949 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:06:07,444 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:06:18,603 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:07:23,944 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:08:35,080 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:09:26,554 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:09:36,093 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:09:49,454 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:10:15,000 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:11:53,656 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:05,115 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:26,347 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:26,349 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:12:36,080 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:36,082 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:12:43,258 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:43,260 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:12:51,704 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:12:51,706 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:13:40,043 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:13:40,045 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:14:10,505 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:14:10,507 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:14:38,172 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:14:38,174 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:14:55,621 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:14:55,624 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:15:49,722 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:15:49,725 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:17:47,361 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:17:47,363 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:19:02,470 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:19:02,473 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:19:27,621 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:19:27,623 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:19:43,656 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:19:43,658 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:19:51,846 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:19:51,848 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:20:12,910 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:20:12,912 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:20:50,126 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:20:50,128 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:22:10,825 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:22:10,828 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:22:26,187 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:22:26,190 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:24:21,158 | ERROR | [LOG001]: invalid log reference - logReference="TEST001"
+2019-10-22 10:24:21,161 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:24:55,613 | INFO | [SERVER001]: server running on port="3001"
+2019-10-22 10:25:25,515 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:29:23,326 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:29:29,675 | INFO | received event "AUTHENTICATE" from 005b2a7d36dc400c9cb85ee34beaa212 [/]
+2019-10-22 10:29:31,631 | WARNING | AUTH002 | unauthorised connection - id="005b2a7d36dc400c9cb85ee34beaa212"
+2019-10-22 10:29:31,631 | INFO | Disconnecting 005b2a7d36dc400c9cb85ee34beaa212 [/]
+2019-10-22 10:33:12,438 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:33:13,807 | INFO | received event "AUTHENTICATE" from ef5105acfae044a19195ed1cf319a88c [/]
+2019-10-22 10:33:15,777 | WARNING | AUTH002 | unauthorised connection - id="ef5105acfae044a19195ed1cf319a88c"
+2019-10-22 10:33:15,777 | INFO | Disconnecting ef5105acfae044a19195ed1cf319a88c [/]
+2019-10-22 10:33:15,777 | INFO | SERVER002 | new connection - id="ef5105acfae044a19195ed1cf319a88c"
+2019-10-22 10:33:23,598 | INFO | received event "AUTHENTICATE" from 64b4aaad5280444a8b7959120f1d3eef [/]
+2019-10-22 10:33:25,570 | WARNING | AUTH002 | unauthorised connection - id="64b4aaad5280444a8b7959120f1d3eef"
+2019-10-22 10:33:25,570 | INFO | Disconnecting 64b4aaad5280444a8b7959120f1d3eef [/]
+2019-10-22 10:33:25,571 | INFO | SERVER002 | new connection - id="64b4aaad5280444a8b7959120f1d3eef"
+2019-10-22 10:33:37,882 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:33:40,363 | INFO | received event "AUTHENTICATE" from e56e8b89b700475d88121f6ade86a5da [/]
+2019-10-22 10:33:42,339 | WARNING | AUTH002 | unauthorised connection - id="e56e8b89b700475d88121f6ade86a5da"
+2019-10-22 10:33:42,340 | INFO | Disconnecting e56e8b89b700475d88121f6ade86a5da [/]
+2019-10-22 10:33:42,340 | INFO | SERVER003 | client disconnected - id="e56e8b89b700475d88121f6ade86a5da"
+2019-10-22 10:34:48,993 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:34:53,259 | INFO | received event "AUTHENTICATE" from bb8b8cfdfd6f4b439d74faca28952b0d [/]
+2019-10-22 10:34:53,272 | INFO | received event "LOGIN_LIST" from bb8b8cfdfd6f4b439d74faca28952b0d [/]
+2019-10-22 10:34:53,272 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:34:53,686 | INFO | received event "SYNC_FULL_LIST" from bb8b8cfdfd6f4b439d74faca28952b0d [/]
+2019-10-22 10:34:53,686 | INFO | LIST002 | full list requested by client - id="bb8b8cfdfd6f4b439d74faca28952b0d"
+2019-10-22 10:34:53,686 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:35:18,332 | INFO | SERVER003 | client disconnected - id="bb8b8cfdfd6f4b439d74faca28952b0d"
+2019-10-22 10:36:13,798 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:36:17,055 | INFO | received event "SYNC_FULL_LIST" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:17,071 | INFO | received event "AUTHENTICATE" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:17,074 | INFO | received event "LOGIN_LIST" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:17,074 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:36:17,167 | INFO | received event "SYNC_FULL_LIST" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:17,168 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:36:21,204 | INFO | received event "SYNC_USER_LIST" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:22,084 | INFO | received event "ADD_SONG" from bcad224062774128b1d612ea2f91e7d1 [/]
+2019-10-22 10:36:27,723 | INFO | SERVER003 | client disconnected - id="bcad224062774128b1d612ea2f91e7d1"
+2019-10-22 10:38:59,676 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:39:02,124 | INFO | received event "SYNC_FULL_LIST" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:02,133 | INFO | received event "AUTHENTICATE" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:02,136 | INFO | received event "LOGIN_LIST" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:02,136 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:39:02,229 | INFO | received event "SYNC_FULL_LIST" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:02,229 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:39:03,444 | INFO | received event "SYNC_USER_LIST" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:04,597 | INFO | received event "ADD_SONG" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:04,597 | INFO | LIST004 | add anime request - id="be55dbde26634ce88c9e93f8f16db018" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 10:39:14,677 | INFO | received event "ADD_SONG" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:14,678 | INFO | LIST004 | add anime request - id="be55dbde26634ce88c9e93f8f16db018" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 10:39:49,741 | INFO | received event "ADD_SONG" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:39:49,741 | INFO | LIST004 | add anime request - id="be55dbde26634ce88c9e93f8f16db018" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 10:40:12,565 | INFO | received event "ADD_SONG" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:40:12,565 | INFO | LIST004 | add anime request - id="be55dbde26634ce88c9e93f8f16db018" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 10:40:13,269 | INFO | received event "ADD_SONG" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:40:13,270 | INFO | LIST004 | add anime request - id="be55dbde26634ce88c9e93f8f16db018" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 10:40:33,044 | INFO | received event "SYNC_USER_LIST" from be55dbde26634ce88c9e93f8f16db018 [/]
+2019-10-22 10:40:36,860 | INFO | SERVER003 | client disconnected - id="be55dbde26634ce88c9e93f8f16db018"
+2019-10-22 10:41:13,051 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:41:15,252 | WARNING | AUTH002 | unauthorised connection - id="82eea9ae61a34e4694f60b005d68351d"
+2019-10-22 10:41:15,252 | INFO | Disconnecting 82eea9ae61a34e4694f60b005d68351d [/]
+2019-10-22 10:41:15,252 | INFO | SERVER003 | client disconnected - id="82eea9ae61a34e4694f60b005d68351d"
+2019-10-22 10:41:17,344 | INFO | received event "AUTHENTICATE" from c96cd41b9e3f48f685a478defe82a6c2 [/]
+2019-10-22 10:41:17,376 | INFO | received event "LOGIN_LIST" from c96cd41b9e3f48f685a478defe82a6c2 [/]
+2019-10-22 10:41:17,377 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:41:17,761 | INFO | received event "SYNC_FULL_LIST" from c96cd41b9e3f48f685a478defe82a6c2 [/]
+2019-10-22 10:41:17,762 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:41:18,957 | INFO | received event "SYNC_USER_LIST" from c96cd41b9e3f48f685a478defe82a6c2 [/]
+2019-10-22 10:41:35,421 | INFO | received event "SYNC_USER_LIST" from c96cd41b9e3f48f685a478defe82a6c2 [/]
+2019-10-22 10:43:14,955 | INFO | SERVER003 | client disconnected - id="c96cd41b9e3f48f685a478defe82a6c2"
+2019-10-22 10:43:16,599 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:43:18,588 | INFO | SERVER003 | client disconnected - id="bf5d89a79c29429c8bee608eb0ace881"
+2019-10-22 10:43:33,965 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:43:38,108 | INFO | SERVER003 | client disconnected - id="f2c51c586950468cb4924cce62a53f19"
+2019-10-22 10:43:54,269 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:43:57,273 | INFO | received event "SYNC_FULL_LIST" from 3f8b1098ea174d829f0bd6f529863dde [/]
+2019-10-22 10:43:57,287 | INFO | received event "AUTHENTICATE" from 3f8b1098ea174d829f0bd6f529863dde [/]
+2019-10-22 10:43:57,290 | INFO | received event "LOGIN_LIST" from 3f8b1098ea174d829f0bd6f529863dde [/]
+2019-10-22 10:43:57,290 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:43:57,391 | INFO | received event "SYNC_FULL_LIST" from 3f8b1098ea174d829f0bd6f529863dde [/]
+2019-10-22 10:43:57,391 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:43:58,445 | INFO | received event "SYNC_USER_LIST" from 3f8b1098ea174d829f0bd6f529863dde [/]
+2019-10-22 10:44:05,837 | INFO | SERVER003 | client disconnected - id="3f8b1098ea174d829f0bd6f529863dde"
+2019-10-22 10:44:15,875 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:44:17,879 | INFO | received event "AUTHENTICATE" from b667c27e4dc0487fa4e4a41ae47df91b [/]
+2019-10-22 10:44:17,893 | INFO | received event "LOGIN_LIST" from b667c27e4dc0487fa4e4a41ae47df91b [/]
+2019-10-22 10:44:17,894 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:44:18,262 | INFO | received event "SYNC_FULL_LIST" from b667c27e4dc0487fa4e4a41ae47df91b [/]
+2019-10-22 10:44:18,262 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:44:19,404 | INFO | received event "SYNC_USER_LIST" from b667c27e4dc0487fa4e4a41ae47df91b [/]
+2019-10-22 10:44:27,644 | INFO | SERVER003 | client disconnected - id="b667c27e4dc0487fa4e4a41ae47df91b"
+2019-10-22 10:45:00,459 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:45:01,228 | INFO | SERVER003 | client disconnected - id="2f054669b759483ca78126aac350fcc7"
+2019-10-22 10:45:02,024 | INFO | received event "AUTHENTICATE" from 14d9529bcc4e44c7b51c0a527df7e2e7 [/]
+2019-10-22 10:45:02,072 | INFO | received event "LOGIN_LIST" from 14d9529bcc4e44c7b51c0a527df7e2e7 [/]
+2019-10-22 10:45:02,072 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:45:02,457 | INFO | received event "SYNC_FULL_LIST" from 14d9529bcc4e44c7b51c0a527df7e2e7 [/]
+2019-10-22 10:45:02,457 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:45:03,428 | INFO | received event "SYNC_USER_LIST" from 14d9529bcc4e44c7b51c0a527df7e2e7 [/]
+2019-10-22 10:45:13,436 | INFO | SERVER003 | client disconnected - id="14d9529bcc4e44c7b51c0a527df7e2e7"
+2019-10-22 10:45:55,063 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:45:56,421 | INFO | received event "SYNC_USER_LIST" from 04f42e168b8f4d0eb667ce9933668c20 [/]
+2019-10-22 10:45:56,464 | INFO | received event "AUTHENTICATE" from 04f42e168b8f4d0eb667ce9933668c20 [/]
+2019-10-22 10:45:56,466 | INFO | received event "LOGIN_LIST" from 04f42e168b8f4d0eb667ce9933668c20 [/]
+2019-10-22 10:45:56,467 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:45:56,828 | INFO | received event "SYNC_FULL_LIST" from 04f42e168b8f4d0eb667ce9933668c20 [/]
+2019-10-22 10:45:56,829 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:45:57,254 | WARNING | AUTH002 | unauthorised connection - id="eb5c8e4a958a4a51a8c11253baaa747a"
+2019-10-22 10:45:57,255 | INFO | Disconnecting eb5c8e4a958a4a51a8c11253baaa747a [/]
+2019-10-22 10:45:57,255 | INFO | SERVER003 | client disconnected - id="eb5c8e4a958a4a51a8c11253baaa747a"
+2019-10-22 10:45:59,292 | INFO | received event "SYNC_USER_LIST" from 04f42e168b8f4d0eb667ce9933668c20 [/]
+2019-10-22 10:46:07,611 | INFO | SERVER003 | client disconnected - id="04f42e168b8f4d0eb667ce9933668c20"
+2019-10-22 10:46:41,069 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:46:41,238 | INFO | SERVER003 | client disconnected - id="3077a8ea973f4460a34a75e03c1228a3"
+2019-10-22 10:46:42,520 | INFO | received event "AUTHENTICATE" from 6fe836d84bc645caa27e4222395916ac [/]
+2019-10-22 10:46:42,532 | INFO | received event "LOGIN_LIST" from 6fe836d84bc645caa27e4222395916ac [/]
+2019-10-22 10:46:42,532 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:46:42,924 | INFO | received event "SYNC_FULL_LIST" from 6fe836d84bc645caa27e4222395916ac [/]
+2019-10-22 10:46:42,924 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:46:44,012 | INFO | received event "SYNC_USER_LIST" from 6fe836d84bc645caa27e4222395916ac [/]
+2019-10-22 10:46:44,012 | INFO | emitting event "SYNC_USER_LIST" to all [/]
+2019-10-22 10:46:49,996 | INFO | SERVER003 | client disconnected - id="6fe836d84bc645caa27e4222395916ac"
+2019-10-22 10:47:18,386 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:47:18,624 | INFO | received event "AUTHENTICATE" from 1c2b024826b547648a13cf8940c387af [/]
+2019-10-22 10:47:18,685 | INFO | received event "LOGIN_LIST" from 1c2b024826b547648a13cf8940c387af [/]
+2019-10-22 10:47:18,686 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:47:19,063 | INFO | received event "SYNC_FULL_LIST" from 1c2b024826b547648a13cf8940c387af [/]
+2019-10-22 10:47:19,064 | INFO | emitting event "SYNC_FULL_LIST" to all [/]
+2019-10-22 10:47:48,795 | INFO | SERVER003 | client disconnected - id="1c2b024826b547648a13cf8940c387af"
+2019-10-22 10:47:50,564 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:47:52,300 | INFO | SERVER003 | client disconnected - id="3f738e4073fd4f87b92f1e5c9c0e2e93"
+2019-10-22 10:47:52,784 | WARNING | AUTH002 | unauthorised connection - id="3f738e4073fd4f87b92f1e5c9c0e2e93"
+2019-10-22 10:47:53,156 | INFO | received event "AUTHENTICATE" from 5608d48e81804d25b1288d95c9cc415b [/]
+2019-10-22 10:47:53,169 | INFO | received event "LOGIN_LIST" from 5608d48e81804d25b1288d95c9cc415b [/]
+2019-10-22 10:47:53,170 | INFO | emitting event "SYNC_USER_LIST_FILES" to all [/]
+2019-10-22 10:47:53,524 | INFO | received event "SYNC_FULL_LIST" from 5608d48e81804d25b1288d95c9cc415b [/]
+2019-10-22 10:47:53,524 | INFO | emitting event "SYNC_FULL_LIST" to 5608d48e81804d25b1288d95c9cc415b [/]
+2019-10-22 10:58:11,691 | INFO | SERVER003 | client disconnected - id="5608d48e81804d25b1288d95c9cc415b"
+2019-10-22 10:58:41,069 | INFO | SERVER001 | server running on port="3001"
+2019-10-22 10:58:43,074 | WARNING | AUTH002 | unauthorised connection - id="428ed514b1dc4c87b0a09f49f0749f78"
+2019-10-22 10:58:43,075 | INFO | SERVER003 | client disconnected - id="428ed514b1dc4c87b0a09f49f0749f78"
+2019-10-22 11:06:48,552 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:13:31,344 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:16:45,626 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:17:12,750 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:17:20,740 | AMQ Server | INFO | LIST004 | add anime request - id="e077bbefa1854c9286c7e04daae4a214" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:17:25,211 | AMQ Server | INFO | LIST004 | add anime request - id="e077bbefa1854c9286c7e04daae4a214" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:17:27,923 | AMQ Server | INFO | LIST004 | add anime request - id="e077bbefa1854c9286c7e04daae4a214" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:17:33,212 | AMQ Server | INFO | LIST004 | add anime request - id="e077bbefa1854c9286c7e04daae4a214" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:17:43,435 | AMQ Server | INFO | SERVER003 | client disconnected - id="e077bbefa1854c9286c7e04daae4a214"
+2019-10-22 11:17:56,336 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:17:58,480 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="41530a98ea604b9da32b39fd664222f1"
+2019-10-22 11:17:58,481 | AMQ Server | INFO | SERVER003 | client disconnected - id="41530a98ea604b9da32b39fd664222f1"
+2019-10-22 11:18:38,795 | AMQ Server | INFO | LIST004 | add anime request - id="8a3273b2fa4d46e1824198ea271a5ebd" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:18:39,612 | AMQ Server | INFO | LIST004 | add anime request - id="8a3273b2fa4d46e1824198ea271a5ebd" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:18:40,796 | AMQ Server | INFO | LIST004 | add anime request - id="8a3273b2fa4d46e1824198ea271a5ebd" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:18:45,605 | AMQ Server | INFO | LIST004 | add anime request - id="8a3273b2fa4d46e1824198ea271a5ebd" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:19:26,267 | AMQ Server | INFO | SERVER003 | client disconnected - id="8a3273b2fa4d46e1824198ea271a5ebd"
+2019-10-22 11:19:28,078 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:19:30,171 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="31fc6916cbb74a889fa481d19c9c4e87"
+2019-10-22 11:19:30,172 | AMQ Server | INFO | SERVER003 | client disconnected - id="31fc6916cbb74a889fa481d19c9c4e87"
+2019-10-22 11:19:36,003 | AMQ Server | INFO | LIST004 | add anime request - id="43805efca93547fb81b78de4ac2da0f8" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:19:41,130 | AMQ Server | INFO | SERVER003 | client disconnected - id="43805efca93547fb81b78de4ac2da0f8"
+2019-10-22 11:23:38,196 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:23:38,387 | AMQ Server | INFO | SERVER003 | client disconnected - id="672308bfeb434b588890a0c10f23541d"
+2019-10-22 11:23:40,247 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="672308bfeb434b588890a0c10f23541d"
+2019-10-22 11:23:42,523 | AMQ Server | INFO | LIST004 | add anime request - id="fd4d6fe4760f4c32b0a24194ad17c202" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:24:44,779 | AMQ Server | INFO | SERVER003 | client disconnected - id="fd4d6fe4760f4c32b0a24194ad17c202"
+2019-10-22 11:27:58,641 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:28:04,571 | AMQ Server | INFO | SERVER003 | client disconnected - id="d53545eed0e54d349c2784f0552990a1"
+2019-10-22 11:34:06,436 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:34:08,282 | AMQ Server | INFO | SERVER003 | client disconnected - id="519c7b0942be4fcb8a054c5c26bc361e"
+2019-10-22 11:39:13,406 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:39:17,171 | AMQ Server | INFO | LIST004 | add anime request - id="6328b00d90e24369a1182c709e171c74" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:39:21,098 | AMQ Server | INFO | SERVER003 | client disconnected - id="6328b00d90e24369a1182c709e171c74"
+2019-10-22 11:40:19,509 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:40:24,906 | AMQ Server | INFO | LIST004 | add anime request - id="84ce2941527c4be09a25e11f70ebc43c" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:40:29,243 | AMQ Server | INFO | LIST005 | remove anime request - id="84ce2941527c4be09a25e11f70ebc43c" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:40:32,442 | AMQ Server | INFO | SERVER003 | client disconnected - id="84ce2941527c4be09a25e11f70ebc43c"
+2019-10-22 11:42:55,287 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:42:57,330 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="86d64fe6162144a9832bdbac84ec8342"
+2019-10-22 11:42:57,330 | AMQ Server | INFO | SERVER003 | client disconnected - id="86d64fe6162144a9832bdbac84ec8342"
+2019-10-22 11:43:01,315 | AMQ Server | INFO | LIST005 | remove anime request - id="4e8c3a10906d4e9d9b7267e87bff1644" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:43:10,565 | AMQ Server | INFO | LIST005 | remove anime request - id="4e8c3a10906d4e9d9b7267e87bff1644" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:43:27,962 | AMQ Server | INFO | SERVER003 | client disconnected - id="4e8c3a10906d4e9d9b7267e87bff1644"
+2019-10-22 11:43:50,424 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:43:53,922 | AMQ Server | INFO | SERVER003 | client disconnected - id="5bae290d05b34749b33068555f05b7fd"
+2019-10-22 11:43:54,850 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="5bae290d05b34749b33068555f05b7fd"
+2019-10-22 11:43:57,554 | AMQ Server | INFO | LIST005 | remove anime request - id="2ed1c48459304bcca429cd4a09a4374c" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:44:09,978 | AMQ Server | INFO | SERVER003 | client disconnected - id="2ed1c48459304bcca429cd4a09a4374c"
+2019-10-22 11:48:47,317 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:48:53,260 | AMQ Server | INFO | LIST005 | remove anime request - id="c8c80ce52cb047b7b82ac41299870827" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:48:53,954 | AMQ Server | INFO | LIST004 | add anime request - id="c8c80ce52cb047b7b82ac41299870827" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:48:55,514 | AMQ Server | INFO | LIST005 | remove anime request - id="c8c80ce52cb047b7b82ac41299870827" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:48:57,938 | AMQ Server | INFO | LIST004 | add anime request - id="c8c80ce52cb047b7b82ac41299870827" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:48:59,482 | AMQ Server | INFO | LIST005 | remove anime request - id="c8c80ce52cb047b7b82ac41299870827" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 11:49:19,370 | AMQ Server | INFO | SERVER003 | client disconnected - id="c8c80ce52cb047b7b82ac41299870827"
+2019-10-22 11:51:33,034 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:51:34,218 | AMQ Server | INFO | SERVER003 | client disconnected - id="2dbe211ea1c844b098ff25fb6dc214a1"
+2019-10-22 11:51:35,205 | AMQ Server | INFO | LIST002 | full list requested by client - id="7f674e403f7f4b398052a6e44efea76f"
+2019-10-22 11:51:35,656 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="2dbe211ea1c844b098ff25fb6dc214a1"
+2019-10-22 11:51:37,395 | AMQ Server | INFO | LIST003 | user list requested by client - id="7f674e403f7f4b398052a6e44efea76f" filename="deemo"
+2019-10-22 11:51:56,426 | AMQ Server | INFO | SERVER003 | client disconnected - id="7f674e403f7f4b398052a6e44efea76f"
+2019-10-22 11:53:20,821 | AMQ Server | INFO | LIST002 | full list requested by client - id="3d134ef02332405bbb606c0a3ad41b13"
+2019-10-22 11:54:04,777 | AMQ Server | INFO | SERVER003 | client disconnected - id="3d134ef02332405bbb606c0a3ad41b13"
+2019-10-22 11:54:06,807 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:54:08,603 | AMQ Server | INFO | LIST002 | full list requested by client - id="ecefb4f8e7af4d64abf4a240bbec972f"
+2019-10-22 11:54:08,995 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="f643d8f936ee4cf5a7d766c80820ebf4"
+2019-10-22 11:54:08,995 | AMQ Server | INFO | SERVER003 | client disconnected - id="f643d8f936ee4cf5a7d766c80820ebf4"
+2019-10-22 11:54:09,899 | AMQ Server | INFO | LIST003 | user list requested by client - id="ecefb4f8e7af4d64abf4a240bbec972f" filename="deemo"
+2019-10-22 11:54:14,121 | AMQ Server | INFO | SERVER003 | client disconnected - id="ecefb4f8e7af4d64abf4a240bbec972f"
+2019-10-22 11:57:04,256 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:57:06,103 | AMQ Server | INFO | LIST002 | full list requested by client - id="0abcd185d7c144a9b2bc926111d00ee0"
+2019-10-22 11:57:06,341 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="d3f36d8b263a48e7b61e1454cf7910d6"
+2019-10-22 11:57:06,341 | AMQ Server | INFO | SERVER003 | client disconnected - id="d3f36d8b263a48e7b61e1454cf7910d6"
+2019-10-22 11:57:07,203 | AMQ Server | INFO | LIST003 | user list requested by client - id="0abcd185d7c144a9b2bc926111d00ee0" filename="deemo"
+2019-10-22 11:57:53,225 | AMQ Server | INFO | SERVER003 | client disconnected - id="0abcd185d7c144a9b2bc926111d00ee0"
+2019-10-22 11:57:54,993 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 11:57:57,234 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="1f7f7bd3373244659cc4fd2014b1795f"
+2019-10-22 11:57:57,235 | AMQ Server | INFO | SERVER003 | client disconnected - id="1f7f7bd3373244659cc4fd2014b1795f"
+2019-10-22 11:58:01,645 | AMQ Server | INFO | LIST002 | full list requested by client - id="9b15c7f2103444088dd956ec6bd03bd4"
+2019-10-22 11:58:03,194 | AMQ Server | INFO | LIST003 | user list requested by client - id="9b15c7f2103444088dd956ec6bd03bd4" filename="deemo"
+2019-10-22 12:02:06,905 | AMQ Server | INFO | SERVER003 | client disconnected - id="9b15c7f2103444088dd956ec6bd03bd4"
+2019-10-22 12:02:09,041 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 12:02:09,342 | AMQ Server | INFO | SERVER003 | client disconnected - id="e3e0a4a0c0f040b1881f7ab5e8eec6b6"
+2019-10-22 12:02:10,302 | AMQ Server | ERROR | SERVER004 | Unhandled error - msg="&#x27;AMQDatabase&#x27; object has no attribute &#x27;test&#x27;"
+2019-10-22 12:02:10,618 | AMQ Server | INFO | LIST002 | full list requested by client - id="27118a1bae614cf3a92986f7736a4fb5"
+2019-10-22 12:02:11,294 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="e3e0a4a0c0f040b1881f7ab5e8eec6b6"
+2019-10-22 12:02:14,537 | AMQ Server | INFO | SERVER003 | client disconnected - id="27118a1bae614cf3a92986f7736a4fb5"
+2019-10-22 12:03:28,147 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 12:03:29,014 | AMQ Server | ERROR | 'AMQDatabase' object has no attribute 'test'
+2019-10-22 12:03:29,273 | AMQ Server | INFO | LIST002 | full list requested by client - id="76767de933674467b8f1922cc2ceec6d"
+2019-10-22 12:03:39,193 | AMQ Server | INFO | SERVER003 | client disconnected - id="76767de933674467b8f1922cc2ceec6d"
+2019-10-22 12:04:17,258 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 12:04:18,289 | AMQ Server | ERROR | 'AMQDatabase' object has no attribute 'test'
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 10, in login
+    db.test()
+AttributeError: 'AMQDatabase' object has no attribute 'test'
+2019-10-22 12:04:18,553 | AMQ Server | INFO | LIST002 | full list requested by client - id="2d99f39bca2d4a00880e7920d45a4638"
+2019-10-22 12:04:28,537 | AMQ Server | INFO | SERVER003 | client disconnected - id="2d99f39bca2d4a00880e7920d45a4638"
+2019-10-22 12:05:53,177 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 12:05:54,311 | AMQ Server | ERROR | SERVER004 | Unhandled error - msg="&#x27;AMQDatabase&#x27; object has no attribute &#x27;test&#x27;"
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 10, in login
+    db.test()
+AttributeError: 'AMQDatabase' object has no attribute 'test'
+2019-10-22 12:05:54,727 | AMQ Server | INFO | LIST002 | full list requested by client - id="417b6710dc2a4ad08d3668cb666b85c7"
+2019-10-22 12:05:55,334 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="538dae50d2e8442397391c6623e90bb1"
+2019-10-22 12:05:55,335 | AMQ Server | INFO | SERVER003 | client disconnected - id="538dae50d2e8442397391c6623e90bb1"
+2019-10-22 12:07:56,424 | AMQ Server | INFO | SERVER003 | client disconnected - id="417b6710dc2a4ad08d3668cb666b85c7"
+2019-10-22 12:07:58,313 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 12:07:59,170 | AMQ Server | INFO | SERVER003 | client disconnected - id="0354d90602024ff396557102aa530e46"
+2019-10-22 12:08:00,317 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="0354d90602024ff396557102aa530e46"
+2019-10-22 12:08:00,437 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 10, in login
+    db.test()
+AttributeError: 'AMQDatabase' object has no attribute 'test'
+2019-10-22 12:08:00,871 | AMQ Server | INFO | LIST002 | full list requested by client - id="b74318cf386a4862afe2ca9680407bc9"
+2019-10-22 12:13:38,953 | AMQ Server | INFO | SERVER003 | client disconnected - id="b74318cf386a4862afe2ca9680407bc9"
+2019-10-22 20:08:14,915 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:08:16,548 | AMQ Server | INFO | LIST002 | full list requested by client - id="054861895bea4cfdb821c58d0c903c95"
+2019-10-22 20:08:53,314 | AMQ Server | INFO | LIST002 | full list requested by client - id="054861895bea4cfdb821c58d0c903c95"
+2019-10-22 20:09:03,343 | AMQ Server | INFO | SERVER003 | client disconnected - id="054861895bea4cfdb821c58d0c903c95"
+2019-10-22 20:09:05,386 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:09:06,259 | AMQ Server | INFO | SERVER003 | client disconnected - id="9e66443a12b54a0d8fcda0927c98c107"
+2019-10-22 20:09:07,636 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="9e66443a12b54a0d8fcda0927c98c107"
+2019-10-22 20:09:07,654 | AMQ Server | INFO | LIST002 | full list requested by client - id="8ba5f20fc9774d3389733655a1106aa0"
+2019-10-22 20:09:29,868 | AMQ Server | INFO | SERVER003 | client disconnected - id="8ba5f20fc9774d3389733655a1106aa0"
+2019-10-22 20:09:31,956 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:09:33,932 | AMQ Server | INFO | SERVER003 | client disconnected - id="7bf3d45947394c799cb2e56d1a444f6f"
+2019-10-22 20:09:34,026 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="7bf3d45947394c799cb2e56d1a444f6f"
+2019-10-22 20:09:35,393 | AMQ Server | INFO | LIST002 | full list requested by client - id="6c28095ab332459889cfb9721757cef8"
+2019-10-22 20:10:25,887 | AMQ Server | INFO | SERVER003 | client disconnected - id="6c28095ab332459889cfb9721757cef8"
+2019-10-22 20:10:27,977 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:10:28,716 | AMQ Server | INFO | SERVER003 | client disconnected - id="752c3b4b2f674102a625d1a5c8df4199"
+2019-10-22 20:10:29,989 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="752c3b4b2f674102a625d1a5c8df4199"
+2019-10-22 20:10:30,459 | AMQ Server | INFO | LIST002 | full list requested by client - id="b7ffc208e71149768f1993ea3b7249e3"
+2019-10-22 20:10:55,475 | AMQ Server | INFO | SERVER003 | client disconnected - id="b7ffc208e71149768f1993ea3b7249e3"
+2019-10-22 20:10:57,420 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:10:57,946 | AMQ Server | INFO | SERVER003 | client disconnected - id="9b2a7eb2d1684a1bb22b25cc2e37956a"
+2019-10-22 20:10:59,190 | AMQ Server | INFO | LIST002 | full list requested by client - id="4a7c5e7240cd41e29e2902f934a9667c"
+2019-10-22 20:10:59,552 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="9b2a7eb2d1684a1bb22b25cc2e37956a"
+2019-10-22 20:11:03,210 | AMQ Server | INFO | SERVER003 | client disconnected - id="4a7c5e7240cd41e29e2902f934a9667c"
+2019-10-22 20:11:20,129 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:11:21,809 | AMQ Server | INFO | LIST002 | full list requested by client - id="0a853cda8b3845ae84c64436a0ddb92c"
+2019-10-22 20:12:34,053 | AMQ Server | INFO | SERVER003 | client disconnected - id="0a853cda8b3845ae84c64436a0ddb92c"
+2019-10-22 20:12:36,212 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:12:37,909 | AMQ Server | INFO | LIST002 | full list requested by client - id="973594e197714e43bacbf7410118b6f6"
+2019-10-22 20:12:38,377 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="ec8c833c4bd2492d95408536cfde44ef"
+2019-10-22 20:12:38,377 | AMQ Server | INFO | SERVER003 | client disconnected - id="ec8c833c4bd2492d95408536cfde44ef"
+2019-10-22 20:12:47,300 | AMQ Server | INFO | SERVER003 | client disconnected - id="973594e197714e43bacbf7410118b6f6"
+2019-10-22 20:13:01,472 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:13:03,225 | AMQ Server | INFO | LIST002 | full list requested by client - id="e7ac6ebd16fa4b1888fb81a905880108"
+2019-10-22 20:13:20,344 | AMQ Server | INFO | SERVER003 | client disconnected - id="e7ac6ebd16fa4b1888fb81a905880108"
+2019-10-22 20:46:40,294 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:46:44,893 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 10, in login
+    db.test()
+AttributeError: 'AMQDatabase' object has no attribute 'test'
+2019-10-22 20:46:45,424 | AMQ Server | INFO | LIST002 | full list requested by client - id="0e5e99bf47264a4b8810bf7a30f27e57"
+2019-10-22 20:47:24,743 | AMQ Server | INFO | SERVER003 | client disconnected - id="0e5e99bf47264a4b8810bf7a30f27e57"
+2019-10-22 20:47:27,041 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 20:47:28,394 | AMQ Server | INFO | SERVER003 | client disconnected - id="47e2e3b99cf340d3b48029978fd22bc3"
+2019-10-22 20:47:29,231 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="47e2e3b99cf340d3b48029978fd22bc3"
+2019-10-22 20:47:29,430 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 10, in login
+    db.test()
+AttributeError: 'AMQDatabase' object has no attribute 'test'
+2019-10-22 20:47:29,882 | AMQ Server | INFO | LIST002 | full list requested by client - id="699188fb4e484528841679bce59ccd4c"
+2019-10-22 20:47:38,041 | AMQ Server | INFO | SERVER003 | client disconnected - id="699188fb4e484528841679bce59ccd4c"
+2019-10-22 21:06:50,577 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:06:53,664 | AMQ Server | INFO | LIST002 | full list requested by client - id="2898d0689c4143f29f6f42c9e02612f6"
+2019-10-22 21:06:55,170 | AMQ Server | INFO | LIST003 | user list requested by client - id="2898d0689c4143f29f6f42c9e02612f6" filename="deemo"
+2019-10-22 21:06:56,250 | AMQ Server | INFO | LIST004 | add anime request - id="2898d0689c4143f29f6f42c9e02612f6" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:06:56,251 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 36, in addSong
+    db.addUserSong(user, songId)
+TypeError: addUserSong() missing 2 required positional arguments: 'anime' and 'title'
+2019-10-22 21:07:16,568 | AMQ Server | INFO | SERVER003 | client disconnected - id="2898d0689c4143f29f6f42c9e02612f6"
+2019-10-22 21:07:18,951 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:07:19,635 | AMQ Server | INFO | LIST002 | full list requested by client - id="e76fe6fd17b241dba8f1690f71599f03"
+2019-10-22 21:07:20,906 | AMQ Server | INFO | LIST003 | user list requested by client - id="e76fe6fd17b241dba8f1690f71599f03" filename="deemo"
+2019-10-22 21:07:20,957 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="7324936cdfdd48a3bc8933a77efd781a"
+2019-10-22 21:07:20,958 | AMQ Server | INFO | SERVER003 | client disconnected - id="7324936cdfdd48a3bc8933a77efd781a"
+2019-10-22 21:07:21,720 | AMQ Server | INFO | LIST004 | add anime request - id="e76fe6fd17b241dba8f1690f71599f03" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:08:03,874 | AMQ Server | INFO | SERVER003 | client disconnected - id="e76fe6fd17b241dba8f1690f71599f03"
+2019-10-22 21:08:05,878 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:08:08,099 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="91157121232646069817180bf9383389"
+2019-10-22 21:08:08,100 | AMQ Server | INFO | SERVER003 | client disconnected - id="91157121232646069817180bf9383389"
+2019-10-22 21:08:09,427 | AMQ Server | INFO | LIST002 | full list requested by client - id="41fc90f1a17a4b1da5b7817794cb43da"
+2019-10-22 21:08:11,540 | AMQ Server | INFO | LIST003 | user list requested by client - id="41fc90f1a17a4b1da5b7817794cb43da" filename="deemo"
+2019-10-22 21:08:12,218 | AMQ Server | INFO | LIST004 | add anime request - id="41fc90f1a17a4b1da5b7817794cb43da" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:08:59,329 | AMQ Server | INFO | SERVER003 | client disconnected - id="41fc90f1a17a4b1da5b7817794cb43da"
+2019-10-22 21:09:01,764 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:09:03,845 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="2db7d04b12ff4b7db18c697e4d6d5f64"
+2019-10-22 21:09:03,845 | AMQ Server | INFO | SERVER003 | client disconnected - id="2db7d04b12ff4b7db18c697e4d6d5f64"
+2019-10-22 21:09:05,594 | AMQ Server | INFO | LIST002 | full list requested by client - id="6308e9372d5147968ca2d7f207e9e37d"
+2019-10-22 21:09:06,690 | AMQ Server | INFO | LIST003 | user list requested by client - id="6308e9372d5147968ca2d7f207e9e37d" filename="deemo"
+2019-10-22 21:09:07,380 | AMQ Server | INFO | LIST004 | add anime request - id="6308e9372d5147968ca2d7f207e9e37d" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:09:57,033 | AMQ Server | INFO | SERVER003 | client disconnected - id="6308e9372d5147968ca2d7f207e9e37d"
+2019-10-22 21:09:59,192 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:10:01,288 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="c009fa1d0f1a49f9894ee9a7e162fdfb"
+2019-10-22 21:10:01,289 | AMQ Server | INFO | SERVER003 | client disconnected - id="c009fa1d0f1a49f9894ee9a7e162fdfb"
+2019-10-22 21:10:03,135 | AMQ Server | INFO | LIST002 | full list requested by client - id="45f546d28d564094a2a64527f8f18b29"
+2019-10-22 21:10:04,506 | AMQ Server | INFO | LIST003 | user list requested by client - id="45f546d28d564094a2a64527f8f18b29" filename="ashal"
+2019-10-22 21:10:06,362 | AMQ Server | INFO | LIST003 | user list requested by client - id="45f546d28d564094a2a64527f8f18b29" filename="deemo"
+2019-10-22 21:10:07,675 | AMQ Server | INFO | LIST004 | add anime request - id="45f546d28d564094a2a64527f8f18b29" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:10:14,835 | AMQ Server | INFO | SERVER003 | client disconnected - id="45f546d28d564094a2a64527f8f18b29"
+2019-10-22 21:11:51,866 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:11:56,720 | AMQ Server | INFO | LIST002 | full list requested by client - id="c9d8a8764be64dacb77b0a7d1c9fac29"
+2019-10-22 21:11:58,298 | AMQ Server | INFO | LIST003 | user list requested by client - id="c9d8a8764be64dacb77b0a7d1c9fac29" filename="deemo"
+2019-10-22 21:11:59,114 | AMQ Server | INFO | LIST004 | add anime request - id="c9d8a8764be64dacb77b0a7d1c9fac29" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:12:02,338 | AMQ Server | INFO | SERVER003 | client disconnected - id="c9d8a8764be64dacb77b0a7d1c9fac29"
+2019-10-22 21:12:13,854 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:12:14,513 | AMQ Server | INFO | SERVER003 | client disconnected - id="b399e2f3a0b6498b91e14a63d2ec5e69"
+2019-10-22 21:12:16,084 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="b399e2f3a0b6498b91e14a63d2ec5e69"
+2019-10-22 21:12:16,840 | AMQ Server | INFO | LIST002 | full list requested by client - id="6708cd31c3d44c1dadf857db5c5f6b10"
+2019-10-22 21:12:18,780 | AMQ Server | INFO | LIST003 | user list requested by client - id="6708cd31c3d44c1dadf857db5c5f6b10" filename="deemo"
+2019-10-22 21:12:19,571 | AMQ Server | INFO | LIST004 | add anime request - id="6708cd31c3d44c1dadf857db5c5f6b10" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:12:27,857 | AMQ Server | INFO | SERVER003 | client disconnected - id="6708cd31c3d44c1dadf857db5c5f6b10"
+2019-10-22 21:12:37,310 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:12:39,345 | AMQ Server | INFO | LIST002 | full list requested by client - id="810063b9de644aecbd6d36cebb16eb70"
+2019-10-22 21:12:41,148 | AMQ Server | INFO | LIST003 | user list requested by client - id="810063b9de644aecbd6d36cebb16eb70" filename="deemo"
+2019-10-22 21:12:41,954 | AMQ Server | INFO | LIST004 | add anime request - id="810063b9de644aecbd6d36cebb16eb70" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:12:43,841 | AMQ Server | INFO | LIST004 | add anime request - id="810063b9de644aecbd6d36cebb16eb70" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-22 21:12:58,815 | AMQ Server | INFO | LIST002 | full list requested by client - id="810063b9de644aecbd6d36cebb16eb70"
+2019-10-22 21:12:59,664 | AMQ Server | INFO | LIST003 | user list requested by client - id="810063b9de644aecbd6d36cebb16eb70" filename="deemo"
+2019-10-22 21:13:02,947 | AMQ Server | INFO | SERVER003 | client disconnected - id="810063b9de644aecbd6d36cebb16eb70"
+2019-10-22 21:13:06,070 | AMQ Server | INFO | LIST002 | full list requested by client - id="3a1f6c834a624817929e7a691007aa2d"
+2019-10-22 21:13:06,957 | AMQ Server | INFO | LIST002 | full list requested by client - id="3a1f6c834a624817929e7a691007aa2d"
+2019-10-22 21:13:07,520 | AMQ Server | INFO | LIST002 | full list requested by client - id="3a1f6c834a624817929e7a691007aa2d"
+2019-10-22 21:13:10,772 | AMQ Server | INFO | LIST003 | user list requested by client - id="3a1f6c834a624817929e7a691007aa2d" filename="ashal"
+2019-10-22 21:13:12,725 | AMQ Server | INFO | LIST003 | user list requested by client - id="3a1f6c834a624817929e7a691007aa2d" filename="deemo"
+2019-10-22 21:13:14,139 | AMQ Server | INFO | LIST003 | user list requested by client - id="3a1f6c834a624817929e7a691007aa2d" filename="deemo"
+2019-10-22 21:13:17,281 | AMQ Server | INFO | SERVER003 | client disconnected - id="3a1f6c834a624817929e7a691007aa2d"
