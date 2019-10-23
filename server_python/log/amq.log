@@ -444,3 +444,103 @@ TypeError: addUserSong() missing 2 required positional arguments: 'anime' and 't
 2019-10-22 21:13:12,725 | AMQ Server | INFO | LIST003 | user list requested by client - id="3a1f6c834a624817929e7a691007aa2d" filename="deemo"
 2019-10-22 21:13:14,139 | AMQ Server | INFO | LIST003 | user list requested by client - id="3a1f6c834a624817929e7a691007aa2d" filename="deemo"
 2019-10-22 21:13:17,281 | AMQ Server | INFO | SERVER003 | client disconnected - id="3a1f6c834a624817929e7a691007aa2d"
+2019-10-22 21:44:02,912 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:44:25,987 | AMQ Server | INFO | SERVER003 | client disconnected - id="014f5757ef2448b8a1d9e93bf3dac17e"
+2019-10-22 21:44:30,863 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:44:46,718 | AMQ Server | INFO | SERVER003 | client disconnected - id="dc59bcf82fa04d50a4fdee06e8440a14"
+2019-10-22 21:44:55,675 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:45:04,557 | AMQ Server | INFO | SERVER003 | client disconnected - id="deaf782981b943359edb78e3744e1c54"
+2019-10-22 21:45:42,484 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-22 21:45:47,689 | AMQ Server | INFO | EMOJI001 | emoji add request - id="" command="test" src="test" type="dec"
+2019-10-22 21:45:47,690 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/misc/main.py", line 24, in addEmoji
+    db.addEmoji(emoji)
+  File "/mnt/d/Git/anime-music-quiz/server_python/database/main.py", line 69, in addEmoji
+    self._fileHandler.emojiList(self.emojiList)
+TypeError: 'list' object is not callable
+2019-10-22 21:46:23,455 | AMQ Server | INFO | SERVER003 | client disconnected - id="f9d3f7ff069d4abbb52acbb380c0f902"
+2019-10-23 10:27:10,728 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:27:14,813 | AMQ Server | INFO | LIST002 | full list requested by client - id="0669e641f01a468bbe6137a7672e5e9b"
+2019-10-23 10:27:17,615 | AMQ Server | INFO | LIST003 | user list requested by client - id="0669e641f01a468bbe6137a7672e5e9b" filename="ashal"
+2019-10-23 10:27:21,161 | AMQ Server | INFO | LIST003 | user list requested by client - id="0669e641f01a468bbe6137a7672e5e9b" filename="deemo"
+2019-10-23 10:27:23,088 | AMQ Server | INFO | LIST004 | add song request - id="0669e641f01a468bbe6137a7672e5e9b" user="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-23 10:27:23,088 | AMQ Database | ERROR | DATA001 | invalid song id - songId="3204e7b3-9454-43b0-8970-ec088a528a53" user="deemo" reason="invalid song id"
+2019-10-23 10:28:00,271 | AMQ Server | INFO | SERVER003 | client disconnected - id="0669e641f01a468bbe6137a7672e5e9b"
+2019-10-23 10:28:31,478 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:28:32,958 | AMQ Server | INFO | SERVER003 | client disconnected - id="5cb890be3ed74335b7db6a69dc894ad2"
+2019-10-23 10:28:33,937 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="5cb890be3ed74335b7db6a69dc894ad2"
+2019-10-23 10:28:34,179 | AMQ Server | INFO | LIST002 | full list requested by client - id="6c8d91d309234d84924cb39a8555b45d"
+2019-10-23 10:28:35,296 | AMQ Server | INFO | LIST003 | user list requested by client - id="6c8d91d309234d84924cb39a8555b45d" filename="deemo"
+2019-10-23 10:28:36,079 | AMQ Server | INFO | LIST004 | add song request - id="6c8d91d309234d84924cb39a8555b45d" user="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-23 10:28:36,084 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/list/main.py", line 36, in addSong
+    db.addUserSong(user, songId)
+  File "/mnt/d/Git/anime-music-quiz/server_python/database/main.py", line 32, in addUserSong
+    logger.writeLog('DATA003', { 'songId': songId,
+NameError: name 'logger' is not defined
+2019-10-23 10:28:39,936 | AMQ Server | INFO | SERVER003 | client disconnected - id="6c8d91d309234d84924cb39a8555b45d"
+2019-10-23 10:29:12,670 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:29:13,694 | AMQ Server | INFO | SERVER003 | client disconnected - id="7789fe56ba1b4290b516de052d435141"
+2019-10-23 10:29:14,983 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="7789fe56ba1b4290b516de052d435141"
+2019-10-23 10:29:16,208 | AMQ Server | INFO | LIST002 | full list requested by client - id="5a769cc5efd34d7498c9365902da72e9"
+2019-10-23 10:29:17,262 | AMQ Server | INFO | LIST003 | user list requested by client - id="5a769cc5efd34d7498c9365902da72e9" filename="deemo"
+2019-10-23 10:29:18,536 | AMQ Server | INFO | LIST005 | remove anime request - id="5a769cc5efd34d7498c9365902da72e9" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-23 10:29:18,538 | AMQ Database | INFO | DATA003 | user list changes saved - songId="3204e7b3-9454-43b0-8970-ec088a528a53" user="deemo" changeType="remove song"
+2019-10-23 10:29:23,127 | AMQ Server | INFO | LIST004 | add song request - id="5a769cc5efd34d7498c9365902da72e9" user="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-23 10:29:23,129 | AMQ Database | INFO | DATA003 | user list changes saved - songId="3204e7b3-9454-43b0-8970-ec088a528a53" user="" changeType="add song"
+2019-10-23 10:29:24,911 | AMQ Server | INFO | LIST005 | remove anime request - id="5a769cc5efd34d7498c9365902da72e9" filename="deemo" anime=".hack//Liminality" title="Edge" songId="3204e7b3-9454-43b0-8970-ec088a528a53"
+2019-10-23 10:29:24,913 | AMQ Database | INFO | DATA003 | user list changes saved - songId="3204e7b3-9454-43b0-8970-ec088a528a53" user="deemo" changeType="remove song"
+2019-10-23 10:29:30,406 | AMQ Server | INFO | SERVER003 | client disconnected - id="5a769cc5efd34d7498c9365902da72e9"
+2019-10-23 10:37:09,110 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:37:10,535 | AMQ Server | INFO | LIST002 | full list requested by client - id="b6b061d3798f41ea8f177ee31957549e"
+2019-10-23 10:37:11,994 | AMQ Server | INFO | SERVER003 | client disconnected - id="b6b061d3798f41ea8f177ee31957549e"
+2019-10-23 10:37:12,062 | AMQ Server | WARNING | AUTH002 | unauthorised connection - id="b6b061d3798f41ea8f177ee31957549e"
+2019-10-23 10:37:13,202 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/misc/main.py", line 11, in login
+    self.syncEmojiData(sid)
+AttributeError: 'EmojiManager' object has no attribute 'syncEmojiData'
+2019-10-23 10:37:16,847 | AMQ Server | INFO | SERVER003 | client disconnected - id="9fceae91400a4899b4a030b791160141"
+2019-10-23 10:37:36,390 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:37:38,042 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/misc/main.py", line 11, in login
+    self.syncEmojiData(sid)
+TypeError: syncEmojiData() takes from 0 to 1 positional arguments but 2 were given
+2019-10-23 10:37:41,342 | AMQ Server | INFO | SERVER003 | client disconnected - id="d4447894336b4568b52d8b9e130b4fbd"
+2019-10-23 10:38:01,618 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:38:18,952 | AMQ Server | INFO | EMOJI001 | emoji add request - id="" command="test" src="test" type="dec"
+2019-10-23 10:38:18,952 | AMQ Server | ERROR | SERVER004 | Unhandled error
+Traceback (most recent call last):
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/handlers.py", line 7, in wrapper
+    return function(*args, **kwargs)
+  File "/mnt/d/Git/anime-music-quiz/server_python/amq/misc/main.py", line 25, in addEmoji
+    db.addEmoji(emoji)
+  File "/mnt/d/Git/anime-music-quiz/server_python/database/main.py", line 44, in addEmoji
+    self.emojiData.addEmoji(emoji)
+  File "/mnt/d/Git/anime-music-quiz/server_python/database/misc.py", line 12, in addEmoji
+    self._checkDuplicateEmoji(command, src, emojiType)
+  File "/mnt/d/Git/anime-music-quiz/server_python/database/misc.py", line 42, in _checkDuplicateEmoji
+    for item in self.emojiList:
+AttributeError: 'EmojiData' object has no attribute 'emojiList'
+2019-10-23 10:38:31,935 | AMQ Server | INFO | SERVER003 | client disconnected - id="a0e3a06029a341e7ac5d353f33c488de"
+2019-10-23 10:39:06,241 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:39:12,760 | AMQ Server | INFO | EMOJI001 | emoji add request - id="" command="test" src="test" type="dec"
+2019-10-23 10:39:12,769 | AMQ Database | INFO | DATA004 | emoji list changes saved - command="test" src="test" type="dec" changeType="add emoji"
+2019-10-23 10:39:30,959 | AMQ Server | INFO | SERVER003 | client disconnected - id="a4875ef55be949179d3a22c0627bd465"
+2019-10-23 10:40:50,914 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:43:18,143 | AMQ Server | INFO | SERVER003 | client disconnected - id="6b7636d0d12245599e717c9482676f62"
+2019-10-23 10:43:19,963 | AMQ Server | INFO | SERVER001 | server running on port="3001"
+2019-10-23 10:43:29,216 | AMQ Server | INFO | EMOJI002 | emoji remove request - id="" command="test" src="test" type="dec"
+2019-10-23 10:43:29,226 | AMQ Database | INFO | DATA004 | emoji list changes saved - command="test" src="test" type="dec" changeType="remove emoji"
+2019-10-23 10:43:41,520 | AMQ Server | INFO | SERVER003 | client disconnected - id="91fb8aae1a1b41da9e2ddb54f247864c"

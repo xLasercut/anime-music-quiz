@@ -6,7 +6,7 @@
   },
   {
     "command": "grinning",
-    "src": "😀",
+    "src": "\ud83d\ude00",
     "type": "dec"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "command": "notes",
-    "src": "🎶",
+    "src": "\ud83c\udfb6",
     "type": "dec"
   },
   {

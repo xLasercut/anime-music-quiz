@@ -12,13 +12,17 @@ notification = Notifications()
 authManager = AuthenticationManager()
 
 from amq.list import ListManager
+from amq.misc import EmojiManager
 
 listManager = ListManager()
+emojiManager = EmojiManager()
 
 
-def registerHandlers(auth, admin):
+def registerHandlers(sid, auth, admin):
     if auth:
+        sio.emit('SYNC_ADMIN', admin, room=sid)
         listManager.registerHandlers()
+        emojiManager.registerHandlers()
 
 @sio.event
 def connect(sid, environ):
@@ -33,8 +37,8 @@ def disconnect(sid):
 @sio.on('AUTHENTICATE')
 def authenticateClient(sid, password):
     auth, admin = authManager.authenticateClient(sid, password)
-    registerHandlers(auth, admin)
-    return auth, admin
+    registerHandlers(sid, auth, admin)
+    return auth
 
 
 app = socketio.WSGIApp(sio)

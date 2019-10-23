@@ -29,12 +29,12 @@ class ListManager(object):
             title = song.get('title', '')
             songId = song.get('songId', '')
             logger.writeLog('LIST004', { 'id': sid,
-                                        'anime': anime,
-                                        'title': title,
-                                        'songId': songId,
-                                        'filename': user })
-            db.addUserSong(user, songId, anime, title)
-            self.syncUserList(user, sid)
+                                         'anime': anime,
+                                         'title': title,
+                                         'songId': songId,
+                                         'user': user })
+            db.addUserSong(user, songId)
+            self.syncUserList(user)
             notification.sendSingle(sid, 'success', f'{anime}: {title} added')
 
 
@@ -49,19 +49,19 @@ class ListManager(object):
                                         'title': title,
                                         'songId': songId,
                                         'filename': user })
-            db.removeUserSong(user, songId, anime, title)
-            self.syncUserList(user, sid)
+            db.removeUserSong(user, songId)
+            self.syncUserList(user)
             notification.sendSingle(sid, 'success', f'{anime}: {title} removed')
 
 
 
     @staticmethod
-    def syncUserList(user, sid, single=False):
+    def syncUserList(user, sid=None):
         data = {
-            'list': db.userLists[user],
+            'list': db.getUserList(user),
             'file': user
         }
-        if single:
+        if sid:
             sio.emit('SYNC_USER_LIST', data, room=sid)
         else:
             sio.emit('SYNC_USER_LIST', data)
