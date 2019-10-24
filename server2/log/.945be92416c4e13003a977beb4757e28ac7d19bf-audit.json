@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 5
+    },
+    "auditLog": "/mnt/d/Git/anime-music-quiz/server2/log/.945be92416c4e13003a977beb4757e28ac7d19bf-audit.json",
+    "files": [
+        {
+            "date": 1571948055665,
+            "name": "/mnt/d/Git/anime-music-quiz/server2/log/amq-2019-10-24.log",
+            "hash": "6f7870d0936031a544aa51dd7a4d5256"
+        }
+    ]
+}

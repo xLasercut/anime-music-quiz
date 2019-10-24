@@ -1,1 +1,1 @@
-from amq.list.main import ListManager
+from amq.list.handlers import listPickerHandlers

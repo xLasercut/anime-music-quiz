@@ -5,8 +5,8 @@ export default
   settings:
     songCount: 20
     guessTime: 30
-    lists: []
-    mode: 'normal'
+    users: []
+    gameMode: 'normal'
     duplicate: false
     selectTime: 20
   players: {}

@@ -32,12 +32,12 @@
         id="duplicate"
       ></settings-radio>
       <settings-radio
-        v-model="settings.mode" :disabled="disabled"
+        v-model="settings.gameMode" :disabled="disabled"
         label="Game Mode" :options="gameModes"
         id="game-mode"
       ></settings-radio>
       <settings-checkbox
-        :disabled="disabled" v-model="settings.lists"
+        :disabled="disabled" v-model="settings.users"
         :items="$store.state.list.userListFiles"
       ></settings-checkbox>
       <v-row justify="center">

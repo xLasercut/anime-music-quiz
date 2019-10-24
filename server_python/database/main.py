@@ -1,5 +1,6 @@
 import uuid
 import os
+import random
 from database.services import FileHandler
 from database.misc import EmojiData, ChatBotData
 from database.anime import SongData
@@ -11,66 +12,83 @@ class AMQDatabase(object):
 
     def __init__(self):
         self._logger = Logger('AMQ Database')
-        self.emojiData = None
-        self.songData = None
-        self.botData = None
+        self._emojiData = None
+        self._songData = None
+        self._botData = None
         self.users = []
-        self.userData = {}
+        self._userData = {}
         self._fileHandler = FileHandler()
         self.loadDb()
 
     def loadDb(self):
-        self.songData = SongData(self._logger)
-        self.emojiData = EmojiData(self._logger)
-        self.botData = ChatBotData(self._logger)
+        self._songData = SongData(self._logger)
+        self._emojiData = EmojiData(self._logger)
+        self._botData = ChatBotData(self._logger)
         self._generateUserDb()
 
     def addUserSong(self, user, songId):
-        self.songData.validateSongId(user, songId)
-        self.userData[user].validateAddSongId(songId)
-        self.userData[user].addSong(songId)
+        self._songData.validateSongId(user, songId)
+        self._userData[user].validateAddSongId(songId)
+        self._userData[user].addSong(songId)
         self._logger.writeLog('DATA003', { 'songId': songId,
                                            'user': user,
                                            'changeType': 'add song' })
 
     def removeUserSong(self, user, songId):
-        self.userData[user].validateRemoveSongId(songId)
-        self.userData[user].removeSong(songId)
+        self._userData[user].validateRemoveSongId(songId)
+        self._userData[user].removeSong(songId)
         self._logger.writeLog('DATA003', { 'songId': songId,
                                            'file': user,
                                            'changeType': 'remove song' })
 
     def addEmoji(self, emoji):
-        self.emojiData.addEmoji(emoji)
+        self._emojiData.addEmoji(emoji)
 
     def removeEmoji(self, emoji):
-        self.emojiData.removeEmoji(emoji)
+        self._emojiData.removeEmoji(emoji)
 
     @property
     def choices(self):
-        return self.songData.choices
+        return self._songData.choices
 
     @property
     def songList(self):
-        return self.songData.db
+        return self._songData.db
 
     @property
     def userFiles(self):
         return self.users
 
     def getUserList(self, user):
-        return self.userData[user].db
+        return self._userData[user].db
+
+    def getCombinedUserList(self, users):
+        combinedSongIds = self._getCombinedSongIds(users)
+        combinedList = []
+        for song in self.songList:
+            if song.get('songId', '') in combinedSongIds:
+                combinedList.append(song)
+        random.shuffle(combinedList)
+        return combinedList
 
     @property
     def emojiList(self):
-        return self.emojiData.db
+        return self._emojiData.db
+
+    def _getCombinedSongIds(self, users):
+        combinedSongIds = []
+        for user in users:
+            for songId in self.getUserList(user):
+                if songId not in combinedSongIds:
+                    combinedSongIds.append(songId)
+        return combinedSongIds
 
     def _generateUserDb(self):
-        self.userData = {}
+        self._userData = {}
         self.users = self._fileHandler.getUsers()
         for user in self.users:
             userFilePath = self._fileHandler.getUserFilePath(user)
-            self.userData[user] = UserData(user, userFilePath, self._logger)
+            self._userData[user] = UserData(user, userFilePath, self._logger)
 
 
 
