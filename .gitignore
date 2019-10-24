@@ -39,4 +39,4 @@ client/tests/videos
 
 !.gitkeep
 
-server2/src/*.js
+server2/src/**/*.js
