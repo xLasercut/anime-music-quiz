@@ -40,3 +40,5 @@ client/tests/videos
 !.gitkeep
 
 server2/src/**/*.js
+server2/index.js
+server2/log/*
