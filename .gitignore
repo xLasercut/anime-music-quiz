@@ -38,3 +38,5 @@ client/tests/screenshots
 client/tests/videos
 
 !.gitkeep
+
+server2/src/*.js
