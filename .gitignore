@@ -39,4 +39,5 @@ client/tests/videos
 
 !.gitkeep
 
+server_ts/dist
 server_ts/log/*
