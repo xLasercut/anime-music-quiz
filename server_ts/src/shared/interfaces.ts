@@ -1,3 +1,6 @@
+import { UserData } from "../database/user"
+
+
 interface Song {
   songId: string
   src: string
@@ -7,4 +10,8 @@ interface Song {
   type: string
 }
 
-export { Song }
+interface UserDatas {
+  [key: string]: UserData
+}
+
+export { Song, UserDatas }

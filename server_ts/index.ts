@@ -1,18 +1,10 @@
-import express = require('express')
 import socketio = require('socket.io')
-import { SERVER_PORT, SERVER_PASSWORD, ADMIN_PASSWORD } from './src/shared/config'
-import { AMQLogger } from './src/shared/logging/logger'
-import { AMQDatabase } from './src/database/index'
+import { SERVER_PASSWORD, ADMIN_PASSWORD } from './src/shared/config'
+import { ListPickerHandler } from './src/list/handlers'
 
-let logger = new AMQLogger()
-let db = new AMQDatabase(logger)
+import { logger, db, io, msgEmitter } from './src/init'
 
-let app = express()
-let server = app.listen(SERVER_PORT, () => {
-  logger.writeLog('SERVER001', { port: SERVER_PORT })
-})
-
-let io = socketio(server)
+let listHandler = new ListPickerHandler(logger, db, msgEmitter)
 
 function checkPassword(socket: socketio.Socket, password: string): void {
   if (password === SERVER_PASSWORD || password === ADMIN_PASSWORD) {
@@ -26,7 +18,7 @@ function checkPassword(socket: socketio.Socket, password: string): void {
 
 function startListeners(socket: socketio.Socket, callback) {
   if (socket['auth']) {
-    console.log('test')
+    listHandler.start(socket)
   }
   callback(socket['auth'])
 }

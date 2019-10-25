@@ -1,5 +1,6 @@
 import { AMQLogger } from '../shared/logging/logger'
 import { AbstractDataObject } from './abstract'
+import { AMQDbError } from '../shared/exceptions'
 
 class UserData extends AbstractDataObject {
   db: Array<string>
@@ -24,11 +25,21 @@ class UserData extends AbstractDataObject {
   }
 
   validateAddSongId(songId: string): void {
-
+    if (this.db.includes(songId)) {
+      this._logger.writeLog('DATA001', { user: this._name,
+                                         songId: songId,
+                                         reason: 'song already in user list' })
+      throw new AMQDbError('Song already added to user list')
+    }
   }
 
   validateRemoveSongId(songId: string): void {
-
+    if (!this.db.includes(songId)) {
+      this._logger.writeLog('DATA001', { user: this._name,
+                                         songId: songId,
+                                         reason: 'song not in user list' })
+      throw new AMQDbError('Song not in user list')
+    }
   }
 }
 

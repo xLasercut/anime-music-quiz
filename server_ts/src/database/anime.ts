@@ -2,6 +2,7 @@ import { AbstractDataObject } from './abstract'
 import { SONG_LIST_PATH } from '../shared/config'
 import { AMQLogger } from '../shared/logging/logger'
 import { Song } from '../shared/interfaces'
+import { AMQDbError } from '../shared/exceptions'
 
 class SongData extends AbstractDataObject {
   db: Array<Song>
@@ -12,6 +13,15 @@ class SongData extends AbstractDataObject {
   constructor(logger: AMQLogger) {
     super(SONG_LIST_PATH, logger)
     this._initSecondaryDb()
+  }
+
+  validateSongId(user: string, songId: string): void {
+    if (!this._songIds.includes(songId)) {
+      this._logger.writeLog('DATA001', { user: user,
+                                         songId: songId,
+                                         reason: 'invalid song id' })
+      throw new AMQDbError('Invalid song ID')
+    }
   }
 
   _initSecondaryDb(): void {

@@ -6,8 +6,8 @@ import ini = require('ini')
 import mustache = require('mustache')
 let { combine, timestamp, printf } = winston.format
 
-let logFormat = printf(({ level, message, timestampe }) => {
-  return `${timestampe} | ${level} | ${message}`
+let logFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} | ${level} | ${message}`
 })
 
 let amqLog = new DailyRotateFile({
