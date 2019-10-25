@@ -29,5 +29,8 @@
     "typescript": "^3.6.4",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.2.1"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3"
   }
 }

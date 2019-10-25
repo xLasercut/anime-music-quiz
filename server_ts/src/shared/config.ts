@@ -1,5 +1,4 @@
 import path = require('path')
-import e = require('express')
 
 let SERVER_PASSWORD = process.env.SERVER_PASSWORD || 'server'
 let ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'password'
@@ -20,5 +19,7 @@ let SONG_LIST_PATH = path.join(DATA_DIR, 'song-list.json')
 let EMOJI_LIST_PATH = path.join(DATA_DIR, 'emoji.json')
 let BOT_LIST_PATH = path.join(DATA_DIR, 'chat-bot.json')
 
+let JSON_FILE_FORMAT = new RegExp('.*\.json', 'ig')
 
-export { SERVER_PASSWORD, ADMIN_PASSWORD, SERVER_PORT, LOGBASE_PATH, LOG_DIR, SONG_LIST_PATH, EMOJI_LIST_PATH, BOT_LIST_PATH, USER_DATA_DIR }
+
+export { SERVER_PASSWORD, ADMIN_PASSWORD, SERVER_PORT, LOGBASE_PATH, LOG_DIR, SONG_LIST_PATH, EMOJI_LIST_PATH, BOT_LIST_PATH, USER_DATA_DIR, JSON_FILE_FORMAT }
