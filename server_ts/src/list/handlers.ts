@@ -1,4 +1,4 @@
-import socketio = require('socket.io')
+import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
 import { Song } from '../shared/interfaces'
 import { AbstractRequestHandler } from '../shared/abstracts'

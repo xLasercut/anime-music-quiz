@@ -1,9 +1,9 @@
 import { LOGBASE_PATH, LOG_DIR } from './config'
-import winston = require('winston')
-import DailyRotateFile = require('winston-daily-rotate-file')
-import fs = require('fs')
-import ini = require('ini')
-import mustache = require('mustache')
+import * as winston from 'winston'
+import * as DailyRotateFile from 'winston-daily-rotate-file'
+import * as fs from 'fs'
+import * as ini from 'ini'
+import * as mustache from 'mustache'
 let { combine, timestamp, printf } = winston.format
 
 let logFormat = printf(({ level, message, timestamp }) => {

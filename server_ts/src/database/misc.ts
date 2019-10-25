@@ -1,8 +1,8 @@
-import { AbstractDataObject } from "../shared/abstracts"
-import { EMOJI_LIST_PATH } from '../shared/config'
-import { AMQLogger } from "../shared/logger"
-import { Emoji } from "../shared/interfaces"
-import { AMQDbError } from "../shared/exceptions"
+import { AbstractDataObject } from '../shared/abstracts'
+import { EMOJI_LIST_PATH, BOT_LIST_PATH } from '../shared/config'
+import { AMQLogger } from '../shared/logger'
+import { Emoji, ChatBot } from '../shared/interfaces'
+import { AMQDbError } from '../shared/exceptions'
 
 class EmojiData extends AbstractDataObject {
   db: Array<Emoji>
@@ -70,4 +70,12 @@ class EmojiData extends AbstractDataObject {
   }
 }
 
-export { EmojiData }
+class ChatBotData extends AbstractDataObject {
+  db: Array<ChatBot>
+
+  constructor(logger: AMQLogger) {
+    super(BOT_LIST_PATH, logger)
+  }
+}
+
+export { EmojiData, ChatBotData }

@@ -1,8 +1,8 @@
-import express = require('express')
-import socketio = require('socket.io')
+import * as express from 'express'
+import * as socketio from 'socket.io'
 
-import { AMQLogger } from "./shared/logger"
-import { AMQDatabase } from "./database"
+import { AMQLogger } from './shared/logger'
+import { AMQDatabase } from './database/index'
 import { SERVER_PORT } from './shared/config'
 import { MessageEmitter } from './shared/handlers'
 

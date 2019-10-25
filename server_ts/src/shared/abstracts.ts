@@ -1,13 +1,12 @@
-import fs = require('fs')
+import * as fs from 'fs'
 import { AMQLogger } from './logger'
-import { Json } from './types'
-import { AMQDatabase } from '../database'
+import { AMQDatabase } from '../database/index'
 import { MessageEmitter } from './handlers'
 
 class AbstractDataObject {
   _filepath: string
   _logger: AMQLogger
-  db: Json
+  db: Array<any>
 
   constructor(filepath: string, logger: AMQLogger) {
     this._filepath = filepath
@@ -19,7 +18,7 @@ class AbstractDataObject {
     this.db = this._readFile()
   }
 
-  _readFile(): Json {
+  _readFile(): Array<any> {
     return JSON.parse(fs.readFileSync(this._filepath, { encoding: 'utf-8' }))
   }
 
@@ -40,4 +39,12 @@ class AbstractRequestHandler {
   }
 }
 
-export { AbstractDataObject, AbstractRequestHandler }
+class AbstractGameData {
+  _logger: AMQLogger
+
+  constructor(logger: AMQLogger) {
+    this._logger = logger
+  }
+}
+
+export { AbstractDataObject, AbstractRequestHandler, AbstractGameData }

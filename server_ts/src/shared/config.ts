@@ -1,4 +1,4 @@
-import path = require('path')
+import * as path from 'path'
 
 let SERVER_PASSWORD = process.env.SERVER_PASSWORD || 'server'
 let ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'password'

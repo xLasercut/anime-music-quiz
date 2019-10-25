@@ -1,3 +1,7 @@
-type Json = Array<object> | Array<string> | object
+type GameMode = 'selector' | 'normal'
 
-export { Json }
+type ReadyType = 'song' | 'guess' | 'select'
+
+type BannerColor = 'error' | 'warning' | 'success'
+
+export { GameMode, ReadyType, BannerColor }

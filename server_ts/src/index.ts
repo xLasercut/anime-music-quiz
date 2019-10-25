@@ -1,10 +1,14 @@
-import socketio = require('socket.io')
+import * as socketio from 'socket.io'
 import { SERVER_PASSWORD, ADMIN_PASSWORD } from './shared/config'
 import { ListPickerHandler } from './list/handlers'
 
 import { logger, db, io, msgEmitter } from './init'
+import { EmojiHandler } from './misc/handlers'
+import { GameHandler } from './game/handlers'
 
 let listHandler = new ListPickerHandler(logger, db, msgEmitter)
+let emojiHandler = new EmojiHandler(logger, db, msgEmitter)
+let gameHandler = new GameHandler(logger, db, msgEmitter)
 
 function checkPassword(socket: socketio.Socket, password: string): void {
   if (password === SERVER_PASSWORD || password === ADMIN_PASSWORD) {
@@ -18,7 +22,10 @@ function checkPassword(socket: socketio.Socket, password: string): void {
 
 function startListeners(socket: socketio.Socket, callback) {
   if (socket['auth']) {
+    msgEmitter.syncAdminStatus(socket['admin'], socket)
     listHandler.start(socket)
+    emojiHandler.start(socket)
+    gameHandler.start(socket)
   }
   callback(socket['auth'])
 }

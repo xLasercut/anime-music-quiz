@@ -1,7 +1,7 @@
 import { AbstractDataObject } from '../shared/abstracts'
 import { SONG_LIST_PATH } from '../shared/config'
 import { AMQLogger } from '../shared/logger'
-import { Song } from '../shared/interfaces'
+import { Song, Choices } from '../shared/interfaces'
 import { AMQDbError } from '../shared/exceptions'
 
 class SongData extends AbstractDataObject {
@@ -15,12 +15,23 @@ class SongData extends AbstractDataObject {
     this._initSecondaryDb()
   }
 
+  _initDb(): void {
+    this.db = this._readFile().sort(this._sortSong)
+  }
+
   validateSongId(user: string, songId: string): void {
     if (!this._songIds.includes(songId)) {
       this._logger.writeLog('DATA001', { user: user,
                                          songId: songId,
                                          reason: 'invalid song id' })
       throw new AMQDbError('Invalid song ID')
+    }
+  }
+
+  get choices(): Choices {
+    return {
+      song: this._songChoices,
+      anime: this._animeChoices
     }
   }
 
@@ -32,6 +43,7 @@ class SongData extends AbstractDataObject {
     for (let song of this.db) {
       this._addSongId(song)
       this._addAnimeChoice(song)
+      this._addSongChoice(song)
     }
 
     this._animeChoices = this._animeChoices.sort(this._sortChoices)
@@ -65,6 +77,27 @@ class SongData extends AbstractDataObject {
 
   _sortChoices(a: string, b: string): number {
     if (a > b) {
+      return 1
+    }
+    return -1
+  }
+
+  _sortSong(a: Song, b: Song): number {
+    let animeA = a['anime'][0]
+    let animeB = b['anime'][0]
+    let titleA = a['title']
+    let titleB = b['title']
+
+    if (animeA == animeB) {
+      if (titleA > titleB) {
+        return 1
+      }
+      else if (titleA < titleB) {
+        return -1
+      }
+      return 0
+    }
+    else if (animeA > animeB) {
       return 1
     }
     return -1

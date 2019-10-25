@@ -28,13 +28,11 @@
 
 <script lang="coffee">
   import IconBtn from '../../../components/buttons/IconBtn.vue'
-  import Notification from '../../../assets/mixins/notification.coffee'
   import Timer from '../shared/Timer.vue'
   import ListData from '../../../list-picker/ListData.vue'
   import NavDialog from '../../../components/buttons/NavDialog.vue'
 
   export default
-    mixins: [ Notification ]
     components: { IconBtn, NavDialog, ListData, Timer }
     data: () ->
       show: false
@@ -57,7 +55,5 @@
       syncFullList: () ->
         this.$socket.emit('SYNC_FULL_LIST')
       selectSong: (song) ->
-        this.$socket.emit('SONG_OVERRIDE', song, (data) =>
-          this.notifySuccess("Song selected: #{data.anime[0]} - #{data.title}")
-        )
+        this.$socket.emit('SONG_OVERRIDE', song)
 </script>

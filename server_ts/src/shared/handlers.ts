@@ -1,6 +1,7 @@
-import socketio = require('socket.io')
+import * as socketio from 'socket.io'
 import { AMQDatabase } from '../database/index'
 import { db } from '../init'
+import { PlayerDataSerialized, SettingObj, SongCount, Song } from './interfaces'
 
 class MessageEmitter {
   _io: socketio.Server
@@ -33,6 +34,72 @@ class MessageEmitter {
 
   syncEmojiData(socket: socketio.Socket=null): void {
     this._emitter(socket).emit('SYNC_EMOJI_DATA', this._db.emojiList)
+  }
+
+  syncAdminStatus(admin: boolean, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_ADMIN', admin)
+  }
+
+  syncGameStatePlaying(playing: boolean, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_PLAYING', playing)
+  }
+
+  syncPlayerData(data: PlayerDataSerialized, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_PLAYERS', data)
+  }
+
+  syncGameChoices(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_CHOICES', this._db.choices)
+  }
+
+  syncGameSetting(settings: SettingObj, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_SETTINGS', settings)
+  }
+
+  syncSongCount(counts: SongCount, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_SONG_COUNT', counts)
+  }
+
+  gameNewSong(currentSong: Song, startPosition: number, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('NEW_SONG', currentSong, startPosition)
+  }
+
+  gameStartCountdown(guessTime: number, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('START_COUNTDOWN', guessTime)
+  }
+
+  gameTimeUp(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('TIME_UP')
+  }
+
+  gameShowGuess(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SHOW_GUESS')
+  }
+
+  gameReset(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('RESET')
+  }
+
+  resetSelector(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('RESET_SELECTOR')
+  }
+
+  gameSelectSong(sid: string, selectTime: number): void {
+    let client = this._getClient(sid)
+    if (client) {
+      client.emit('SELECT_SONG', selectTime)
+    }
+  }
+
+  gameSelectSongOver(sid: string): void {
+    let client = this._getClient(sid)
+    if (client) {
+      client.emit('SELECT_SONG_OVER')
+    }
+  }
+
+  _getClient(sid: string): socketio.Socket {
+    return this._io.nsps['/'].connected[sid]
   }
 
   _emitter(socket: socketio.Socket=null): socketio.Socket | socketio.Server {

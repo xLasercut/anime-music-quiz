@@ -1,4 +1,4 @@
-import socketio = require('socket.io')
+import * as socketio from 'socket.io'
 import { logger, msgEmitter } from '../init'
 
 class AMQDbError extends Error {

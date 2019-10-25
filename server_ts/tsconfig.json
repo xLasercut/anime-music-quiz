@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es2018",
     "experimentalDecorators": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "CommonJS",
+    "lib": [
+      "es2018"
+    ]
   },
   "include": [
     "src/**/*"
-  ]
+  ],
 }

@@ -1,5 +1,5 @@
-import socketio = require('socket.io')
-import { AbstractRequestHandler } from "../shared/abstracts"
+import * as socketio from 'socket.io'
+import { AbstractRequestHandler } from '../shared/abstracts'
 import { exceptionHandler } from '../shared/exceptions'
 import { Emoji } from '../shared/interfaces'
 
