@@ -1,4 +1,4 @@
-import { AbstractDataObject } from './abstract'
+import { AbstractDataObject } from '../shared/abstracts'
 import { SONG_LIST_PATH } from '../shared/config'
 import { AMQLogger } from '../shared/logging/logger'
 import { Song } from '../shared/interfaces'

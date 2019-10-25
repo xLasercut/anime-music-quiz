@@ -31,6 +31,10 @@ class MessageEmitter {
     this._emitter(socket).emit('SYNC_USER_LIST', data)
   }
 
+  syncEmojiData(socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('SYNC_EMOJI_DATA', this._db.emojiList)
+  }
+
   _emitter(socket: socketio.Socket=null): socketio.Socket | socketio.Server {
     if (socket) {
       return socket

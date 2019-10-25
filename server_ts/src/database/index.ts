@@ -4,13 +4,15 @@ import { USER_DATA_DIR, JSON_FILE_FORMAT } from '../shared/config'
 import { SongData } from './anime'
 import { UserData } from './user'
 import { AMQLogger } from '../shared/logging/logger'
-import { Song, UserDatas } from '../shared/interfaces'
+import { Song, UserDatas, Emoji } from '../shared/interfaces'
+import { EmojiData } from './misc'
 
 class AMQDatabase {
   _songData: SongData
   _logger: AMQLogger
   users: Array<string>
   _userDatas: UserDatas
+  _emojiData: EmojiData
 
   constructor(logger: AMQLogger) {
     this._logger = logger
@@ -19,6 +21,7 @@ class AMQDatabase {
 
   loadDb(): void {
     this._songData = new SongData(this._logger)
+    this._emojiData = new EmojiData(this._logger)
     this._generateUserDb()
   }
 
@@ -39,8 +42,20 @@ class AMQDatabase {
     return this._userDatas[user].db
   }
 
+  addEmoji(emoji: Emoji): void {
+    this._emojiData.addEmoji(emoji)
+  }
+
+  removeEmoji(emoji: Emoji): void {
+    this._emojiData.removeEmoji(emoji)
+  }
+
   get songList(): Array<Song> {
     return this._songData.db
+  }
+
+  get emojiList(): Array<Emoji> {
+    return this._emojiData.db
   }
 
   _generateUserDb(): void {

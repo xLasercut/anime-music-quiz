@@ -1,5 +1,5 @@
 import { AMQLogger } from '../shared/logging/logger'
-import { AbstractDataObject } from './abstract'
+import { AbstractDataObject } from '../shared/abstracts'
 import { AMQDbError } from '../shared/exceptions'
 
 class UserData extends AbstractDataObject {

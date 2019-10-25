@@ -1,20 +1,9 @@
 import socketio = require('socket.io')
-import { AMQLogger } from '../shared/logging/logger'
-import { AMQDatabase } from '../database'
-import { MessageEmitter } from '../shared/handlers'
 import { exceptionHandler } from '../shared/exceptions'
 import { Song } from '../shared/interfaces'
+import { AbstractRequestHandler } from '../shared/abstracts'
 
-class ListPickerHandler {
-  _logger: AMQLogger
-  _db: AMQDatabase
-  _emitter: MessageEmitter
-
-  constructor(logger: AMQLogger, db: AMQDatabase, emitter: MessageEmitter) {
-    this._logger = logger
-    this._db = db
-    this._emitter = emitter
-  }
+class ListPickerHandler extends AbstractRequestHandler {
 
   start(socket: socketio.Socket): void {
 

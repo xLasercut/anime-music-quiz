@@ -10,8 +10,14 @@ interface Song {
   type: string
 }
 
+interface Emoji {
+  command: string
+  src: string
+  type: string
+}
+
 interface UserDatas {
   [key: string]: UserData
 }
 
-export { Song, UserDatas }
+export { Song, UserDatas, Emoji }

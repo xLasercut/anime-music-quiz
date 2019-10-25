@@ -1,6 +1,8 @@
 import fs = require('fs')
-import { AMQLogger } from '../shared/logging/logger'
-import { Json } from '../shared/types'
+import { AMQLogger } from './logging/logger'
+import { Json } from './types'
+import { AMQDatabase } from '../database'
+import { MessageEmitter } from './handlers'
 
 class AbstractDataObject {
   _filepath: string
@@ -26,4 +28,16 @@ class AbstractDataObject {
   }
 }
 
-export { AbstractDataObject }
+class AbstractRequestHandler {
+  _logger: AMQLogger
+  _db: AMQDatabase
+  _emitter: MessageEmitter
+
+  constructor(logger: AMQLogger, db: AMQDatabase, emitter: MessageEmitter) {
+    this._logger = logger
+    this._db = db
+    this._emitter = emitter
+  }
+}
+
+export { AbstractDataObject, AbstractRequestHandler }
