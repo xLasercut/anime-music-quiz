@@ -1,4 +1,4 @@
-import { LOGBASE_PATH, LOG_DIR } from '../config'
+import { LOGBASE_PATH, LOG_DIR } from './config'
 import winston = require('winston')
 import DailyRotateFile = require('winston-daily-rotate-file')
 import fs = require('fs')

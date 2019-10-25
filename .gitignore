@@ -39,6 +39,4 @@ client/tests/videos
 
 !.gitkeep
 
-server_ts/src/**/*.js
-server_ts/index.js
 server_ts/log/*

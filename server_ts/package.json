@@ -4,7 +4,7 @@
   "description": "anime music quiz server",
   "main": "index.ts",
   "scripts": {
-    "start": "npm run compile && node index.js",
+    "start": "npm run compile && node dist/index.js",
     "compile": "tsc"
   },
   "repository": {

@@ -3,7 +3,7 @@ import path = require('path')
 import { USER_DATA_DIR, JSON_FILE_FORMAT } from '../shared/config'
 import { SongData } from './anime'
 import { UserData } from './user'
-import { AMQLogger } from '../shared/logging/logger'
+import { AMQLogger } from '../shared/logger'
 import { Song, UserDatas, Emoji } from '../shared/interfaces'
 import { EmojiData } from './misc'
 

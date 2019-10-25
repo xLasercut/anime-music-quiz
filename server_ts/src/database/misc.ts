@@ -1,6 +1,6 @@
 import { AbstractDataObject } from "../shared/abstracts"
 import { EMOJI_LIST_PATH } from '../shared/config'
-import { AMQLogger } from "../shared/logging/logger"
+import { AMQLogger } from "../shared/logger"
 import { Emoji } from "../shared/interfaces"
 import { AMQDbError } from "../shared/exceptions"
 

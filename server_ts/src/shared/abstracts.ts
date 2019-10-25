@@ -1,5 +1,5 @@
 import fs = require('fs')
-import { AMQLogger } from './logging/logger'
+import { AMQLogger } from './logger'
 import { Json } from './types'
 import { AMQDatabase } from '../database'
 import { MessageEmitter } from './handlers'

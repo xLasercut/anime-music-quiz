@@ -1,8 +1,8 @@
 import socketio = require('socket.io')
-import { SERVER_PASSWORD, ADMIN_PASSWORD } from './src/shared/config'
-import { ListPickerHandler } from './src/list/handlers'
+import { SERVER_PASSWORD, ADMIN_PASSWORD } from './shared/config'
+import { ListPickerHandler } from './list/handlers'
 
-import { logger, db, io, msgEmitter } from './src/init'
+import { logger, db, io, msgEmitter } from './init'
 
 let listHandler = new ListPickerHandler(logger, db, msgEmitter)
 

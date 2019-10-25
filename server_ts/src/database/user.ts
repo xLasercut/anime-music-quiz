@@ -1,4 +1,4 @@
-import { AMQLogger } from '../shared/logging/logger'
+import { AMQLogger } from '../shared/logger'
 import { AbstractDataObject } from '../shared/abstracts'
 import { AMQDbError } from '../shared/exceptions'
 
