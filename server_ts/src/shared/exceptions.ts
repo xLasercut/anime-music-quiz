@@ -1,21 +1,40 @@
 import * as socketio from 'socket.io'
-import { logger, msgEmitter } from '../init'
+import { emitter } from './server'
+import { logger } from '../services/init'
 
 class AMQDbError extends Error {
-  constructor(message: string){
+  constructor(message: string) {
     super(message)
     this.name = 'AMQDbError'
   }
 }
 
-function exceptionHandler(socket: socketio.Socket, f) {
+class AMQAdminError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'AMQAdminError'
+  }
+}
+
+class AMQGameError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'AMQGameError'
+  }
+}
+
+function exceptionHandler(socket: socketio.Socket, f: any) {
   return function() {
     try {
       return f.apply(this, arguments)
     }
     catch (e) {
-      if (e.name === 'AMQDbError') {
-        msgEmitter.notification('error', e.message, socket)
+      if (e.name === 'AMQDbError' || e.name === 'AMQGameError') {
+        emitter.notification('error', e.message, socket.id)
+      }
+      else if (e.name === 'AMQAdminError') {
+        emitter.notification('error', e.message, socket.id)
+        socket.disconnect()
       }
       else {
         logger.writeLog('SERVER004', { stack: e.stack })
@@ -24,4 +43,4 @@ function exceptionHandler(socket: socketio.Socket, f) {
   }
 }
 
-export { exceptionHandler, AMQDbError }
+export { exceptionHandler, AMQDbError, AMQAdminError, AMQGameError }

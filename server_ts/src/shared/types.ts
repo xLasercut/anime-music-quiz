@@ -1,7 +1,5 @@
-type GameMode = 'selector' | 'normal'
+type BannerColor = 'error' | 'success' | 'warning'
 
-type ReadyType = 'song' | 'guess' | 'select'
+type EmojiType = 'img' | 'dec'
 
-type BannerColor = 'error' | 'warning' | 'success'
-
-export { GameMode, ReadyType, BannerColor }
+export { BannerColor, EmojiType }

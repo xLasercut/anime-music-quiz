@@ -1,40 +1,60 @@
 import * as socketio from 'socket.io'
-import { AMQDatabase } from '../database/index'
-import { db } from '../init'
-import { PlayerDataSerialized, SettingObj, SongCount, Song } from './interfaces'
+import { BannerColor } from './types'
+import { SongObj, EmojiObj } from './interfaces/database'
 
 class MessageEmitter {
-  _io: socketio.Server
-  _db: AMQDatabase
+  private _io: socketio.Server
 
-  constructor(io: socketio.Server, db: AMQDatabase) {
+  constructor(io: socketio.Server) {
     this._io = io
-    this._db = db
   }
 
-  notification(msgType: string, msg: string, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYSTEM_NOTIFICATION', msgType, msg)
-  }
-
-  syncSongList(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_FULL_LIST', this._db.songList)
-  }
-
-  syncUsers(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_USER_LIST_FILES', this._db.users)
-  }
-
-  syncUserList(user: string, socket: socketio.Socket=null): void {
-    let data = {
-      list: db.getUserList(user),
-      file: user
+  _client(sid: string=null): socketio.Namespace | socketio.Server {
+    if (sid) {
+      return this._io.to(sid)
     }
-    this._emitter(socket).emit('SYNC_USER_LIST', data)
+    return this._io
   }
 
-  syncEmojiData(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_EMOJI_DATA', this._db.emojiList)
+  updateAdminStatus(admin: boolean, sid: string=null): void {
+    this._client(sid).emit('UPDATE_ADMIN_STATUS', admin)
   }
+
+  notification(msgType: BannerColor, msg: string, sid: string=null): void {
+    this._client(sid).emit('SYSTEM_NOTIFICATION', msgType, msg)
+  }
+
+  updateUsers(users: Array<string>, sid: string=null): void {
+    this._client(sid).emit('UPDATE_USERS', users)
+  }
+
+  updateSongList(songList: Array<SongObj>, sid: string=null): void {
+    this._client(sid).emit('UPDATE_SONG_LIST', songList)
+  }
+
+  updateUserList(user: string, userList: Array<string>, sid: string=null): void {
+    let data = {
+      userList: userList,
+      user: user
+    }
+    this._client(sid).emit('UPDATE_USER_LIST', data)
+  }
+
+  updateEmojiData(emojiData: Array<EmojiObj>, sid: string=null): void {
+    this._client(sid).emit('UPDATE_EMOJI_DATA', emojiData)
+  }
+/*
+  chat(msgData: ChatObj, socket: socketio.Socket=null): void {
+    this._emitter(socket).emit('MESSAGE', msgData)
+  }
+
+
+
+
+
+
+
+
 
   syncAdminStatus(admin: boolean, socket: socketio.Socket=null): void {
     this._emitter(socket).emit('SYNC_ADMIN', admin)
@@ -98,6 +118,14 @@ class MessageEmitter {
     }
   }
 
+  kickPlayer(sid: string): void {
+    let client = this._getClient(sid)
+    if (client) {
+      this.notification('error', 'You have been kicked', client)
+      client.disconnect()
+    }
+  }
+
   _getClient(sid: string): socketio.Socket {
     return this._io.nsps['/'].connected[sid]
   }
@@ -108,6 +136,7 @@ class MessageEmitter {
     }
     return this._io
   }
+  */
 }
 
 export { MessageEmitter }

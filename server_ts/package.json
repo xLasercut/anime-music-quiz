@@ -4,8 +4,11 @@
   "description": "anime music quiz server",
   "main": "index.ts",
   "scripts": {
-    "start": "npm run compile && node dist/index.js",
-    "compile": "tsc"
+    "start": "node dist/index.js",
+    "compile": "tsc",
+    "compile:watch": "tsc -w",
+    "start:watch": "nodemon dist/index.js",
+    "serve": "concurrently --kill-others \"npm run compile:watch\" \"npm run start:watch\""
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,8 @@
     "winston-daily-rotate-file": "^4.2.1"
   },
   "devDependencies": {
-    "cross-env": "^6.0.3"
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "nodemon": "^1.19.4"
   }
 }

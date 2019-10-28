@@ -1,9 +1,10 @@
-import { LOGBASE_PATH, LOG_DIR } from './config'
+import { LOGBASE_PATH, LOG_DIR } from '../../shared/config'
 import * as winston from 'winston'
 import * as DailyRotateFile from 'winston-daily-rotate-file'
 import * as fs from 'fs'
 import * as ini from 'ini'
 import * as mustache from 'mustache'
+import { LogConfig, LogBaseConfig } from '../../shared/interfaces'
 let { combine, timestamp, printf } = winston.format
 
 let logFormat = printf(({ level, message, timestamp }) => {
@@ -32,17 +33,17 @@ let logger = winston.createLogger({
 })
 
 class AMQLogger {
-  config: object
+  private _config: LogBaseConfig
 
   constructor() {
-    this.config = ini.parse(fs.readFileSync(LOGBASE_PATH, { encoding: 'utf-8' }))
+    this._config = ini.parse(fs.readFileSync(LOGBASE_PATH, { encoding: 'utf-8' }))
   }
 
   writeLog(logReference: string, variables: object={}): void {
-    let logConfig: object = this.config[logReference]
+    let logConfig: LogConfig = this._config[logReference]
     if (logConfig) {
-      let level: string = logConfig['Level']
-      let template: string = logConfig['Text']
+      let level: string = logConfig.Level
+      let template: string = logConfig.Text
       if (!template) {
         this.writeLog('LOG004', { logReference: logReference, text: template })
       }

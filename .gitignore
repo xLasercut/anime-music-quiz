@@ -41,3 +41,5 @@ client/tests/videos
 
 server_ts/dist
 server_ts/log/*
+
+src_old
