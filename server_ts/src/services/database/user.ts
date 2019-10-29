@@ -3,7 +3,7 @@ import * as path from 'path'
 import { UserLists } from '../../shared/interfaces'
 import { AMQLogger } from '../logging/logging'
 import { USER_DATA_DIR, JSON_FILE_FORMAT } from '../../shared/config'
-import { AMQDbError } from '../../shared/exceptions'
+import { AMQSongListError } from '../../shared/exceptions'
 import { writeFile, readFile } from './init'
 
 class UserService {
@@ -65,8 +65,7 @@ class UserService {
 
   _validateUser(user: string) {
     if (!this._users.includes(user)) {
-      this._logger.writeLog('DATA005', { user: user })
-      throw new AMQDbError('Invalid user')
+      throw new AMQSongListError('Invalid user')
     }
   }
 }
@@ -107,23 +106,13 @@ class User {
 
   _validateAddSongId(songId: string): void {
     if (this._data.includes(songId)) {
-      this._logger.writeLog('DATA001', {
-        user: this._name,
-        songId: songId,
-        reason: 'song already in user list'
-      })
-      throw new AMQDbError('Song already in user list')
+      throw new AMQSongListError('Song already in user list')
     }
   }
 
   _validateRemoveSongId(songId: string): void {
     if (!this._data.includes(songId)) {
-      this._logger.writeLog('DATA001', {
-        user: this._name,
-        songId: songId,
-        reason: 'song not in user list'
-      })
-      throw new AMQDbError('Song not in user list')
+      throw new AMQSongListError('Song not in user list')
     }
   }
 }

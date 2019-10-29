@@ -2,10 +2,17 @@ import * as socketio from 'socket.io'
 import { emitter } from './server'
 import { logger } from '../services/init'
 
-class AMQDbError extends Error {
+class AMQSongListError extends Error {
   constructor(message: string) {
     super(message)
-    this.name = 'AMQDbError'
+    this.name = 'AMQSongListError'
+  }
+}
+
+class AMQEmojiListError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'AMQEmojiListError'
   }
 }
 
@@ -29,8 +36,16 @@ function exceptionHandler(socket: socketio.Socket, f: any) {
       return f.apply(this, arguments)
     }
     catch (e) {
-      if (e.name === 'AMQDbError' || e.name === 'AMQGameError') {
+      if (e.name === 'AMQSongListError') {
+        logger.writeLog('DATA001', { reason: e.message })
         emitter.notification('error', e.message, socket.id)
+      }
+      else if (e.name === 'AMQEmojiListError') {
+        logger.writeLog('DATA002', { reason: e.message })
+        emitter.notification('error', e.message, socket.id)
+      }
+      else if (e.name === 'AMQGameError') {
+        logger.writeLog('GAME009', { reason: e.message })
       }
       else if (e.name === 'AMQAdminError') {
         emitter.notification('error', e.message, socket.id)
@@ -43,4 +58,4 @@ function exceptionHandler(socket: socketio.Socket, f: any) {
   }
 }
 
-export { exceptionHandler, AMQDbError, AMQAdminError, AMQGameError }
+export { exceptionHandler, AMQAdminError, AMQGameError, AMQSongListError, AMQEmojiListError }

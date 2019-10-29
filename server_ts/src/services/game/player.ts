@@ -29,6 +29,15 @@ class PlayerService {
     this._logger.writeLog('PLAYER001', { id: sid, username: username })
   }
 
+  removePlayer(sid: string): void {
+    this._validateSid(sid)
+    let username = this._data[sid].username
+    let host = this._data[sid].host
+    this._logger.writeLog('PLAYER002', { id: sid, username: username })
+    delete this._data[sid]
+    this._moveHost(host)
+  }
+
   zeroPlayersRemain(): boolean {
     return (Object.keys(this._data).length === 0)
   }
@@ -39,6 +48,18 @@ class PlayerService {
       playerData[sid] = this._data[sid].serialize()
     }
     return playerData
+  }
+
+  getPlayerObj(sid: string): PlayerObj {
+    this._validateSid(sid)
+    return this._data[sid].serialize()
+  }
+
+  _moveHost(host: boolean): void {
+    if (!this.zeroPlayersRemain() && host) {
+      let sid = Object.keys(this._data)[0]
+      this._data[sid].host = true
+    }
   }
 
   _validateInputPlayerInfo(username: string, avatar: string, score: number): void {
@@ -62,6 +83,12 @@ class PlayerService {
 
     return { username, avatar, score }
   }
+
+  _validateSid(sid: string): void {
+    if (!(sid in this._data)) {
+      throw new AMQGameError('Invalid player id')
+    }
+  }
 }
 
 class Player {
@@ -73,6 +100,10 @@ class Player {
   admin = false
   guess: PlayerGuess
   ready: PlayerReady
+
+  constructor() {
+    this.reset()
+  }
 
   reset(): void {
     this.guess = {

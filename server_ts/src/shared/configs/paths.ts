@@ -1,7 +1,7 @@
 import * as path from 'path'
 
-
 let LOG_DIR = path.join(__dirname, '../../../log')
+let LOGBASE_PATH = path.join(__dirname, '../../../logbase.cfg')
 
 let DATA_DIR: string
 if (process.env.NODE_ENV === 'test') {
@@ -11,7 +11,7 @@ else {
   DATA_DIR = path.join(__dirname, '../../../data')
 }
 
-let LOGBASE_PATH = path.join(DATA_DIR, 'logbase.cfg')
+
 let USER_DATA_DIR = path.join(DATA_DIR, 'user')
 let SONG_LIST_PATH = path.join(DATA_DIR, 'song-list.json')
 let EMOJI_LIST_PATH = path.join(DATA_DIR, 'emoji.json')

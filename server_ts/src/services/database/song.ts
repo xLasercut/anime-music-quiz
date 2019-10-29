@@ -1,8 +1,8 @@
 import { AMQLogger } from '../logging/logging'
 import { SONG_LIST_PATH } from '../../shared/config'
 import { readFile } from './init'
-import { SongObj } from '../../shared/interfaces'
-import { AMQDbError } from '../../shared/exceptions'
+import { SongObj, GameChoices } from '../../shared/interfaces'
+import { AMQSongListError } from '../../shared/exceptions'
 
 class SongService {
   private _data: Array<SongObj>
@@ -35,14 +35,16 @@ class SongService {
     return this._data
   }
 
+  getChoices(): GameChoices {
+    return {
+      anime: this._animeChoices,
+      title: this._titleChoices
+    }
+  }
+
   validateSongId(songId: string): void {
     if (!this._songIds.includes(songId)) {
-      this._logger.writeLog('DATA001', {
-        songId: songId,
-        user: '',
-        reason: 'song ID not in database'
-      })
-      throw new AMQDbError('Song ID not in database')
+      throw new AMQSongListError('Song ID not in database')
     }
   }
 

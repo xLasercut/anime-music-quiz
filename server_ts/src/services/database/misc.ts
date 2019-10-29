@@ -2,7 +2,7 @@ import { EmojiObj } from '../../shared/interfaces'
 import { AMQLogger } from '../logging/logging'
 import { EMOJI_LIST_PATH, EMOJI_COMMAND_FORMAT } from '../../shared/config'
 import { readFile, writeFile } from './init'
-import { AMQDbError } from '../../shared/exceptions'
+import { AMQEmojiListError } from '../../shared/exceptions'
 import { EmojiType } from '../../shared/types'
 
 class EmojiService {
@@ -56,24 +56,12 @@ class EmojiService {
 
   _validateEmoji(command: string, src: string, type: EmojiType): void {
     if (!src || !type || !command.match(EMOJI_COMMAND_FORMAT)) {
-      this._logger.writeLog('DATA002', {
-        command: command,
-        src: src,
-        type: type,
-        reason: 'invalid emoji field'
-      })
-      throw new AMQDbError('Invalid emoji field')
+      throw new AMQEmojiListError('Invalid emoji field')
     }
 
     for (let emoji of this._data) {
       if (emoji.command.toLowerCase() === command.toLowerCase()) {
-        this._logger.writeLog('DATA002', {
-          command: command,
-          src: src,
-          type: type,
-          reason: 'duplicate emoji command'
-        })
-        throw new AMQDbError('Duplicate command')
+        throw new AMQEmojiListError('Duplicate command')
       }
     }
   }

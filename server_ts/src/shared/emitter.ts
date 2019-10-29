@@ -1,6 +1,7 @@
 import * as socketio from 'socket.io'
 import { BannerColor } from './types'
-import { SongObj, EmojiObj } from './interfaces/database'
+import { SongObj, EmojiObj, ChatObj } from './interfaces/database'
+import { PlayerData, GameChoices } from './interfaces/game'
 
 class MessageEmitter {
   private _io: socketio.Server
@@ -14,6 +15,10 @@ class MessageEmitter {
       return this._io.to(sid)
     }
     return this._io
+  }
+
+  chat(msgData: ChatObj, sid: string=null): void {
+    this._client(sid).emit('UPDATE_CHAT_MESSAGE', msgData)
   }
 
   updateAdminStatus(admin: boolean, sid: string=null): void {
@@ -43,34 +48,27 @@ class MessageEmitter {
   updateEmojiData(emojiData: Array<EmojiObj>, sid: string=null): void {
     this._client(sid).emit('UPDATE_EMOJI_DATA', emojiData)
   }
+
+  updatePlayerData(playerData: PlayerData, sid: string=null): void {
+    this._client(sid).emit('UPDATE_PLAYER_DATA', playerData)
+  }
+
+  updateGameChoices(choices: GameChoices, sid: string=null): void {
+    this._client(sid).emit('UPDATE_GAME_CHOICES', choices)
+  }
 /*
-  chat(msgData: ChatObj, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('MESSAGE', msgData)
-  }
 
 
 
 
 
-
-
-
-
-  syncAdminStatus(admin: boolean, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_ADMIN', admin)
-  }
 
   syncGameStatePlaying(playing: boolean, socket: socketio.Socket=null): void {
     this._emitter(socket).emit('SYNC_PLAYING', playing)
   }
 
-  syncPlayerData(data: PlayerDataSerialized, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_PLAYERS', data)
-  }
 
-  syncGameChoices(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_CHOICES', this._db.choices)
-  }
+
 
   syncGameSetting(settings: SettingObj, socket: socketio.Socket=null): void {
     this._emitter(socket).emit('SYNC_SETTINGS', settings)

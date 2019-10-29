@@ -20,4 +20,22 @@ interface EmojiObj {
   type: EmojiType
 }
 
-export { SongObj, UserLists, EmojiObj }
+interface BotObj {
+  regex: string
+  flag: string
+  response: BotResponseObj
+}
+
+interface BotResponseObj {
+  user: string
+  text: string
+  avatar: string
+  id: string
+}
+
+interface ChatObj extends BotResponseObj {
+  repeat: boolean
+  admin: boolean
+}
+
+export { SongObj, UserLists, EmojiObj, BotResponseObj, BotObj, ChatObj }

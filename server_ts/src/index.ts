@@ -5,9 +5,11 @@ import { SERVER_PASSWORD, ADMIN_PASSWORD } from './shared/config'
 import { exceptionHandler } from './shared/exceptions'
 import { ListPickerHandler } from './handlers/list'
 import { MiscHandler } from './handlers/misc'
+import { GameHandler } from './handlers/game'
 
 let listPickerHandler = new ListPickerHandler()
 let miscHandler = new MiscHandler()
+let gameHandler = new GameHandler()
 
 io.on('connection', (socket: socketio.Socket): void => {
   logger.writeLog('SERVER002', { id: socket.id })
@@ -48,6 +50,7 @@ function startListeners(socket: socketio.Socket, callback: any): void {
     emitter.updateAdminStatus(socket['admin'], socket.id)
     listPickerHandler.start(socket)
     miscHandler.start(socket)
+    gameHandler.start(socket)
   }
   callback(socket['auth'])
 }

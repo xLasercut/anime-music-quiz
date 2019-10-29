@@ -36,4 +36,9 @@ interface PlayerObj {
   color: BannerColor
 }
 
-export { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerObj, PlayerData }
+interface GameChoices {
+  anime: Array<string>
+  title: Array<string>
+}
+
+export { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerObj, PlayerData, GameChoices }
