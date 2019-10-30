@@ -2,4 +2,6 @@ type BannerColor = 'error' | 'success' | 'warning'
 
 type EmojiType = 'img' | 'dec'
 
-export { BannerColor, EmojiType }
+type GameMode = 'normal' | 'selector'
+
+export { BannerColor, EmojiType, GameMode }

@@ -1,12 +1,13 @@
 import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
-import { InputPlayerObj } from '../shared/interfaces'
-import { playerService, chatService, emojiService, songService, userService } from '../services/init'
+import { InputPlayerObj, SettingsObj } from '../shared/interfaces'
+import { playerService, chatService, emojiService, songService, userService, settingsService, logger } from '../services/init'
 import { emitter } from '../shared/server'
 
 class GameHandler {
   start(socket: socketio.Socket): void {
     startPlayerHandler(socket)
+    startSettingsHandler(socket)
 
     socket.on('disconnect', exceptionHandler(socket, () => {
       let player = playerService.getPlayerObj(socket.id)
@@ -39,6 +40,20 @@ function startPlayerHandler(socket: socketio.Socket): void {
     if (botMsgData) {
       emitter.chat(botMsgData, 'game')
     }
+  }))
+}
+
+function startSettingsHandler(socket: socketio.Socket): void {
+  socket.on('UPDATE_GAME_SETTINGS', exceptionHandler(socket, (settings: SettingsObj) => {
+    settingsService.updateSettings(settings)
+    emitter.updateGameSettings(settingsService.getSettings(), 'game')
+    let sysMsgData = chatService.generateSysMsgData('Game settings updated')
+    emitter.chat(sysMsgData, 'game')
+  }))
+
+  socket.on('GET_GAME_SETTINGS', exceptionHandler(socket, () => {
+    logger.writeLog('SETTING001', { id: socket.id })
+    emitter.updateGameSettings(settingsService.getSettings(), socket.id)
   }))
 }
 

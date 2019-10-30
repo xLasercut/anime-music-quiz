@@ -29,6 +29,9 @@ class SongService {
       this._addAnimeChoice(song)
       this._addTitleChoice(song)
     }
+
+    this._animeChoices = this._animeChoices.sort()
+    this._titleChoices = this._titleChoices.sort()
   }
 
   getSongList(): Array<SongObj> {

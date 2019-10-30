@@ -1,6 +1,6 @@
 import * as socketio from 'socket.io'
 import { BannerColor } from './types'
-import { SongObj, EmojiObj, ChatObj } from './interfaces/database'
+import { SongObj, EmojiObj, ChatObj, SettingsObj } from './interfaces/database'
 import { PlayerData, GameChoices } from './interfaces/game'
 
 class MessageEmitter {
@@ -56,6 +56,16 @@ class MessageEmitter {
   updateGameChoices(choices: GameChoices, sid: string=null): void {
     this._client(sid).emit('UPDATE_GAME_CHOICES', choices)
   }
+
+  updateGameSettings(settings: SettingsObj, sid: string=null): void {
+    this._client(sid).emit('UPDATE_GAME_SETTINGS', settings)
+  }
+
+  gameNewSong(currentSong: SongObj, startPosition: number, sid: string=null): void {
+    this._client(sid).emit('UPDATE_CURRENT_SONG', currentSong)
+    this._client(sid).emit('UPDATE_START_POSITION', startPosition)
+    this._client(sid).emit('NEW_SONG')
+  }
 /*
 
 
@@ -70,17 +80,12 @@ class MessageEmitter {
 
 
 
-  syncGameSetting(settings: SettingObj, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_SETTINGS', settings)
-  }
+
 
   syncSongCount(counts: SongCount, socket: socketio.Socket=null): void {
     this._emitter(socket).emit('SYNC_SONG_COUNT', counts)
   }
 
-  gameNewSong(currentSong: Song, startPosition: number, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('NEW_SONG', currentSong, startPosition)
-  }
 
   gameStartCountdown(guessTime: number, socket: socketio.Socket=null): void {
     this._emitter(socket).emit('START_COUNTDOWN', guessTime)
