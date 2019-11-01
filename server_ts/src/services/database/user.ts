@@ -42,6 +42,17 @@ class UserService {
     this._logger.writeLog('DATA003', { songId: songId, user: user, changeType: 'remove song' })
   }
 
+  getCombinedSongIds(users: Array<string>): Set<string> {
+    let combinedIds: Set<string> = new Set()
+    for (let user of users) {
+      this._validateUser(user)
+      for (let songId of this._userLists[user].list) {
+        combinedIds.add(songId)
+      }
+    }
+    return combinedIds
+  }
+
   _generateUsers(): void {
     this._users = []
     for (let file of fs.readdirSync(USER_DATA_DIR)) {

@@ -1,7 +1,7 @@
 import * as socketio from 'socket.io'
 import { BannerColor } from './types'
 import { SongObj, EmojiObj, ChatObj, SettingsObj } from './interfaces/database'
-import { PlayerData, GameChoices } from './interfaces/game'
+import { PlayerData, GameChoices, GameStateObj } from './interfaces/game'
 
 class MessageEmitter {
   private _io: socketio.Server
@@ -61,10 +61,32 @@ class MessageEmitter {
     this._client(sid).emit('UPDATE_GAME_SETTINGS', settings)
   }
 
-  gameNewSong(currentSong: SongObj, startPosition: number, sid: string=null): void {
-    this._client(sid).emit('UPDATE_CURRENT_SONG', currentSong)
-    this._client(sid).emit('UPDATE_START_POSITION', startPosition)
+  updateGameState(gameState: GameStateObj, sid: string=null): void {
+    this._client(sid).emit('UPDATE_GAME_STATE', gameState)
+  }
+
+  gameNewSong(sid: string=null): void {
     this._client(sid).emit('NEW_SONG')
+  }
+
+  gameStartCountdown(sid: string=null): void {
+    this._client(sid).emit('START_COUNTDOWN')
+  }
+
+  gameTimeUp(sid: string=null): void {
+    this._client(sid).emit('TIME_UP')
+  }
+
+  gameShowGuess(sid: string=null): void {
+    this._client(sid).emit('SHOW_GUESS')
+  }
+
+  gameReset(sid: string=null): void {
+    this._client(sid).emit('RESET')
+  }
+
+  gameSelectSong(sid: string=null): void {
+    this._client(sid).emit('SELECT_SONG')
   }
 /*
 
@@ -73,46 +95,27 @@ class MessageEmitter {
 
 
 
-  syncGameStatePlaying(playing: boolean, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_PLAYING', playing)
-  }
 
 
 
 
 
 
-  syncSongCount(counts: SongCount, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SYNC_SONG_COUNT', counts)
-  }
 
 
-  gameStartCountdown(guessTime: number, socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('START_COUNTDOWN', guessTime)
-  }
 
-  gameTimeUp(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('TIME_UP')
-  }
 
-  gameShowGuess(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('SHOW_GUESS')
-  }
 
-  gameReset(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('RESET')
-  }
+
+
+
+
 
   resetSelector(socket: socketio.Socket=null): void {
     this._emitter(socket).emit('RESET_SELECTOR')
   }
 
-  gameSelectSong(sid: string, selectTime: number): void {
-    let client = this._getClient(sid)
-    if (client) {
-      client.emit('SELECT_SONG', selectTime)
-    }
-  }
+
 
   gameSelectSongOver(sid: string): void {
     let client = this._getClient(sid)

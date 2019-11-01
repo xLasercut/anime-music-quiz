@@ -1,5 +1,6 @@
 import { Player } from '../../services/game/player'
 import { BannerColor } from '../types'
+import { SongObj } from './database'
 
 interface AMQPlayers {
   [key: string]: Player
@@ -41,4 +42,12 @@ interface GameChoices {
   title: Array<string>
 }
 
-export { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerObj, PlayerData, GameChoices }
+interface GameStateObj {
+  currentSong: SongObj
+  currentSongCount: number
+  maxSongCount: number
+  playing: boolean
+  startPosition: number
+}
+
+export { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerObj, PlayerData, GameChoices, GameStateObj }

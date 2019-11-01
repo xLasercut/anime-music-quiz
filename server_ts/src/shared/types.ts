@@ -4,4 +4,6 @@ type EmojiType = 'img' | 'dec'
 
 type GameMode = 'normal' | 'selector'
 
-export { BannerColor, EmojiType, GameMode }
+type ReadyType = 'load' | 'guess' | 'select'
+
+export { BannerColor, EmojiType, GameMode, ReadyType }

@@ -51,6 +51,16 @@ class SongService {
     }
   }
 
+  getCombinedList(songIds: Set<string>): Array<SongObj> {
+    let combinedList: Array<SongObj> = []
+    for (let song of this._data) {
+      if (songIds.has(song.songId)) {
+        combinedList.push(song)
+      }
+    }
+    return combinedList
+  }
+
   _addTitleChoice(song: SongObj): void {
     let title = song.title
     if (!this._titleChoices.includes(title)) {

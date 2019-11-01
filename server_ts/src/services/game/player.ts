@@ -1,8 +1,9 @@
 import { AMQLogger } from '../logging/logging'
-import { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerData, PlayerObj } from '../../shared/interfaces'
-import { BannerColor } from '../../shared/types'
+import { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerData, PlayerObj, SongObj } from '../../shared/interfaces'
+import { BannerColor, ReadyType } from '../../shared/types'
 import { PLAYER_USERNAME_FORMAT } from '../../shared/config'
 import { AMQGameError } from '../../shared/exceptions'
+import { ScoreCalculator } from './score-calc'
 
 class PlayerService {
   private _logger: AMQLogger
@@ -38,6 +39,16 @@ class PlayerService {
     this._moveHost(host)
   }
 
+  setReady(sid: string, state: boolean, type: ReadyType): void {
+    this._validateSid(sid)
+    this._data[sid].ready[type] = state
+  }
+
+  setGuess(sid: string, guess: PlayerGuess): void {
+    this._validateSid(sid)
+    this._data[sid].guess = guess
+  }
+
   zeroPlayersRemain(): boolean {
     return (Object.keys(this._data).length === 0)
   }
@@ -53,6 +64,54 @@ class PlayerService {
   getPlayerObj(sid: string): PlayerObj {
     this._validateSid(sid)
     return this._data[sid].serialize()
+  }
+
+  resetScore(): void {
+    for (let sid in this._data) {
+      this._data[sid].score = 0
+    }
+  }
+
+  newRound(): void {
+    for (let sid in this._data) {
+      this._data[sid].reset()
+    }
+  }
+
+  roundOver(currentSong: SongObj): void {
+    this._logger.writeLog('GAME006')
+    let scoreCalc = new ScoreCalculator(currentSong)
+    for (let sid in this._data) {
+      let { point, color } = scoreCalc.getScore(this._data[sid].guess)
+      this._data[sid].score += point
+      this._data[sid].color = color
+    }
+  }
+
+  allPlayerReady(type: ReadyType): boolean {
+    for (let sid in this._data) {
+      if (!this._data[sid].ready[type]) {
+        return false
+      }
+    }
+    return true
+  }
+
+  singlePlayerReady(sid: string, type: ReadyType): boolean {
+    this._validateSid(sid)
+    return this._data[sid].ready[type]
+  }
+
+  generateSelector(): string {
+    let sids = Object.keys(this._data)
+    let sid = sids[Math.floor(Math.random() * sids.length)]
+    this._data[sid].selector = true
+    return sid
+  }
+
+  isSelector(sid: string): boolean {
+    this._validateSid(sid)
+    return this._data[sid].selector
   }
 
   _moveHost(host: boolean): void {
@@ -100,6 +159,7 @@ class Player {
   admin = false
   guess: PlayerGuess
   ready: PlayerReady
+  selector = false
 
   constructor() {
     this.reset()
@@ -111,13 +171,19 @@ class Player {
       title: ''
     }
 
+    this.clearReady()
+
+    this.color = 'error'
+
+    this.selector = false
+  }
+
+  clearReady(): void {
     this.ready = {
       load: false,
       guess: false,
       select: false
     }
-
-    this.color = 'error'
   }
 
   serialize(): PlayerObj {
