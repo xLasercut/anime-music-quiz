@@ -1,1 +1,0 @@
-from amq.misc.handlers import emojiHandlers

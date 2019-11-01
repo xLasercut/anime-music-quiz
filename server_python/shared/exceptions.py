@@ -1,2 +1,0 @@
-class AMQDbError(Exception):
-    pass
