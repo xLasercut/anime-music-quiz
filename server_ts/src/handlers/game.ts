@@ -1,8 +1,9 @@
 import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
-import { InputPlayerObj, SettingsObj, PlayerGuess } from '../shared/interfaces'
+import { InputPlayerObj, SettingsObj, PlayerGuess, SongObj } from '../shared/interfaces'
 import { playerService, chatService, emojiService, songService, userService, settingsService, logger, gameStateService, gameTimer } from '../services/init'
 import { emitter } from '../shared/server'
+import e = require('express')
 
 class GameHandler {
   start(socket: socketio.Socket): void {
@@ -38,6 +39,7 @@ class GameHandler {
       gameStateService.generateGameList(combinedList, settingsService.songCount, settingsService.duplicate)
       if (gameStateService.gameList.length > 0) {
         gameStateService.startGame(settingsService.gameMode)
+        emitter.updateGameState(gameStateService.getGameState(), 'game')
         this._newRound()
       }
       else {
@@ -54,7 +56,12 @@ class GameHandler {
   _newRound(): void {
     playerService.newRound()
     emitter.updatePlayerData(playerService.getPlayerData(), 'game')
-    this._gameFlowMain()
+    if (settingsService.gameMode === 'selector') {
+      this._gameFlowSelector()
+    }
+    else {
+      this._gameFlowMain()
+    }
   }
 
   _gameFlowMain(): void {
@@ -94,6 +101,14 @@ class GameHandler {
   _gameFlowSelector(): void {
     let sid = playerService.generateSelector()
     emitter.gameSelectSong(sid)
+    gameTimer.startCountdownSingle(settingsService.selectTime * 1000, 'select', sid)
+    .then(() => {
+      emitter.gameSelectSongOver(sid)
+      return this._gameFlowMain()
+    })
+    .catch((error) => {
+      logger.writeLog('SERVER004', { stack: error })
+    })
   }
 
   _resetGame(): void {
@@ -125,6 +140,19 @@ function startPlayerHandler(socket: socketio.Socket): void {
       playerService.setGuess(socket.id, guess)
     }
     playerService.setReady(socket.id, true, 'guess')
+  }))
+
+  socket.on('SONG_OVERRIDE', exceptionHandler(socket, (song: SongObj) => {
+    gameStateService.overrideSong(song)
+    let anime = song.anime[0]
+    logger.writeLog('GAME008', {
+      title: song.title,
+      artist: song.artist,
+      anime: anime,
+      type: song.type,
+      id: socket.id
+    })
+    emitter.notification('success', `Song selected: ${anime} - ${song.title}`, socket.id)
   }))
 }
 

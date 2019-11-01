@@ -58,6 +58,10 @@ class GameStateService {
     })
   }
 
+  overrideSong(song: SongObj): void {
+    this.songOverride = song
+  }
+
   getGameState(): GameStateObj {
     return {
       currentSongCount: this.currentSongCount,

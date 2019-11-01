@@ -33,6 +33,14 @@ export default class ChatWindow extends Mixins(ThemeHelper) {
       }
     }
     this.messages.push(msgData)
+    this.$nextTick(() => {
+      this.scrollChat()
+    })
+  }
+
+  scrollChat(): void {
+    let element = document.querySelector('.message-container')
+    element.scrollTop = element.scrollHeight - element.clientHeight
   }
 }
 </script>

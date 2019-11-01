@@ -22,6 +22,20 @@ class AMQGameTimer {
     return deferred.promise
   }
 
+  startCountdownSingle(time: number, type: ReadyType, sid: string) {
+    this.resetCountdown()
+    let deferred = q.defer()
+    this._time = 0
+    this._countdown = setInterval(() => {
+      this._time += this._tick
+      if (playerService.singlePlayerReady(sid, type) || this._time >= time) {
+        this.resetCountdown()
+        deferred.resolve(true)
+      }
+    }, this._tick)
+    return deferred.promise
+  }
+
   newRound(newRound: boolean) {
     this.resetTimeout()
     let deferred = q.defer()

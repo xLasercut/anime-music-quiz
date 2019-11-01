@@ -88,6 +88,10 @@ class MessageEmitter {
   gameSelectSong(sid: string=null): void {
     this._client(sid).emit('SELECT_SONG')
   }
+
+  gameSelectSongOver(sid: string=null): void {
+    this._client(sid).emit('SELECT_SONG_OVER')
+  }
 /*
 
 
@@ -117,12 +121,7 @@ class MessageEmitter {
 
 
 
-  gameSelectSongOver(sid: string): void {
-    let client = this._getClient(sid)
-    if (client) {
-      client.emit('SELECT_SONG_OVER')
-    }
-  }
+
 
   kickPlayer(sid: string): void {
     let client = this._getClient(sid)

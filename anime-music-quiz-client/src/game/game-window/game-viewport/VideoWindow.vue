@@ -4,7 +4,7 @@
       <v-col class="video-container">
         <normal-video ref="normal" v-model="show.normal" @song-loaded="loaded()"></normal-video>
         <youtube-video ref="youtube" v-model="show.youtube" @song-loaded="loaded()"></youtube-video>
-        <countdown-timer ref="timer"></countdown-timer>
+        <countdown-timer ref="timer" :maxTime="$store.state.game.settings.guessTime"></countdown-timer>
       </v-col>
     </v-row>
   </v-col>
