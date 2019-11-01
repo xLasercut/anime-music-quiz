@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator'
+import { Component, Mixins, Watch } from 'vue-property-decorator'
 import { getIdFromURL } from 'vue-youtube-embed'
 import VideoHelper from '../../../../assets/mixins/video-helper'
 
@@ -25,6 +25,11 @@ export default class YoutubeVideo extends Mixins(VideoHelper) {
   timeout: any = null
 
   loading = false
+
+  @Watch('volume')
+  onVolumeChange(val: number) {
+    this.player.setVolume(val)
+  }
 
   ready(event: any): void {
     this.player = event.target

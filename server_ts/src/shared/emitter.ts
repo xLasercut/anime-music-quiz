@@ -1,7 +1,7 @@
 import * as socketio from 'socket.io'
-import { BannerColor } from './types'
-import { SongObj, EmojiObj, ChatObj, SettingsObj } from './interfaces/database'
-import { PlayerData, GameChoices, GameStateObj } from './interfaces/game'
+import { BannerColor } from '@shared/types'
+import { SongObj, EmojiObj, ChatObj, SettingsObj, GameStateObj } from '@shared/interfaces'
+import { PlayersObj, GameChoices } from '@shared/interfaces'
 
 class MessageEmitter {
   private _io: socketio.Server
@@ -37,9 +37,9 @@ class MessageEmitter {
     this._client(sid).emit('UPDATE_SONG_LIST', songList)
   }
 
-  updateUserList(user: string, userList: Array<string>, sid: string=null): void {
+  updateUserList(user: string, userList: Set<string>, sid: string=null): void {
     let data = {
-      userList: userList,
+      userList: Array.from(userList),
       user: user
     }
     this._client(sid).emit('UPDATE_USER_LIST', data)
@@ -49,7 +49,7 @@ class MessageEmitter {
     this._client(sid).emit('UPDATE_EMOJI_DATA', emojiData)
   }
 
-  updatePlayerData(playerData: PlayerData, sid: string=null): void {
+  updatePlayerData(playerData: PlayersObj, sid: string=null): void {
     this._client(sid).emit('UPDATE_PLAYER_DATA', playerData)
   }
 

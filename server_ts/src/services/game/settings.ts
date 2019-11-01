@@ -1,6 +1,6 @@
 import { AMQLogger } from '../logging/logging'
-import { GameMode } from '../../shared/types'
-import { SettingsObj } from '../../shared/interfaces'
+import { GameMode } from '@shared/types'
+import { SettingsObj } from '@shared/interfaces'
 
 class GameSettingService {
   private _logger: AMQLogger

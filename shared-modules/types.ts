@@ -1,4 +1,4 @@
-type BannerColor = 'error' | 'success' | 'warning'
+type BannerColor = 'success' | 'warning' | 'error'
 
 type EmojiType = 'img' | 'dec'
 

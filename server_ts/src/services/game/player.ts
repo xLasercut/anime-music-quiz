@@ -1,20 +1,22 @@
 import { AMQLogger } from '../logging/logging'
-import { AMQPlayers, PlayerGuess, PlayerReady, InputPlayerObj, PlayerData, PlayerObj, SongObj } from '../../shared/interfaces'
-import { BannerColor, ReadyType } from '../../shared/types'
+import { PlayerGuess, PlayerReady, RawPlayerObj, PlayersObj, PlayerObj, SongObj } from '@shared/interfaces'
+import { BannerColor, ReadyType } from '@shared/types'
 import { PLAYER_USERNAME_FORMAT } from '../../shared/config'
 import { AMQGameError } from '../../shared/exceptions'
 import { ScoreCalculator } from './score-calc'
 
 class PlayerService {
   private _logger: AMQLogger
-  private _data: AMQPlayers
+  private _data: {
+    [keys: string]: Player
+  }
 
   constructor(logger: AMQLogger) {
     this._logger = logger
     this._data = {}
   }
 
-  newPlayer(sid: string, admin: boolean, inputInfo: InputPlayerObj): void {
+  newPlayer(sid: string, admin: boolean, inputInfo: RawPlayerObj): void {
     let host = false
     if (this.zeroPlayersRemain()) {
       host = true
@@ -53,7 +55,7 @@ class PlayerService {
     return (Object.keys(this._data).length === 0)
   }
 
-  getPlayerData(): PlayerData {
+  getPlayerData(): PlayersObj {
     let playerData = {}
     for (let sid in this._data) {
       playerData[sid] = this._data[sid].serialize()
@@ -135,7 +137,7 @@ class PlayerService {
     }
   }
 
-  _parseInputInfo(inputInfo: InputPlayerObj) {
+  _parseInputInfo(inputInfo: RawPlayerObj) {
     let username = inputInfo.username
     let avatar = inputInfo.avatar
     let score = inputInfo.score

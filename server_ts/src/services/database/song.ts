@@ -1,14 +1,14 @@
 import { AMQLogger } from '../logging/logging'
 import { SONG_LIST_PATH } from '../../shared/config'
 import { readFile } from './init'
-import { SongObj, GameChoices } from '../../shared/interfaces'
+import { SongObj, GameChoices } from '@shared/interfaces'
 import { AMQSongListError } from '../../shared/exceptions'
 
 class SongService {
   private _data: Array<SongObj>
   private _titleChoices: Array<string>
   private _animeChoices: Array<string>
-  private _songIds: Array<string>
+  private _songIds: Set<string>
   private _logger: AMQLogger
 
   private _filepath = SONG_LIST_PATH
@@ -22,7 +22,7 @@ class SongService {
     this._data = readFile(this._filepath).sort(this._sortSong)
     this._animeChoices = []
     this._titleChoices = []
-    this._songIds = []
+    this._songIds = new Set()
 
     for (let song of this._data) {
       this._addSongId(song)
@@ -46,7 +46,7 @@ class SongService {
   }
 
   validateSongId(songId: string): void {
-    if (!this._songIds.includes(songId)) {
+    if (!this._songIds.has(songId)) {
       throw new AMQSongListError('Song ID not in database')
     }
   }
@@ -78,10 +78,10 @@ class SongService {
 
   _addSongId(song: SongObj): void {
     let songId = song.songId
-    if (this._songIds.includes(songId)) {
+    if (this._songIds.has(songId)) {
       throw new Error(`Duplicate song id: ${songId}`)
     }
-    this._songIds.push(songId)
+    this._songIds.add(songId)
   }
 
   _sortSong(a: SongObj, b: SongObj): number {

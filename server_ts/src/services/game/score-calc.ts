@@ -1,5 +1,5 @@
-import { SongObj, PlayerGuess } from '../../shared/interfaces'
-import { BannerColor } from '../../shared/types'
+import { SongObj, PlayerGuess } from '@shared/interfaces'
+import { BannerColor } from '@shared/types'
 
 class ScoreCalculator {
   private _song: SongObj

@@ -144,14 +144,14 @@ export default class SongListTable extends Vue {
   }
 
   disableAddBtn(song: SongObj): boolean {
-    if (this.$store.state.list.userList.includes(song.songId) || !this.$store.state.list.user) {
+    if (this.$store.state.list.userList.has(song.songId) || !this.$store.state.list.user) {
       return true
     }
     return false
   }
 
   disableRemoveBtn(song: SongObj): boolean {
-    if (!this.$store.state.list.userList.includes(song.songId) || !this.$store.state.list.user) {
+    if (!this.$store.state.list.userList.has(song.songId) || !this.$store.state.list.user) {
       return true
     }
     return false

@@ -1,6 +1,6 @@
 import * as q from 'q'
 import { playerService } from '../init'
-import { ReadyType } from '../../shared/types'
+import { ReadyType } from '@shared/types'
 
 class AMQGameTimer {
   private _time = 0

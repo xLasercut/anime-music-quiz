@@ -5,14 +5,14 @@ let list: Module<ListState, RootState> = {
   state: {
     songList: [],
     users: [],
-    userList: [],
+    userList: new Set(),
     user: ''
   },
   mutations: {
     DISCONNECT(state: ListState): void {
       state.songList = []
       state.users = []
-      state.userList = []
+      state.userList = new Set()
       state.user = ''
     },
     UPDATE_USER(state: ListState, user: string): void {
@@ -26,7 +26,7 @@ let list: Module<ListState, RootState> = {
     },
     SOCKET_UPDATE_USER_LIST(state: ListState, data: { user: string, userList: Array<string> }): void {
       if (state.user === data.user) {
-        state.userList = data.userList
+        state.userList = new Set(data.userList)
       }
     }
   },

@@ -33,6 +33,7 @@ import IconBtn from '../components/buttons/IconBtn.vue'
 import DialogCloseBtn from '../components/buttons/DialogCloseBtn.vue'
 import SongListTable from './SongListTable.vue'
 import { SongObj } from '../assets/interfaces'
+import { Test } from '../../../test/test'
 
 @Component({
   components: { DialogBtn, SongListTable, IconBtn, DialogCloseBtn }
@@ -42,7 +43,7 @@ export default class UserList extends Vue {
 
   userData(): Array<SongObj> {
     return this.$store.state.list.songList.filter((song: SongObj): SongObj | undefined => {
-      if (this.$store.state.list.userList.includes(song.songId)) {
+      if (this.$store.state.list.userList.has(song.songId)) {
         return song
       }
     })
@@ -50,6 +51,8 @@ export default class UserList extends Vue {
 
   getUserList(): void {
     this.$socket.client.emit('GET_USER_LIST', this.$store.state.list.user)
+    let test = new Test()
+    test.test()
   }
 
   removeUserSong(song: SongObj): void {

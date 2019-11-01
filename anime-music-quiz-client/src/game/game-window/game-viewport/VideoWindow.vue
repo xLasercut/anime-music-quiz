@@ -2,8 +2,8 @@
   <v-col cols="12" sm="6">
     <v-row justify="center" no-gutters>
       <v-col class="video-container">
-        <normal-video ref="normal" v-model="show.normal" @song-loaded="loaded()"></normal-video>
-        <youtube-video ref="youtube" v-model="show.youtube" @song-loaded="loaded()"></youtube-video>
+        <normal-video ref="normal" v-model="show.normal" @song-loaded="loaded()" :volume="$store.state.game.volume"></normal-video>
+        <youtube-video ref="youtube" v-model="show.youtube" @song-loaded="loaded()" :volume="$store.state.game.volume"></youtube-video>
         <countdown-timer ref="timer" :maxTime="$store.state.game.settings.guessTime"></countdown-timer>
       </v-col>
     </v-row>

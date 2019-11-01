@@ -1,5 +1,4 @@
-import { User } from '../../services/database/user'
-import { EmojiType, GameMode } from '../types'
+import { EmojiType } from '../types'
 
 interface SongObj {
   songId: string
@@ -8,10 +7,6 @@ interface SongObj {
   title: string
   artist: string
   type: string
-}
-
-interface UserLists {
-  [key: string]: User
 }
 
 interface EmojiObj {
@@ -38,13 +33,4 @@ interface ChatObj extends BotResponseObj {
   admin: boolean
 }
 
-interface SettingsObj {
-  songCount: number
-  guessTime: number
-  gameMode: GameMode
-  duplicate: boolean
-  selectTime: number
-  users: Array<string>
-}
-
-export { SongObj, UserLists, EmojiObj, BotResponseObj, BotObj, ChatObj, SettingsObj }
+export { SongObj, EmojiObj, BotObj, BotResponseObj, ChatObj }

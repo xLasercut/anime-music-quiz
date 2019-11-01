@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "compile": "tsc",
+    "compile": "tsc -b",
     "compile:watch": "tsc -w",
     "start:watch": "nodemon dist/index.js",
     "serve": "concurrently --kill-others \"npm run compile:watch\" \"npm run start:watch\""

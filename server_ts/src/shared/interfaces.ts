@@ -1,3 +1,10 @@
-export * from './interfaces/database'
-export * from './interfaces/logging'
-export * from './interfaces/game'
+interface LogBaseConfig {
+  [key: string]: LogConfig
+}
+
+interface LogConfig {
+  Level: string
+  Text: string
+}
+
+export { LogConfig, LogBaseConfig }

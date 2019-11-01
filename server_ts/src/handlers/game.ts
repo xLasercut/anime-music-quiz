@@ -1,9 +1,8 @@
 import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
-import { InputPlayerObj, SettingsObj, PlayerGuess, SongObj } from '../shared/interfaces'
+import { RawPlayerObj, SettingsObj, PlayerGuess, SongObj } from '@shared/interfaces'
 import { playerService, chatService, emojiService, songService, userService, settingsService, logger, gameStateService, gameTimer } from '../services/init'
 import { emitter } from '../shared/server'
-import e = require('express')
 
 class GameHandler {
   start(socket: socketio.Socket): void {
@@ -18,7 +17,7 @@ class GameHandler {
       emitter.chat(sysMsgData, 'game')
     }))
 
-    socket.on('LOGIN_GAME', exceptionHandler(socket, (inputInfo: InputPlayerObj) => {
+    socket.on('LOGIN_GAME', exceptionHandler(socket, (inputInfo: RawPlayerObj) => {
       socket.join('game')
       playerService.newPlayer(socket.id, socket['admin'], inputInfo)
       emitter.updatePlayerData(playerService.getPlayerData(), 'game')

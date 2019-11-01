@@ -40,7 +40,9 @@ export default class ChatWindow extends Mixins(ThemeHelper) {
 
   scrollChat(): void {
     let element = document.querySelector('.message-container')
-    element.scrollTop = element.scrollHeight - element.clientHeight
+    if (element) {
+      element.scrollTop = element.scrollHeight - element.clientHeight
+    }
   }
 }
 </script>

@@ -6,9 +6,18 @@
     "module": "CommonJS",
     "lib": [
       "es2018"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "../shared-modules/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"
   ],
+  "references": [
+    { "path": "../shared-modules/" }
+  ]
 }

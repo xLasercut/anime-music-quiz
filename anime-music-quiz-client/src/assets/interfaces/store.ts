@@ -12,7 +12,7 @@ interface RootState {
 interface ListState {
   songList: Array<SongObj>
   users: Array<string>
-  userList: Array<string>
+  userList: Set<string>
   user: string
 }
 

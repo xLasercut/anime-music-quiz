@@ -1,13 +1,14 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { UserLists } from '../../shared/interfaces'
 import { AMQLogger } from '../logging/logging'
 import { USER_DATA_DIR, JSON_FILE_FORMAT } from '../../shared/config'
 import { AMQSongListError } from '../../shared/exceptions'
 import { writeFile, readFile } from './init'
 
 class UserService {
-  private _userLists: UserLists
+  private _userLists: {
+    [key: string]: User
+  }
   private _users: Array<string>
   private _logger: AMQLogger
 
@@ -21,7 +22,7 @@ class UserService {
     this._generateUserLists()
   }
 
-  getUserList(user: string): Array<string> {
+  getUserList(user: string): Set<string> {
     this._validateUser(user)
     return this._userLists[user].list
   }
@@ -82,7 +83,7 @@ class UserService {
 }
 
 class User {
-  private _data: Array<string>
+  private _data: Set<string>
   private _filepath: string
   private _logger: AMQLogger
   private _name: string
@@ -94,35 +95,34 @@ class User {
     this.loadDb()
   }
 
-  get list(): Array<string> {
+  get list(): Set<string> {
     return this._data
   }
 
   addSongId(songId: string) {
     this._validateAddSongId(songId)
-    this._data.push(songId)
-    writeFile(this._filepath, this._data)
+    this._data.add(songId)
+    writeFile(this._filepath, Array.from(this._data))
   }
 
   removeSongId(songId: string) {
     this._validateRemoveSongId(songId)
-    let i = this._data.indexOf(songId)
-    this._data.splice(i, 1)
-    writeFile(this._filepath, this._data)
+    this._data.delete(songId)
+    writeFile(this._filepath, Array.from(this._data))
   }
 
   loadDb(): void {
-    this._data = readFile(this._filepath)
+    this._data = new Set(readFile(this._filepath))
   }
 
   _validateAddSongId(songId: string): void {
-    if (this._data.includes(songId)) {
+    if (this._data.has(songId)) {
       throw new AMQSongListError('Song already in user list')
     }
   }
 
   _validateRemoveSongId(songId: string): void {
-    if (!this._data.includes(songId)) {
+    if (!this._data.has(songId)) {
       throw new AMQSongListError('Song not in user list')
     }
   }
