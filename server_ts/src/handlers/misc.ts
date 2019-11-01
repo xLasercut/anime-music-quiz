@@ -2,7 +2,7 @@ import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
 import { emitter } from '../shared/server'
 import { emojiService, logger } from '../services/init'
-import { EmojiObj } from '@shared/interfaces'
+import { EmojiObj } from '../shared/interfaces'
 
 class MiscHandler {
   start(socket: socketio.Socket): void {

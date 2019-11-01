@@ -1,6 +1,6 @@
 import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
-import { RawPlayerObj, SettingsObj, PlayerGuess, SongObj } from '@shared/interfaces'
+import { RawPlayerObj, SettingsObj, PlayerGuess, SongObj } from '../shared/interfaces'
 import { playerService, chatService, emojiService, songService, userService, settingsService, logger, gameStateService, gameTimer } from '../services/init'
 import { emitter } from '../shared/server'
 

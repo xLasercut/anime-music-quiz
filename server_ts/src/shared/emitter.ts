@@ -1,7 +1,6 @@
 import * as socketio from 'socket.io'
-import { BannerColor } from '@shared/types'
-import { SongObj, EmojiObj, ChatObj, SettingsObj, GameStateObj } from '@shared/interfaces'
-import { PlayersObj, GameChoices } from '@shared/interfaces'
+import { BannerColor } from '../shared/types'
+import { SongObj, EmojiObj, ChatObj, SettingsObj, GameStateObj, PlayersObj, GameChoices } from '../shared/interfaces'
 
 class MessageEmitter {
   private _io: socketio.Server

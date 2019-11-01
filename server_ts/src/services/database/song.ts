@@ -1,7 +1,7 @@
 import { AMQLogger } from '../logging/logging'
 import { SONG_LIST_PATH } from '../../shared/config'
 import { readFile } from './init'
-import { SongObj, GameChoices } from '@shared/interfaces'
+import { SongObj, GameChoices } from '../../shared/interfaces'
 import { AMQSongListError } from '../../shared/exceptions'
 
 class SongService {

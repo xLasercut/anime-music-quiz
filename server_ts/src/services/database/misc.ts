@@ -1,9 +1,9 @@
-import { EmojiObj } from '@shared/interfaces'
+import { EmojiObj } from '../../shared/interfaces'
 import { AMQLogger } from '../logging/logging'
 import { EMOJI_LIST_PATH, EMOJI_COMMAND_FORMAT } from '../../shared/config'
 import { readFile, writeFile } from './init'
 import { AMQEmojiListError } from '../../shared/exceptions'
-import { EmojiType } from '@shared/types'
+import { EmojiType } from '../../shared/types'
 
 class EmojiService {
   private _data: Array<EmojiObj>

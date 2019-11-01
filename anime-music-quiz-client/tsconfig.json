@@ -18,9 +18,6 @@
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "@shared/*": [
-        "../shared-modules/*"
       ]
     },
     "lib": [

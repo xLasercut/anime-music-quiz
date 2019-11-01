@@ -2,7 +2,7 @@ import * as socketio from 'socket.io'
 import { exceptionHandler } from '../shared/exceptions'
 import { emitter } from '../shared/server'
 import { songService, userService, logger } from '../services/init'
-import { SongObj } from '@shared/interfaces'
+import { SongObj } from '../shared/interfaces'
 
 class ListPickerHandler {
   start(socket: socketio.Socket): void {

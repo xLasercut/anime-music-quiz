@@ -18,11 +18,11 @@
 <script lang="ts">
 import { Component, Mixins, Prop } from 'vue-property-decorator'
 import { AvatarHelper } from '../../assets/mixins'
-import { MsgObj } from '../../assets/interfaces'
+import { ChatObj } from '../../../../shared-modules/interfaces'
 
 @Component({})
 export default class ChatMessage extends Mixins(AvatarHelper) {
-  @Prop() message!: MsgObj
+  @Prop() message!: ChatObj
 
   get messageStyle(): object {
     if (this.message.repeat) {

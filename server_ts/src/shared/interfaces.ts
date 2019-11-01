@@ -8,3 +8,4 @@ interface LogConfig {
 }
 
 export { LogConfig, LogBaseConfig }
+export * from '../../../shared-modules/interfaces'

@@ -1,5 +1,5 @@
 import { AMQLogger } from '../logging/logging'
-import { BotObj, PlayerObj, ChatObj, BotResponseObj } from '@shared/interfaces'
+import { BotObj, PlayerObj, ChatObj, BotResponseObj } from '../../shared/interfaces'
 import { readFile } from '../database/init'
 import { BOT_LIST_PATH } from '../../shared/config'
 import { AMQGameError } from '../../shared/exceptions'

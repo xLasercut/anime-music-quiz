@@ -1,6 +1,6 @@
 import { AMQLogger } from '../logging/logging'
-import { PlayerGuess, PlayerReady, RawPlayerObj, PlayersObj, PlayerObj, SongObj } from '@shared/interfaces'
-import { BannerColor, ReadyType } from '@shared/types'
+import { PlayerGuess, PlayerReady, RawPlayerObj, PlayersObj, PlayerObj, SongObj } from '../../shared/interfaces'
+import { BannerColor, ReadyType } from '../../shared/types'
 import { PLAYER_USERNAME_FORMAT } from '../../shared/config'
 import { AMQGameError } from '../../shared/exceptions'
 import { ScoreCalculator } from './score-calc'

@@ -13,16 +13,16 @@ import { ThemeHelper } from '../assets/mixins'
 import ChatMessage from './chat-window/ChatMessage.vue'
 import ChatInput from './chat-window/ChatInput.vue'
 import { Socket } from 'vue-socket.io-extended'
-import { MsgObj } from '../assets/interfaces'
+import { ChatObj } from '../../../shared-modules/interfaces'
 
 @Component({
   components: { ChatMessage, ChatInput }
 })
 export default class ChatWindow extends Mixins(ThemeHelper) {
-  messages: Array<MsgObj> = []
+  messages: Array<ChatObj> = []
 
   @Socket('UPDATE_CHAT_MESSAGE')
-  addChatMessage(msgData: MsgObj): void {
+  addChatMessage(msgData: ChatObj): void {
     if (this.messages.length > 100) {
       this.messages.splice(0, 1)
     }
