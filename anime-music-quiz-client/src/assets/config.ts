@@ -1,6 +1,4 @@
-import { AvatarMap } from './interfaces/form'
-
-let AVATAR_MAP: AvatarMap = {
+let AVATAR_MAP: { [key: string]: string } = {
   'zero_2': 'https://i.imgur.com/qQ0Fkkx.png',
   'initial_d': 'https://i.imgur.com/fk44rTD.png',
   'misaka': 'https://i.imgur.com/eZ6FZcr.png',

@@ -1,9 +1,4 @@
-type BannerColor = 'error' | 'success' | 'warning'
-
 type LoginMode = 'game' | 'list' | 'misc'
 
-type EmojiType = 'img' | 'dec'
-
-type GameMode = 'normal' | 'selector'
-
-export { BannerColor, LoginMode, EmojiType, GameMode }
+export { LoginMode }
+export * from '../../../shared-modules/types'

@@ -29,9 +29,10 @@ import FormInput from './form/FormInput.vue'
 import LoginBtn from './form/LoginBtn.vue'
 import FormHeading from './form/FormHeading.vue'
 import { sendNotification } from '../assets/notification'
-import { GameFormInputs, InputInfo } from '../assets/interfaces'
 import { USERNAME_FORMAT } from '../assets/config'
 import FormAvatar from './form/FormAvatar.vue'
+import { RawPlayerObj } from '../../../shared-modules/interfaces'
+import { GameFormInputs } from '../assets/interfaces'
 
 let password = ''
 if (process.env.NODE_ENV === 'development') {
@@ -76,7 +77,7 @@ export default class GameLogin extends Vue {
       this.$socket.client.emit('AUTHENTICATE', this.form.password, (auth: boolean): void => {
         this.disabled = false
         if (auth) {
-          let inputInfo: InputInfo = {
+          let inputInfo: RawPlayerObj = {
             username: this.form.username,
             avatar: this.form.avatar,
             score: this.form.score

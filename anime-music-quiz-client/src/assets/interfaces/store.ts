@@ -1,22 +1,21 @@
-import { LoginMode, EmojiType, GameMode, BannerColor } from '../types'
+import { LoginMode, EmojiType, BannerColor } from '../types'
+import { GameChoices, SettingsObj, PlayersObj, GameStateObj } from '../../../../shared-modules/interfaces'
 
-interface ClientState {
+interface ClientStoreState {
   admin: boolean
   loginMode: LoginMode
 }
 
-interface RootState {
+interface RootStoreState {}
 
-}
-
-interface ListState {
+interface ListStoreState {
   songList: Array<SongObj>
   users: Array<string>
   userList: Set<string>
   user: string
 }
 
-interface MiscState {
+interface MiscStoreState {
   emojiList: Array<EmojiObj>
 }
 
@@ -38,57 +37,11 @@ interface EmojiObj {
 interface GameStoreState {
   sid: string
   choices: GameChoices
-  settings: GameSettings
-  players: PlayerData
+  settings: SettingsObj
+  players: PlayersObj
   gameState: GameStateObj
   host: boolean
   volume: number
 }
 
-interface GameChoices {
-  title: Array<string>
-  anime: Array<string>
-}
-
-interface GameSettings {
-  songCount: number
-  guessTime: number
-  users: Array<string>
-  gameMode: GameMode
-  duplicate: boolean
-  selectTime: number
-}
-
-interface PlayerData {
-  [key: string]: PlayerObj
-}
-
-interface PlayerObj {
-  username: string
-  score: number
-  avatar: string
-  admin: boolean
-  host: boolean
-  guess: PlayerGuess
-  color: BannerColor
-}
-
-interface PlayerGuess {
-  title: string
-  anime: string
-}
-
-interface SongCount {
-  current: number
-  max: number
-}
-
-interface GameStateObj {
-  currentSong: SongObj
-  currentSongCount: number
-  maxSongCount: number
-  playing: boolean
-  startPosition: number
-}
-
-export { ClientState, RootState, ListState, SongObj, MiscState, EmojiObj, GameChoices, GameSettings, PlayerObj, PlayerGuess, PlayerData, GameStoreState, GameStateObj }
+export { RootStoreState, ClientStoreState, ListStoreState, MiscStoreState, GameStoreState }

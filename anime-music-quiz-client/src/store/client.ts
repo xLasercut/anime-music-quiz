@@ -1,20 +1,20 @@
 import { Module } from 'vuex'
-import { ClientState, RootState } from '../assets/interfaces'
+import { ClientStoreState, RootStoreState } from '../assets/interfaces'
 import { LoginMode } from '../assets/types'
 
-let client: Module<ClientState, RootState> = {
+let client: Module<ClientStoreState, RootStoreState> = {
   state: {
     admin: false,
     loginMode: 'game'
   },
   mutations: {
-    CHANGE_LOGIN(state: ClientState, mode: LoginMode) {
+    CHANGE_LOGIN(state: ClientStoreState, mode: LoginMode) {
       state.loginMode = mode
     },
-    DISCONNECT(state: ClientState): void {
+    DISCONNECT(state: ClientStoreState): void {
       state.admin = false
     },
-    SOCKET_UPDATE_ADMIN_STATUS(state: ClientState, admin: boolean): void {
+    SOCKET_UPDATE_ADMIN_STATUS(state: ClientStoreState, admin: boolean): void {
       state.admin = admin
     }
   }

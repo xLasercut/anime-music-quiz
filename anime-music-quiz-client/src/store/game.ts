@@ -1,7 +1,7 @@
 import { Module } from 'vuex'
-import { GameStoreState, RootState, PlayerData, GameChoices, GameSettings, GameStateObj } from '../assets/interfaces'
+import { GameStoreState, RootStoreState, PlayersObj, GameChoices, SettingsObj, GameStateObj } from '../assets/interfaces'
 
-let game: Module<GameStoreState, RootState> = {
+let game: Module<GameStoreState, RootStoreState> = {
   state: {
     sid: '',
     choices: {
@@ -73,14 +73,14 @@ let game: Module<GameStoreState, RootState> = {
     UPDATE_VOLUME(state: GameStoreState, volume: number): void {
       state.volume = volume
     },
-    SOCKET_UPDATE_PLAYER_DATA(state: GameStoreState, playerData: PlayerData): void {
+    SOCKET_UPDATE_PLAYER_DATA(state: GameStoreState, playerData: PlayersObj): void {
       state.players = playerData
       state.host = playerData[state.sid].host
     },
     SOCKET_UPDATE_GAME_CHOICES(state: GameStoreState, choices: GameChoices): void {
       state.choices = choices
     },
-    SOCKET_UPDATE_GAME_SETTINGS(state: GameStoreState, settings: GameSettings): void {
+    SOCKET_UPDATE_GAME_SETTINGS(state: GameStoreState, settings: SettingsObj): void {
       state.settings = settings
     },
     SOCKET_UPDATE_GAME_STATE(state: GameStoreState, gameState: GameStateObj): void {

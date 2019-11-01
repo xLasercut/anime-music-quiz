@@ -16,9 +16,8 @@ import ListPickerControls from '../list-picker/ListPickerControls.vue'
 import LoginControls from '../login/LoginControls.vue'
 import MiscControls from '../misc/MiscControls.vue'
 import GameControls from '../game/GameControls.vue'
-import { ComponentMap } from '../assets/interfaces'
 
-let componentMap: ComponentMap = {
+let componentMap: { [key: string]: any } = {
   '/list-picker': ListPickerControls,
   '/': LoginControls,
   '/misc': MiscControls,

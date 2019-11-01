@@ -31,7 +31,7 @@ import DialogBtn from '../../components/buttons/DialogBtn.vue'
 import DialogCloseBtn from '../../components/buttons/DialogCloseBtn.vue'
 import SettingsSlider from './settings-dialog/SettingsSlider.vue'
 import SettingsRadio from './settings-dialog/SettingsRadio.vue'
-import { GameSettings } from '../../assets/interfaces'
+import { SettingsObj } from '../../assets/interfaces'
 import { Socket } from 'vue-socket.io-extended'
 import IconBtn from '../../components/buttons/IconBtn.vue'
 import SettingsCheckbox from './settings-dialog/SettingsCheckbox.vue'
@@ -42,7 +42,7 @@ import SettingsCheckbox from './settings-dialog/SettingsCheckbox.vue'
 export default class SettingsDialog extends Vue {
   show = false
 
-  localSettings: GameSettings = {
+  localSettings: SettingsObj = {
     songCount: 20,
     guessTime: 30,
     selectTime: 20,
@@ -74,11 +74,11 @@ export default class SettingsDialog extends Vue {
     return !(this.$store.state.game.host || this.$store.state.client.admin) || this.$store.state.game.playing
   }
 
-  get settings(): GameSettings {
+  get settings(): SettingsObj {
     return this.$store.state.game.settings
   }
 
-  set settings(settings: GameSettings) {
+  set settings(settings: SettingsObj) {
     this.localSettings = settings
   }
 }

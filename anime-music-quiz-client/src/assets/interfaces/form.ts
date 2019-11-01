@@ -27,4 +27,4 @@ interface InputInfo {
   score: number
 }
 
-export { ListFormInputs, GameFormInputs, MiscFormInputs, AvatarMap, ComponentMap, InputInfo }
+export { ListFormInputs, GameFormInputs, MiscFormInputs }

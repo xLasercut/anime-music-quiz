@@ -9,9 +9,8 @@ import { Vue, Component } from 'vue-property-decorator'
 import ListLogin from '../login/ListLogin.vue'
 import MiscLogin from '../login/MiscLogin.vue'
 import GameLogin from '../login/GameLogin.vue'
-import { ComponentMap } from '../assets/interfaces'
 
-let componentMap: ComponentMap = {
+let componentMap: { [key: string]: any } = {
   'game': GameLogin,
   'list': ListLogin,
   'misc': MiscLogin

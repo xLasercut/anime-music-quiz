@@ -15,7 +15,6 @@ import { Component, Vue } from 'vue-property-decorator'
 import NormalVideo from './video-window/NormalVideo.vue'
 import YoutubeVideo from './video-window/YoutubeVideo.vue'
 import CountdownTimer from './video-window/CountdownTimer.vue'
-import { GameVideo } from '../../../assets/interfaces'
 import { Socket } from 'vue-socket.io-extended'
 
 @Component({
@@ -29,7 +28,7 @@ export default class VideoWindow extends Vue {
     [key: string]: any
   }
 
-  show: GameVideo = {
+  show: { [key: string]: boolean } = {
     normal: false,
     youtube: false
   }
