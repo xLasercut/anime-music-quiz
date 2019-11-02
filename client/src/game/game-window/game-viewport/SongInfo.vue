@@ -35,7 +35,6 @@ export default class SongInfo extends Mixins(ThemeHelper) {
   songInfo(key: string): string {
     if (this.show) {
       let output = this.$store.state.game.gameState.currentSong[key]
-      console.log(output)
       if (output) {
         return output
       }
