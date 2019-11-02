@@ -1,0 +1,17 @@
+[
+  {
+    "command": "worry",
+    "src": "https://cdn.discordapp.com/emojis/384946988770131970.png",
+    "type": "img"
+  },
+  {
+    "command": "grinning",
+    "src": "😀",
+    "type": "dec"
+  },
+  {
+    "command": "notes",
+    "src": "🎶",
+    "type": "dec"
+  }
+]

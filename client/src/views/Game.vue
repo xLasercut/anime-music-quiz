@@ -1,39 +1,31 @@
 <template>
   <v-container fluid>
     <v-row justify="center">
-      <game></game>
-      <chat></chat>
+      <game-window></game-window>
+      <chat-window></chat-window>
     </v-row>
   </v-container>
 </template>
 
-<script lang="coffee">
-  import Chat from '../game/Chat.vue'
-  import Game from '../game/Game.vue'
-  import Notification from '../assets/mixins/notification.coffee'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import GameWindow from '../game/GameWindow.vue'
+import ChatWindow from '../game/ChatWindow.vue'
+import { Socket } from 'vue-socket.io-extended'
 
-  export default
-    mixins: [ Notification ]
-    components: { Chat, Game }
-    sockets:
-      SYNC_PLAYERS: (players) ->
-        data = {
-          players: players,
-          id: this.$socket.id
-        }
-        this.$store.commit('game/UPDATE_PLAYERS', data)
-      disconnect: () ->
-        this.$router.push('/')
-    beforeRouteLeave: (to, from, next) ->
-      if this.$store.state.game.playing
-        answer = window.confirm('You are about to leave this page. Continue?')
-        if answer
-          next()
-        else
-          next(false)
-      else
-        next()
-    mounted: () ->
-      if !this.$socket.connected
-        this.$router.push('/')
+@Component({
+  components: { GameWindow, ChatWindow }
+})
+export default class Game extends Vue {
+  @Socket('disconnect')
+  onDisconnect(): void {
+    this.$router.push('/')
+  }
+
+  mounted() {
+    if (!this.$socket.connected) {
+      this.$router.push('/')
+    }
+  }
+}
 </script>

@@ -4,20 +4,36 @@
       <input :id="`avatar_${avatar}`" type="radio" :value="avatar" v-model="model" :disabled="disabled">
       <label :for="`avatar_${avatar}`">
         <v-avatar tile size="100px">
-          <v-img :src="imageSrc(avatar)" aspect-ratio="1"/>
+          <v-img :src="imgSrc(avatar)"></v-img>
         </v-avatar>
       </label>
     </v-col>
   </v-row>
 </template>
 
-<script lang="coffee">
-  import VModel from '../../assets/mixins/v-model.coffee'
-  import AvatarMap from '../../assets/mixins/avatar-map.coffee'
+<script lang="ts">
+import { Component, Prop, Watch, Emit, Mixins } from 'vue-property-decorator'
+import { AvatarHelper } from '../../assets/mixins'
 
-  export default
-    props: [ 'avatars', 'disabled' ]
-    mixins: [ VModel, AvatarMap ]
+@Component({})
+export default class FormAvatar extends Mixins(AvatarHelper) {
+  @Prop(String) value!: string
+  @Prop({ type: Boolean, default: false }) disabled!: boolean
+  @Prop(Array) avatars!: Array<string>
+
+  model = this.value
+
+  @Watch('value')
+  _onValueChange(val: string): void {
+    this.model = val
+  }
+
+  @Watch('model')
+  @Emit('input')
+  _onModelChange(val: string): string {
+    return val
+  }
+}
 </script>
 
 <style scoped>

@@ -1,51 +1,65 @@
 <template>
-  <nav-dialog
-    v-if="$store.state.list.filename" v-model="show"
-    color="success" icon="mdi-playlist-music" id="user-list-btn"
-    @click="syncUserList()"
+  <dialog-btn
+    nav icon="mdi-playlist-music"
+    color="success" id="user-list-btn"
+    @click="getUserList()" v-if="$store.state.list.user"
+    v-model="show"
   >
     <v-row justify="space-between" no-gutters>
       <v-col cols="auto">
-        {{$store.state.list.filename}}
+        {{$store.state.list.user}}
       </v-col>
       <v-col cols="auto">
-        <icon-btn @click="download()" color="success" icon="mdi-download">Download List</icon-btn>
+        <icon-btn
+          color="success" icon="mdi-download" :href="downloadHref()"
+          :download="`${$store.state.list.user}.json`"
+        >Download</icon-btn>
       </v-col>
       <v-col cols="auto">
-        <v-btn icon text small @click="show = false" id="close-user-list-btn"><v-icon>mdi-close</v-icon></v-btn>
+        <dialog-close-btn id="close-user-list-btn" @click="show = false"></dialog-close-btn>
       </v-col>
     </v-row>
-    <list-data :data="userList()" id="user" @remove-song="removeSong($event)"></list-data>
-  </nav-dialog>
+    <song-list-table
+      :data="userData()" id="user"
+      @remove-user-song="removeUserSong($event)"
+    ></song-list-table>
+  </dialog-btn>
 </template>
 
-<script lang="coffee">
-  import ListData from './ListData.vue'
-  import IconBtn from '../components/buttons/IconBtn.vue'
-  import NavBtn from '../components/buttons/NavBtn.vue'
-  import NavDialog from '../components/buttons/NavDialog.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import DialogBtn from '../components/buttons/DialogBtn.vue'
+import IconBtn from '../components/buttons/IconBtn.vue'
+import DialogCloseBtn from '../components/buttons/DialogCloseBtn.vue'
+import SongListTable from './SongListTable.vue'
+import { SongObj } from '../assets/interfaces'
 
-  export default
-    components: { ListData, IconBtn, NavDialog }
-    data: () ->
-      show: false
-    methods:
-      userList: () ->
-        return this.$store.state.list.fullList.filter( (song) =>
-          if song.songId in this.$store.state.list.userList
-            return song
-        )
-      download: () ->
-        jsonstring = JSON.stringify(this.userList(), null, 2)
-        blob = new Blob([jsonstring], {type: 'text/plain'})
-        link = document.createElement('a')
-        document.body.appendChild(link)
-        link.setAttribute("type", "hidden")
-        link.href = window.URL.createObjectURL(blob)
-        link.download = 'my-list.json'
-        link.click()
-      syncUserList: () ->
-        this.$socket.emit('SYNC_USER_LIST', this.$store.state.list.filename)
-      removeSong: (song) ->
-        this.$socket.emit('REMOVE_SONG', song, this.$store.state.list.filename)
+@Component({
+  components: { DialogBtn, SongListTable, IconBtn, DialogCloseBtn }
+})
+export default class UserList extends Vue {
+  show = false
+
+  userData(): Array<SongObj> {
+    return this.$store.state.list.songList.filter((song: SongObj): SongObj | undefined => {
+      if (this.$store.state.list.userList.has(song.songId)) {
+        return song
+      }
+    })
+  }
+
+  getUserList(): void {
+    this.$socket.client.emit('GET_USER_LIST', this.$store.state.list.user)
+  }
+
+  removeUserSong(song: SongObj): void {
+    this.$socket.client.emit('REMOVE_USER_SONG', song, this.$store.state.list.user)
+  }
+
+  downloadHref(): string {
+    let serializedData = JSON.stringify(this.userData(), null, 2)
+    let blob = new Blob([serializedData], { type: 'text/plain' })
+    return window.URL.createObjectURL(blob)
+  }
+}
 </script>

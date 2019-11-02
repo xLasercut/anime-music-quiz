@@ -1,0 +1,43 @@
+[
+  {
+    "songId": "d77c3248-2986-495e-b5c9-ab21151ae501",
+    "anime": [
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "src": "https://animethemes.moe/video/FullmetalAlchemistBrotherhood-OP1.webm",
+    "title": "again",
+    "artist": "",
+    "type": "OP1"
+  },
+  {
+    "songId": "e7096454-f0b1-4041-b21d-478dc9c9d253",
+    "anime": [
+      "Shingeki no Kyojin",
+      "Attack on Titan"
+    ],
+    "src": "https://animethemes.moe/video/ShingekiNoKyojin-OP1.webm",
+    "title": "Guren no Yumiya",
+    "artist": "",
+    "type": "OP V1"
+  },
+  {
+    "songId": "81ced164-9d4f-403e-b3f6-9e495f4a2509",
+    "anime": [
+      "Sword Art Online Alternative: Gun Gale Online"
+    ],
+    "src": "https://www.youtube.com/watch?v=95yIMhr8FmY",
+    "title": "Pilgrim",
+    "artist": "ReoNa",
+    "type": "Insert"
+  },
+  {
+    "songId": "15eeddb9-0800-4d87-adf8-1df8e7662011",
+    "anime": [
+      "Sword Art Online Alternative: Gun Gale Online"
+    ],
+    "src": "https://www.youtube.com/watch?v=5slaDHrCERQ",
+    "title": "REA(S)ON",
+    "artist": "ReoNa",
+    "type": "Insert"
+  }
+]

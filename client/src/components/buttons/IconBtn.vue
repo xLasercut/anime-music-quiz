@@ -7,7 +7,12 @@
   </v-btn>
 </template>
 
-<script lang="coffee">
-  export default
-    props: [ 'icon', 'activator' ]
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+
+@Component({})
+export default class IconBtn extends Vue {
+  @Prop(String) icon!: string
+  @Prop() activator!: any
+}
 </script>

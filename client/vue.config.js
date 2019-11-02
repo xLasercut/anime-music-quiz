@@ -7,6 +7,10 @@ else if (process.env.NODE_ENV === 'production') {
   publicPath = './'
 }
 
+
 module.exports = {
-  publicPath: publicPath
+  publicPath: publicPath,
+  transpileDependencies: [
+    "vuetify"
+  ]
 }

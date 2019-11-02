@@ -1,89 +1,105 @@
 <template>
-  <v-container fluid class="list-picker-container">
-    <v-row justify="center" v-if="$store.state.admin.admin">
-      <v-col cols="auto">
-        <icon-btn icon="mdi-plus" color="success" small @click="addSongToList()" id="add-song-to-list-btn">Add Song</icon-btn>
-      </v-col>
-    </v-row>
-    <list-data
-      :data="$store.state.list.fullList" id="main"
-      @add-song="addSong($event)"
-      @remove-song="removeSong($event)"
-      @edit-song="editSong($event)"
-      @delete-song="deleteSongFromList($event)"
-    >
-    </list-data>
-    <v-dialog v-model="showEdit">
-      <item-edit
-        v-model="songInfo"
-        @cancel-edit="showEdit = false"
-        @confirm-edit="confirmEdit()"
-      ></item-edit>
-    </v-dialog>
+  <v-container fluid>
+    <v-card>
+      <v-container fluid>
+        <v-row justify="center" v-if="$store.state.client.admin">
+          <v-col cols="auto">
+            <icon-btn color="success" icon="mdi-playlist-plus" id="add-song-to-list-btn" @click="addSong()">Add Song</icon-btn>
+          </v-col>
+        </v-row>
+        <song-list-table
+          :data="$store.state.list.songList" id="main" show-edit
+          @add-user-song="addUserSong($event)"
+          @remove-user-song="removeUserSong($event)"
+          @edit-song="editSong($event)"
+          @delete-song="deleteSong($event)"
+        ></song-list-table>
+        <v-row>
+          <v-col>
+            <v-dialog v-model="show" width="800">
+              <song-edit v-model="song" @cancel-edit="show = false" @confirm-edit="confirmEdit()"></song-edit>
+            </v-dialog>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card>
   </v-container>
 </template>
 
-<script lang="coffee">
-  import ListData from '../list-picker/ListData.vue'
-  import Notification from '../assets/mixins/notification.coffee'
-  import ItemEdit from '../list-picker/ItemEdit.vue'
-  import IconBtn from '../components/buttons/IconBtn.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import SongListTable from '../list-picker/SongListTable.vue'
+import { SongObj } from '../assets/interfaces'
+import IconBtn from '../components/buttons/IconBtn.vue'
+import SongEdit from '../list-picker/SongEdit.vue'
+import { EditSongType } from '../assets/types'
 
-  export default
-    mixins: [ Notification ]
-    components: { ListData, ItemEdit, IconBtn }
-    data: () ->
-      showEdit: false
-      songInfo: {
-        songId: '',
-        src: '',
-        anime: [],
-        title: '',
-        artist: '',
-        type: ''
-      }
-      editType: 'edit'
-    methods:
-      addSong: (song) ->
-        this.$socket.emit('ADD_SONG', song, this.$store.state.list.filename)
-      removeSong: (song) ->
-        this.$socket.emit('REMOVE_SONG', song, this.$store.state.list.filename)
-      syncFullList: () ->
-        this.$socket.emit('SYNC_FULL_LIST')
-      editSong: (song) ->
-        this.editType = 'edit'
-        this.songInfo = JSON.parse(JSON.stringify(song))
-        this.showEdit = true
-      confirmEdit: () ->
-        if this.editType == 'edit'
-          this.$socket.emit('ADMIN_EDIT_SONG_LIST', this.songInfo)
-        else if this.editType == 'add'
-          this.$socket.emit('ADMIN_ADD_SONG_TO_LIST', this.songInfo)
-        this.showEdit = false
-      addSongToList: () ->
-        this.editType = 'add'
-        this.songInfo = {
-          songId: '',
-          src: '',
-          anime: [],
-          title: '',
-          artist: '',
-          type: ''
-        }
-        this.showEdit = true
-      deleteSongFromList: (song) ->
-        console.log(song)
-        this.$socket.emit('ADMIN_REMOVE_SONG_FROM_LIST', song)
-    mounted: () ->
-      if !this.$socket.connected
-        this.$router.push('/')
-
-      this.syncFullList()
-</script>
-
-<style scoped>
-  .list-picker-container {
-    height: calc(100vh - 65px);
-    overflow: auto;
+@Component({
+  components: { SongListTable, IconBtn, SongEdit }
+})
+export default class ListPicker extends Vue {
+  song: SongObj = {
+    songId: '',
+    anime: [],
+    src: '',
+    title: '',
+    artist: '',
+    type: ''
   }
-</style>
+
+  show = false
+
+  editType: EditSongType = 'add'
+
+  addUserSong(song: SongObj): void {
+    this.$socket.client.emit('ADD_USER_SONG', song, this.$store.state.list.user)
+  }
+
+  removeUserSong(song: SongObj): void {
+    this.$socket.client.emit('REMOVE_USER_SONG', song, this.$store.state.list.user)
+  }
+
+  addSong(): void {
+    this.editType = 'add'
+    this._setSong({
+      songId: '',
+      anime: [],
+      src: '',
+      title: '',
+      artist: '',
+      type: ''
+    })
+    this.show = true
+  }
+
+  editSong(song: SongObj): void {
+    this.editType = 'edit'
+    this._setSong(song)
+    this.show = true
+  }
+
+  deleteSong(song: SongObj): void {
+    this.$socket.client.emit('ADMIN_DELETE_SONG', song)
+  }
+
+  confirmEdit() {
+    if (this.editType === 'add') {
+      this.$socket.client.emit('ADMIN_ADD_NEW_SONG', this.song)
+    }
+    else if (this.editType === 'edit') {
+      this.$socket.client.emit('ADMIN_EDIT_SONG', this.song)
+    }
+    this.show = false
+  }
+
+  _setSong(song: SongObj): void {
+    this.song = JSON.parse(JSON.stringify(song))
+  }
+
+  mounted() {
+    if (this.$socket.disconnected) {
+      this.$router.push('/')
+    }
+  }
+}
+</script>
