@@ -1,10 +1,10 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="4">
-      <v-text-field label="Anime" v-model="filter.anime" hide-details :id="`filter-anime-${id}`"></v-text-field>
+      <v-text-field clearable label="Anime" v-model="filter.anime" hide-details :id="`filter-anime-${id}`"></v-text-field>
     </v-col>
     <v-col cols="4">
-      <v-text-field label="Song" v-model="filter.song" hide-details :id="`filter-song-${id}`"></v-text-field>
+      <v-text-field clearable label="Song" v-model="filter.song" hide-details :id="`filter-song-${id}`"></v-text-field>
     </v-col>
     <v-col cols="4">
       <v-select :items="typeFilterItems" label="Type" v-model="filter.type" hide-details :id="`filter-type-${id}`"></v-select>
