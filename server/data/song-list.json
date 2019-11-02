@@ -47980,6 +47980,17 @@
     "type": "ED24"
   },
   {
+    "songId": "8f15c8e6-b277-4cfb-aae2-5d24730c5329",
+    "anime": [
+      "Naruto: Shippuuden",
+      "Naruto Shippuuden"
+    ],
+    "src": "https://www.youtube.com/watch?v=cu_cq9WatBY",
+    "title": "Sengunbanba ( Experienced Many Battles )",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "9c441684-7b95-42ba-88e9-b919b8d4c629",
     "anime": [
       "Naruto: Shippuuden",
@@ -79920,16 +79931,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "8f15c8e6-b277-4cfb-aae2-5d24730c5329",
-    "anime": [
-      "Naruto: Shippuuden",
-      "Naruto Shippuuden"
-    ],
-    "src": "https://www.youtube.com/watch?v=cu_cq9WatBY",
-    "title": "Sengunbanba",
-    "artist": "",
-    "type": "Insert"
   }
 ]
