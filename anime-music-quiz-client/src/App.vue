@@ -11,8 +11,8 @@ import { Vue, Component } from 'vue-property-decorator'
 import NavPanel from '@/app/NavPanel.vue'
 import GameNotification from '@/app/GameNotification.vue'
 import { Socket } from 'vue-socket.io-extended'
-import { BannerColor } from '@/assets/types'
-import { sendNotification } from '@/assets/notification'
+import { BannerColor } from './assets/types'
+import { sendNotification } from './assets/notification'
 
 @Component({
   components: { NavPanel, GameNotification }

@@ -22,7 +22,7 @@ class AMQGameTimer {
     return deferred.promise
   }
 
-  startCountdownSingle(time: number, type: ReadyType, sid: string) {
+  startCountdownSingle(time: number, sid: string, type: ReadyType) {
     this.resetCountdown()
     let deferred = q.defer()
     this._time = 0

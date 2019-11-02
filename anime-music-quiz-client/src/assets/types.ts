@@ -1,4 +1,6 @@
 type LoginMode = 'game' | 'list' | 'misc'
 
-export { LoginMode }
+type EditSongType = 'add' | 'edit'
+
+export { LoginMode, EditSongType }
 export * from '../../../shared-modules/types'

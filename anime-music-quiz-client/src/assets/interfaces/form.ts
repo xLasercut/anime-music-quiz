@@ -13,18 +13,4 @@ interface GameFormInputs {
   score: number
 }
 
-interface AvatarMap {
-  [key: string]: string
-}
-
-interface ComponentMap {
-  [key: string]: any
-}
-
-interface InputInfo {
-  username: string
-  avatar: string
-  score: number
-}
-
 export { ListFormInputs, GameFormInputs, MiscFormInputs }

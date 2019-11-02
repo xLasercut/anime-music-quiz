@@ -6,10 +6,12 @@ import { exceptionHandler } from './shared/exceptions'
 import { ListPickerHandler } from './handlers/list'
 import { MiscHandler } from './handlers/misc'
 import { GameHandler } from './handlers/game'
+import { AdminHandler } from './handlers/admin'
 
 let listPickerHandler = new ListPickerHandler()
 let miscHandler = new MiscHandler()
 let gameHandler = new GameHandler()
+let adminHandler = new AdminHandler()
 
 io.on('connection', (socket: socketio.Socket): void => {
   logger.writeLog('SERVER002', { id: socket.id })
@@ -51,6 +53,9 @@ function startListeners(socket: socketio.Socket, callback: any): void {
     listPickerHandler.start(socket)
     miscHandler.start(socket)
     gameHandler.start(socket)
+    if (socket['admin']) {
+      adminHandler.start(socket)
+    }
   }
   callback(socket['auth'])
 }

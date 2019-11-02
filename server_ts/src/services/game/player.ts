@@ -41,6 +41,11 @@ class PlayerService {
     this._moveHost(host)
   }
 
+  changePlayerName(sid: string, username: string): void {
+    this._validateSid(sid)
+    this._data[sid].username = username
+  }
+
   setReady(sid: string, state: boolean, type: ReadyType): void {
     this._validateSid(sid)
     this._data[sid].ready[type] = state
@@ -147,7 +152,7 @@ class PlayerService {
 
   _validateSid(sid: string): void {
     if (!(sid in this._data)) {
-      throw new AMQGameError('Invalid player id')
+      throw new AMQGameError('Invalid player ID')
     }
   }
 }

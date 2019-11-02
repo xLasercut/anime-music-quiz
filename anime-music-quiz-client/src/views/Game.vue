@@ -11,11 +11,17 @@
 import { Component, Vue } from 'vue-property-decorator'
 import GameWindow from '../game/GameWindow.vue'
 import ChatWindow from '../game/ChatWindow.vue'
+import { Socket } from 'vue-socket.io-extended'
 
 @Component({
   components: { GameWindow, ChatWindow }
 })
 export default class Game extends Vue {
+  @Socket('disconnect')
+  onDisconnect(): void {
+    this.$router.push('/')
+  }
+
   mounted() {
     if (!this.$socket.connected) {
       this.$router.push('/')

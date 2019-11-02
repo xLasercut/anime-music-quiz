@@ -24087,6 +24087,16 @@
     "type": "OP"
   },
   {
+    "songId": "bcbb1f1c-bd22-4932-b95b-bdad893952d1",
+    "src": "https://www.youtube.com/watch?v=WlQwL7vSM1o",
+    "anime": [
+      "Granbelm"
+    ],
+    "title": "Utakata",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "c9ee680b-dae1-463d-97b0-e07f9a92c5cb",
     "anime": [
       "Granblue Fantasy The Animation"
@@ -79831,15 +79841,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "bcbb1f1c-bd22-4932-b95b-bdad893952d1",
-    "src": "https://www.youtube.com/watch?v=WlQwL7vSM1o",
-    "anime": [
-      "Granbelm"
-    ],
-    "title": "Utakata",
-    "artist": "",
-    "type": "Insert"
   }
 ]

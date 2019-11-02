@@ -3,6 +3,7 @@ import { exceptionHandler } from '../shared/exceptions'
 import { RawPlayerObj, SettingsObj, PlayerGuess, SongObj } from '../shared/interfaces'
 import { playerService, chatService, emojiService, songService, userService, settingsService, logger, gameStateService, gameTimer } from '../services/init'
 import { emitter } from '../shared/server'
+import { GAME_ROOM } from '../shared/config'
 
 class GameHandler {
   start(socket: socketio.Socket): void {
@@ -10,51 +11,63 @@ class GameHandler {
     startSettingsHandler(socket)
 
     socket.on('disconnect', exceptionHandler(socket, () => {
-      let player = playerService.getPlayerObj(socket.id)
-      playerService.removePlayer(socket.id)
-      emitter.updatePlayerData(playerService.getPlayerData())
-      let sysMsgData = chatService.generateSysMsgData(`${player['username']} has left the room`)
-      emitter.chat(sysMsgData, 'game')
+      try {
+        let player = playerService.getPlayerObj(socket.id)
+        playerService.removePlayer(socket.id)
+        emitter.updatePlayerData(playerService.getPlayerData())
+        let sysMsgData = chatService.generateSysMsgData(`${player['username']} has left the room`)
+        emitter.chat(sysMsgData, GAME_ROOM)
+      }
+      catch (e) {
+        if (e.message != 'Invalid player ID') {
+          throw new Error(e.message)
+        }
+      }
     }))
 
     socket.on('LOGIN_GAME', exceptionHandler(socket, (inputInfo: RawPlayerObj) => {
-      socket.join('game')
+      socket.join(GAME_ROOM)
       playerService.newPlayer(socket.id, socket['admin'], inputInfo)
-      emitter.updatePlayerData(playerService.getPlayerData(), 'game')
+      emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
       emitter.updateEmojiData(emojiService.getEmojiList(), socket.id)
       emitter.updateSongList(songService.getSongList(), socket.id)
       emitter.updateUsers(userService.getUsers(), socket.id)
       emitter.updateGameChoices(songService.getChoices(), socket.id)
       emitter.updateGameState(gameStateService.getGameState())
       let sysMsgData = chatService.generateSysMsgData(`${inputInfo.username} has joined the room`)
-      emitter.chat(sysMsgData, 'game')
+      emitter.chat(sysMsgData, GAME_ROOM)
+      logger.writeLog('SERVER005', { id: socket.id, service: GAME_ROOM })
     }))
 
     socket.on('START_GAME', exceptionHandler(socket, () => {
       playerService.resetScore()
-      emitter.updatePlayerData(playerService.getPlayerData(), 'game')
+      emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
       let combinedIds = userService.getCombinedSongIds(settingsService.users)
       let combinedList = songService.getCombinedList(combinedIds)
       gameStateService.generateGameList(combinedList, settingsService.songCount, settingsService.duplicate)
       if (gameStateService.gameList.length > 0) {
         gameStateService.startGame(settingsService.gameMode)
-        emitter.updateGameState(gameStateService.getGameState(), 'game')
+        emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
         this._newRound()
       }
       else {
         let sysMsgData = chatService.generateSysMsgData('Empty song list')
-        emitter.chat(sysMsgData, 'game')
+        emitter.chat(sysMsgData, GAME_ROOM)
       }
     }))
 
     socket.on('STOP_GAME', exceptionHandler(socket, () => {
       this._resetGame()
     }))
+
+    socket.on('GET_PLAYER_LIST', exceptionHandler(socket, () => {
+      emitter.updatePlayerData(playerService.getPlayerData(), socket.id)
+    }))
   }
 
   _newRound(): void {
     playerService.newRound()
-    emitter.updatePlayerData(playerService.getPlayerData(), 'game')
+    emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
     if (settingsService.gameMode === 'selector') {
       this._gameFlowSelector()
     }
@@ -65,21 +78,21 @@ class GameHandler {
 
   _gameFlowMain(): void {
     gameStateService.newSong()
-    emitter.updateGameState(gameStateService.getGameState(), 'game')
-    emitter.gameNewSong('game')
+    emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
+    emitter.gameNewSong(GAME_ROOM)
     gameTimer.startCountdown(5000, 'load')
     .then(() => {
-      emitter.gameStartCountdown('game')
+      emitter.gameStartCountdown(GAME_ROOM)
       return gameTimer.startCountdown(settingsService.guessTime * 1000, 'guess')
     })
     .then(() => {
-      emitter.gameTimeUp('game')
+      emitter.gameTimeUp(GAME_ROOM)
       return gameTimer.startCountdown(5000, 'guess')
     })
     .then(() => {
       playerService.roundOver(gameStateService.currentSong)
-      emitter.updatePlayerData(playerService.getPlayerData(), 'game')
-      emitter.gameShowGuess('game')
+      emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
+      emitter.gameShowGuess(GAME_ROOM)
       if (gameStateService.gameEnd) {
         logger.writeLog('GAME003')
         this._resetGame()
@@ -100,10 +113,10 @@ class GameHandler {
   _gameFlowSelector(): void {
     let sid = playerService.generateSelector()
     emitter.gameSelectSong(sid)
-    gameTimer.startCountdownSingle(settingsService.selectTime * 1000, 'select', sid)
+    gameTimer.startCountdownSingle(settingsService.selectTime * 1000, sid, 'select')
     .then(() => {
       emitter.gameSelectSongOver(sid)
-      return this._gameFlowMain()
+      this._gameFlowMain()
     })
     .catch((error) => {
       logger.writeLog('SERVER004', { stack: error })
@@ -114,8 +127,8 @@ class GameHandler {
     gameTimer.resetCountdown()
     gameTimer.resetTimeout()
     gameStateService.reset()
-    emitter.updateGameState(gameStateService.getGameState(), 'game')
-    emitter.gameReset('game')
+    emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
+    emitter.gameReset(GAME_ROOM)
   }
 }
 
@@ -123,10 +136,10 @@ function startPlayerHandler(socket: socketio.Socket): void {
   socket.on('PLAYER_CHAT', exceptionHandler(socket, (message: string) => {
     let player = playerService.getPlayerObj(socket.id)
     let msgData = chatService.generateUserMsgData(socket.id, player, message)
-    emitter.chat(msgData, 'game')
+    emitter.chat(msgData, GAME_ROOM)
     let botMsgData = chatService.generateBotMsgData(message)
     if (botMsgData) {
-      emitter.chat(botMsgData, 'game')
+      emitter.chat(botMsgData, GAME_ROOM)
     }
   }))
 
@@ -143,6 +156,7 @@ function startPlayerHandler(socket: socketio.Socket): void {
 
   socket.on('SONG_OVERRIDE', exceptionHandler(socket, (song: SongObj) => {
     gameStateService.overrideSong(song)
+    playerService.setReady(socket.id, true, 'select')
     let anime = song.anime[0]
     logger.writeLog('GAME008', {
       title: song.title,
@@ -158,9 +172,9 @@ function startPlayerHandler(socket: socketio.Socket): void {
 function startSettingsHandler(socket: socketio.Socket): void {
   socket.on('UPDATE_GAME_SETTINGS', exceptionHandler(socket, (settings: SettingsObj) => {
     settingsService.updateSettings(settings)
-    emitter.updateGameSettings(settingsService.getSettings(), 'game')
+    emitter.updateGameSettings(settingsService.getSettings(), GAME_ROOM)
     let sysMsgData = chatService.generateSysMsgData('Game settings updated')
-    emitter.chat(sysMsgData, 'game')
+    emitter.chat(sysMsgData, GAME_ROOM)
   }))
 
   socket.on('GET_GAME_SETTINGS', exceptionHandler(socket, () => {

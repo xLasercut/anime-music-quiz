@@ -74,8 +74,10 @@ let game: Module<GameStoreState, RootStoreState> = {
       state.volume = volume
     },
     SOCKET_UPDATE_PLAYER_DATA(state: GameStoreState, playerData: PlayersObj): void {
-      state.players = playerData
-      state.host = playerData[state.sid].host
+      if (Object.keys(playerData).length > 0) {
+        state.players = playerData
+        state.host = playerData[state.sid].host
+      }
     },
     SOCKET_UPDATE_GAME_CHOICES(state: GameStoreState, choices: GameChoices): void {
       state.choices = choices

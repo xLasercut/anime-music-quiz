@@ -5,6 +5,7 @@
         <normal-video ref="normal" v-model="show.normal" @song-loaded="loaded()" :volume="$store.state.game.volume"></normal-video>
         <youtube-video ref="youtube" v-model="show.youtube" @song-loaded="loaded()" :volume="$store.state.game.volume"></youtube-video>
         <countdown-timer ref="timer" :maxTime="$store.state.game.settings.guessTime"></countdown-timer>
+        <v-progress-circular indeterminate :size="50" :width="5" color="primary" v-if="loading"></v-progress-circular>
       </v-col>
     </v-row>
   </v-col>
@@ -33,6 +34,8 @@ export default class VideoWindow extends Vue {
     youtube: false
   }
 
+  loading = false
+
   get playerType(): 'youtube' | 'normal' {
     if (this.$store.state.game.gameState.currentSong.src.includes('youtube')) {
       return 'youtube'
@@ -53,12 +56,14 @@ export default class VideoWindow extends Vue {
 
   @Socket('NEW_SONG')
   newSong(): void {
+    this.loading = true
     this.resetVideo()
     this.$refs[this.playerType].load()
   }
 
   @Socket('START_COUNTDOWN')
   startCountdown(): void {
+    this.loading = false
     this.$refs.timer.startCountdown()
     this.$refs[this.playerType].play()
   }
@@ -70,6 +75,7 @@ export default class VideoWindow extends Vue {
 
   @Socket('RESET')
   reset(): void {
+    this.loading = false
     for (let key in this.show) {
       this.$refs[key].reset()
     }

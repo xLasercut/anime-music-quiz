@@ -48,7 +48,7 @@
             <table-btn
               color="warning" icon="mdi-pencil-plus"
               v-if="showEditBtns()" :id="`edit-${item.songId}-${id}`"
-              @clicke="editSong(item)"
+              @click="editSong(item)"
             ></table-btn>
 
             <table-btn

@@ -2,11 +2,11 @@
   <v-dialog :max-width="width" v-model="model" no-click-animation :persistent="persistent">
     <template v-slot:activator="{ on }">
       <nav-btn
-        v-if="nav" :icon="icon" :id="id" v-bind="$attrs"
+        v-if="nav" :icon="icon" :id="id" v-bind="$attrs" v-show="showBtn"
         :activator="on" @click="$emit('click')"
       ></nav-btn>
       <icon-btn
-        v-if="!nav" :icon="icon" :id="id" v-bind="$attrs"
+        v-if="!nav" :icon="icon" :id="id" v-bind="$attrs" v-show="showBtn"
         :activator="on" @click="$emit('click')"
       >
         {{label}}
@@ -37,6 +37,7 @@ export default class DialogBtn extends Vue {
   @Prop(Boolean) value!: boolean
   @Prop({ type: Boolean, default: false }) persistent!: boolean
   @Prop(String) label!: string
+  @Prop({ type: Boolean, default: true }) showBtn !: boolean
 
   model = this.value
 

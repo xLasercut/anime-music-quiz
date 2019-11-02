@@ -1,5 +1,5 @@
 <template>
-  <dialog-btn nav icon="mdi-playlist-music" color="primary" id="game-song-select-btn" v-model="show" :persistent="persistent">
+  <dialog-btn nav icon="mdi-playlist-music" color="primary" id="game-song-select-btn" v-model="show" :persistent="persistent" :show-btn="$store.state.client.admin">
     <v-row justify="space-between" no-gutters>
       <v-col cols="auto">Song Select</v-col>
       <song-select-timer ref="timer" :maxTime="$store.state.game.settings.selectTime"></song-select-timer>

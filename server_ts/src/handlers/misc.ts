@@ -3,13 +3,14 @@ import { exceptionHandler } from '../shared/exceptions'
 import { emitter } from '../shared/server'
 import { emojiService, logger } from '../services/init'
 import { EmojiObj } from '../shared/interfaces'
+import { MISC_ROOM } from '../shared/config'
 
 class MiscHandler {
   start(socket: socketio.Socket): void {
     socket.on('LOGIN_MISC', exceptionHandler(socket, () => {
-      socket.join('misc')
+      socket.join(MISC_ROOM)
       emitter.updateEmojiData(emojiService.getEmojiList(), socket.id)
-      logger.writeLog('SERVER005', { id: socket.id, service: 'misc' })
+      logger.writeLog('SERVER005', { id: socket.id, service: MISC_ROOM })
     }))
 
     socket.on('ADD_EMOJI', exceptionHandler(socket, (emoji: EmojiObj) => {

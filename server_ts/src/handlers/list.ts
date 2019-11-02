@@ -3,14 +3,15 @@ import { exceptionHandler } from '../shared/exceptions'
 import { emitter } from '../shared/server'
 import { songService, userService, logger } from '../services/init'
 import { SongObj } from '../shared/interfaces'
+import { LIST_ROOM } from '../shared/config'
 
 class ListPickerHandler {
   start(socket: socketio.Socket): void {
     socket.on('LOGIN_LIST', exceptionHandler(socket, () => {
-      socket.join('list')
+      socket.join(LIST_ROOM)
       emitter.updateSongList(songService.getSongList(), socket.id)
       emitter.updateUsers(userService.getUsers(), socket.id)
-      logger.writeLog('SERVER005', { id: socket.id, service: 'list' })
+      logger.writeLog('SERVER005', { id: socket.id, service: LIST_ROOM })
     }))
 
     socket.on('GET_FULL_LIST', exceptionHandler(socket, () => {
@@ -34,7 +35,7 @@ class ListPickerHandler {
       })
       songService.validateSongId(songId)
       userService.addSong(user, songId)
-      emitter.updateUserList(user, userService.getUserList(user), 'list')
+      emitter.updateUserList(user, userService.getUserList(user), LIST_ROOM)
       emitter.notification('success', `${anime}: ${title} added`, socket.id)
     }))
 
@@ -48,7 +49,7 @@ class ListPickerHandler {
         user: user
       })
       userService.removeSong(user, songId)
-      emitter.updateUserList(user, userService.getUserList(user), 'list')
+      emitter.updateUserList(user, userService.getUserList(user), LIST_ROOM)
       emitter.notification('success', `${anime}: ${title} removed`, socket.id)
     }))
   }

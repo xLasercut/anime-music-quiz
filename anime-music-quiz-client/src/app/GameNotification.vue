@@ -1,15 +1,19 @@
 <template>
   <v-snackbar :timeout="6000" :color="color" top v-model="show" id="game-notification">
     {{text}}
+    <dialog-close-btn @click="show = false"></dialog-close-btn>
   </v-snackbar>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { BannerColor } from '@/assets/types'
-import { EventBus } from '@/assets/notification'
+import { BannerColor } from '../assets/types'
+import { EventBus } from '../assets/notification'
+import DialogCloseBtn from '../components/buttons/DialogCloseBtn.vue'
 
-@Component({})
+@Component({
+  components: { DialogCloseBtn }
+})
 export default class GameNotification extends Vue {
   show = false
   color: BannerColor = 'error'

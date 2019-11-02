@@ -49,6 +49,5 @@ export default class NormalVideo extends Mixins(VideoHelper) {
     max-width: 100%;
     margin: 0;
     padding: 0;
-    border: 2px solid yellow;
   }
 </style>

@@ -5,6 +5,7 @@
       <nav-btn icon="mdi-home" color="primary" id="home-btn" v-if="$route.path != '/'" @click="disconnect()"></nav-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
+    <admin-controls></admin-controls>
     <component :is="component"></component>
   </v-toolbar>
 </template>
@@ -16,6 +17,7 @@ import ListPickerControls from '../list-picker/ListPickerControls.vue'
 import LoginControls from '../login/LoginControls.vue'
 import MiscControls from '../misc/MiscControls.vue'
 import GameControls from '../game/GameControls.vue'
+import AdminControls from './nav-panel/AdminControls.vue'
 
 let componentMap: { [key: string]: any } = {
   '/list-picker': ListPickerControls,
@@ -25,7 +27,7 @@ let componentMap: { [key: string]: any } = {
 }
 
 @Component({
-  components: { NavBtn }
+  components: { NavBtn, AdminControls }
 })
 export default class NavPanel extends Vue {
   disconnect(): void {

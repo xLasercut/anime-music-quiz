@@ -91,6 +91,14 @@ class MessageEmitter {
   gameSelectSongOver(sid: string=null): void {
     this._client(sid).emit('SELECT_SONG_OVER')
   }
+
+  kickPlayer(sid: string): void {
+    let client = this._io.nsps['/'].connected[sid]
+    if (client) {
+      this.notification('error', 'You have been kicked', sid)
+      client.disconnect()
+    }
+  }
 /*
 
 
@@ -122,13 +130,7 @@ class MessageEmitter {
 
 
 
-  kickPlayer(sid: string): void {
-    let client = this._getClient(sid)
-    if (client) {
-      this.notification('error', 'You have been kicked', client)
-      client.disconnect()
-    }
-  }
+
 
   _getClient(sid: string): socketio.Socket {
     return this._io.nsps['/'].connected[sid]

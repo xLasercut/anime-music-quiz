@@ -1,8 +1,9 @@
 import { AMQLogger } from '../logging/logging'
 import { SONG_LIST_PATH } from '../../shared/config'
-import { readFile } from './init'
+import { readFile, writeFile } from './init'
 import { SongObj, GameChoices } from '../../shared/interfaces'
 import { AMQSongListError } from '../../shared/exceptions'
+import * as uuid from 'uuid/v4'
 
 class SongService {
   private _data: Array<SongObj>
@@ -59,6 +60,35 @@ class SongService {
       }
     }
     return combinedList
+  }
+
+  addNewSong(song: SongObj): void {
+    let songId = uuid()
+    song['songId'] = songId
+    this._data.push(song)
+    writeFile(SONG_LIST_PATH, this._data)
+  }
+
+  deleteSong(songId: string): void {
+    this.validateSongId(songId)
+    for (let i = 0; i < this._data.length; i++) {
+      if (songId === this._data[i].songId) {
+        this._data.splice(i, 1)
+        writeFile(SONG_LIST_PATH, this._data)
+        break
+      }
+    }
+  }
+
+  editSong(song: SongObj): void {
+    this.validateSongId(song.songId)
+    for (let i = 0; i < this._data.length; i++) {
+      if (song.songId === this._data[i].songId) {
+        this._data[i] = song
+        writeFile(SONG_LIST_PATH, this._data)
+        break
+      }
+    }
   }
 
   _addTitleChoice(song: SongObj): void {
