@@ -19,6 +19,6 @@ module.exports = (on, config) => {
     integrationFolder: 'tests/specs',
     screenshotsFolder: 'tests/screenshots',
     videosFolder: 'tests/videos',
-    supportFile: 'tests/support/index.coffee'
+    supportFile: 'tests/support/index.js'
   })
 }
