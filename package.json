@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start:server": "cd server && npm run start",
+    "compile:server": "cd server && npm run compile",
     "start:client": "cd client && npm run serve",
     "start:server:test": "cd server && npm run start:test",
     "test": "cd client && npm run test",

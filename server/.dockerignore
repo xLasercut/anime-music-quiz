@@ -3,4 +3,3 @@ node_modules
 .place_your_ngrok_executable_here
 Dockerfile
 test-data
-dist

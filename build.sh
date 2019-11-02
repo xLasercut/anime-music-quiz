@@ -43,6 +43,8 @@ shift $((OPTIND -1))
 
 command="sudo docker-compose build"
 
+npm run compile:server
+
 if [[ $noCache = true ]]; then
   command+=" --no-cache"
 fi
