@@ -56,5 +56,10 @@ export default class GuessInput extends Vue {
     this.locked = true
     this.$socket.client.emit('GUESS', this.guess)
   }
+
+  skipSong(): void {
+    this.locked = true
+    this.$socket.client.emit('GUESS', this.guess)
+  }
 }
 </script>

@@ -70,6 +70,7 @@ export default class VideoWindow extends Vue {
 
   @Socket('TIME_UP')
   timeUp(): void {
+    this.$refs.timer.stopCountdown()
     this.show[this.playerType] = true
   }
 
