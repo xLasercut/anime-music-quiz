@@ -20595,7 +20595,7 @@
     "anime": [
       "Fuuka"
     ],
-    "src": "https://animethemes.moe/video/Fuuka-ED3.webm",
+    "src": "https://files.catbox.moe/0ag8bi.mp4",
     "title": "Fair Wind",
     "artist": "",
     "type": "ED3"
@@ -41093,6 +41093,16 @@
     "title": "Deep in Abyss",
     "artist": "",
     "type": "OP2 V1"
+  },
+  {
+    "songId": "643f5770-39f0-4402-8e19-ed99508b90fa",
+    "src": "https://www.youtube.com/watch?v=sFzDQ2OjFko",
+    "anime": [
+      "Made in Abyss"
+    ],
+    "title": "Hanezeve Caradhina",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "cd85effa-3629-4dfb-8e6a-e088b420d792",
@@ -65658,16 +65668,6 @@
     "type": "ED1 V1"
   },
   {
-    "songId": "8b6b2e84-22ef-4e0d-ad20-b325bcf03411",
-    "anime": [
-      "Sora no Method"
-    ],
-    "src": "https://animethemes.moe/video/SoraNoMethod-ED1v2.webm",
-    "title": "Hoshizuku no Interlude",
-    "artist": "",
-    "type": "ED1 V2"
-  },
-  {
     "songId": "777de94c-17d7-4274-8f45-cddbf7841a1d",
     "anime": [
       "Sora no Method"
@@ -74842,7 +74842,7 @@
     "anime": [
       "Violet Evergarden"
     ],
-    "src": "https://www.youtube.com/watch?v=r6QKSKOFYsg",
+    "src": "https://www.youtube.com/watch?v=nb7zWFvNYrQ",
     "title": "Believe in...",
     "artist": "",
     "type": "ED2"
@@ -79892,15 +79892,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "643f5770-39f0-4402-8e19-ed99508b90fa",
-    "src": "https://www.youtube.com/watch?v=sFzDQ2OjFko",
-    "anime": [
-      "Made in Abyss"
-    ],
-    "title": "Hanezeve Caradhina",
-    "artist": "",
-    "type": "Insert"
   }
 ]
