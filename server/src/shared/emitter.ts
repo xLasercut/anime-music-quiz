@@ -99,50 +99,10 @@ class MessageEmitter {
       client.disconnect()
     }
   }
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  resetSelector(socket: socketio.Socket=null): void {
-    this._emitter(socket).emit('RESET_SELECTOR')
+  gameStartLoad(sid: string=null): void {
+    this._client(sid).emit('START_LOAD')
   }
-
-
-
-
-
-
-
-  _getClient(sid: string): socketio.Socket {
-    return this._io.nsps['/'].connected[sid]
-  }
-
-  _emitter(socket: socketio.Socket=null): socketio.Socket | socketio.Server {
-    if (socket) {
-      return socket
-    }
-    return this._io
-  }
-  */
 }
 
 export { MessageEmitter }

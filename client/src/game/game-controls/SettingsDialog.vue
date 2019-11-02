@@ -71,7 +71,7 @@ export default class SettingsDialog extends Vue {
   }
 
   get disabled(): boolean {
-    return !(this.$store.state.game.host || this.$store.state.client.admin) || this.$store.state.game.playing
+    return !(this.$store.state.game.host || this.$store.state.client.admin) || this.$store.state.game.gameState.playing
   }
 
   get settings(): SettingsObj {

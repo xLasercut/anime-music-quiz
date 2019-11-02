@@ -33,7 +33,7 @@
     </v-row>
     <v-row justify="center">
       <v-col cols="auto">
-        <icon-btn color="success" icon="mdi-check" @click="addEmoji()">Confirm</icon-btn>
+        <icon-btn color="success" icon="mdi-check" @click="addEmoji()" id="add-emoji-confirm">Confirm</icon-btn>
       </v-col>
     </v-row>
   </dialog-btn>

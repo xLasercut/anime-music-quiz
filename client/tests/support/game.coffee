@@ -27,9 +27,9 @@ Cypress.Commands.add 'assertSettingsValues', (settings) =>
     cy.get("#setting-user-list-#{item.replace('.json', '')}").should('have.attr', 'aria-checked', 'true')
 
 Cypress.Commands.add 'changeSettingsValues', (settings) =>
-  cy.get(map.game.settingsSongCount).clear().type("{del}#{settings.songCount}")
-  cy.get(map.game.settingsGuessTime).clear().type("{del}#{settings.guessTime}")
-  cy.get(map.game.settingsSongSelectTime).clear().type("{del}{del}#{settings.songSelectTime}")
+  cy.get(map.game.settingsSongCount).clear().type("{del}{backspace}#{settings.songCount}")
+  cy.get(map.game.settingsGuessTime).clear().type("{del}{backspace}#{settings.guessTime}")
+  cy.get(map.game.settingsSongSelectTime).clear().type("{del}{del}{backspace}{backspace}#{settings.songSelectTime}")
   cy.get('[type="radio"]').check([settings.duplicate, settings.mode], { force: true })
   cy.get('[type="checkbox"]').uncheck({ force: true })
   cy.wrap(settings.lists)

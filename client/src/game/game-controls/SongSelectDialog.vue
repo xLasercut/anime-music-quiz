@@ -9,7 +9,7 @@
       :data="$store.state.list.songList" id="select"
     >
       <template #action="action">
-        <table-btn icon="mdi-playlist-plus" color="success" @click="selectSong(action.props)"></table-btn>
+        <table-btn icon="mdi-playlist-plus" color="success" @click="selectSong(action.props)" :id="`${action.props.songId}-select-btn`"></table-btn>
       </template>
     </song-list-table>
   </dialog-btn>

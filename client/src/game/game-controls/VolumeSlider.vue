@@ -1,6 +1,6 @@
 <template>
   <div class="volume-slider-container">
-    <v-slider prepend-icon="mdi-volume-medium" v-model.number="volume"></v-slider>
+    <v-slider prepend-icon="mdi-volume-medium" v-model.number="volume" id="game-volume-slider"></v-slider>
   </div>
 </template>
 

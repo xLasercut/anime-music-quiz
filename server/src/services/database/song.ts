@@ -64,8 +64,12 @@ class SongService {
 
   addNewSong(song: SongObj): void {
     let songId = uuid()
+    if (process.env.NODE_ENV === 'test') {
+      songId = 'a22c2206-b504-4f11-a380-e787f2d8e449'
+    }
     song['songId'] = songId
     this._data.push(song)
+    this._songIds.add(songId)
     writeFile(SONG_LIST_PATH, this._data)
   }
 

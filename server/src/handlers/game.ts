@@ -14,9 +14,15 @@ class GameHandler {
       try {
         let player = playerService.getPlayerObj(socket.id)
         playerService.removePlayer(socket.id)
-        emitter.updatePlayerData(playerService.getPlayerData())
-        let sysMsgData = chatService.generateSysMsgData(`${player['username']} has left the room`)
-        emitter.chat(sysMsgData, GAME_ROOM)
+        if (playerService.zeroPlayersRemain()) {
+          this._resetGame()
+          logger.writeLog('GAME001')
+        }
+        else {
+          emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
+          let sysMsgData = chatService.generateSysMsgData(`${player['username']} has left the room`)
+          emitter.chat(sysMsgData, GAME_ROOM)
+        }
       }
       catch (e) {
         if (e.message != 'Invalid player ID') {
@@ -78,8 +84,9 @@ class GameHandler {
 
   _gameFlowMain(): void {
     gameStateService.newSong()
-    emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
     emitter.gameNewSong(GAME_ROOM)
+    emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
+    emitter.gameStartLoad(GAME_ROOM)
     gameTimer.startCountdown(5000, 'load')
     .then(() => {
       emitter.gameStartCountdown(GAME_ROOM)

@@ -7,8 +7,8 @@ services:
     ports:
       - 3001:3001
     volumes:
-      - ./server/database/data/:/home/amq_server/database/data
-      - ./server/logs/:/home/amq_server/logs
+      - ./server/data/:/home/amq_server/data
+      - ./server/log/:/home/amq_server/log
     environment:
       - SERVER_PASSWORD
       - ADMIN_PASSWORD

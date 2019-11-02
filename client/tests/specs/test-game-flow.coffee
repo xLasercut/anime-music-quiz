@@ -22,9 +22,7 @@ describe 'game flow tests', () ->
     cy.startGame()
     cy.selectSong(fmaId)
     cy.notificationMsg('Song selected: Fullmetal Alchemist: Brotherhood - again')
-    cy.wait(10000)
-    cy.assertSongGuessLock()
-    cy.wait(16000)
+    cy.wait(26000)
     cy.assertSongInformation({
       anime: 'Fullmetal Alchemist: Brotherhood',
       title: 'again',

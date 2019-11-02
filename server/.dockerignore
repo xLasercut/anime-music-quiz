@@ -2,4 +2,5 @@ node_modules
 .gitkeep
 .place_your_ngrok_executable_here
 Dockerfile
-tools
+test-data
+dist

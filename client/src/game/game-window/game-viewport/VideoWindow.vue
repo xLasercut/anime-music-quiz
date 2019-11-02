@@ -54,7 +54,7 @@ export default class VideoWindow extends Vue {
     this.$socket.client.emit('SONG_LOADED')
   }
 
-  @Socket('NEW_SONG')
+  @Socket('START_LOAD')
   newSong(): void {
     this.loading = true
     this.resetVideo()

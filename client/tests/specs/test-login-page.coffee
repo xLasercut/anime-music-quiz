@@ -12,7 +12,7 @@ describe 'login page tests', () ->
     cy.inputScore('999')
     cy.login()
     cy.assertInputError('Username must be under 20 characters')
-    cy.assertInputError('Score must be between 0 and 100')
+    cy.assertInputError('Score must be between 0 and 200')
 
     cy.inputUsername('...')
     cy.login()

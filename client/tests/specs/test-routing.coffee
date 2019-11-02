@@ -1,5 +1,5 @@
-describe('client routing tests', () => {
-  it('test redirect when not connected to server', () => {
+describe 'client routing tests', () ->
+  it 'test redirect when not connected to server', () ->
     cy.visit('#/home')
     cy.url().should('eq', "#{Cypress.config().baseUrl}/#/")
 
@@ -8,5 +8,5 @@ describe('client routing tests', () => {
 
     cy.visit('#/misc')
     cy.url().should('eq', "#{Cypress.config().baseUrl}/#/")
-  })
-})
+
+

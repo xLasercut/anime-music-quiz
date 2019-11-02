@@ -73,14 +73,6 @@ class GameStateService {
   }
 
   reset(): void {
-    this.currentSong = {
-      anime: [''],
-      title: '',
-      artist: '',
-      src: '',
-      type: '',
-      songId: ''
-    }
     this.songOverride = null
     this.currentSongCount = 0
     this.maxSongCount = 0

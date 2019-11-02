@@ -1,6 +1,6 @@
 <template>
   <v-toolbar-items>
-    <dialog-btn nav icon="mdi-shield-account" color="warning" v-model="show" v-if="$store.state.client.admin" @click="reload()">
+    <dialog-btn nav icon="mdi-shield-account" color="warning" v-model="show" v-if="$store.state.client.admin" @click="reload()" id="admin-btn">
       <v-row justify="space-between" no-gutters>
         <v-col cols="auto">Admin</v-col>
         <v-col cols="auto"><dialog-close-btn @click="show = false"></dialog-close-btn></v-col>

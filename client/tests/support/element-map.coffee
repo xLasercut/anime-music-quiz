@@ -22,7 +22,7 @@ module.exports = {
     songType: '#song-type',
     songAnime: '#song-anime',
     animeGuess: '#anime-guess',
-    songGuess: '#song-guess',
+    songGuess: '#title-guess',
     playerScore: '.player-score',
     playerGuess: '.v-tooltip__content',
     songSelect: '#game-song-select-btn'
@@ -34,17 +34,17 @@ module.exports = {
     filterSong: '#filter-song',
     filterAnime: '#filter-anime',
     filterType: '#filter-type',
-    reload: '#full-list-reload-btn',
+    reload: '#song-list-reload-btn',
     addSongToList: '#add-song-to-list-btn'
   },
   login: {
-    game: '#game-btn',
-    list: '#list-btn',
+    game: '#game-login-btn',
+    list: '#list-login-btn',
     username: '#username-input',
     password: '#password-input',
     score: '#score-input',
     login: '#login-btn',
-    misc: '#misc-btn'
+    misc: '#misc-login-btn'
   },
   shared: {
     home: '#home-btn',

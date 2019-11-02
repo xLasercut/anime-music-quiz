@@ -22,6 +22,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator'
 import { ThemeHelper } from '../../assets/mixins'
+import { Socket } from 'vue-socket.io-extended'
 
 @Component({})
 export default class GameAnswer extends Mixins(ThemeHelper) {
@@ -32,6 +33,16 @@ export default class GameAnswer extends Mixins(ThemeHelper) {
       return this.$store.state.game.gameState.currentSong.anime[0]
     }
     return '?'
+  }
+
+  @Socket('NEW_SONG')
+  newSong(): void {
+    this.show = false
+  }
+
+  @Socket('TIME_UP')
+  timeUp(): void {
+    this.show = true
   }
 }
 </script>
