@@ -19,7 +19,7 @@
     </v-form>
     <v-row justify="center">
       <v-col cols="auto">
-        <icon-btn color="success" icon="mdi-check" @click="updateSettings()" id="settings-confirm-btn">Confirm</icon-btn>
+        <icon-btn color="success" icon="mdi-check" @click="updateSettings()" id="settings-confirm-btn" :disabled="disabled">Confirm</icon-btn>
       </v-col>
     </v-row>
   </dialog-btn>
