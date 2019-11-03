@@ -78168,6 +78168,16 @@
     "type": "ED2"
   },
   {
+    "songId": "378e5df7-d9ca-4901-a25a-365739123100",
+    "anime": [
+      "Yuru Yuri♪♪"
+    ],
+    "src": "https://www.youtube.com/watch?v=AF1A8EYHnkE",
+    "title": "Happy Time wa Owaranai",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "2e87a500-e656-414a-a5f7-36184b3a69b9",
     "anime": [
       "Yuru Yuri♪♪"
@@ -79933,12 +79943,12 @@
     "type": "OP"
   },
   {
-    "songId": "378e5df7-d9ca-4901-a25a-365739123100",
+    "songId": "5c96e2cb-58d0-4627-bd44-96c22239f9b3",
     "anime": [
-      "Yuru Yuri♪♪"
+      "Naruto"
     ],
-    "src": "https://www.youtube.com/watch?v=AF1A8EYHnkE",
-    "title": "Happy Time wa Owaranai",
+    "src": "https://www.youtube.com/watch?v=_Onx5AGVU9I",
+    "title": "Orochimaru's Theme",
     "artist": "",
     "type": "Insert"
   }
