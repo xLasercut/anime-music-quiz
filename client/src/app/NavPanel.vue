@@ -33,7 +33,9 @@ export default class NavPanel extends Vue {
   disconnect(): void {
     this.$socket.client.close()
     this.$store.commit('DISCONNECT')
-    this.$router.push('/')
+    if (this.$route.path != '/') {
+      this.$router.push('/')
+    }
   }
 
   toggleTheme(): void {
