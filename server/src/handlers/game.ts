@@ -1,5 +1,5 @@
 import * as socketio from 'socket.io'
-import { exceptionHandler } from '../shared/exceptions'
+import { exceptionHandler, AMQGameError } from '../shared/exceptions'
 import { RawPlayerObj, SettingsObj, PlayerGuess, SongObj } from '../shared/interfaces'
 import { playerService, chatService, emojiService, songService, userService, settingsService, logger, gameStateService, gameTimer } from '../services/init'
 import { emitter } from '../shared/server'
@@ -50,7 +50,7 @@ class GameHandler {
       emitter.updatePlayerData(playerService.getPlayerData(), GAME_ROOM)
       let combinedIds = userService.getCombinedSongIds(settingsService.users)
       let combinedList = songService.getCombinedList(combinedIds)
-      gameStateService.generateGameList(combinedList, settingsService.songCount, settingsService.duplicate)
+      gameStateService.generateGameList(combinedList, combinedIds, settingsService.songCount, settingsService.duplicate, settingsService.leastPlayed)
       if (gameStateService.gameList.length > 0) {
         gameStateService.startGame(settingsService.gameMode)
         emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
@@ -83,7 +83,7 @@ class GameHandler {
   }
 
   _gameFlowMain(): void {
-    gameStateService.newSong()
+    gameStateService.newSong(settingsService.leastPlayed)
     emitter.gameNewSong(GAME_ROOM)
     emitter.updateGameState(gameStateService.getGameState(), GAME_ROOM)
     emitter.gameStartLoad(GAME_ROOM)
@@ -178,6 +178,9 @@ function startPlayerHandler(socket: socketio.Socket): void {
 
 function startSettingsHandler(socket: socketio.Socket): void {
   socket.on('UPDATE_GAME_SETTINGS', exceptionHandler(socket, (settings: SettingsObj) => {
+    if (gameStateService.playing) {
+      throw new AMQGameError('Cannot update settings while game is playing')
+    }
     settingsService.updateSettings(settings)
     emitter.updateGameSettings(settingsService.getSettings(), GAME_ROOM)
     let sysMsgData = chatService.generateSysMsgData('Game settings updated')

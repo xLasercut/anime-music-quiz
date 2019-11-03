@@ -22,6 +22,13 @@ Cypress.Commands.add 'assertSettingsValues', (settings) =>
     cy.get(map.game.settingsGameModeNormal).should('have.attr', 'aria-checked', 'false')
     cy.get(map.game.settingsGameModeSelector).should('have.attr', 'aria-checked', 'true')
 
+  if settings.leastPlayed == 'true'
+    cy.get(map.game.settingsLeastPlayedTrue).should('have.attr', 'aria-checked', 'true')
+    cy.get(map.game.settingsLeastPlayedFalse).should('have.attr', 'aria-checked', 'false')
+  else
+    cy.get(map.game.settingsLeastPlayedTrue).should('have.attr', 'aria-checked', 'false')
+    cy.get(map.game.settingsLeastPlayedFalse).should('have.attr', 'aria-checked', 'true')
+
   cy.wrap(settings.lists)
   .each (item) =>
     cy.get("#setting-user-list-#{item.replace('.json', '')}").should('have.attr', 'aria-checked', 'true')
@@ -30,7 +37,9 @@ Cypress.Commands.add 'changeSettingsValues', (settings) =>
   cy.get(map.game.settingsSongCount).clear().type("{del}{backspace}#{settings.songCount}")
   cy.get(map.game.settingsGuessTime).clear().type("{del}{backspace}#{settings.guessTime}")
   cy.get(map.game.settingsSongSelectTime).clear().type("{del}{del}{backspace}{backspace}#{settings.songSelectTime}")
-  cy.get('[type="radio"]').check([settings.duplicate, settings.mode], { force: true })
+  cy.get("#duplicate-#{settings.duplicate}").check({ force: true })
+  cy.get("#game-mode-#{settings.mode}").check({ force: true })
+  cy.get("#least-played-#{settings.leastPlayed}").check({ force: true })
   cy.get('[type="checkbox"]').uncheck({ force: true })
   cy.wrap(settings.lists)
   .each (item) =>

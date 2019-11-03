@@ -1,3 +1,4 @@
 {
-  "pluginsFile": "tests/plugins/index.js"
+  "pluginsFile": "tests/plugins/index.js",
+  "baseUrl": "http://localhost:8080"
 }

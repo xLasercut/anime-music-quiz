@@ -20,14 +20,25 @@ class GameStateService {
     songId: ''
   }
 
+  playedSongIds: Set<string> =  new Set()
+
   constructor(logger: AMQLogger) {
     this._logger = logger
   }
 
-  generateGameList(combinedList: Array<SongObj>, songCount: number, duplicate: boolean): void {
+  generateGameList(combinedList: Array<SongObj>, combinedIds: Set<string>, songCount: number, duplicate: boolean, leastPlayed: boolean): void {
+    this.gameList = []
     let dupes: Set<string> = new Set()
     let sourceList = combinedList
-    this.gameList = []
+
+    if (leastPlayed) {
+      let priorityIds = this._generatePriorityIds(combinedIds)
+      sourceList = this._addPrioritySongs(priorityIds, combinedList, dupes, songCount, duplicate)
+      if (priorityIds.size <= songCount) {
+        this.playedSongIds = new Set()
+      }
+    }
+
     while (this.gameList.length < songCount && sourceList.length > 0) {
       let i = this._getRandomIndex(sourceList)
       let anime = sourceList[i].anime[0]
@@ -45,10 +56,13 @@ class GameStateService {
     this._logger.writeLog('GAME002', { songCount: this.maxSongCount, gameMode: gameMode })
   }
 
-  newSong(): void {
+  newSong(leastPlayed: boolean): void {
     this._selectSong()
     this.currentSongCount += 1
     this.startPosition = Math.random()
+    if (leastPlayed) {
+      this.playedSongIds.add(this.currentSong.songId)
+    }
     this._logger.writeLog('GAME005', {
       number: this.currentSongCount,
       title: this.currentSong.title,
@@ -99,6 +113,35 @@ class GameStateService {
 
   _getRandomIndex(list: Array<any>): number {
     return Math.floor(Math.random() * list.length)
+  }
+
+  _generatePriorityIds(combinedIds: Set<string>): Set<string> {
+    let prorityIds: Set<string> = new Set()
+    for (let songId of combinedIds) {
+      if (!this.playedSongIds.has(songId)) {
+        prorityIds.add(songId)
+      }
+    }
+    return prorityIds
+  }
+
+  _addPrioritySongs(priorityIds: Set<string>, combinedList: Array<SongObj>, dupes: Set<string>, songCount: number, duplicate: boolean): Array<SongObj> {
+    let nonPriorityList = []
+    let sourceList = combinedList
+    while (sourceList.length > 0 && this.gameList.length < songCount) {
+      let i = this._getRandomIndex(sourceList)
+      let song = sourceList[i]
+      let anime = song.anime[0]
+      if ((!dupes.has(anime) || duplicate) && priorityIds.has(song.songId)) {
+        this.gameList.push(song)
+        dupes.add(anime)
+      }
+      else {
+        nonPriorityList.push(song)
+      }
+      sourceList.splice(i, 1)
+    }
+    return nonPriorityList
   }
 }
 

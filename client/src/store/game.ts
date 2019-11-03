@@ -14,7 +14,8 @@ let game: Module<GameStoreState, RootStoreState> = {
       users: [],
       gameMode: 'normal',
       duplicate: false,
-      selectTime: 20
+      selectTime: 20,
+      leastPlayed: false
     },
     players: {},
     gameState: {
@@ -47,7 +48,8 @@ let game: Module<GameStoreState, RootStoreState> = {
         users: [],
         gameMode: 'normal',
         duplicate: false,
-        selectTime: 20
+        selectTime: 20,
+        leastPlayed: false
       }
       state.gameState = {
         currentSong: {

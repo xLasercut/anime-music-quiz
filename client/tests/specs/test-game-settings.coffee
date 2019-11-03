@@ -2,13 +2,15 @@ describe 'game setting panel tests', () ->
   it 'test change settings', () ->
     cy.loginGame()
     cy.openSettings()
+    cy.wait(500)
     settings = {
       songCount: '20',
       guessTime: '25',
       songSelectTime: '15',
       duplicate: 'false',
       mode:'normal',
-      lists: ['test-user.json', 'test-user2.json']
+      lists: ['test-user.json', 'test-user2.json'],
+      leastPlayed: 'false'
     }
 
     cy.changeSettingsValues(settings)
@@ -19,13 +21,15 @@ describe 'game setting panel tests', () ->
   it 'test not change settings', () ->
     cy.loginGame()
     cy.openSettings()
+    cy.wait(500)
     oldSettings = {
       songCount: '20',
       guessTime: '25',
       songSelectTime: '15',
       duplicate: 'false',
       mode:'normal',
-      lists: ['test-user.json', 'test-user2.json']
+      lists: ['test-user.json', 'test-user2.json'],
+      leastPlayed: 'false'
     }
     newSettings = {
       songCount: '30',
@@ -33,7 +37,8 @@ describe 'game setting panel tests', () ->
       songSelectTime: '20',
       duplicate: 'true',
       mode:'selector',
-      lists: []
+      lists: [],
+      leastPlayed: 'true'
     }
     cy.assertSettingsValues(oldSettings)
     cy.changeSettingsValues(newSettings)

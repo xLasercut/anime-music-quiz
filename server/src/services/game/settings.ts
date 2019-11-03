@@ -10,6 +10,7 @@ class GameSettingService {
   duplicate = false
   selectTime = 20
   users: Array<string> = []
+  leastPlayed = false
 
   constructor(logger: AMQLogger) {
     this._logger = logger
@@ -22,6 +23,7 @@ class GameSettingService {
     let gameMode = settings['gameMode']
     let duplicate = settings['duplicate']
     let selectTime = settings['selectTime']
+    let leastPlayed = settings['leastPlayed']
 
     this.songCount = songCount
     this.guessTime = guessTime
@@ -29,6 +31,7 @@ class GameSettingService {
     this.gameMode = gameMode
     this.duplicate = duplicate
     this.selectTime = selectTime
+    this.leastPlayed = leastPlayed
 
     this._logger.writeLog('SETTING002', {
       songCount: songCount,
@@ -36,7 +39,8 @@ class GameSettingService {
       gameMode: gameMode,
       duplicate: duplicate,
       users: users.join('|'),
-      selectTime: selectTime
+      selectTime: selectTime,
+      leastPlayed: leastPlayed
     })
   }
 
@@ -47,7 +51,8 @@ class GameSettingService {
       gameMode: this.gameMode,
       duplicate: this.duplicate,
       selectTime: this.selectTime,
-      users: this.users
+      users: this.users,
+      leastPlayed: this.leastPlayed
     }
   }
 

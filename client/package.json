@@ -1,12 +1,14 @@
 {
   "name": "anime-music-quiz-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:prod": "cross-env NODE_ENV=production  vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:gh": "cross-env NODE_ENV=ghpages npm run build",
-    "test": "vue-cli-service test:e2e"
+    "test": "vue-cli-service test:e2e",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -17,7 +19,7 @@
     "vue-router": "^3.0.3",
     "vue-socket.io-extended": "^4.0.1",
     "vue-youtube-embed": "^2.2.2",
-    "vuetify": "^2.1.0",
+    "vuetify": "^2.1.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -26,7 +28,7 @@
     "@vue/cli-plugin-typescript": "^3.12.0",
     "@vue/cli-service": "^3.12.0",
     "cross-env": "^6.0.3",
-    "sass": "^1.19.0",
+    "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
     "typescript": "^3.4.3",
     "vue-cli-plugin-vuetify": "^1.1.1",

@@ -3,6 +3,8 @@ map = require '../support/element-map.coffee'
 fmaId = 'd77c3248-2986-495e-b5c9-ab21151ae501'
 
 describe 'game flow tests', () ->
+
+
   it 'test happy path selector mode', () ->
     settings = {
       songCount: '20',
@@ -10,11 +12,13 @@ describe 'game flow tests', () ->
       songSelectTime: '10',
       duplicate: 'false',
       mode:'selector',
-      lists: ['test-user.json']
+      lists: ['test-user.json'],
+      leastPlayed: 'false'
     }
 
     cy.loginGame()
     cy.openSettings()
+    cy.wait(500)
     cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)
@@ -37,11 +41,13 @@ describe 'game flow tests', () ->
       songSelectTime: '15',
       duplicate: 'false',
       mode:'normal',
-      lists: ['test-user.json']
+      lists: ['test-user.json'],
+      leastPlayed: 'false'
     }
 
     cy.loginGame()
     cy.openSettings()
+    cy.wait(500)
     cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)
@@ -73,11 +79,13 @@ describe 'game flow tests', () ->
       songSelectTime: '15',
       duplicate: 'true',
       mode:'normal',
-      lists: ['test-user.json', 'test-user2.json']
+      lists: ['test-user.json', 'test-user2.json'],
+      leastPlayed: 'false'
     }
 
     cy.loginGame()
     cy.openSettings()
+    cy.wait(500)
     cy.changeSettingsValues(settings)
     cy.confirmSettings()
     cy.wait(1000)

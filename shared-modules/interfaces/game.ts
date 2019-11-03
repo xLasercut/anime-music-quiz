@@ -31,6 +31,7 @@ interface SettingsObj {
   duplicate: boolean
   selectTime: number
   users: Array<string>
+  leastPlayed: boolean
 }
 
 interface PlayerReady {

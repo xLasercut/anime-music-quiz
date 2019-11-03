@@ -16,6 +16,8 @@ module.exports = {
     settingsGameModeSelector: '#game-mode-selector',
     settingsDuplicateTrue: '#duplicate-true',
     settingsDuplicateFalse: '#duplicate-false',
+    settingsLeastPlayedTrue: '#least-played-true',
+    settingsLeastPlayedFalse: '#least-played-false',
     gameSongCount: '#game-song-count',
     songTitle: '#song-title',
     songArtist: '#song-artist',

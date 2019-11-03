@@ -1,6 +1,6 @@
 import * as socketio from 'socket.io'
 import { exceptionHandler, AMQAdminError } from '../shared/exceptions'
-import { logger, songService, userService, emojiService, playerService, chatService } from '../services/init'
+import { logger, songService, userService, emojiService, playerService, chatService, gameStateService } from '../services/init'
 import { emitter } from '../shared/server'
 import { BannerColor } from '../shared/types'
 import { SongObj } from '../shared/interfaces'
@@ -101,6 +101,13 @@ class AdminHandler {
         type: song.type
       })
       emitter.notification('success', `${song.anime[0]}: ${song.title} edited`)
+    }))
+
+    socket.on('ADMIN_RESET_PRIORITY_LIST', exceptionHandler(socket, () => {
+      this._checkAdminAuth(socket)
+      gameStateService.playedSongIds = new Set()
+      logger.writeLog('ADMIN008', { id: socket.id, admin: socket['admin'] })
+      emitter.notification('success', 'Priority list cleared')
     }))
   }
 

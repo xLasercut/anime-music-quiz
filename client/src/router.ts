@@ -7,7 +7,6 @@ import Game from './views/Game.vue'
 
 Vue.use(Router)
 
-
 export default new Router({
   routes: [
     {

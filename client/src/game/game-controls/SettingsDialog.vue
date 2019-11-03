@@ -14,6 +14,7 @@
       <settings-slider label="Guess Time" v-model.number="settings.guessTime" id="guess-time-input" min="1" max="50" :disabled="disabled"></settings-slider>
       <settings-slider label="Song Select Time" v-model.number="settings.selectTime" id="song-select-time-input" min="10" max="30" :disabled="disabled"></settings-slider>
       <settings-radio label="Duplicate" v-model="settings.duplicate" :options="duplicateOptions" id="duplicate" :disabled="disabled"></settings-radio>
+      <settings-radio label="Least Played" v-model="settings.leastPlayed" :options="duplicateOptions" id="least-played" :disabled="disabled"></settings-radio>
       <settings-radio label="Game Mode" v-model="settings.gameMode" :options="gameModeOptions" id="game-mode" :disabled="disabled"></settings-radio>
       <settings-checkbox v-model="settings.users" :disabled="disabled" :items="$store.state.list.users"></settings-checkbox>
     </v-form>
@@ -48,7 +49,8 @@ export default class SettingsDialog extends Vue {
     selectTime: 20,
     gameMode: 'normal',
     users: [],
-    duplicate: false
+    duplicate: false,
+    leastPlayed: false
   }
 
   gameModeOptions = [
