@@ -45,3 +45,5 @@ client/tests/videos
 shared-modules/**/*.d.ts
 shared-modules/**/*.js
 shared-modules/tsconfig.tsbuildinfo
+
+production.env
