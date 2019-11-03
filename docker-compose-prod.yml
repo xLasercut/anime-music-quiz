@@ -1,0 +1,28 @@
+version: '3'
+services:
+  server:
+    restart: unless-stopped
+    build:
+      context: './server/'
+    ports:
+      - 3001:3001
+    volumes:
+      - ./server/data/:/home/amq_server/data
+      - ./server/log/:/home/amq_server/log
+    env_file:
+      - production.env
+    logging:
+      options:
+        max-size: 50m
+
+  ngrok:
+    restart: unless-stopped
+    build:
+      context: './ngrok/'
+    ports:
+      - 4040:4040
+    env_file:
+      - production.env
+    logging:
+      options:
+        max-size: 50m
