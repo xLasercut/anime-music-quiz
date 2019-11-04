@@ -68,6 +68,7 @@ export default class YoutubeVideo extends Mixins(VideoHelper) {
   }
 
   _endLoad(): void {
+    this.player.seekTo(this.getStartPosition(), true)
     this.pause()
     this.player.unMute()
     this.loading = false
