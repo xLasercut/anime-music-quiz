@@ -3,14 +3,14 @@
     <v-col cols="12">
       <v-row no-gutters justify="center">
         <v-col cols="5" sm="3" md="2">
-          <v-sheet :class="themeclass('song-count-container')" id="game-song-count">
+          <v-sheet class="song-count-container" id="game-song-count">
             {{ $store.state.game.gameState.currentSongCount }} / {{ $store.state.game.gameState.maxSongCount }}
           </v-sheet>
         </v-col>
       </v-row>
       <v-row no-gutters justify="center">
         <v-col cols="12" sm="8" md="6" lg="5">
-          <v-sheet :class="themeclass('answer-container')">
+          <v-sheet class="answer-container">
             <b id="song-anime">{{answer()}}</b>
           </v-sheet>
         </v-col>
@@ -20,12 +20,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator'
-import { ThemeHelper } from '../../assets/mixins'
+import { Component, Vue } from 'vue-property-decorator'
 import { Socket } from 'vue-socket.io-extended'
 
 @Component({})
-export default class GameAnswer extends Mixins(ThemeHelper) {
+export default class GameAnswer extends Vue {
   show = false
 
   answer(): string {

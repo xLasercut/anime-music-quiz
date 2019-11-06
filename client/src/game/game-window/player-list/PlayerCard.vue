@@ -5,10 +5,10 @@
         <div class="player-card">
           <player-avatar :player="player"></player-avatar>
           <v-row justify="center" no-gutters>
-            <v-sheet :class="themeclass('player-name')">
+            <v-sheet class="player-name">
               {{player.username}}
             </v-sheet>
-            <v-sheet :class="themeclass('player-score')">
+            <v-sheet class="player-score">
               {{player.score}}
             </v-sheet>
           </v-row>
@@ -20,16 +20,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import { PlayerObj } from '../../../assets/interfaces'
-import { ThemeHelper } from '../../../assets/mixins'
 import PlayerAvatar from './PlayerAvatar.vue'
 import { Socket } from 'vue-socket.io-extended'
 
 @Component({
   components: { PlayerAvatar }
 })
-export default class PlayerCard extends Mixins(ThemeHelper) {
+export default class PlayerCard extends Vue {
   @Prop() player!: PlayerObj
 
   show = false

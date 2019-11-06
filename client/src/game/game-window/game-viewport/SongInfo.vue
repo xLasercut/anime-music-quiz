@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" sm="3" class="info-container">
-    <v-card flat :class="themeclass()">
+    <v-card flat>
       <v-list-item two-line>
         <v-list-item-content>
           <v-list-item-title>Title</v-list-item-title>
@@ -24,12 +24,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator'
-import { ThemeHelper } from '../../../assets/mixins'
+import { Component, Vue } from 'vue-property-decorator'
 import { Socket } from 'vue-socket.io-extended'
 
 @Component({})
-export default class SongInfo extends Mixins(ThemeHelper) {
+export default class SongInfo extends Vue {
   show = false
 
   songInfo(key: string): string {

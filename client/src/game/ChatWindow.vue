@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="5" sm="4" :class="themeclass('chat-window')">
+  <v-col cols="5" sm="4" class="chat-window">
     <div class="message-container">
       <chat-message v-for="(message, index) in messages" :key="`chat_${index}`" :message="message"></chat-message>
     </div>
@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator'
-import { ThemeHelper } from '../assets/mixins'
+import { Component, Vue } from 'vue-property-decorator'
 import ChatMessage from './chat-window/ChatMessage.vue'
 import ChatInput from './chat-window/ChatInput.vue'
 import { Socket } from 'vue-socket.io-extended'
@@ -18,7 +17,7 @@ import { ChatObj } from '../../../shared-modules/interfaces'
 @Component({
   components: { ChatMessage, ChatInput }
 })
-export default class ChatWindow extends Mixins(ThemeHelper) {
+export default class ChatWindow extends Vue {
   messages: Array<ChatObj> = []
 
   @Socket('UPDATE_CHAT_MESSAGE')
@@ -51,6 +50,7 @@ export default class ChatWindow extends Mixins(ThemeHelper) {
 .chat-window {
   height: calc(100vh - 85px);
   border-radius: 5px;
+  background-color: var(--v-background-darken1) !important;
 }
 
 .message-container {
