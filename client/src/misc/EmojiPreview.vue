@@ -6,13 +6,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
 import { EmojiObj } from '../assets/interfaces'
+import { createComponent } from '@vue/composition-api'
 
-@Component({})
-export default class EmojiPreview extends Vue {
-  @Prop({ type: Object, required: true }) emoji!: EmojiObj
-}
+export default createComponent({
+  props: {
+    emoji: {
+      type: Object,
+      required: true
+    }
+  }
+})
 </script>
 
 <style scoped>

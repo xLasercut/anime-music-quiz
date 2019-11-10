@@ -5,29 +5,24 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
 import ListLogin from '../login/ListLogin.vue'
 import MiscLogin from '../login/MiscLogin.vue'
 import GameLogin from '../login/GameLogin.vue'
+import { computed, onMounted, createComponent } from '@vue/composition-api'
 
 let componentMap: { [key: string]: any } = {
-  'game': GameLogin,
-  'list': ListLogin,
-  'misc': MiscLogin
+  game: GameLogin,
+  list: ListLogin,
+  misc: MiscLogin
 }
 
-@Component({})
-export default class Login extends Vue {
+export default createComponent({
+  setup(_props, context) {
+    const component = computed(() => {
+      return componentMap[context.root.$store.state.client.loginMode]
+    })
 
-  get component() {
-    return componentMap[this.$store.state.client.loginMode]
+    return { component }
   }
-
-  mounted() {
-    if (this.$socket.connected) {
-      this.$socket.client.close()
-    }
-    this.$store.commit('DISCONNECT')
-  }
-}
+})
 </script>

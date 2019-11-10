@@ -9,17 +9,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import EmojiDataTable from '../misc/EmojiDataTable.vue'
+  import EmojiDataTable from '../misc/EmojiDataTable.vue'
+  import { createComponent, onMounted } from '@vue/composition-api'
 
-@Component({
-  components: { EmojiDataTable }
-})
-export default class MiscOps extends Vue {
-  mounted() {
-    if (this.$socket.disconnected) {
-      this.$router.push('/')
+  export default createComponent({
+    components: {
+      EmojiDataTable
+    },
+    setup(_props, context) {
+      onMounted(() => {
+        if (context.root.$socket.disconnected) {
+          context.root.$router.push('/')
+        }
+      })
     }
-  }
-}
+  })
 </script>

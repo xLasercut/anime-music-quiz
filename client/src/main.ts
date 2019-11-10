@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import io from 'socket.io-client'
 import VueSocketIOExt from 'vue-socket.io-extended'
 import VueYoutubeEmbed from 'vue-youtube-embed'
+import VueCompositionApi from '@vue/composition-api'
 
 let options = {
   autoConnect: false
@@ -17,6 +18,7 @@ Vue.use(VueSocketIOExt, io(AMQ_SERVER, options), { store })
 Vue.config.productionTip = false
 
 Vue.use(VueYoutubeEmbed)
+Vue.use(VueCompositionApi)
 
 new Vue({
   router,

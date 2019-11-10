@@ -7,22 +7,24 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
 import NavPanel from './app/NavPanel.vue'
 import GameNotification from './app/GameNotification.vue'
-import { Socket } from 'vue-socket.io-extended'
 import { BannerColor } from './assets/types'
 import { sendNotification } from './assets/notification'
+import { createComponent } from '@vue/composition-api'
 
-@Component({
-  components: { NavPanel, GameNotification }
+export default createComponent({
+  components: {
+    GameNotification,
+    NavPanel
+  },
+  sockets: {
+    SYSTEM_NOTIFICATION(type: BannerColor, msg: string): void {
+      sendNotification(type, msg)
+    }
+  },
+  setup(_props, context) {}
 })
-export default class App extends Vue {
-  @Socket('SYSTEM_NOTIFICATION')
-  systemNotification(type: BannerColor, msg: string): void {
-    sendNotification(type, msg)
-  }
-}
 </script>
 
 <style>

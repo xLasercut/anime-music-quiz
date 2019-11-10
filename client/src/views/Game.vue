@@ -8,24 +8,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
 import GameWindow from '../game/GameWindow.vue'
 import ChatWindow from '../game/ChatWindow.vue'
-import { Socket } from 'vue-socket.io-extended'
+import { createComponent, onMounted } from '@vue/composition-api'
 
-@Component({
-  components: { GameWindow, ChatWindow }
-})
-export default class Game extends Vue {
-  @Socket('disconnect')
-  onDisconnect(): void {
-    this.$router.push('/')
-  }
-
-  mounted() {
-    if (!this.$socket.connected) {
+export default createComponent({
+  components: {
+    GameWindow,
+    ChatWindow
+  },
+  sockets: {
+    disconnect(): void {
       this.$router.push('/')
     }
+  },
+  setup(_props, context) {
+    const router = context.root.$router
+
+    onMounted((): void => {
+      if (!context.root.$socket.connected) {
+        context.root.$router.push('/')
+      }
+    })
   }
-}
+})
 </script>

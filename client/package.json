@@ -11,6 +11,7 @@
     "test": "vue-cli-service test:e2e"
   },
   "dependencies": {
+    "@vue/composition-api": "^0.3.2",
     "core-js": "^3.3.2",
     "socket.io-client": "^2.3.0",
     "vue": "^2.6.10",

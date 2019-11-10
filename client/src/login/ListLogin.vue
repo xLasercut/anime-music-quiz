@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form">
+  <v-form ref="loginForm">
     <form-heading>User List</form-heading>
     <form-input-password v-model.trim="form.password" @enter="login()" :disabled="disabled"></form-input-password>
     <login-btn @click="login()" :disabled="disabled"></login-btn>
@@ -7,46 +7,57 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
 import FormInputPassword from './form/FormInputPassword.vue'
 import LoginBtn from './form/LoginBtn.vue'
 import FormHeading from './form/FormHeading.vue'
 import { sendNotification } from '../assets/notification'
 import { ListFormInputs } from '../assets/interfaces'
+import { createComponent, reactive, toRefs } from '@vue/composition-api'
 
 let password = ''
 if (process.env.NODE_ENV === 'development') {
   password = 'password'
 }
 
-@Component({
-  components: { FormInputPassword, LoginBtn, FormHeading }
-})
-export default class ListLogin extends Vue {
+export default createComponent({
+  components: {
+    FormInputPassword,
+    LoginBtn,
+    FormHeading
+  },
+  setup(_props, context) {
+    const state = reactive({
+      disabled: false,
+      form: {
+        password: password
+      },
+      loginForm: null
+    })
 
-  form: ListFormInputs = {
-    password: password
-  }
+    const socket = context.root.$socket
 
-  disabled = false
-
-  login() {
-    // @ts-ignore
-    let valid: boolean = this.$refs.form.validate()
-    if (valid) {
-      this.disabled = true
-      this.$socket.client.open()
-      this.$socket.client.emit('AUTHENTICATE', this.form.password, (auth: boolean): void => {
-        this.disabled = false
-        if (auth) {
-          this.$socket.client.emit('LOGIN_LIST')
-          this.$router.push('/list-picker')
-        }
-        else {
-          sendNotification('error', 'Incorrect server password')
-        }
-      })
+    function login(): void {
+      let valid = state.loginForm.validate()
+      if (valid) {
+        state.disabled = true
+        socket.client.open()
+        socket.client.emit(
+          'AUTHENTICATE',
+          state.form.password,
+          (auth: boolean): void => {
+            state.disabled = false
+            if (auth) {
+              socket.client.emit('LOGIN_LIST')
+              context.root.$router.push('/list-picker')
+            } else {
+              sendNotification('error', 'Incorrect server password')
+            }
+          }
+        )
+      }
     }
+
+    return { ...toRefs(state), login }
   }
-}
+})
 </script>
