@@ -1,6 +1,6 @@
-import { Module } from 'vuex'
-import { ClientStoreState, RootStoreState } from '../assets/interfaces'
-import { LoginMode } from '../assets/types'
+import {Module} from 'vuex'
+import {ClientStoreState, RootStoreState} from '../assets/interfaces'
+import {LoginMode} from '@/assets/types'
 
 let client: Module<ClientStoreState, RootStoreState> = {
   state: {

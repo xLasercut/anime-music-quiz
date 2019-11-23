@@ -7,7 +7,7 @@ import { ScoreCalculator } from './score-calc'
 
 class PlayerService {
   private _logger: AMQLogger
-  private _data: {
+  private readonly _data: {
     [keys: string]: Player
   }
 
@@ -121,6 +121,16 @@ class PlayerService {
     return this._data[sid].selector
   }
 
+  mutePlayer(sid: string, status: boolean): void {
+    this._validateSid(sid)
+    this._data[sid].mute = status
+  }
+
+  isMute(sid: string): boolean {
+    this._validateSid(sid)
+    return this._data[sid].mute
+  }
+
   _moveHost(host: boolean): void {
     if (!this.zeroPlayersRemain() && host) {
       let sid = Object.keys(this._data)[0]
@@ -167,6 +177,7 @@ class Player {
   guess: PlayerGuess
   ready: PlayerReady
   selector = false
+  mute = false
 
   constructor() {
     this.reset()

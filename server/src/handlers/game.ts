@@ -141,6 +141,9 @@ class GameHandler {
 
 function startPlayerHandler(socket: socketio.Socket): void {
   socket.on('PLAYER_CHAT', exceptionHandler(socket, (message: string) => {
+    if (playerService.isMute(socket.id)) {
+      throw new AMQGameError('You are muted')
+    }
     let player = playerService.getPlayerObj(socket.id)
     let msgData = chatService.generateUserMsgData(socket.id, player, message)
     emitter.chat(msgData, GAME_ROOM)

@@ -12,6 +12,12 @@
     <v-col cols="auto">
       <icon-btn color="warning" icon="mdi-pencil" @click="changeName()">Change Name</icon-btn>
     </v-col>
+    <v-col cols="auto">
+      <icon-btn color="warning" icon="mdi-volume-mute" @click="mutePlayer()">Mute</icon-btn>
+    </v-col>
+    <v-col cols="auto">
+      <icon-btn color="success" icon="mdi-volume-high" @click="unmutePlayer()">Unmute</icon-btn>
+    </v-col>
   </v-row>
 </template>
 
@@ -51,6 +57,14 @@ export default class PlayerOptions extends Vue {
       this.$socket.client.emit('ADMIN_CHANGE_PLAYER_NAME', this.sid, this.newName)
       this.newName = ''
     }
+  }
+
+  mutePlayer(): void {
+    this.$socket.client.emit('ADMIN_MUTE_PLAYER', this.sid, true)
+  }
+
+  unmutePlayer(): void {
+    this.$socket.client.emit('ADMIN_MUTE_PLAYER', this.sid, false)
   }
 }
 

@@ -46,6 +46,7 @@ function exceptionHandler(socket: socketio.Socket, f: any) {
       }
       else if (e.name === 'AMQGameError') {
         logger.writeLog('GAME009', { reason: e.message })
+        emitter.notification('error', e.message, socket.id)
       }
       else if (e.name === 'AMQAdminError') {
         emitter.notification('error', e.message, socket.id)

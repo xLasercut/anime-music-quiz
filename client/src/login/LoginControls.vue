@@ -22,20 +22,20 @@
 </template>
 
 <script lang="ts">
-import NavBtn from '../components/buttons/NavBtn.vue'
-import { LoginMode } from '../assets/types'
-import { createComponent } from '@vue/composition-api'
+    import NavBtn from "../components/buttons/NavBtn.vue"
+    import {LoginMode} from '@/assets/types'
+    import {createComponent} from "@vue/composition-api"
 
-export default createComponent({
-  components: {
-    NavBtn
-  },
-  setup(_props, context) {
-    function changeLogin(mode: LoginMode): void {
-      context.root.$store.commit('CHANGE_LOGIN', mode)
-    }
+    export default createComponent({
+        components: {
+            NavBtn
+        },
+        setup(_props, context) {
+            function changeLogin(mode: LoginMode): void {
+                context.root.$store.commit("CHANGE_LOGIN", mode)
+            }
 
-    return { changeLogin }
-  }
-})
+            return {changeLogin}
+        }
+    })
 </script>
