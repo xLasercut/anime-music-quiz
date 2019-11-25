@@ -104,7 +104,7 @@ export default createComponent({
     function addEmoji(): void {
       let valid = emojiForm.value.validate()
       if (valid) {
-        context.root.$socket.client.emit('ADD_EMOJI', {})
+        context.root.$socket.client.emit('ADD_EMOJI', emojiToAdd.value)
         state.form = {
           command: '',
           src: ''
