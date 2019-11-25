@@ -1,9 +1,9 @@
-import { EmojiObj } from '../../shared/interfaces'
-import { AMQLogger } from '../logging/logging'
-import { EMOJI_LIST_PATH, EMOJI_COMMAND_FORMAT } from '../../shared/config'
-import { readFile, writeFile } from './init'
-import { AMQEmojiListError } from '../../shared/exceptions'
-import { EmojiType } from '../../shared/types'
+import {EmojiObj} from '../../shared/interfaces'
+import {AMQLogger} from '../logging/logging'
+import {EMOJI_COMMAND_FORMAT, EMOJI_LIST_PATH} from '../../shared/config'
+import {readFile, writeFile} from './init'
+import {AMQEmojiListError} from '../../shared/exceptions'
+import {EmojiType} from '../../shared/types'
 
 class EmojiService {
   private _data: Array<EmojiObj>
@@ -21,7 +21,7 @@ class EmojiService {
   }
 
   addEmoji(emoji: EmojiObj): void {
-    let { command, src, type } = this._parseEmoji(emoji)
+    let {command, src, type} = this._parseEmoji(emoji)
     this._validateEmoji(command, src, type)
     this._data.push(emoji)
     writeFile(this._filepath, this._data)
@@ -34,7 +34,7 @@ class EmojiService {
   }
 
   deleteEmoji(emoji: EmojiObj): void {
-    let { command, src, type } = this._parseEmoji(emoji)
+    let {command, src, type} = this._parseEmoji(emoji)
     for (let i = 0; i < this._data.length; i++) {
       if (this._data[i].command.toLowerCase() === command.toLowerCase()) {
         this._data.splice(i, 1)
@@ -71,8 +71,8 @@ class EmojiService {
     let src = emoji.src
     let type = emoji.type
 
-    return { command, src, type }
+    return {command, src, type}
   }
 }
 
-export { EmojiService }
+export {EmojiService}

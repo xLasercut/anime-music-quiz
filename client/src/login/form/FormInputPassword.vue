@@ -1,63 +1,61 @@
 <template>
-  <form-input
-    label="Server Password"
-    v-model.trim="model"
-    :rules="rules" :append-icon="icon"
-    @click:append="togglePass()"
-    @enter="$emit('enter')"
-    :type="inputType"
-    id="password-input"
-    v-bind="$attrs"
-  ></form-input>
+    <form-input
+        label="Server Password"
+        v-model.trim="model"
+        :rules="rules" :append-icon="icon"
+        @click:append="togglePass()"
+        @enter="$emit('enter')"
+        :type="inputType"
+        id="password-input"
+        v-bind="$attrs"
+    ></form-input>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch, Emit, PropSync } from 'vue-property-decorator'
-import FormInput from './FormInput.vue'
-import { SERVER_PASSWORD_FORMAT } from '../../assets/config'
+    import FormInput from "./FormInput.vue"
+    import {SERVER_PASSWORD_FORMAT} from "../../assets/config"
+    import {computed, createComponent, reactive, toRefs, watch} from "@vue/composition-api"
 
-@Component({
-  components: { FormInput }
-})
-export default class FormInputPassword extends Vue {
-  @Prop(String) value!: string
+    export default createComponent({
+        components: {
+            FormInput
+        },
+        props: {
+            value: {}
+        },
+        setup(props, context) {
+            const state = reactive({
+                model: props.value,
+                rules: [
+                    (v: string): boolean | string => (!!v) || "Server password required",
+                    (v: string): boolean | string => SERVER_PASSWORD_FORMAT.test(v) || "Valid characters A-Z, a-z, 0-9"
+                ],
+                showPass: false
+            })
 
-  model = this.value
+            watch(() => {
+                context.emit("input", state.model)
+            })
 
-  @Watch('value')
-  _onValueChange(val: string): void {
-    this.model = val
-  }
+            const inputType = computed((): string => {
+                if (state.showPass) {
+                    return "text"
+                }
+                return "password"
+            })
 
-  @Watch('model')
-  @Emit('input')
-  _onModelChange(val: string): string {
-    return val
-  }
+            const icon = computed((): string => {
+                if (state.showPass) {
+                    return "mdi-eye-off"
+                }
+                return "mdi-eye"
+            })
 
-  rules = [
-    (v: string): boolean | string => (!!v) || 'Server password required',
-    (v: string): boolean | string => SERVER_PASSWORD_FORMAT.test(v) || 'Valid characters A-Z, a-z, 0-9'
-  ]
+            function togglePass(): void {
+                state.showPass = !state.showPass
+            }
 
-  showPass = false
-
-  get icon(): string {
-    if (this.showPass) {
-      return 'mdi-eye-off'
-    }
-    return 'mdi-eye'
-  }
-
-  get inputType(): string {
-    if (this.showPass) {
-      return 'text'
-    }
-    return 'password'
-  }
-
-  togglePass() {
-    this.showPass = !this.showPass
-  }
-}
+            return {...toRefs(state), inputType, togglePass, icon}
+        }
+    })
 </script>

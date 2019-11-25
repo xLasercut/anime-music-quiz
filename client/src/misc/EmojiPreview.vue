@@ -6,21 +6,20 @@
 </template>
 
 <script lang="ts">
-import { EmojiObj } from '../assets/interfaces'
-import { createComponent } from '@vue/composition-api'
+    import {createComponent} from "@vue/composition-api"
 
-export default createComponent({
-  props: {
-    emoji: {
-      type: Object,
-      required: true
-    }
-  }
-})
+    export default createComponent({
+        props: {
+            emoji: {
+                type: Object,
+                required: true
+            }
+        }
+    })
 </script>
 
 <style scoped>
-.normal-emoji {
-  font-size: 20pt;
-}
+  .normal-emoji {
+    font-size: 20pt;
+  }
 </style>
