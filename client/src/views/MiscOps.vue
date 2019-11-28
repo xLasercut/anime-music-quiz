@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-    import EmojiDataTable from "../misc/EmojiDataTable.vue"
-    import {createComponent, onMounted} from "@vue/composition-api"
+    import EmojiDataTable from '../misc/EmojiDataTable.vue'
+    import {createComponent, onMounted} from '@vue/composition-api'
 
     export default createComponent({
         components: {
@@ -19,7 +19,7 @@
         setup(_props, context) {
             onMounted(() => {
                 if (context.root.$socket.disconnected) {
-                    context.root.$router.push("/")
+                    context.root.$router.push('/')
                 }
             })
         }

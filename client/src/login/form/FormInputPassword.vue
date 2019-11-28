@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts">
-    import FormInput from "./FormInput.vue"
-    import {SERVER_PASSWORD_FORMAT} from "../../assets/config"
-    import {computed, createComponent, reactive, toRefs, watch} from "@vue/composition-api"
+    import FormInput from './FormInput.vue'
+    import {SERVER_PASSWORD_FORMAT} from '../../assets/config'
+    import {computed, createComponent, reactive, toRefs, watch} from '@vue/composition-api'
 
     export default createComponent({
         components: {
@@ -27,28 +27,28 @@
             const state = reactive({
                 model: props.value,
                 rules: [
-                    (v: string): boolean | string => (!!v) || "Server password required",
-                    (v: string): boolean | string => SERVER_PASSWORD_FORMAT.test(v) || "Valid characters A-Z, a-z, 0-9"
+                    (v: string): boolean | string => (!!v) || 'Server password required',
+                    (v: string): boolean | string => SERVER_PASSWORD_FORMAT.test(v) || 'Valid characters A-Z, a-z, 0-9'
                 ],
                 showPass: false
             })
 
             watch(() => {
-                context.emit("input", state.model)
+                context.emit('input', state.model)
             })
 
             const inputType = computed((): string => {
                 if (state.showPass) {
-                    return "text"
+                    return 'text'
                 }
-                return "password"
+                return 'password'
             })
 
             const icon = computed((): string => {
                 if (state.showPass) {
-                    return "mdi-eye-off"
+                    return 'mdi-eye-off'
                 }
-                return "mdi-eye"
+                return 'mdi-eye'
             })
 
             function togglePass(): void {

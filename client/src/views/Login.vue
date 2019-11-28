@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts">
-    import ListLogin from "../login/ListLogin.vue"
-    import MiscLogin from "../login/MiscLogin.vue"
-    import GameLogin from "../login/GameLogin.vue"
-    import {computed, onMounted, createComponent} from "@vue/composition-api"
+    import ListLogin from '../login/ListLogin.vue'
+    import MiscLogin from '../login/MiscLogin.vue'
+    import GameLogin from '../login/GameLogin.vue'
+    import {computed, createComponent} from '@vue/composition-api'
 
     let componentMap: { [key: string]: any } = {
         game: GameLogin,

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-    import {createComponent, reactive, toRefs, watch} from "@vue/composition-api"
+    import {createComponent, reactive, toRefs, watch} from '@vue/composition-api'
 
     export default createComponent({
         props: {
@@ -39,8 +39,7 @@
             watch((): void => {
                 if (props.value) {
                     state.model = props.value.trim()
-                }
-                else {
+                } else {
                     state.model = ''
                 }
             })
@@ -48,8 +47,7 @@
             function handleChange(val: string): void {
                 if (val) {
                     context.emit('input', val.trim())
-                }
-                else {
+                } else {
                     context.emit('input', '')
                 }
             }

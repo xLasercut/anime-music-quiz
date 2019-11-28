@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts">
-    import GameWindow from "../game/GameWindow.vue"
-    import ChatWindow from "../game/ChatWindow.vue"
-    import {createComponent, onMounted} from "@vue/composition-api"
+    import GameWindow from '../game/GameWindow.vue'
+    import ChatWindow from '../game/ChatWindow.vue'
+    import {createComponent, onMounted} from '@vue/composition-api'
 
     export default createComponent({
         components: {
@@ -19,7 +19,7 @@
         },
         sockets: {
             disconnect(): void {
-                this.$router.push("/")
+                this.$router.push('/')
             }
         },
         setup(_props, context) {
@@ -27,7 +27,7 @@
 
             onMounted((): void => {
                 if (!context.root.$socket.connected) {
-                    context.root.$router.push("/")
+                    context.root.$router.push('/')
                 }
             })
         }

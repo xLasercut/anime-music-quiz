@@ -8,10 +8,10 @@ import game from './game'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: {
-    client: client,
-    list: list,
-    misc: misc,
-    game: game
-  }
+    modules: {
+        client: client,
+        list: list,
+        misc: misc,
+        game: game
+    }
 })

@@ -3,7 +3,8 @@ services:
   server:
     restart: unless-stopped
     build:
-      context: './server/'
+      context: '.'
+      dockerfile: './server/Dockerfile'
     ports:
       - 3001:3001
     volumes:
