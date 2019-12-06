@@ -1,12 +1,12 @@
 <template>
-  <video ref="player" @loadeddata="$emit('song-loaded')" :style="playerStyle">
+  <video ref="player" @loadeddata="songLoaded()" :style="playerStyle">
     <source :src="$store.state.game.gameState.currentSong.src">
     Your browser does not support video element
   </video>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
+import { Component, Prop, Watch, Mixins, Emit } from 'vue-property-decorator'
 import VideoHelper from '../../../../assets/mixins/video-helper'
 
 @Component({})
@@ -27,6 +27,11 @@ export default class NormalVideo extends Mixins(VideoHelper) {
   setPosition(): void {
     this.duration = this.$refs.player.duration
     this.$refs.player.currentTime = this.getStartPosition()
+  }
+
+  @Emit('song-loaded')
+  songLoaded() {
+    this.setPosition()
   }
 
   play(): void {
