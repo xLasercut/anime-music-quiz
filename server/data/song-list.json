@@ -4460,6 +4460,26 @@
     "type": "ED3"
   },
   {
+    "songId": "5c15a9dd-5c84-4d32-bfcf-ed670b2b1a16",
+    "anime": [
+      "Assassins Pride"
+    ],
+    "src": "https://animethemes.moe/video/AssassinsPride-ED1.webm",
+    "title": "Ijin-tachi no Jikan",
+    "artist": "",
+    "type": "ED"
+  },
+  {
+    "songId": "6aef39b7-9e3a-4dcc-8cde-c3077dec9c97",
+    "anime": [
+      "Assassins Pride"
+    ],
+    "src": "https://animethemes.moe/video/AssassinsPride-OP1.webm",
+    "title": "Share the light",
+    "artist": "",
+    "type": "OP"
+  },
+  {
     "songId": "edf875d3-894a-47db-bb06-3c2662341f4c",
     "anime": [
       "Astarotte no Omocha!"
@@ -9791,6 +9811,16 @@
     "title": "Kiss Me",
     "artist": "",
     "type": "OP1"
+  },
+  {
+    "songId": "b57dd89d-3df3-424f-8cd3-cd4121a1aafc",
+    "anime": [
+      "Carole & Tuesday"
+    ],
+    "src": "https://www.youtube.com/watch?v=f1dGFDiDcyg",
+    "title": "Loneliest Girl",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "86fc4a13-9669-4fd6-ab0e-785e102f4c32",
@@ -44614,7 +44644,7 @@
       "Mnemosyne: Mnemosyne no Musume-tachi"
     ],
     "src": "https://animethemes.moe/video/Mnemosyne-ED1.webm",
-    "title": "Cause Disarra",
+    "title": "Cause Disarray",
     "artist": "",
     "type": "ED"
   },
@@ -47354,6 +47384,16 @@
     "title": "No Boy, No Cry",
     "artist": "",
     "type": "OP6"
+  },
+  {
+    "songId": "5c96e2cb-58d0-4627-bd44-96c22239f9b3",
+    "anime": [
+      "Naruto"
+    ],
+    "src": "https://www.youtube.com/watch?v=_Onx5AGVU9I",
+    "title": "Orochimaru's Theme",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "4cc1312d-cf84-49fc-bc75-9c283693c818",
@@ -57754,7 +57794,7 @@
     "anime": [
       "Rewrite 2nd Season"
     ],
-    "src": "https://animethemes.moe/video/RewriteS2-ED1.webm",
+    "src": "https://files.catbox.moe/6gb1wr.mp4",
     "title": "Daisy Memory",
     "artist": "",
     "type": "ED1"
@@ -60346,6 +60386,16 @@
     "title": "all I need is...",
     "artist": "",
     "type": "ED"
+  },
+  {
+    "songId": "646542a7-3624-4fa4-a971-41a5cadeef59",
+    "anime": [
+      "Sarazanmai"
+    ],
+    "src": "https://www.youtube.com/watch?v=uvwuLymqcnQ",
+    "title": "Kawauso Iya",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "72d86e8a-e5be-4feb-92c3-89954ab77f54",
@@ -68042,10 +68092,10 @@
     "anime": [
       "Sword Art Online II"
     ],
-    "src": "https://animethemes.moe/video/SwordArtOnlineS2-OP2.webm",
+    "src": "https://animethemes.moe/video/SwordArtOnlineS2-OP2v2.webm",
     "title": "courage",
     "artist": "",
-    "type": "OP2 V1"
+    "type": "OP2"
   },
   {
     "songId": "1347a0ec-2f2e-4e53-95dd-4099157e942f",
@@ -71493,6 +71543,16 @@
     "title": "unravel",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "7e718610-845a-4364-afd6-2cdd1265064d",
+    "anime": [
+      "Tokyo Ghoul √A"
+    ],
+    "src": "https://www.youtube.com/watch?v=vvvvcpwFw5o",
+    "title": "Glassy Sky",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "d3e5c1df-d4d1-4ab0-8e9f-4dd6ed1d265e",
@@ -79941,15 +80001,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "5c96e2cb-58d0-4627-bd44-96c22239f9b3",
-    "anime": [
-      "Naruto"
-    ],
-    "src": "https://www.youtube.com/watch?v=_Onx5AGVU9I",
-    "title": "Orochimaru's Theme",
-    "artist": "",
-    "type": "Insert"
   }
 ]
