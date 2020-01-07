@@ -1,31 +1,34 @@
 <template>
-  <v-row justify="center">
-    <v-col>
-      <v-text-field filled hide-details clearable label="Message" v-model.trim="msg" @keydown.enter.native="sendMsg()"></v-text-field>
-    </v-col>
-    <v-col cols="auto">
-      <v-select filled hide-details :items="msgTypeChoices" v-model="msgType" label="Type"></v-select>
-    </v-col>
-  </v-row>
+    <v-row justify="center">
+        <v-col>
+            <v-text-field filled hide-details clearable label="Message" v-model.trim="msg"
+                          @keydown.enter.native="sendMsg()"></v-text-field>
+        </v-col>
+        <v-col cols="auto">
+            <v-select filled hide-details :items="msgTypeChoices" v-model="msgType" label="Type"></v-select>
+        </v-col>
+    </v-row>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { BannerColor } from '../../../assets/types'
+    import {createComponent, reactive, toRefs} from '@vue/composition-api'
 
-@Component({})
-export default class SystemMessage extends Vue {
-  msgType: BannerColor = 'success'
+    export default createComponent({
+        setup(_props, context) {
+            let state = reactive({
+                msgTypeChoices: ['success', 'warning', 'error'],
+                msg: '',
+                msgType: 'success'
+            })
 
-  msgTypeChoices = [ 'success', 'warning', 'error' ]
+            function sendMsg(): void {
+                if (state.msg) {
+                    context.root.$socket.client.emit('ADMIN_SYSTEM_MESSAGE', state.msgType, state.msg)
+                    state.msg = ''
+                }
+            }
 
-  msg = ''
-
-  sendMsg(): void {
-    if (this.msg) {
-      this.$socket.client.emit('ADMIN_SYSTEM_MESSAGE', this.msgType, this.msg)
-      this.msg = ''
-    }
-  }
-}
+            return {...toRefs(state), sendMsg}
+        }
+    })
 </script>
