@@ -45,8 +45,8 @@ export default class VideoWindow extends Vue {
 
   resetVideo(): void {
     for (let key in this.show) {
-      this.show[key] = false
       this.$refs[key].pause()
+      this.show[key] = false
     }
   }
 

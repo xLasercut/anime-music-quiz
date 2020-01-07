@@ -56,7 +56,9 @@ export default class YoutubeVideo extends Mixins(VideoHelper) {
   }
 
   pause(): void {
-    this.player.pauseVideo()
+    if (this.player) {
+      this.player.pauseVideo()
+    }
   }
 
   _startLoad(): void {
