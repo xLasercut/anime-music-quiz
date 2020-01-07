@@ -69,7 +69,7 @@ class AdminHandler {
         artist: song.artist,
         type: song.type
       })
-      emitter.notification('success', `${song.anime[0]}: ${song.title} added`)
+      emitter.notification('success', `${song.anime[0]}: ${song.title} added`, socket.id)
     }))
 
     socket.on('ADMIN_DELETE_SONG', exceptionHandler(socket, (song: SongObj) => {
@@ -85,7 +85,7 @@ class AdminHandler {
         artist: song.artist,
         type: song.type
       })
-      emitter.notification('success', `${song.anime[0]}: ${song.title} deleted`)
+      emitter.notification('success', `${song.anime[0]}: ${song.title} deleted`, socket.id)
     }))
 
     socket.on('ADMIN_EDIT_SONG', exceptionHandler(socket, (song: SongObj) => {
@@ -100,14 +100,14 @@ class AdminHandler {
         artist: song.artist,
         type: song.type
       })
-      emitter.notification('success', `${song.anime[0]}: ${song.title} edited`)
+      emitter.notification('success', `${song.anime[0]}: ${song.title} edited`, socket.id)
     }))
 
     socket.on('ADMIN_RESET_PRIORITY_LIST', exceptionHandler(socket, () => {
       this._checkAdminAuth(socket)
       gameStateService.playedSongIds = new Set()
       logger.writeLog('ADMIN008', { id: socket.id, admin: socket['admin'] })
-      emitter.notification('success', 'Priority list cleared')
+      emitter.notification('success', 'Priority list cleared', socket.id)
     }))
   }
 
