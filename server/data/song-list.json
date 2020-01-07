@@ -37574,6 +37574,28 @@
     "type": "OP"
   },
   {
+    "songId": "c2bf50eb-c2a9-426f-ab0a-df62c2de82e0",
+    "anime": [
+      "Koisuru Asteroid",
+      "Asteroid in Love"
+    ],
+    "src": "https://animethemes.moe/video/KoisuruAsteroid-OP1.webm",
+    "title": "Aruite Ikou!",
+    "artist": "Touyama Nao",
+    "type": "OP"
+  },
+  {
+    "songId": "df2a5aed-4c29-49cb-a361-306b40a23be6",
+    "anime": [
+      "Koisuru Asteroid",
+      "Asteroid in Love"
+    ],
+    "src": "https://animethemes.moe/video/KoisuruAsteroid-ED1.webm",
+    "title": "Yozora",
+    "artist": "Suzuki Minori",
+    "type": "ED"
+  },
+  {
     "songId": "e747bc68-289e-4316-b037-81e136b8cd11",
     "anime": [
       "Kokkoku"
@@ -41299,6 +41321,16 @@
     "title": "Yubi Bouenkyou",
     "artist": "",
     "type": "ED1"
+  },
+  {
+    "songId": "c9a215ae-3e7f-4221-a27b-e7601737f2fd",
+    "anime": [
+      "Magia Record: Mahou Shoujo Madoka☆Magica Gaiden"
+    ],
+    "src": "https://animethemes.moe/video/MagiaRecord-OP1.webm",
+    "title": "Gomakashi",
+    "artist": "TrySail",
+    "type": "OP"
   },
   {
     "songId": "abb2720f-3bac-42cd-ae6c-96a68fc7dd51",
@@ -46488,6 +46520,28 @@
     ],
     "src": "https://animethemes.moe/video/MurderPrincess-ED1.webm",
     "title": "Naked Flower",
+    "artist": "",
+    "type": "ED"
+  },
+  {
+    "songId": "99b77e42-8303-4fc0-a959-0a51ab0d87e8",
+    "anime": [
+      "Murenase! Seton Gakuen",
+      "Join the Pack!"
+    ],
+    "src": "https://animethemes.moe/video/MurenaseSetonGakuen-OP1.webm",
+    "title": "Gakuen Soukan Zoo",
+    "artist": "",
+    "type": "OP"
+  },
+  {
+    "songId": "27b11dd4-ff4a-4068-b4ef-4aab3fa03744",
+    "anime": [
+      "Murenase! Seton Gakuen",
+      "Join the Pack!"
+    ],
+    "src": "https://animethemes.moe/video/MurenaseSetonGakuen-ED1.webm",
+    "title": "Ookami Blues",
     "artist": "",
     "type": "ED"
   },
@@ -80001,5 +80055,16 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "ad500718-778f-470f-9fe1-82fc79e09127",
+    "anime": [
+      "Somali to Mori no Kamisama",
+      "Somali and the Forest Spirit"
+    ],
+    "src": "https://animethemes.moe/video/SomaliToMoriNoKamisama-ED1.webm",
+    "title": "Kokoro Somali",
+    "artist": "",
+    "type": "ED"
   }
 ]
