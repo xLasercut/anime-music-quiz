@@ -3,7 +3,11 @@
     <v-col cols="12">
       <v-row align="center">
         <v-col>
-          <v-text-field label="Anime" v-model.trim="anime" clearable filled hide-details id="add-song-to-list-anime"></v-text-field>
+          <v-combobox
+            label="Anime" v-model.trim="anime"
+            clearable filled hide-details id="add-song-to-list-anime"
+            :items="$store.state.game.choices.anime"
+          ></v-combobox>
         </v-col>
         <v-col cols="auto">
           <icon-btn color="success" icon="mdi-plus" id="add-song-to-list-add-anime" @click="addAnime()">Add Anime</icon-btn>

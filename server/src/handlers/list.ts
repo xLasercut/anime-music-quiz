@@ -11,6 +11,7 @@ class ListPickerHandler {
       socket.join(LIST_ROOM)
       emitter.updateSongList(songService.getSongList(), socket.id)
       emitter.updateUsers(userService.getUsers(), socket.id)
+      emitter.updateGameChoices(songService.getChoices(), socket.id)
       logger.writeLog('SERVER005', { id: socket.id, service: LIST_ROOM })
     }))
 
