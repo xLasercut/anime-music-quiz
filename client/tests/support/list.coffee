@@ -49,7 +49,7 @@ Cypress.Commands.add 'closeAddSongToList', () =>
 
 Cypress.Commands.add 'addSongToList', (anime, src, title, artist, type) =>
   cy.openAddSongToList()
-  cy.get('#add-song-to-list-anime').clear().type(anime)
+  cy.get('#add-song-to-list-anime').clear().type("#{anime}{enter}{esc}")
   cy.get('#add-song-to-list-add-anime').click()
 
   cy.get('#add-song-to-list-src').clear().type(src)
