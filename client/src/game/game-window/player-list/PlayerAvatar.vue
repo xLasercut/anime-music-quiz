@@ -33,7 +33,7 @@ export default class PlayerAvatar extends Mixins(AvatarHelper) {
 </script>
 
 <style scoped>
-  .v-avatar .v-image {
+  .v-avatar {
     outline: 1px solid black;
     background-color: white;
   }
