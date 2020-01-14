@@ -1,16 +1,15 @@
 var publicPath = '/'
 
 if (process.env.NODE_ENV === 'ghpages') {
-  publicPath = '/anime-music-quiz/'
+    publicPath = '/anime-music-quiz/'
 }
 else if (process.env.NODE_ENV === 'production') {
-  publicPath = './'
+    publicPath = './'
 }
 
-
 module.exports = {
-  publicPath: publicPath,
-  transpileDependencies: [
-    "vuetify"
-  ]
+    publicPath: publicPath,
+    transpileDependencies: [
+        'vuetify'
+    ]
 }

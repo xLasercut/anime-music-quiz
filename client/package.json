@@ -6,8 +6,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:gh": "cross-env NODE_ENV=ghpages npm run build",
-    "cypress": "cypress open",
-    "serve:prod": "cross-env NODE_ENV=production  vue-cli-service serve",
     "test": "vue-cli-service test:e2e"
   },
   "dependencies": {

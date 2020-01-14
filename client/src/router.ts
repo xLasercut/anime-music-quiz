@@ -8,30 +8,30 @@ import Game from './views/Game.vue'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/list-picker',
-      name: 'list-picker',
-      component: ListPicker
-    },
-    {
-      path: '/misc',
-      name: 'misc',
-      component: MiscOps
-    },
-    {
-      path: '/game',
-      name: 'game',
-      component: Game
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/list-picker',
+            name: 'list-picker',
+            component: ListPicker
+        },
+        {
+            path: '/misc',
+            name: 'misc',
+            component: MiscOps
+        },
+        {
+            path: '/game',
+            name: 'game',
+            component: Game
+        },
+        {
+            path: '*',
+            redirect: '/'
+        }
+    ]
 })
