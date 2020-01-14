@@ -11967,6 +11967,19 @@
     "type": "OP2 V1"
   },
   {
+    "songId": "6482b378-9d5c-4be3-ae9d-f8441e0a4985",
+    "anime": [
+      "Code Geass: Hangyaku no Lelouch",
+      "Code Geass: Lelouch of the Rebellion",
+      "Code Geass: Hangyaku no Lelouch",
+      "Code Geass: Hangyaku no Lelouch R2"
+    ],
+    "src": "https://files.catbox.moe/zu47kl.mp4",
+    "title": "Masquerade",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "a0c497b0-4a00-42ed-b27e-5680f6e3829b",
     "anime": [
       "Code Geass: Hangyaku no Lelouch",
@@ -17855,7 +17868,7 @@
     "anime": [
       "Evangelion: 2.0 You Can (Not) Advance"
     ],
-    "src": "https://www.youtube.com/watch?v=w_J-9ZrOEV0",
+    "src": "https://files.catbox.moe/xy158h.mp4",
     "title": "Fate",
     "artist": "",
     "type": "Insert"
@@ -30577,7 +30590,7 @@
     "anime": [
       "Initial D First Stage"
     ],
-    "src": "https://www.youtube.com/watch?v=AsbOOPkmEGw",
+    "src": "https://files.catbox.moe/7xgaje.mp4",
     "title": "Beat of The Rising Sun",
     "artist": "",
     "type": "Insert"
@@ -47374,7 +47387,7 @@
     "anime": [
       "Naruto"
     ],
-    "src": "https://www.youtube.com/watch?v=-qtqXYrit54",
+    "src": "https://files.catbox.moe/hcr4xi.mp4",
     "title": "Heavy Violence",
     "artist": "",
     "type": "Insert"
@@ -65581,6 +65594,17 @@
     "type": "OP2"
   },
   {
+    "songId": "ad500718-778f-470f-9fe1-82fc79e09127",
+    "anime": [
+      "Somali to Mori no Kamisama",
+      "Somali and the Forest Spirit"
+    ],
+    "src": "https://animethemes.moe/video/SomaliToMoriNoKamisama-ED1.webm",
+    "title": "Kokoro Somali",
+    "artist": "",
+    "type": "ED"
+  },
+  {
     "songId": "376e75ce-66ad-4122-9a50-6849fab62dd0",
     "anime": [
       "SoniAni: Super Sonico The Animation"
@@ -71357,6 +71381,16 @@
     "title": "stand still",
     "artist": "",
     "type": "ED2"
+  },
+  {
+    "songId": "b1e521b0-94d9-4583-b0b7-b4fb0759edc3",
+    "anime": [
+      "Toaru Kagaku no Railgun T"
+    ],
+    "src": "https://files.catbox.moe/jsgxm9.webm",
+    "title": "Final Phase",
+    "artist": "fripSide",
+    "type": "OP"
   },
   {
     "songId": "c6288708-00a2-46fb-ada3-c71dcfd44bf4",
@@ -80055,16 +80089,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "ad500718-778f-470f-9fe1-82fc79e09127",
-    "anime": [
-      "Somali to Mori no Kamisama",
-      "Somali and the Forest Spirit"
-    ],
-    "src": "https://animethemes.moe/video/SomaliToMoriNoKamisama-ED1.webm",
-    "title": "Kokoro Somali",
-    "artist": "",
-    "type": "ED"
   }
 ]
