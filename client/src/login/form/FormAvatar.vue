@@ -41,14 +41,14 @@ export default class FormAvatar extends Mixins(AvatarHelper) {
     display: none;
   }
 
-  .v-image {
+  .v-avatar {
     outline: 1px solid black;
     cursor: pointer;
     transition: all 0.1s;
     background-color: white;
   }
 
-  input:checked + label .v-image {
+  input:checked + label .v-avatar {
     outline: 4px solid var(--v-success-base);
   }
 </style>
