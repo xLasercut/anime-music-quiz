@@ -1,148 +1,162 @@
-import { AMQLogger } from '../logging/logging'
-import { SongObj, GameStateObj } from '../../shared/interfaces'
-import { GameMode } from '../../shared/types'
+import {AMQLogger} from '../logging/logging'
+import {GameSongList, GameStateObj, SettingsObj, SongObj, UserSongLists} from '../../shared/interfaces'
+import {GameMode} from '../../shared/types'
 
 class GameStateService {
-  private _logger: AMQLogger
+    private _logger: AMQLogger
 
-  playing = false
-  maxSongCount = 0
-  currentSongCount = 0
-  startPosition = 0
-  gameList: Array<SongObj> = []
-  songOverride: SongObj
-  currentSong: SongObj = {
-    anime: [''],
-    title: '',
-    artist: '',
-    src: '',
-    type: '',
-    songId: ''
-  }
-
-  playedSongIds: Set<string> =  new Set()
-
-  constructor(logger: AMQLogger) {
-    this._logger = logger
-  }
-
-  generateGameList(combinedList: Array<SongObj>, combinedIds: Set<string>, songCount: number, duplicate: boolean, leastPlayed: boolean): void {
-    this.gameList = []
-    let dupes: Set<string> = new Set()
-    let sourceList = combinedList
-
-    if (leastPlayed) {
-      let priorityIds = this._generatePriorityIds(combinedIds)
-      sourceList = this._addPrioritySongs(priorityIds, combinedList, dupes, songCount, duplicate)
-      if (priorityIds.size <= songCount) {
-        this.playedSongIds = new Set()
-      }
+    playing = false
+    maxSongCount = 0
+    currentSongCount = 0
+    startPosition = 0
+    gameList: Array<SongObj> = []
+    songOverride: SongObj
+    currentSong: SongObj = {
+        anime: [''],
+        title: '',
+        artist: '',
+        src: '',
+        type: '',
+        songId: ''
     }
 
-    while (this.gameList.length < songCount && sourceList.length > 0) {
-      let i = this._getRandomIndex(sourceList)
-      let anime = sourceList[i].anime[0]
-      if (!dupes.has(anime) || duplicate) {
-        this.gameList.push(sourceList[i])
-        dupes.add(anime)
-      }
-      sourceList.splice(i, 1)
+    playedSongIds: Set<string> = new Set()
+
+    constructor(logger: AMQLogger) {
+        this._logger = logger
     }
-  }
 
-  startGame(gameMode: GameMode): void {
-    this.playing = true
-    this.maxSongCount = this.gameList.length
-    this._logger.writeLog('GAME002', { songCount: this.maxSongCount, gameMode: gameMode })
-  }
+    generateGameListBalanced(userSongLists: UserSongLists, gameSettings: SettingsObj): void {
+        this.gameList = []
+        let dupes: Set<string> = new Set()
+        let songCount = gameSettings.songCount
+        let duplicate = gameSettings.duplicate
+        let leastPlayed = gameSettings.leastPlayed
+        let playerCount = Object.keys(userSongLists).length
+        let songCountPerPlayer = Math.floor(songCount / playerCount)
+        let priorityCount = 0
 
-  newSong(leastPlayed: boolean): void {
-    this._selectSong()
-    this.currentSongCount += 1
-    this.startPosition = Math.random()
-    if (leastPlayed) {
-      this.playedSongIds.add(this.currentSong.songId)
+        for (let user in userSongLists) {
+            let normalList = userSongLists[user].normal
+            let priorityList = userSongLists[user].priority
+            priorityCount += priorityList.length
+            let userGameList: Array<SongObj> = []
+
+            if (leastPlayed) {
+                this._addToGameList(userGameList, priorityList, songCountPerPlayer, dupes, duplicate)
+                this._addToGameList(userGameList, normalList, songCountPerPlayer, dupes, duplicate)
+            }
+            else {
+                let combinedList = normalList.concat(priorityList)
+                this._addToGameList(userGameList, combinedList, songCountPerPlayer, dupes, duplicate)
+            }
+            this.gameList = this.gameList.concat(userGameList)
+        }
+
+        if (leastPlayed && priorityCount <= songCount) {
+            this.playedSongIds = new Set()
+        }
     }
-    this._logger.writeLog('GAME005', {
-      number: this.currentSongCount,
-      title: this.currentSong.title,
-      anime: this.currentSong.anime[0],
-      type: this.currentSong.type,
-      artist: this.currentSong.artist
-    })
-  }
 
-  overrideSong(song: SongObj): void {
-    this.songOverride = song
-  }
+    generateGameList(combinedSongList: GameSongList, gameSettings: SettingsObj): void {
+        this.gameList = []
+        let dupes: Set<string> = new Set()
+        let songCount = gameSettings.songCount
+        let duplicate = gameSettings.duplicate
+        let leastPlayed = gameSettings.leastPlayed
+        let normalList = combinedSongList.normal
+        let priorityList = combinedSongList.priority
 
-  getGameState(): GameStateObj {
-    return {
-      currentSongCount: this.currentSongCount,
-      maxSongCount: this.maxSongCount,
-      currentSong: this.currentSong,
-      startPosition: this.startPosition,
-      playing: this.playing
+
+        if (leastPlayed) {
+            if (priorityList.length <= songCount) {
+                this.playedSongIds = new Set()
+            }
+            this._addToGameList(this.gameList, priorityList, songCount, dupes, duplicate)
+            this._addToGameList(this.gameList, normalList, songCount, dupes, duplicate)
+        }
+        else {
+            let combinedList = normalList.concat(priorityList)
+            this._addToGameList(this.gameList, combinedList, songCount, dupes, duplicate)
+        }
     }
-  }
 
-  reset(): void {
-    this.songOverride = null
-    this.currentSongCount = 0
-    this.maxSongCount = 0
-    this.playing = false
-    this.startPosition = 0
-  }
-
-  get gameEnd(): boolean {
-    if (this.currentSongCount >= this.maxSongCount) {
-      return true
+    startGame(gameMode: GameMode): void {
+        this.playing = true
+        this.maxSongCount = this.gameList.length
+        this._logger.writeLog('GAME002', {songCount: this.maxSongCount, gameMode: gameMode})
     }
-    return false
-  }
 
-  _selectSong(): void {
-    let i = this._getRandomIndex(this.gameList)
-    this.currentSong = this.gameList[i]
-    this.gameList.splice(i, 1)
-    if (this.songOverride) {
-      this.currentSong = this.songOverride
-      this.songOverride = null
+    newSong(leastPlayed: boolean): void {
+        this._selectSong()
+        this.currentSongCount += 1
+        this.startPosition = Math.random()
+        if (leastPlayed) {
+            this.playedSongIds.add(this.currentSong.songId)
+        }
+        this._logger.writeLog('GAME005', {
+            number: this.currentSongCount,
+            title: this.currentSong.title,
+            anime: this.currentSong.anime[0],
+            type: this.currentSong.type,
+            artist: this.currentSong.artist
+        })
     }
-  }
 
-  _getRandomIndex(list: Array<any>): number {
-    return Math.floor(Math.random() * list.length)
-  }
-
-  _generatePriorityIds(combinedIds: Set<string>): Set<string> {
-    let prorityIds: Set<string> = new Set()
-    for (let songId of combinedIds) {
-      if (!this.playedSongIds.has(songId)) {
-        prorityIds.add(songId)
-      }
+    overrideSong(song: SongObj): void {
+        this.songOverride = song
     }
-    return prorityIds
-  }
 
-  _addPrioritySongs(priorityIds: Set<string>, combinedList: Array<SongObj>, dupes: Set<string>, songCount: number, duplicate: boolean): Array<SongObj> {
-    let nonPriorityList = []
-    let sourceList = combinedList
-    while (sourceList.length > 0 && this.gameList.length < songCount) {
-      let i = this._getRandomIndex(sourceList)
-      let song = sourceList[i]
-      let anime = song.anime[0]
-      if ((!dupes.has(anime) || duplicate) && priorityIds.has(song.songId)) {
-        this.gameList.push(song)
-        dupes.add(anime)
-      }
-      else {
-        nonPriorityList.push(song)
-      }
-      sourceList.splice(i, 1)
+    getGameState(): GameStateObj {
+        return {
+            currentSongCount: this.currentSongCount,
+            maxSongCount: this.maxSongCount,
+            currentSong: this.currentSong,
+            startPosition: this.startPosition,
+            playing: this.playing
+        }
     }
-    return nonPriorityList
-  }
+
+    reset(): void {
+        this.songOverride = null
+        this.currentSongCount = 0
+        this.maxSongCount = 0
+        this.playing = false
+        this.startPosition = 0
+    }
+
+    get gameEnd(): boolean {
+        if (this.currentSongCount >= this.maxSongCount) {
+            return true
+        }
+        return false
+    }
+
+    _addToGameList(gameList: Array<SongObj>, sourceList: Array<SongObj>, songCount: number, dupes: Set<string>, duplicate: boolean): void {
+        while (sourceList.length > 0 && gameList.length < songCount) {
+            let i = this._getRandomIndex(sourceList)
+            let anime = sourceList[i].anime[0]
+            if (!dupes.has(anime) || duplicate) {
+                this.gameList.push(sourceList[i])
+                dupes.add(anime)
+            }
+            sourceList.splice(i, 1)
+        }
+    }
+
+    _selectSong(): void {
+        let i = this._getRandomIndex(this.gameList)
+        this.currentSong = this.gameList[i]
+        this.gameList.splice(i, 1)
+        if (this.songOverride) {
+            this.currentSong = this.songOverride
+            this.songOverride = null
+        }
+    }
+
+    _getRandomIndex(list: Array<any>): number {
+        return Math.floor(Math.random() * list.length)
+    }
 }
 
-export { GameStateService }
+export {GameStateService}
