@@ -137,7 +137,7 @@ class GameStateService {
             let i = this._getRandomIndex(sourceList)
             let anime = sourceList[i].anime[0]
             if (!dupes.has(anime) || duplicate) {
-                this.gameList.push(sourceList[i])
+                gameList.push(sourceList[i])
                 dupes.add(anime)
             }
             sourceList.splice(i, 1)
