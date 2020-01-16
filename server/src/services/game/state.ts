@@ -29,6 +29,7 @@ class GameStateService {
     generateGameListBalanced(userSongLists: UserSongLists, gameSettings: SettingsObj): void {
         this.gameList = []
         let dupes: Set<string> = new Set()
+        let dupeSongIds: Set<string> = new Set()
         let songCount = gameSettings.songCount
         let duplicate = gameSettings.duplicate
         let leastPlayed = gameSettings.leastPlayed
@@ -43,12 +44,12 @@ class GameStateService {
             let userGameList: Array<SongObj> = []
 
             if (leastPlayed) {
-                this._addToGameList(userGameList, priorityList, songCountPerPlayer, dupes, duplicate)
-                this._addToGameList(userGameList, normalList, songCountPerPlayer, dupes, duplicate)
+                this._addToGameListBalanced(userGameList, priorityList, songCountPerPlayer, dupes, dupeSongIds, duplicate)
+                this._addToGameListBalanced(userGameList, normalList, songCountPerPlayer, dupes, dupeSongIds, duplicate)
             }
             else {
                 let combinedList = normalList.concat(priorityList)
-                this._addToGameList(userGameList, combinedList, songCountPerPlayer, dupes, duplicate)
+                this._addToGameListBalanced(userGameList, combinedList, songCountPerPlayer, dupes, dupeSongIds, duplicate)
             }
             this.gameList = this.gameList.concat(userGameList)
         }
@@ -130,6 +131,20 @@ class GameStateService {
             return true
         }
         return false
+    }
+
+    _addToGameListBalanced(gameList: Array<SongObj>, sourceList: Array<SongObj>, songCount: number, dupes: Set<string>, dupeSongIds: Set<string>, duplicate: boolean): void {
+        while (sourceList.length > 0 && gameList.length < songCount) {
+            let i = this._getRandomIndex(sourceList)
+            let anime = sourceList[i].anime[0]
+            let songId = sourceList[i].songId
+            if ((!dupes.has(anime) || duplicate) && !dupeSongIds.has(songId)) {
+                gameList.push(sourceList[i])
+                dupes.add(anime)
+                dupeSongIds.add(songId)
+            }
+            sourceList.splice(i, 1)
+        }
     }
 
     _addToGameList(gameList: Array<SongObj>, sourceList: Array<SongObj>, songCount: number, dupes: Set<string>, duplicate: boolean): void {
