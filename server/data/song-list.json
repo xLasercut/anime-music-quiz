@@ -17888,7 +17888,7 @@
     "anime": [
       "Evangelion: 2.0 You Can (Not) Advance"
     ],
-    "src": "https://www.youtube.com/watch?v=-WIiA9AuoLU",
+    "src": "https://files.catbox.moe/iyyfkf.mp4",
     "title": "Tsubasa wo Kudasai",
     "artist": "",
     "type": "Insert"
@@ -30630,7 +30630,7 @@
     "anime": [
       "Initial D First Stage"
     ],
-    "src": "https://www.youtube.com/watch?v=V_7FdXET23Q",
+    "src": "https://files.catbox.moe/pmen2e.mp4",
     "title": "Heartbeat",
     "artist": "",
     "type": "Insert"
@@ -31699,6 +31699,17 @@
     "title": "Sora ni Rakugaki",
     "artist": "",
     "type": "ED V1"
+  },
+  {
+    "songId": "351b6fe0-fd99-46fa-8fbe-6ecbdfb38413",
+    "anime": [
+      "Jibaku Shounen Hanako-kun",
+      "Toilet-bound Hanako-kun"
+    ],
+    "src": "https://animethemes.moe/video/JibakuShounenHanakoKun-ED1.webm",
+    "title": "Tiny Light",
+    "artist": "",
+    "type": "ED"
   },
   {
     "songId": "e2152bdb-8307-4474-ba6d-ec7dbac4ba59",
@@ -80089,5 +80100,15 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "3239aa57-daaf-49d5-8c79-9f4e050e1752",
+    "anime": [
+      "Fairy Tail"
+    ],
+    "src": "https://files.catbox.moe/waft04.mp4",
+    "title": "Dragon Force",
+    "artist": "",
+    "type": "Insert"
   }
 ]
