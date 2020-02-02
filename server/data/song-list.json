@@ -320,6 +320,17 @@
     "type": "ED7"
   },
   {
+    "songId": "49b5c19c-afee-4d72-802e-08a23e25f3e5",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-OP1.webm",
+    "title": "Muzui",
+    "artist": "",
+    "type": "OP"
+  },
+  {
     "songId": "5aacfcd2-5c0b-4f53-89d2-128f50b2cb09",
     "anime": [
       "3-gatsu no Lion"
@@ -18162,6 +18173,16 @@
     "title": "Don't think.Feel !!!",
     "artist": "",
     "type": "ED8"
+  },
+  {
+    "songId": "3239aa57-daaf-49d5-8c79-9f4e050e1752",
+    "anime": [
+      "Fairy Tail"
+    ],
+    "src": "https://files.catbox.moe/waft04.mp4",
+    "title": "Dragon Force",
+    "artist": "",
+    "type": "Insert"
   },
   {
     "songId": "442282b3-431a-4d77-b15d-e5ac8fb18590",
@@ -80102,13 +80123,36 @@
     "type": "OP"
   },
   {
-    "songId": "3239aa57-daaf-49d5-8c79-9f4e050e1752",
+    "songId": "e153c510-de91-4f88-ae92-a29d842b15d7",
     "anime": [
-      "Fairy Tail"
+      "22/7",
+      "Nanabun no Nijyuuni"
     ],
-    "src": "https://files.catbox.moe/waft04.mp4",
-    "title": "Dragon Force",
+    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED1.webm",
+    "title": "Sora no Emerald",
     "artist": "",
-    "type": "Insert"
+    "type": "ED1"
+  },
+  {
+    "songId": "55ab4fd0-beb3-4335-bd6e-74085d033719",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED2.webm",
+    "title": "One of them",
+    "artist": "",
+    "type": "ED2"
+  },
+  {
+    "songId": "4f4bcf03-8272-4fdf-ad7d-c8b9e5a21174",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://files.catbox.moe/cecgej.webm",
+    "title": "Ikiru Koto ni Naru ni Naritai",
+    "artist": "",
+    "type": "ED3"
   }
 ]
