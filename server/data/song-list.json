@@ -320,6 +320,17 @@
     "type": "ED7"
   },
   {
+    "songId": "4f4bcf03-8272-4fdf-ad7d-c8b9e5a21174",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://files.catbox.moe/cecgej.webm",
+    "title": "Ikiru Koto ni Naru ni Naritai",
+    "artist": "",
+    "type": "ED3"
+  },
+  {
     "songId": "49b5c19c-afee-4d72-802e-08a23e25f3e5",
     "anime": [
       "22/7",
@@ -329,6 +340,28 @@
     "title": "Muzui",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "55ab4fd0-beb3-4335-bd6e-74085d033719",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED2.webm",
+    "title": "One of them",
+    "artist": "",
+    "type": "ED2"
+  },
+  {
+    "songId": "e153c510-de91-4f88-ae92-a29d842b15d7",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED1.webm",
+    "title": "Sora no Emerald",
+    "artist": "",
+    "type": "ED1"
   },
   {
     "songId": "5aacfcd2-5c0b-4f53-89d2-128f50b2cb09",
@@ -80121,38 +80154,5 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
-  },
-  {
-    "songId": "e153c510-de91-4f88-ae92-a29d842b15d7",
-    "anime": [
-      "22/7",
-      "Nanabun no Nijyuuni"
-    ],
-    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED1.webm",
-    "title": "Sora no Emerald",
-    "artist": "",
-    "type": "ED1"
-  },
-  {
-    "songId": "55ab4fd0-beb3-4335-bd6e-74085d033719",
-    "anime": [
-      "22/7",
-      "Nanabun no Nijyuuni"
-    ],
-    "src": "https://animethemes.moe/video/NanabunNoNijyuuni-ED2.webm",
-    "title": "One of them",
-    "artist": "",
-    "type": "ED2"
-  },
-  {
-    "songId": "4f4bcf03-8272-4fdf-ad7d-c8b9e5a21174",
-    "anime": [
-      "22/7",
-      "Nanabun no Nijyuuni"
-    ],
-    "src": "https://files.catbox.moe/cecgej.webm",
-    "title": "Ikiru Koto ni Naru ni Naritai",
-    "artist": "",
-    "type": "ED3"
   }
 ]
