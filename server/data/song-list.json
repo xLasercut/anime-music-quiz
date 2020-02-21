@@ -80154,5 +80154,15 @@
     "title": "Our sympathy",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "0ba467b9-4e75-493e-85ae-b5b6767d3f6a",
+    "anime": [
+      "Yu-Gi-Oh! Duel Monsters GX"
+    ],
+    "src": "https://animethemes.moe/video/YGODuelMonstersGXDub-OP1.webm",
+    "title": "Get Your Game On",
+    "artist": "",
+    "type": "OP"
   }
 ]
