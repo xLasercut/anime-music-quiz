@@ -353,6 +353,17 @@
     "type": "ED2"
   },
   {
+    "songId": "afdf534a-14fa-4e9b-be7e-9197a393636d",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://www.youtube.com/watch?v=g7rT0iuqupk",
+    "title": "Rikaisya",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "e153c510-de91-4f88-ae92-a29d842b15d7",
     "anime": [
       "22/7",
@@ -24818,7 +24829,7 @@
     "anime": [
       "Guilty Crown"
     ],
-    "src": "https://animethemes.moe/video/GuiltyCrown-OP1.webm",
+    "src": "https://files.catbox.moe/72le6h.mp4",
     "title": "Euterpe",
     "artist": "",
     "type": "OP1"
@@ -70146,7 +70157,7 @@
       "Tetsuwan Atom",
       "Astro Boy"
     ],
-    "src": "https://animethemes.moe/video/TetsuwanAtom-OP1.webm",
+    "src": "https://files.catbox.moe/h91avk.mp4",
     "title": "Tetsuwan Atom",
     "artist": "",
     "type": "OP V1"
@@ -76208,9 +76219,21 @@
     "type": "ED"
   },
   {
+    "songId": "3b6ed627-81df-4ade-a57e-30046fa54874",
+    "anime": [
+      "Yakusoku no Neverland",
+      "The Promised Neverland"
+    ],
+    "src": "https://files.catbox.moe/ed4w8b.mp4",
+    "title": "Isabella’s Lullaby",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "ba059a05-8410-4dea-9cb7-adb7e1e394cc",
     "anime": [
-      "Yakusoku no Neverland"
+      "Yakusoku no Neverland",
+      "The Promised Neverland"
     ],
     "src": "https://animethemes.moe/video/YakusokuNoNeverland-ED2.webm",
     "title": "Lamp",
@@ -76220,7 +76243,8 @@
   {
     "songId": "01c8dbdc-f350-482d-ba85-3497d5651512",
     "anime": [
-      "Yakusoku no Neverland"
+      "Yakusoku no Neverland",
+      "The Promised Neverland"
     ],
     "src": "https://animethemes.moe/video/YakusokuNoNeverland-OP1.webm",
     "title": "Touch Off",
@@ -76230,7 +76254,8 @@
   {
     "songId": "6facfc0c-e82f-43f8-a3f3-b4703d584e85",
     "anime": [
-      "Yakusoku no Neverland"
+      "Yakusoku no Neverland",
+      "The Promised Neverland"
     ],
     "src": "https://animethemes.moe/video/YakusokuNoNeverland-ED1.webm",
     "title": "Zettai Zetsumei",
@@ -77809,6 +77834,16 @@
     "title": "Endless Dream",
     "artist": "",
     "type": "ED4"
+  },
+  {
+    "songId": "0ba467b9-4e75-493e-85ae-b5b6767d3f6a",
+    "anime": [
+      "Yu-Gi-Oh! Duel Monsters GX"
+    ],
+    "src": "https://animethemes.moe/video/YGODuelMonstersGXDub-OP1.webm",
+    "title": "Get Your Game On",
+    "artist": "",
+    "type": "OP"
   },
   {
     "songId": "069bb765-ee30-4104-a37a-e5b160d010a6",
@@ -80156,12 +80191,35 @@
     "type": "OP"
   },
   {
-    "songId": "0ba467b9-4e75-493e-85ae-b5b6767d3f6a",
+    "songId": "1d16b26b-8e49-4033-8e56-b9f57b05ca34",
     "anime": [
-      "Yu-Gi-Oh! Duel Monsters GX"
+      "22/7",
+      "Nanabun no Nijyuuni"
     ],
-    "src": "https://animethemes.moe/video/YGODuelMonstersGXDub-OP1.webm",
-    "title": "Get Your Game On",
+    "src": "https://www.youtube.com/watch?v=lKGDCoRjlCk",
+    "title": "Bokuwa Sonzai Shiteinakatta",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "d6fd318e-6de9-4e7d-a02d-c93732b02c13",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://www.youtube.com/watch?v=aRKYPY1orHo",
+    "title": "Shampoo No Nioi Ga Shita",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "ebdc024b-18ad-462a-9149-af899619a130",
+    "anime": [
+      "Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu.",
+      "BOFURI: I Don’t Want to Get Hurt, so I’ll Max Out My Defense."
+    ],
+    "src": "https://animethemes.moe/video/Bofuri-OP1.webm",
+    "title": "Kyuukyoku Unbalance!",
     "artist": "",
     "type": "OP"
   }
