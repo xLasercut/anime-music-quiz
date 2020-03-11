@@ -1,5 +1,5 @@
 <template>
-    <dialog-btn nav icon="mdi-settings" color="info" id="game-settings-btn" v-model="show" width="500"
+    <dialog-btn nav icon="mdi-cog" color="info" id="game-settings-btn" v-model="show" width="500"
                 @click="getSettings()"
     >
         <v-row justify="space-between" no-gutters>
