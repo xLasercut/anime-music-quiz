@@ -320,6 +320,17 @@
     "type": "ED7"
   },
   {
+    "songId": "1d16b26b-8e49-4033-8e56-b9f57b05ca34",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://www.youtube.com/watch?v=lKGDCoRjlCk",
+    "title": "Bokuwa Sonzai Shiteinakatta",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
     "songId": "4f4bcf03-8272-4fdf-ad7d-c8b9e5a21174",
     "anime": [
       "22/7",
@@ -360,6 +371,17 @@
     ],
     "src": "https://www.youtube.com/watch?v=g7rT0iuqupk",
     "title": "Rikaisya",
+    "artist": "",
+    "type": "Insert"
+  },
+  {
+    "songId": "d6fd318e-6de9-4e7d-a02d-c93732b02c13",
+    "anime": [
+      "22/7",
+      "Nanabun no Nijyuuni"
+    ],
+    "src": "https://www.youtube.com/watch?v=aRKYPY1orHo",
+    "title": "Shampoo No Nioi Ga Shita",
     "artist": "",
     "type": "Insert"
   },
@@ -17893,7 +17915,7 @@
     "anime": [
       "Evangelion: 2.0 You Can (Not) Advance"
     ],
-    "src": "https://www.youtube.com/watch?v=kX9cmyocNNU",
+    "src": "https://files.catbox.moe/ayn26p.mp4",
     "title": "At the Very Beginning",
     "artist": "",
     "type": "Insert"
@@ -31514,6 +31536,17 @@
     "title": "Somebody to love",
     "artist": "",
     "type": "ED"
+  },
+  {
+    "songId": "ebdc024b-18ad-462a-9149-af899619a130",
+    "anime": [
+      "Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu.",
+      "BOFURI: I Don’t Want to Get Hurt, so I’ll Max Out My Defense."
+    ],
+    "src": "https://animethemes.moe/video/Bofuri-OP1.webm",
+    "title": "Kyuukyoku Unbalance!",
+    "artist": "",
+    "type": "OP"
   },
   {
     "songId": "9a68e958-bcfb-44b7-86c8-53f9ee66f39c",
@@ -77896,6 +77929,16 @@
     "type": "ED2 V1"
   },
   {
+    "songId": "c9fd966b-bfae-446d-9c1d-d15e24d51a04",
+    "anime": [
+      "Yu-Gi-Oh! Sevens"
+    ],
+    "src": "https://animethemes.moe/video/YGOSEVENS-OP1.webm",
+    "title": "Nanananananana",
+    "artist": "",
+    "type": "OP"
+  },
+  {
     "songId": "61cce4b7-4ba0-477b-b4d5-a9da36ad1357",
     "anime": [
       "Yu-Gi-Oh! VRAINS"
@@ -80187,39 +80230,6 @@
     ],
     "src": "https://animethemes.moe/video/Eldlive-OP1.webm",
     "title": "Our sympathy",
-    "artist": "",
-    "type": "OP"
-  },
-  {
-    "songId": "1d16b26b-8e49-4033-8e56-b9f57b05ca34",
-    "anime": [
-      "22/7",
-      "Nanabun no Nijyuuni"
-    ],
-    "src": "https://www.youtube.com/watch?v=lKGDCoRjlCk",
-    "title": "Bokuwa Sonzai Shiteinakatta",
-    "artist": "",
-    "type": "Insert"
-  },
-  {
-    "songId": "d6fd318e-6de9-4e7d-a02d-c93732b02c13",
-    "anime": [
-      "22/7",
-      "Nanabun no Nijyuuni"
-    ],
-    "src": "https://www.youtube.com/watch?v=aRKYPY1orHo",
-    "title": "Shampoo No Nioi Ga Shita",
-    "artist": "",
-    "type": "Insert"
-  },
-  {
-    "songId": "ebdc024b-18ad-462a-9149-af899619a130",
-    "anime": [
-      "Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu.",
-      "BOFURI: I Don’t Want to Get Hurt, so I’ll Max Out My Defense."
-    ],
-    "src": "https://animethemes.moe/video/Bofuri-OP1.webm",
-    "title": "Kyuukyoku Unbalance!",
     "artist": "",
     "type": "OP"
   }
