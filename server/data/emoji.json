@@ -178,5 +178,20 @@
     "command": "karenaww",
     "src": "https://cdn.discordapp.com/emojis/497495913003221015.gif",
     "type": "img"
+  },
+  {
+    "command": "worrywaytooweird",
+    "src": "https://cdn.discordapp.com/emojis/672599488824606721.gif",
+    "type": "img"
+  },
+  {
+    "command": "panik",
+    "src": "https://cdn.discordapp.com/emojis/688825255245905930.png",
+    "type": "img"
+  },
+  {
+    "command": "kalm",
+    "src": "https://cdn.discordapp.com/emojis/688825679533309953.png",
+    "type": "img"
   }
 ]

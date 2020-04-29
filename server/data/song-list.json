@@ -28959,6 +28959,28 @@
     "type": "OP"
   },
   {
+    "songId": "ed81bc43-b158-4e54-beae-5a0f978e4f4e",
+    "anime": [
+      "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen 2nd Season",
+      "Ascendance of a Bookworm 2nd Season"
+    ],
+    "src": "https://animethemes.moe/video/HonzukiNoGekokujouS2-ED1.webm",
+    "title": "Ephemera wo Atsumete",
+    "artist": "",
+    "type": "ED"
+  },
+  {
+    "songId": "2b3fd2dc-3be5-4ade-ae12-07ee99babf0a",
+    "anime": [
+      "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen 2nd Season",
+      "Ascendance of a Bookworm 2nd Season"
+    ],
+    "src": "https://animethemes.moe/video/HonzukiNoGekokujouS2-OP1.webm",
+    "title": "Tsumujikaze",
+    "artist": "",
+    "type": "OP"
+  },
+  {
     "songId": "c353d755-659f-4060-b474-c293614517db",
     "anime": [
       "Hoozuki no Reitetsu"
@@ -41276,7 +41298,7 @@
   },
   {
     "songId": "643f5770-39f0-4402-8e19-ed99508b90fa",
-    "src": "https://www.youtube.com/watch?v=sFzDQ2OjFko",
+    "src": "https://files.catbox.moe/2wgv9u.mp4",
     "anime": [
       "Made in Abyss"
     ],
