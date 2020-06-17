@@ -2623,7 +2623,7 @@
     "anime": [
       "Aldnoah.Zero"
     ],
-    "src": "https://www.youtube.com/watch?v=yE-kfC1wEwc",
+    "src": "https://files.catbox.moe/fqvveq.mp4",
     "title": "MKAlieZ",
     "artist": "",
     "type": "Insert"
@@ -15415,7 +15415,7 @@
       "Digimon Adventure",
       "Digimon Adventure 02"
     ],
-    "src": "https://www.youtube.com/watch?v=HVVcrV8zXgU",
+    "src": "https://www.youtube.com/watch?v=b1uH4BnswKQ",
     "title": "Brave Heart",
     "artist": "Ayumi Miyazaki",
     "type": "Insert"
@@ -55060,7 +55060,7 @@
     "anime": [
       "Pokemon Diamond & Pearl"
     ],
-    "src": "https://www.youtube.com/watch?v=j4HlLnQF6Xs",
+    "src": "https://files.catbox.moe/ijmoa7.mp4",
     "title": "We Will be Heroes",
     "artist": "",
     "type": "OP"
@@ -64450,7 +64450,7 @@
       "Shokugeki no Souma: San no Sara - Toutsuki Ressha-hen",
       "Food Wars! The Third Plate Part 2"
     ],
-    "src": "https://www.youtube.com/watch?v=EkZkjVFFAoU",
+    "src": "https://files.catbox.moe/uikcvj.mp4",
     "title": "The Secret Ingredient Called Victory",
     "artist": "",
     "type": "Insert"
@@ -80252,6 +80252,17 @@
     ],
     "src": "https://animethemes.moe/video/Eldlive-OP1.webm",
     "title": "Our sympathy",
+    "artist": "",
+    "type": "OP"
+  },
+  {
+    "songId": "8a05c0a4-1e29-409c-ba7c-23c5a9e9fc1a",
+    "anime": [
+      "Brand New Animal",
+      "BNA"
+    ],
+    "src": "https://animethemes.moe/video/BrandNewAnimal-OP1.webm",
+    "title": "Ready To",
     "artist": "",
     "type": "OP"
   }
