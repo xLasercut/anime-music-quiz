@@ -13,5 +13,6 @@ let server = app.listen(SERVER_PORT, () => {
 
 let io = socketio(server)
 let emitter = new MessageEmitter(io)
+io.origins('*:*')
 
 export { io, emitter }

@@ -19,6 +19,8 @@ RUN npm ci --production
 
 COPY . ${WRK_DIR}/.
 
+RUN npm run compile
+
 EXPOSE 3001
 
 CMD ["npm", "run", "start"]
