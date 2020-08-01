@@ -38267,6 +38267,17 @@
     "type": "OP V1"
   },
   {
+    "songId": "6c0d0b1d-7ce8-4e1e-a275-c2cc0150477b",
+    "anime": [
+      "Koukaku Kidoutai: SAC_2045",
+      "Ghost in the Shell: Stand Alone Complex 2045"
+    ],
+    "src": "https://www.youtube.com/watch?v=JHY0PYZXvfU",
+    "title": "sustain++;",
+    "artist": "Mili",
+    "type": "ED"
+  },
+  {
     "songId": "f6dfb701-4796-4c33-b1f0-0e664e7820a7",
     "anime": [
       "Koukaku no Pandora"
@@ -38958,6 +38969,17 @@
     "title": "Otto Dokkoi Nihon Bare",
     "artist": "",
     "type": "OP"
+  },
+  {
+    "songId": "d0f08d4b-8dec-4194-a493-a6d8c11cd74b",
+    "anime": [
+      "Kyokou Suiri",
+      "In/Spectre"
+    ],
+    "src": "https://animethemes.moe/video/KyokouSuiri-ED1.webm",
+    "title": "LAST DANCE",
+    "artist": "",
+    "type": "ED"
   },
   {
     "songId": "d664ae07-3f66-4c56-84ae-b218f8083a7d",
@@ -80267,14 +80289,13 @@
     "type": "OP"
   },
   {
-    "songId": "d0f08d4b-8dec-4194-a493-a6d8c11cd74b",
+    "songId": "e040fe24-b84f-4eb0-8a63-368cb3637156",
     "anime": [
-      "Kyokou Suiri",
-      "In/Spectre"
+      "Toaru Kagaku no Railgun T"
     ],
-    "src": "https://animethemes.moe/video/KyokouSuiri-ED1.webm",
-    "title": "LAST DANCE",
+    "src": "https://animethemes.moe/video/ToaruKagakuNoRailgunT-OP2.webm",
+    "title": "dual existence",
     "artist": "",
-    "type": "ED"
+    "type": "OP"
   }
 ]
