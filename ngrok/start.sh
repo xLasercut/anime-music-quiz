@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "web_addr: 0.0.0.0:4040" > ./ngrok.yml
-echo "region: eu" >> ./ngrok.yml
+echo "region: us" >> ./ngrok.yml
 
 if [[ ! -z $NGROK_TOKEN ]]; then
   echo "authtoken: $NGROK_TOKEN" >> ./ngrok.yml
