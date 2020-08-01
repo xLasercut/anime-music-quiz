@@ -41,6 +41,8 @@ while getopts ":s: :hn" opt; do
 done
 shift $((OPTIND -1))
 
+npm run compile:server
+
 command="sudo docker-compose build"
 
 if [[ $noCache = true ]]; then
