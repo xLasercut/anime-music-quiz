@@ -1,5 +1,7 @@
 # Anime Music Quiz
 
+**THIS IS NOW AN ARCHIVED PROJECT - PLEASE SEE [HERE](https://github.com/xLasercut/anime-quiz) FOR THE SUCCESSOR**
+
 [![Build Status](https://travis-ci.com/xLasercut/anime-music-quiz.svg?branch=master)](https://travis-ci.com/xLasercut/anime-music-quiz)
 
 This is an anime music quiz game written with node.js.
